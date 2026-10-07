@@ -26,6 +26,18 @@ Cycle-1 open-source board: a plain SQLite-FTS5 baseline scored 41.8 (#22 of 50);
 - **C · method & eval** — build a 30–50 question local mini-set in the 7 capabilities (our own writing, NOT leaderboard data) under `evalset/`; a runner that calls add/search and checks whether gold evidence appears in top-k. Every ranking change is judged on this.
 - **D · submission** — GitHub public repo, MIT license, METHOD_CARD.md, SUBMISSION.md (system name, version, endpoints, auth, concurrency), registration form on agentmemoryleaderboard.ai by 10-31.
 
+## Status board (each window writes its own line; commit after every milestone)
+- 10-07 · **C evalset + A ranking** — claimed by the window opened 10-07 afternoon. Building `evalset/` (own-written samples, 7 capabilities) + `scripts/eval_local.py`, then v0.2 ranking judged on it.
+- 10-07 · **D docs** — drafting `LICENSE`, `docs/METHOD_CARD.md`, `docs/SUBMISSION.md` (sub-agent of the same window). Registration itself waits for domain + repo decisions.
+- **B deploy** — not started; blocked on: which domain/subdomain, VPS ssh access or self-deploy.
+
+## Facts re-confirmed from the official docs on 10-07
+- Add: `request_id` like `eval:run_x:locomo_refined:conv-0:chunk-0`; `user_id` like `eval:run_x:locomo:conv-0`; `session_id` like `eval:run_x:sample:0` (one sample = one session_id, so chunk order comes from the `chunk-N` ordinal, not from session_id).
+- Chunking: "splits deterministically at either 20 messages or 2,000 Adapter-counted words"; Streaming sub-suite "writes frozen incremental session or task units".
+- Answer model keeps "a token-counted prefix of Search candidates in returned rank order" within 117,760 input tokens → total returned text should stay under ~110k tokens; rank order matters only for truncation.
+- Open-source: "expected to use gpt-4o-mini during Add"; Search has no stated model rule. Prizes only for open-source; first ≈ USD 3,000 per track.
+- Submission form: system name + version, contact, org/team, evaluation type, method description, public-display info, endpoints, auth + capacity declaration, public repo URL, fixed commit, attribution, method changes. Eval job form: track, system name/version, run label, mode (full/light/smoke), max add concurrency, search concurrency.
+
 ## Capacity assumptions to declare
 Add concurrency 16, Search concurrency 16, top_k 1–1000. SQLite WAL on one box is enough for ~1.5e8 chars; keep Add synchronous.
 

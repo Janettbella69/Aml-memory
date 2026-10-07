@@ -7,3 +7,4 @@ data/
 *.db-shm
 .env
 .pytest_cache/
+evalset/results/

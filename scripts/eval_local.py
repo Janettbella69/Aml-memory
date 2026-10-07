@@ -61,8 +61,8 @@ def inprocess_client(tmp: str) -> Callable[[str, dict], dict]:
     from app.main import create_app
     from app.store import MemoryStore
 
-    settings = replace(Settings.from_env(), api_key="", database_path=os.path.join(tmp, "eval.db"), log_level="WARNING")
-    app = create_app(settings=settings, store=MemoryStore(settings.database_path))
+    settings = replace(Settings.from_env(), api_key="", data_dir=os.path.join(tmp, "d"), log_level="WARNING")
+    app = create_app(settings=settings, store=MemoryStore(settings.data_dir))
     for name in ("", "httpx", "aml_memory"):
         logging.getLogger(name).setLevel(logging.WARNING)
     client = TestClient(app)

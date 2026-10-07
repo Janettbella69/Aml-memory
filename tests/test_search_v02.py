@@ -14,8 +14,8 @@ DAY = 86_400_000
 
 def make_client(**overrides):
     tmp = tempfile.TemporaryDirectory()
-    settings = Settings(api_key="", database_path=os.path.join(tmp.name, "t.db"), **overrides)
-    app = create_app(settings=settings, store=MemoryStore(settings.database_path))
+    settings = Settings(api_key="", data_dir=os.path.join(tmp.name, "d"), **overrides)
+    app = create_app(settings=settings, store=MemoryStore(settings.data_dir))
     client = TestClient(app)
     client.__enter__()
     client._tmp = tmp  # keep the directory alive
@@ -135,14 +135,22 @@ def test_response_char_budget_caps_results():
     c.__exit__(None, None, None)
 
 
-def test_fts_index_rebuilt_when_schema_version_changes(tmp_path):
-    path = str(tmp_path / "m.db")
-    store = MemoryStore(path)
+def test_unknown_user_creates_no_file_and_old_schema_is_refused(tmp_path):
     import sqlite3
+    store = MemoryStore(str(tmp_path))
+    assert store.count("nobody") == 0 and not store.path_for("nobody").exists()
+    path = store.path_for("someone")
+    path.parent.mkdir(parents=True)
     with sqlite3.connect(path) as conn:
         conn.execute("PRAGMA user_version = 1")
-    MemoryStore(path)  # must not raise, rebuilds the FTS tables
-    with sqlite3.connect(path) as conn:
-        assert conn.execute("PRAGMA user_version").fetchone()[0] == 3
-        assert conn.execute("SELECT count(*) FROM memories_fts_tri").fetchone()[0] == 0
-    del store
+    with pytest.raises(RuntimeError):
+        with store.connect("someone"):
+            pass
+
+
+def test_users_live_in_separate_files(client):
+    add(client, "a:chunk-0", "alice", [{"role": "user", "content": "alpha"}])
+    add(client, "b:chunk-0", "bob", [{"role": "user", "content": "beta"}])
+    store = client.app.state.store
+    assert store.path_for("alice") != store.path_for("bob")
+    assert store.path_for("alice").exists() and store.path_for("bob").exists()

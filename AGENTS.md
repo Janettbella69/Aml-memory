@@ -17,15 +17,15 @@ Auth: evaluator sends `X-Api-Key`, `Authorization: Bearer`, or `Authorization: T
 - Public repo + fixed commit hash + attribution of prior work + method card are required at submission. "Undisclosed reuse may be treated as plagiarism": never adapt lines from another entry's code; ideas are fine when attributed in `docs/METHOD_CARD.md` and `NOTICE`.
 
 ## Layout
-- `app/store.py` SQLite (WAL): `ingest_log` (idempotency by fingerprint), `memories` (one row per turn; `pos` = chunk ordinal × 1000 + index, `event_ms`, `standing` rule tag), FTS5 word index (porter) + FTS5 trigram index (CJK-only turns). `SCHEMA_VERSION` rebuilds the indexes on mismatch; a pre-0.2 DB layout fails loudly.
+- `app/store.py` one SQLite file per `user_id` under `DATA_DIR/users/ab/cd/<hash>.db` (WAL): `ingest_log` (idempotency by fingerprint), `memories` (one row per turn; `pos` = chunk ordinal × 1000 + index, `event_ms`, `standing` rule tag), FTS5 word index (porter, external content) + FTS5 trigram index (CJK-only turns). Connections cached per file with a lock (LRU 512, idle 120 s). `SCHEMA_VERSION` mismatch fails loudly (no migration; wipe the data dir between versions).
 - `app/search.py` evidence assembly: word BM25 (+ trigram BM25 fused by RRF when the query has CJK) → recency band (near-equal scores newest-first) → first `LEAD_HITS` hits, then `RULE_SLOTS` standing rules (query-matching first), then the rest → ±`CONTEXT_WINDOW` spans crossing chunk boundaries, de-duplicated → `MAX_RESPONSE_CHARS` budget → newest-turns fallback. Content rendered as `[YYYY-MM-DD HH:MM UTC] ROLE: text`. The docstring at the top of the file is the authoritative description.
-- `app/main.py` FastAPI factory `create_app()` (run with `uvicorn --factory`); auth; periodic retention sweep.
+- `app/main.py` FastAPI factory `create_app()` (run with `uvicorn --factory`); auth; periodic retention sweep; per-process gates `SEARCH_PARALLELISM=1` / `WRITE_PARALLELISM=2` (SQLite mutex contention makes more threads slower; scale with `UVICORN_WORKERS`).
 - `evalset/` our own fictional samples + questions (never leaderboard data); `scripts/eval_local.py` prints hit@k / MRR / trap-order / tokens per capability; `scripts/sweep_local.py` grids env knobs. Every ranking change is judged there first.
-- `docs/METHOD_CARD.md` (attribution + method changes per version), `docs/SUBMISSION.md` (form fields), `docs/CHECKLIST.md` (the 8-item gate), `NOTICE` (ReFind MIT notice; the rewritten-baseline history).
+- `docs/METHOD_CARD.md` (attribution + method changes per version), `docs/SUBMISSION.md` (form fields), `docs/CHECKLIST.md` (the 8-item gate), `NOTICE` (ReFind MIT notice; the rewritten-baseline history). `deploy/` Caddy + prod compose + runbook; `scripts/soak_local.py` load test.
 
 ## Commands
 - `uv sync` · `uv run pytest -q` · `uv run uvicorn --factory app.main:create_app --port 8000`
-- `uv run python scripts/smoke_test.py http://127.0.0.1:8000 [api_key]` · `uv run python scripts/eval_local.py --label <name> -v`
+- `uv run python scripts/smoke_test.py http://127.0.0.1:8000 [api_key]` · `uv run python scripts/eval_local.py --label <name> -v` · `uv run python scripts/soak_local.py --base http://127.0.0.1:8000`
 - Docker: `docker compose up -d --build` (reads `.env`; see `.env.example`).
 
 ## Conventions

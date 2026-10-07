@@ -31,7 +31,8 @@ Cycle-1 open-source board: a plain SQLite-FTS5 baseline scored 41.8 (#22 of 50);
 - 10-07 · **A ranking v0.2** — DONE, tagged in code as 0.2.0. Local set: MRR 0.20 → 0.72, hit@10 0.78 → 0.92, hit@100 0.97 → 1.00, trap order 0.17 → 0.85, ~2.1k tokens per response. Known limits: pure multi-hop with no lexical overlap (`lt-co-03`), near-equal stance statements where the older one is shorter (`lt-te-02`).
 - 10-07 · **D docs** — DONE as drafts: `LICENSE` (MIT), `NOTICE`, `docs/METHOD_CARD.md`, `docs/SUBMISSION.md`, `docs/CHECKLIST.md`. Registration waits on domain + repo decisions.
 - 10-07 · **Attribution fix** — v0.1 had ~30 lines adapted from the unlicensed FantaSmallhamster baseline; v0.2 rewrote models/config/store/search/main so none remain (table/column names, validators, stop list, env parsing all our own). Recorded in NOTICE and the method card.
-- **B deploy** — not started; blocked on: which domain/subdomain, VPS ssh access or self-deploy. Needs ≥ 20 GB free disk (official: textual track ≈ 300 M tokens / 6,000+ instances).
+- 10-07 · **Scale work** — DONE: one SQLite file per user (soak at 1/35 of the official volume showed a shared index needs 0.9 s per search), cached connections, per-process gates (SQLite mutex contention: 16 threads = 24 q/s, 1 thread = 293 q/s), external-content index, WAL limits. `scripts/soak_local.py`. One worker: 1,313 adds/s, 293 searches/s.
+- 10-07 · **Deploy kit** — DONE: `deploy/` (Caddyfile, prod compose, `deploy.sh`, runbook). **B deploy itself** still blocked on: which domain/subdomain, VPS ssh access or self-deploy. Needs ≥ 20 GB free disk.
 - **Open question for the organisers** — the rules say open-source entries are "expected to use gpt-4o-mini during Add". Whether a zero-LLM entry is acceptable is not stated; ask before the freeze (another cycle-1 entry declared "no model" and was listed).
 
 ## Facts re-confirmed from the official docs on 10-07

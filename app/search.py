@@ -98,15 +98,23 @@ def newest_first_within_band(hits: list[tuple[Chunk, float]], band: float) -> li
 
 def search(store: MemoryStore, settings: Settings, query: str, options: list[str] | None,
            user_id: str, top_k: int) -> list[MemoryResult]:
+    with store.connect(user_id, create=False) as conn:   # one connection per Search; None = unknown user
+        if conn is None:
+            return []
+        return _assemble(store, conn, settings, query, options, user_id, top_k)
+
+
+def _assemble(store: MemoryStore, conn, settings: Settings, query: str, options: list[str] | None,
+              user_id: str, top_k: int) -> list[MemoryResult]:
     pool = top_k * 2
-    by_words = store.fts_search(user_id, fts_expression(word_terms(query, options)), pool)
-    by_trigrams = store.trigram_search(user_id, fts_expression(cjk_terms(query, options), prefixes=False), pool)
+    by_words = store.fts_search(user_id, fts_expression(word_terms(query, options)), pool, conn)
+    by_trigrams = store.trigram_search(user_id, fts_expression(cjk_terms(query, options), prefixes=False), pool, conn)
     hits = newest_first_within_band(fuse(by_words, by_trigrams), settings.recency_band)
     top_score = hits[0][1] if hits else 1.0
     score_of = {chunk.id: s for chunk, s in hits}
 
     rule_budget = min(settings.rule_slots, top_k // 4)
-    rules = store.standing_rules(user_id, limit=rule_budget * 4) if rule_budget > 0 else []
+    rules = store.standing_rules(user_id, rule_budget * 4, conn) if rule_budget > 0 else []
     rules.sort(key=lambda c: (-score_of.get(c.id, 0.0), -c.order_key[0], -c.order_key[1]))
     rules = rules[:rule_budget]
 
@@ -125,7 +133,7 @@ def search(store: MemoryStore, settings: Settings, query: str, options: list[str
     for chunk, s in hits[settings.lead_hits:]:
         enqueue(chunk, s)
     if not hits:
-        for chunk in store.newest(user_id, settings.fallback_results):
+        for chunk in store.newest(user_id, settings.fallback_results, conn):
             enqueue(chunk, 0.0)
 
     results: list[MemoryResult] = []
@@ -136,7 +144,7 @@ def search(store: MemoryStore, settings: Settings, query: str, options: list[str
             break
         if chunk.pos in visible and not chunk.standing:
             continue
-        turns = store.span(chunk, settings.context_window) if s > 0 or chunk.standing else [chunk]
+        turns = store.span(chunk, settings.context_window, conn) if s > 0 or chunk.standing else [chunk]
         visible.update(t.pos for t in turns)
         text = "\n".join(render(t) for t in turns)
         used += len(text)

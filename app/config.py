@@ -25,7 +25,7 @@ def _bounded(name: str, parse: Callable[[str], T], default: T, lo: T, hi: T) -> 
 @dataclass(frozen=True)
 class Settings:
     api_key: str = ""                  # empty = auth disabled (local use only)
-    database_path: str = "data/memory.db"
+    data_dir: str = "data"             # one SQLite file per user under <data_dir>/users/
     retention_days: int = 30           # evaluation data must be deleted within 30 days of a run
     context_window: int = 2            # turns before/after each hit (sweep 10-07: 2 beats 1 on every metric)
     rule_slots: int = 6                # standing rules offered per search (also capped at top_k // 4)
@@ -34,6 +34,8 @@ class Settings:
     max_response_chars: int = 400_000  # ~100k tokens; the platform keeps a 117,760-token prefix in rank order
     fallback_results: int = 10         # newest memories returned when nothing matches
     sweep_hours: int = 6               # how often the retention sweep runs while the service is up
+    search_parallelism: int = 1        # SQLite searches executed at once per process; soak 10-07: 1 -> 293 q/s, 16 -> 24 q/s (mutex contention)
+    write_parallelism: int = 2         # Add transactions executed at once per process; soak 10-07: 2 -> 1,313 adds/s, 16 -> 627 adds/s
     log_level: str = "INFO"
 
     @classmethod
@@ -43,7 +45,7 @@ class Settings:
             raise RuntimeError("MEMORY_API_KEY must be a real secret of at least 16 characters (or empty to disable auth)")
         return cls(
             api_key=key,
-            database_path=os.environ.get("DATABASE_PATH", "data/memory.db"),
+            data_dir=os.environ.get("DATA_DIR", "data"),
             retention_days=_bounded("RETENTION_DAYS", int, 30, 1, 30),
             context_window=_bounded("CONTEXT_WINDOW", int, 2, 0, 5),
             rule_slots=_bounded("RULE_SLOTS", int, 6, 0, 50),
@@ -52,5 +54,7 @@ class Settings:
             max_response_chars=_bounded("MAX_RESPONSE_CHARS", int, 400_000, 10_000, 2_000_000),
             fallback_results=_bounded("FALLBACK_RESULTS", int, 10, 0, 100),
             sweep_hours=_bounded("SWEEP_HOURS", int, 6, 1, 168),
+            search_parallelism=_bounded("SEARCH_PARALLELISM", int, 1, 1, 64),
+            write_parallelism=_bounded("WRITE_PARALLELISM", int, 2, 1, 64),
             log_level=os.environ.get("LOG_LEVEL", "INFO").strip().upper() or "INFO",
         )

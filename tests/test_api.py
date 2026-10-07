@@ -12,8 +12,8 @@ from app.store import MemoryStore
 @pytest.fixture()
 def client():
     with tempfile.TemporaryDirectory() as tmp:
-        settings = Settings(api_key="", database_path=os.path.join(tmp, "t.db"), context_window=1, rule_slots=4)
-        app = create_app(settings=settings, store=MemoryStore(settings.database_path))
+        settings = Settings(api_key="", data_dir=os.path.join(tmp, "d"), context_window=1, rule_slots=4)
+        app = create_app(settings=settings, store=MemoryStore(settings.data_dir))
         with TestClient(app) as c:
             yield c
 

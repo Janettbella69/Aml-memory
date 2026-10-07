@@ -17,7 +17,7 @@ Cycle-1 open-source board: a plain SQLite-FTS5 baseline scored 41.8 (#22 of 50);
 ## Versions
 - **v0.1 (done 10-07)**: FTS5 BM25 + timestamp rendering + ±1 context + rule slots + recency fallback. Tests green, smoke green.
 - **v0.2 (done 10-07)**: porter stemming; CJK trigram index fused by RRF; recency band ("latest value wins" inside near-equal scores); rules relevance-sorted and placed after the first 5 hits; ±2 spans crossing Add-chunk boundaries with de-duplication; response char budget; periodic retention sweep. Dropped (d) "timeline block": derived text risks the "disguised answer" rule.
-- **v0.3 (implemented 10-07, default OFF)**: `app/planner.py` one-step gpt-4o-mini query planner (≤3 extra queries + date range, RRF-fused, deterministic fallback) and `scripts/judge_local.py` end-to-end proxy scoring. Decide ON/OFF by the judge on our own set once a working key exists (env key → 401 on 10-07). Cost estimate for a Full run: ~1.5k tokens per Search → 10k searches ≈ $2–3, 100k searches ≈ $25 at gpt-4o-mini prices.
+- **v0.3 (implemented 10-07; code default OFF, deployed config ON per user decision)**: `app/planner.py` one-step gpt-4o-mini query planner (≤3 extra queries + date range, RRF-fused, deterministic fallback) and `scripts/judge_local.py` end-to-end proxy scoring. Decide ON/OFF by the judge on our own set once a working key exists (env key → 401 on 10-07). Cost estimate for a Full run: ~1.5k tokens per Search → 10k searches ≈ $2–3, 100k searches ≈ $25 at gpt-4o-mini prices.
 - **Freeze (by 10-28)**: tag v1.0, write METHOD_CARD, register, smoke on platform, run Full.
 
 ## Windows (parallel work)
@@ -34,7 +34,7 @@ Cycle-1 open-source board: a plain SQLite-FTS5 baseline scored 41.8 (#22 of 50);
 - 10-07 · **Scale work** — DONE: one SQLite file per user (soak at 1/35 of the official volume showed a shared index needs 0.9 s per search), cached connections, per-process gates (SQLite mutex contention: 16 threads = 24 q/s, 1 thread = 293 q/s), external-content index, WAL limits. `scripts/soak_local.py`. One worker: 1,313 adds/s, 293 searches/s.
 - 10-07 · **v0.3 planner + judge** — code DONE (28 tests), measurement BLOCKED on a working OpenAI key. GitHub repo creation was denied by the session's permission classifier → the user creates it (`gh repo create aml-memory --private --source . --push`).
 - 10-07 · **Deploy kit** — DONE: `deploy/` (Caddyfile, prod compose, `deploy.sh`, runbook). **B deploy itself** still blocked on: which domain/subdomain, VPS ssh access or self-deploy. Needs ≥ 20 GB free disk.
-- **Open question for the organisers** — the rules say open-source entries are "expected to use gpt-4o-mini during Add". Whether a zero-LLM entry is acceptable is not stated; ask before the freeze (another cycle-1 entry declared "no model" and was listed).
+- 10-07 · **Decision (user):** do not ask the organisers; a model is expected, so the submitted configuration runs the v0.3 gpt-4o-mini planner (`PLANNER_MODEL=gpt-4o-mini` in the deployed `.env`). Still to measure with the judge once a working key exists.
 
 ## Facts re-confirmed from the official docs on 10-07
 - Add: `request_id` like `eval:run_x:locomo_refined:conv-0:chunk-0`; `user_id` like `eval:run_x:locomo:conv-0`; `session_id` like `eval:run_x:sample:0` (one sample = one session_id, so chunk order comes from the `chunk-N` ordinal, not from session_id).

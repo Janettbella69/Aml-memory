@@ -15,6 +15,7 @@ Everything below is idempotent; re-run `deploy/deploy.sh` after every `git pull`
 4. `git clone <repo> && cd aml-memory && cp .env.example .env`, then set in `.env`:
    - `MEMORY_API_KEY=` a random secret ≥ 16 chars (`openssl rand -hex 24`), declared as `X-Api-Key` in the submission form
    - `MEMORY_DOMAIN=memory.<domain>`
+   - `MEMORY_ALT_DOMAIN=` optional second hostname served alongside it, e.g. `<ip-with-dashes>.sslip.io` (resolves to the box with no DNS setup; useful until the real record exists)
    - `DATA_DIR=/data` (default; one SQLite file per user_id under `/data/users/`)
    - `UVICORN_WORKERS=` number of CPU cores (`nproc`); keep `SEARCH_PARALLELISM=1`, `WRITE_PARALLELISM=2`
 

@@ -19,6 +19,7 @@ services:
       - "443:443"
     environment:
       - MEMORY_DOMAIN=${MEMORY_DOMAIN}
+      - MEMORY_ALT_DOMAIN=${MEMORY_ALT_DOMAIN:-}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy-data:/data

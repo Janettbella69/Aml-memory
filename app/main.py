@@ -22,7 +22,8 @@ def create_app(settings: Settings | None = None, store: MemoryStore | None = Non
                planner: Planner | None = None) -> FastAPI:
     cfg = settings or Settings.from_env()
     logging.basicConfig(level=cfg.log_level)
-    memory = store or MemoryStore(cfg.data_dir, retention_days=cfg.retention_days)
+    memory = store or MemoryStore(cfg.data_dir, retention_days=cfg.retention_days, pool_size=cfg.db_pool_size,
+                                  cache_kb=cfg.db_cache_kb, idle_seconds=cfg.db_idle_seconds)
     # SQLite serialises allocations behind one process-wide mutex; 16 request threads hammering it spend more
     # time contending than querying (measured: 24 q/s at 412 % CPU). A small gate per process restores throughput.
     search_gate = threading.BoundedSemaphore(cfg.search_parallelism)

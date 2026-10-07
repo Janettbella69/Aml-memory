@@ -36,6 +36,9 @@ class Settings:
     sweep_hours: int = 6               # how often the retention sweep runs while the service is up
     search_parallelism: int = 1        # SQLite searches executed at once per process; soak 10-07: 1 -> 293 q/s, 16 -> 24 q/s (mutex contention)
     write_parallelism: int = 2         # Add transactions executed at once per process; soak 10-07: 2 -> 1,313 adds/s, 16 -> 627 adds/s
+    db_pool_size: int = 128            # cached SQLite connections per process (3 file handles each)
+    db_cache_kb: int = 256             # SQLite page cache per connection; bounds memory at ~pool x cache per process
+    db_idle_seconds: int = 120         # cached connections unused this long are closed
     planner_model: str = ""           # "" = deterministic only; "gpt-4o-mini" enables the one-step query planner
     planner_max_queries: int = 3
     planner_timeout: float = 20.0
@@ -60,6 +63,9 @@ class Settings:
             sweep_hours=_bounded("SWEEP_HOURS", int, 6, 1, 168),
             search_parallelism=_bounded("SEARCH_PARALLELISM", int, 1, 1, 64),
             write_parallelism=_bounded("WRITE_PARALLELISM", int, 2, 1, 64),
+            db_pool_size=_bounded("DB_POOL_SIZE", int, 128, 4, 4096),
+            db_cache_kb=_bounded("DB_CACHE_KB", int, 256, 64, 65536),
+            db_idle_seconds=_bounded("DB_IDLE_SECONDS", int, 120, 5, 86400),
             planner_model=os.environ.get("PLANNER_MODEL", "").strip(),
             planner_max_queries=_bounded("PLANNER_MAX_QUERIES", int, 3, 1, 6),
             planner_timeout=_bounded("PLANNER_TIMEOUT", float, 20.0, 1.0, 120.0),

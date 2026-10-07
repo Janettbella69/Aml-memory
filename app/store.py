@@ -48,7 +48,6 @@ RULE_RE_CJK = re.compile(
 CHUNK_ORDINAL_RE = re.compile(r"(?:chunk|part|seg|msg)[-_:](\d+)", re.IGNORECASE)
 CJK_RE = re.compile(r"[぀-ヿ㐀-䶿一-鿿가-힯]")
 POS_STRIDE = 1000  # positions inside one Add chunk: ordinal * POS_STRIDE + message index
-IDLE_SECONDS = 120  # cached connections unused this long are closed (checkpoints and removes their WAL)
 
 
 class ConflictingRequestError(Exception):
@@ -137,11 +136,14 @@ class MemoryStore:
     user-isolation rule physical: a Search can only ever open the file of the user_id it was given.
     """
 
-    def __init__(self, data_dir: str, retention_days: int = 30, pool_size: int = 512) -> None:
+    def __init__(self, data_dir: str, retention_days: int = 30, pool_size: int = 128,
+                 cache_kb: int = 256, idle_seconds: int = 120) -> None:
         self.data_dir = Path(data_dir)
         self.users_dir = self.data_dir / "users"
         self.retention_days = retention_days
         self.pool_size = pool_size
+        self.cache_kb = cache_kb          # per-connection page cache; memory is bounded by pool_size x cache_kb
+        self.idle_seconds = idle_seconds
         # Open connections stay cached per process: opening and closing a WAL file on every request makes
         # the last close checkpoint the WAL, and 16 concurrent requests on one user then spend hundreds of
         # milliseconds in SQLite's busy handler (measured with ab: 765 ms p50 at concurrency 16 vs 5 ms alone).
@@ -191,8 +193,9 @@ class MemoryStore:
             return entry
 
     def _evict_idle_locked(self) -> None:
-        """Called with the pool lock held: close connections idle for longer than IDLE_SECONDS."""
-        deadline = time.monotonic() - IDLE_SECONDS
+        """Called with the pool lock held: close connections idle for longer than `idle_seconds`
+        (closing the last connection to a file also checkpoints and removes its WAL)."""
+        deadline = time.monotonic() - self.idle_seconds
         for key in [k for k, t in self._last_used.items() if t < deadline]:
             entry = self._pool.pop(key, None)
             self._last_used.pop(key, None)
@@ -233,6 +236,7 @@ class MemoryStore:
     def _prepare(self, conn: sqlite3.Connection) -> None:
         conn.execute("PRAGMA journal_mode = WAL")
         conn.execute("PRAGMA synchronous = NORMAL")
+        conn.execute(f"PRAGMA cache_size = -{int(self.cache_kb)}")   # KiB; the OS page cache does the rest
         conn.execute("PRAGMA journal_size_limit = 4194304")   # WAL truncated back to <= 4 MB after checkpoints
         conn.execute("PRAGMA wal_autocheckpoint = 500")       # pages (~2 MB) between automatic checkpoints
         version = int(conn.execute("PRAGMA user_version").fetchone()[0])

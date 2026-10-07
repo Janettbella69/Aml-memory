@@ -319,27 +319,41 @@ class MemoryStore:
         with self.connect(user_id, create=False) as fresh:
             yield fresh
 
-    def _match(self, table: str, user_id: str, expr: str, limit: int, conn: Optional[sqlite3.Connection] = None) -> list[tuple[Chunk, float]]:
+    def _match(self, table: str, user_id: str, expr: str, limit: int, conn: Optional[sqlite3.Connection] = None,
+               event_range: Optional[tuple[Optional[int], Optional[int]]] = None) -> list[tuple[Chunk, float]]:
         if not expr:
             return []
         sql = (f"SELECT m.*, bm25({table}) AS r FROM {table} JOIN memories m ON m.rowid = {table}.rowid"
-               f" WHERE {table} MATCH ? ORDER BY r LIMIT ?")  # bm25() needs no stored text, so the external-content index is enough
+               f" WHERE {table} MATCH ?")  # bm25() needs no stored text, so the external-content index is enough
+        params: list = [expr]
+        if event_range is not None:  # planner date range: only turns whose timestamp falls inside it
+            lo, hi = event_range
+            if lo is not None:
+                sql += " AND m.event_ms >= ?"
+                params.append(lo)
+            if hi is not None:
+                sql += " AND m.event_ms <= ?"
+                params.append(hi)
+        sql += " ORDER BY r LIMIT ?"
+        params.append(limit)
         with self._reader(user_id, conn) as c:
             if c is None:
                 return []
             try:
-                rows = c.execute(sql, (expr, limit)).fetchall()
+                rows = c.execute(sql, params).fetchall()
             except sqlite3.OperationalError:  # malformed MATCH expression -> treat as no hits
                 return []
         return [(self._chunk(user_id, r), -float(r["r"])) for r in rows]  # bm25() is negative; flip so higher is better
 
-    def fts_search(self, user_id: str, expr: str, limit: int, conn: Optional[sqlite3.Connection] = None) -> list[tuple[Chunk, float]]:
+    def fts_search(self, user_id: str, expr: str, limit: int, conn: Optional[sqlite3.Connection] = None,
+                   event_range: Optional[tuple[Optional[int], Optional[int]]] = None) -> list[tuple[Chunk, float]]:
         """Word-level (porter-stemmed) BM25 search."""
-        return self._match("memories_fts", user_id, expr, limit, conn)
+        return self._match("memories_fts", user_id, expr, limit, conn, event_range)
 
-    def trigram_search(self, user_id: str, expr: str, limit: int, conn: Optional[sqlite3.Connection] = None) -> list[tuple[Chunk, float]]:
+    def trigram_search(self, user_id: str, expr: str, limit: int, conn: Optional[sqlite3.Connection] = None,
+                       event_range: Optional[tuple[Optional[int], Optional[int]]] = None) -> list[tuple[Chunk, float]]:
         """Character-trigram BM25 search over the CJK text of each turn."""
-        return self._match("memories_fts_tri", user_id, expr, limit, conn)
+        return self._match("memories_fts_tri", user_id, expr, limit, conn, event_range)
 
     def span(self, chunk: Chunk, window: int, conn: Optional[sqlite3.Connection] = None) -> list[Chunk]:
         """The turn plus `window` turns before and after it, in conversation order. Crosses Add-chunk

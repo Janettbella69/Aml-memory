@@ -36,6 +36,10 @@ class Settings:
     sweep_hours: int = 6               # how often the retention sweep runs while the service is up
     search_parallelism: int = 1        # SQLite searches executed at once per process; soak 10-07: 1 -> 293 q/s, 16 -> 24 q/s (mutex contention)
     write_parallelism: int = 2         # Add transactions executed at once per process; soak 10-07: 2 -> 1,313 adds/s, 16 -> 627 adds/s
+    planner_model: str = ""           # "" = deterministic only; "gpt-4o-mini" enables the one-step query planner
+    planner_max_queries: int = 3
+    planner_timeout: float = 20.0
+    planner_snippets: int = 8          # first-pass results shown to the planner
     log_level: str = "INFO"
 
     @classmethod
@@ -56,5 +60,9 @@ class Settings:
             sweep_hours=_bounded("SWEEP_HOURS", int, 6, 1, 168),
             search_parallelism=_bounded("SEARCH_PARALLELISM", int, 1, 1, 64),
             write_parallelism=_bounded("WRITE_PARALLELISM", int, 2, 1, 64),
+            planner_model=os.environ.get("PLANNER_MODEL", "").strip(),
+            planner_max_queries=_bounded("PLANNER_MAX_QUERIES", int, 3, 1, 6),
+            planner_timeout=_bounded("PLANNER_TIMEOUT", float, 20.0, 1.0, 120.0),
+            planner_snippets=_bounded("PLANNER_SNIPPETS", int, 8, 0, 30),
             log_level=os.environ.get("LOG_LEVEL", "INFO").strip().upper() or "INFO",
         )

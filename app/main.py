@@ -11,13 +11,15 @@ from fastapi import Depends, FastAPI, Header, HTTPException
 from . import __version__
 from .config import Settings
 from .models import AddRequest, AddResponse, HealthResponse, SearchRequest, SearchResponse
+from .planner import Planner, planner_from_env
 from .search import search as assemble_evidence
 from .store import ConflictingRequestError, MemoryStore
 
 log = logging.getLogger("aml_memory")
 
 
-def create_app(settings: Settings | None = None, store: MemoryStore | None = None) -> FastAPI:
+def create_app(settings: Settings | None = None, store: MemoryStore | None = None,
+               planner: Planner | None = None) -> FastAPI:
     cfg = settings or Settings.from_env()
     logging.basicConfig(level=cfg.log_level)
     memory = store or MemoryStore(cfg.data_dir, retention_days=cfg.retention_days)
@@ -25,6 +27,9 @@ def create_app(settings: Settings | None = None, store: MemoryStore | None = Non
     # time contending than querying (measured: 24 q/s at 412 % CPU). A small gate per process restores throughput.
     search_gate = threading.BoundedSemaphore(cfg.search_parallelism)
     write_gate = threading.BoundedSemaphore(cfg.write_parallelism)
+    query_planner = planner or planner_from_env(cfg.planner_model, cfg.planner_max_queries, cfg.planner_timeout)
+    if query_planner is not None:
+        log.info("query planner enabled: %s", cfg.planner_model)
 
     async def retention_loop() -> None:
         while True:
@@ -76,8 +81,8 @@ def create_app(settings: Settings | None = None, store: MemoryStore | None = Non
         return AddResponse(request_id=payload.request_id, user_id=payload.user_id, session_id=payload.session_id)
 
     def search_memory(payload: SearchRequest, _: None = Depends(authenticate)) -> SearchResponse:
-        with search_gate:
-            data = assemble_evidence(memory, cfg, payload.query, payload.options, payload.user_id, payload.top_k)
+        data = assemble_evidence(memory, cfg, payload.query, payload.options, payload.user_id, payload.top_k,
+                                 planner=query_planner, gate=search_gate)
         log.info("search results=%d top_k=%d", len(data), payload.top_k)  # never the query or memory text
         return SearchResponse(data=data)
 

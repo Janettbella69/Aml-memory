@@ -17,7 +17,7 @@ Cycle-1 open-source board: a plain SQLite-FTS5 baseline scored 41.8 (#22 of 50);
 ## Versions
 - **v0.1 (done 10-07)**: FTS5 BM25 + timestamp rendering + ±1 context + rule slots + recency fallback. Tests green, smoke green.
 - **v0.2 (done 10-07)**: porter stemming; CJK trigram index fused by RRF; recency band ("latest value wins" inside near-equal scores); rules relevance-sorted and placed after the first 5 hits; ±2 spans crossing Add-chunk boundaries with de-duplication; response char budget; periodic retention sweep. Dropped (d) "timeline block": derived text risks the "disguised answer" rule.
-- **v0.3 (week 2, optional, gpt-4o-mini only)**: query rewriting into 2–3 keyword sets + date filter (ReFind-style planner, ≤2 calls); would fix the pure multi-hop misses. Decide by ablation on our own mini-set, not by feel. Also worth building: an end-to-end local judge (gpt-4o-mini answers from our Search output, compared with the gold answer) so retrieval knobs are tuned on answer accuracy, not only hit@k.
+- **v0.3 (implemented 10-07, default OFF)**: `app/planner.py` one-step gpt-4o-mini query planner (≤3 extra queries + date range, RRF-fused, deterministic fallback) and `scripts/judge_local.py` end-to-end proxy scoring. Decide ON/OFF by the judge on our own set once a working key exists (env key → 401 on 10-07). Cost estimate for a Full run: ~1.5k tokens per Search → 10k searches ≈ $2–3, 100k searches ≈ $25 at gpt-4o-mini prices.
 - **Freeze (by 10-28)**: tag v1.0, write METHOD_CARD, register, smoke on platform, run Full.
 
 ## Windows (parallel work)
@@ -32,6 +32,7 @@ Cycle-1 open-source board: a plain SQLite-FTS5 baseline scored 41.8 (#22 of 50);
 - 10-07 · **D docs** — DONE as drafts: `LICENSE` (MIT), `NOTICE`, `docs/METHOD_CARD.md`, `docs/SUBMISSION.md`, `docs/CHECKLIST.md`. Registration waits on domain + repo decisions.
 - 10-07 · **Attribution fix** — v0.1 had ~30 lines adapted from the unlicensed FantaSmallhamster baseline; v0.2 rewrote models/config/store/search/main so none remain (table/column names, validators, stop list, env parsing all our own). Recorded in NOTICE and the method card.
 - 10-07 · **Scale work** — DONE: one SQLite file per user (soak at 1/35 of the official volume showed a shared index needs 0.9 s per search), cached connections, per-process gates (SQLite mutex contention: 16 threads = 24 q/s, 1 thread = 293 q/s), external-content index, WAL limits. `scripts/soak_local.py`. One worker: 1,313 adds/s, 293 searches/s.
+- 10-07 · **v0.3 planner + judge** — code DONE (28 tests), measurement BLOCKED on a working OpenAI key. GitHub repo creation was denied by the session's permission classifier → the user creates it (`gh repo create aml-memory --private --source . --push`).
 - 10-07 · **Deploy kit** — DONE: `deploy/` (Caddyfile, prod compose, `deploy.sh`, runbook). **B deploy itself** still blocked on: which domain/subdomain, VPS ssh access or self-deploy. Needs ≥ 20 GB free disk.
 - **Open question for the organisers** — the rules say open-source entries are "expected to use gpt-4o-mini during Add". Whether a zero-LLM entry is acceptable is not stated; ask before the freeze (another cycle-1 entry declared "no model" and was listed).
 

@@ -32,7 +32,8 @@ Rendering: `[2024-01-01 00:00 UTC] USER: I adopted a cat named Luna.`; the stamp
 
 ## Models used
 
-- **0.2: none.** No LLM, no embedding model, no reranker. Add and Search are pure SQLite/FTS5 code paths.
+- **0.2 (default configuration): none.** No LLM, no embedding model, no reranker. Add and Search are pure SQLite/FTS5 code paths.
+- **0.3 (optional, off unless `PLANNER_MODEL=gpt-4o-mini` is set):** one `gpt-4o-mini` chat call per Search, temperature 0, JSON output, ≤ 200 output tokens. Input: the question (and options) plus the first 8 first-pass results truncated to 400 characters each. Output: up to 3 extra keyword queries and an optional date range. The extra queries are run through the same BM25 indexes and fused by reciprocal rank fusion; in-range hits are moved ahead when a date range is given. The model's text is never returned to the caller; on timeout (20 s) or any error the deterministic result is returned. The frozen submission will state explicitly whether this is on.
 - Platform rule, verbatim from the Full-evaluation checklist (2026-10-07): "Open-source Methods entries are expected to use gpt-4o-mini during Add. Commercial Products entries have no Add/Search model restriction." The competition FAQ (Chinese) adds: embedding models on the open-source board must be `text-embedding-v4`, LLM components must be `gpt-4o-mini`, rerankers are unrestricted, and systems using self-trained or other open-weight models are directed to the commercial board.
 - Commitment: if a later version adds any model call it will be `gpt-4o-mini` only (Add and/or Search); any embedding would be `text-embedding-v4` only. The declared configuration will name every model used; "no model" is declared explicitly for 0.2.
 - Open question (ask the organisers before the freeze): confirm that a zero-model entry satisfies "expected to use gpt-4o-mini during Add".
@@ -84,7 +85,7 @@ Numbers are from our own written mini-set (`evalset/`, fictional conversations, 
   - Chosen by `scripts/sweep_local.py` over `RECENCY_BAND ∈ {0, .1, .2, .3, .5} × LEAD_HITS ∈ {3, 5} × RULE_SLOTS ∈ {4, 6, 8} × CONTEXT_WINDOW ∈ {1, 2}`.
   - 71 questions (65 + a Chinese sample): hit@10 0.92, hit@100 1.00, MRR 0.72, trap-order 0.85, ≈ 2.1 k tokens per response. Remaining misses: a two-hop question with no lexical overlap between hops (`lt-co-03`), and a stance change where the older statement is shorter (`lt-te-02`).
   - Tests: 21 (`tests/test_api.py`, `tests/test_search_v02.py`, `tests/test_evalset.py`).
-- **0.3 (optional).** gpt-4o-mini query rewriting (≤ 2 calls per Search) and/or an end-to-end local judge; only if ablation shows a gain. Would change "Models used" to `gpt-4o-mini` (Search).
+- **0.3 (2026-10-07, implemented, default off).** `app/planner.py`: one-step gpt-4o-mini query planner (see "Models used"), after ReFind's agent-controlled search idea but reduced to a single bounded step with a deterministic fallback; `scripts/judge_local.py`: end-to-end proxy scoring (gpt-4o-mini answers from our Search output, gpt-4o-mini grades against the reference). Decision to enable it at freeze depends on the judge comparison on our own set (TODO: needs a working API key; the one in the environment returned 401 on 2026-10-07). Tests: `tests/test_planner.py` (fake planner).
 - **1.0 (freeze, by 2026-10-28).** Tag, fixed commit hash, final declared configuration (`RETENTION_DAYS=30 CONTEXT_WINDOW=2 RULE_SLOTS=6 LEAD_HITS=5 RECENCY_BAND=0.2 MAX_RESPONSE_CHARS=400000 FALLBACK_RESULTS=10 UVICORN_WORKERS=2 SEARCH_PARALLELISM=1 WRITE_PARALLELISM=2` unless changed above).
 
 ## Data handling

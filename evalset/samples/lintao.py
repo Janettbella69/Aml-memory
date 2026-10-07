@@ -149,6 +149,8 @@ QUESTIONS = (
     Q("lt-ex-01", "execution/rule_application", "Tao wants to recommend a restaurant to Lin. What must he check first?", ["rule-peanut-check"], answer="that it is confirmed peanut-free"),
     Q("lt-ex-02", "execution/empirical_data", "What did Tao's Chengdu shader contract pay, and for how long?", ["side-job"], answer="15,000 yuan for six weeks"),
     Q("lt-ex-03", "execution/domain_reasoning", "If Lin buys Paper Tides on PC during launch week with the discount, how much does she pay?", ["game-price"], answer="119.2 yuan (149 minus 20%)"),
+    Q("lt-co-04", "composition/multi_hop", "What does the brother of the nurse who moved to Hangzhou do for a living?", ["wei-info", "lin-offer"], mode="all", answer="works at a drone company in Shenzhen (Wei, Lin's brother)"),
+    Q("lt-co-05", "composition/multi_hop", "How much did the person who owns Biscuit earn from the Chengdu contract?", ["biscuit-dog", "side-job"], mode="all", answer="15,000 yuan (Tao)"),
     Q("lt-sa-01", "safety/abstention", "What is the name of Wei's girlfriend?", [], answer="(never mentioned)"),
 )
 

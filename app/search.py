@@ -17,8 +17,12 @@ from __future__ import annotations
 
 import re
 
+from contextlib import nullcontext
+from typing import ContextManager, Optional
+
 from .config import Settings
 from .models import MemoryResult
+from .planner import Plan, Planner
 from .store import Chunk, MemoryStore, cjk_only, render
 
 WORD_RE = re.compile(r"\w+", re.UNICODE)
@@ -97,19 +101,66 @@ def newest_first_within_band(hits: list[tuple[Chunk, float]], band: float) -> li
 
 
 def search(store: MemoryStore, settings: Settings, query: str, options: list[str] | None,
-           user_id: str, top_k: int) -> list[MemoryResult]:
-    with store.connect(user_id, create=False) as conn:   # one connection per Search; None = unknown user
+           user_id: str, top_k: int, planner: Optional[Planner] = None,
+           gate: Optional[ContextManager] = None) -> list[MemoryResult]:
+    """Two gated SQLite passes around one optional planner call (network time must not hold the gate)."""
+    gate = gate or nullcontext()
+    with gate, store.connect(user_id, create=False) as conn:   # one connection per Search; None = unknown user
         if conn is None:
             return []
-        return _assemble(store, conn, settings, query, options, user_id, top_k)
+        hits = _first_pass(store, conn, settings, query, options, user_id, top_k)
+        if planner is None:
+            return _assemble(store, conn, settings, query, options, user_id, top_k, hits)
+        snippets = [render(c)[:400] for c, _ in hits[:settings.planner_snippets]]
+    plan = planner.plan(query, options, snippets)          # outside the gate
+    with gate, store.connect(user_id, create=False) as conn:
+        if conn is None:
+            return []
+        if plan is not None and (plan.queries or plan.has_dates):
+            hits = _expand(store, conn, settings, user_id, top_k, query, options, hits, plan)
+        if plan is not None and plan.has_dates:
+            hits = _prefer_dates(hits, plan)
+        return _assemble(store, conn, settings, query, options, user_id, top_k, hits)
 
 
-def _assemble(store: MemoryStore, conn, settings: Settings, query: str, options: list[str] | None,
-              user_id: str, top_k: int) -> list[MemoryResult]:
+def _first_pass(store: MemoryStore, conn, settings: Settings, query: str, options: list[str] | None,
+                user_id: str, top_k: int) -> list[tuple[Chunk, float]]:
     pool = top_k * 2
     by_words = store.fts_search(user_id, fts_expression(word_terms(query, options)), pool, conn)
     by_trigrams = store.trigram_search(user_id, fts_expression(cjk_terms(query, options), prefixes=False), pool, conn)
-    hits = newest_first_within_band(fuse(by_words, by_trigrams), settings.recency_band)
+    return newest_first_within_band(fuse(by_words, by_trigrams), settings.recency_band)
+
+
+def _expand(store: MemoryStore, conn, settings: Settings, user_id: str, top_k: int, query: str,
+            options: list[str] | None, hits: list[tuple[Chunk, float]], plan: Plan) -> list[tuple[Chunk, float]]:
+    """Fold the planner's extra queries (and, with a date range, date-restricted searches of every query)
+    into the first pass by reciprocal rank fusion, first pass first."""
+    pool = top_k * 2
+    fused = hits
+    rng = (plan.date_from_ms, plan.date_to_ms) if plan.has_dates else None
+    queries: list[tuple[str, list[str] | None]] = [(extra, None) for extra in plan.queries]
+    if rng is not None:
+        queries = [(query, options)] + queries   # the original question, restricted to the period
+    for text, opts in queries:
+        words = fts_expression(word_terms(text, opts))
+        grams = fts_expression(cjk_terms(text, opts), prefixes=False)
+        more = fuse(store.fts_search(user_id, words, pool, conn), store.trigram_search(user_id, grams, pool, conn))
+        if rng is not None:
+            ranged = fuse(store.fts_search(user_id, words, pool, conn, rng), store.trigram_search(user_id, grams, pool, conn, rng))
+            more = fuse(ranged, more)
+        fused = fuse(fused, more)
+    return newest_first_within_band(fused, settings.recency_band)
+
+
+def _prefer_dates(hits: list[tuple[Chunk, float]], plan: Plan) -> list[tuple[Chunk, float]]:
+    """Hits inside the planner's date range come first, each group keeping its order."""
+    inside = [h for h in hits if plan.in_range(h[0].event_ms)]
+    outside = [h for h in hits if not plan.in_range(h[0].event_ms)]
+    return inside + outside
+
+
+def _assemble(store: MemoryStore, conn, settings: Settings, query: str, options: list[str] | None,
+              user_id: str, top_k: int, hits: list[tuple[Chunk, float]]) -> list[MemoryResult]:
     top_score = hits[0][1] if hits else 1.0
     score_of = {chunk.id: s for chunk, s in hits}
 

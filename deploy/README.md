@@ -1,5 +1,7 @@
 # Deploy runbook (Window B)
 
+**Current production box (10-07):** Alibaba Cloud `root@47.77.196.181`, repo at `/root/aml-memory`, stack `deploy/docker-compose.prod.yml` (project name `deploy`). Update with `git archive --format=tar HEAD | ssh root@47.77.196.181 'tar -x -C /root/aml-memory'` then `docker compose -f deploy/docker-compose.prod.yml --env-file .env up -d --build` there. The AZORA VPS is NOT used for this project.
+
 Target: a public HTTPS endpoint `https://memory.<domain>` on the existing 腾讯云 VPS, next to AZORA.
 Everything below is idempotent; re-run `deploy/deploy.sh` after every `git pull`.
 

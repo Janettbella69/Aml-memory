@@ -73,6 +73,11 @@ class Settings:
     rerank_doc_chars: int = 1500       # v0.7: characters of each document sent to the reranker (4,000-token limit per document)
     rerank_doc: str = "hit"            # v0.7: hit = score the matched turn itself; block = the rendered span (its first chars may be only the preceding turns — on long-turn data that hid the hit and scrambled the order)
     rerank_min_results: int = 6        # v0.7: shorter lists are returned as they are
+    fit_chars: int = 0                 # v0.8 fit mode: when the user's whole stored text is at most this many characters, return ALL of it in
+                                       # relevance order (contiguous segments, top hits centred) instead of hit ± window blocks. 0 = off
+    fit_fill: float = 0.8              # v0.8: share of the top_k result slots the segmentation aims to use
+    fit_span_min: int = 800            # v0.8: smallest segment size in rendered characters
+    fit_anchors: int = 8               # v0.8: leading hits that get a segment centred on them
     log_level: str = "INFO"
 
     @classmethod
@@ -125,5 +130,9 @@ class Settings:
             rerank_doc_chars=_bounded("RERANK_DOC_CHARS", int, 1500, 200, 12000),
             rerank_doc=_choice("RERANK_DOC", "hit", ("hit", "block")),
             rerank_min_results=_bounded("RERANK_MIN_RESULTS", int, 6, 2, 1000),
+            fit_chars=_bounded("FIT_CHARS", int, 0, 0, 2_000_000),
+            fit_fill=_bounded("FIT_FILL", float, 0.8, 0.1, 1.0),
+            fit_span_min=_bounded("FIT_SPAN_MIN", int, 800, 50, 100_000),
+            fit_anchors=_bounded("FIT_ANCHORS", int, 8, 0, 100),
             log_level=os.environ.get("LOG_LEVEL", "INFO").strip().upper() or "INFO",
         )

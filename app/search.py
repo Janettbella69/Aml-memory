@@ -340,16 +340,21 @@ def _assemble(store: MemoryStore, conn, settings: Settings, query: str, options:
         for chunk in store.newest(user_id, settings.fallback_results, conn):
             enqueue(chunk, 0.0)
 
+    if settings.fit_chars > 0:
+        _, stored_chars = store.corpus_size(user_id, conn)
+        if 0 < stored_chars <= settings.fit_chars:
+            return _assemble_fit(store, conn, settings, user_id, top_k, hits, queue, meta)
+
     results: list[MemoryResult] = []
-    visible: set[int] = set()   # positions already shown inside an earlier span
+    visible: set[tuple[str, int]] = set()   # (session, position) already shown inside an earlier span
     used = 0
     for chunk, s in queue:
         if len(results) >= top_k or used >= settings.max_response_chars:
             break
-        if chunk.pos in visible and not chunk.standing:
+        if (chunk.session_id, chunk.pos) in visible and not chunk.standing:
             continue
         turns = store.span(chunk, settings.context_window, conn) if s > 0 or chunk.standing else [chunk]
-        visible.update(t.pos for t in turns)
+        visible.update((t.session_id, t.pos) for t in turns)
         text = "\n".join(render(t, settings.time_notes) for t in turns)
         used += len(text)
         results.append(MemoryResult(id=chunk.id, content=text, created_at=event_time(chunk),
@@ -357,3 +362,135 @@ def _assemble(store: MemoryStore, conn, settings: Settings, query: str, options:
         if meta is not None:
             meta.setdefault("hit_text", {})[chunk.id] = render(chunk, settings.time_notes)   # the matched turn alone, for the reranker
     return results
+
+
+def _assemble_fit(store: MemoryStore, conn, settings: Settings, user_id: str, top_k: int,
+                  hits: list[tuple[Chunk, float]], queue: list[tuple[Chunk, float]],
+                  meta: Optional[dict[str, Any]] = None) -> list[MemoryResult]:
+    """v0.8 fit mode: the user's whole memory is small enough for the answer window, so return ALL of it, most
+    relevant first. The conversation is cut into at most top_k contiguous segments: the leading hits get a segment
+    centred on them, the rest is split evenly; segments come out in the order their best turn is ranked, the
+    untouched ones after that in conversation order. Every turn appears exactly once.
+
+    Why: with fixed hit ± window blocks the share of a conversation we return depends on how long its turns are —
+    about three quarters of a LoCoMo conversation, about a quarter of a play script with one-line turns — while the
+    reader has room for all of it and answers better with more of the same conversation in view (public LoCoMo-Refined,
+    2026-10-09: full list 0.819, first 30 blocks 0.750)."""
+    turns = store.all_turns(user_id, conn)
+    n = len(turns)
+    if n == 0:
+        return []
+    text = [render(t, settings.time_notes) for t in turns]
+    size = [len(x) + 1 for x in text]
+    total = sum(size)
+    span = max(settings.fit_span_min, -(-total // max(1, int(top_k * settings.fit_fill))))
+    at = {t.id: i for i, t in enumerate(turns)}
+    owner = [-1] * n
+    segs: dict[int, list[int]] = {}    # segment number -> [first turn index, last turn index]
+
+    def claim(lo: int, hi: int) -> None:
+        k = len(segs)
+        segs[k] = [lo, hi]
+        for j in range(lo, hi + 1):
+            owner[j] = k
+
+    def free(i: int, ref: int) -> bool:
+        return 0 <= i < n and owner[i] < 0 and turns[i].session_id == turns[ref].session_id
+
+    # 1. the leading hits each get a segment grown around them, alternately backwards and forwards
+    anchored = 0
+    for chunk, s in hits:
+        if anchored >= settings.fit_anchors:
+            break
+        i = at.get(chunk.id)
+        if i is None or owner[i] >= 0:
+            continue
+        lo = hi = i
+        acc = size[i]
+        backwards = True
+        while acc < span:
+            can_back, can_fwd = free(lo - 1, i), free(hi + 1, i)
+            if not can_back and not can_fwd:
+                break
+            if (backwards and can_back) or not can_fwd:
+                lo -= 1
+                acc += size[lo]
+            else:
+                hi += 1
+                acc += size[hi]
+            backwards = not backwards
+        claim(lo, hi)
+        anchored += 1
+
+    # 2. everything else: each run of unclaimed turns is cut into pieces of about `span` characters; a sliver next
+    #    to an anchored segment joins that segment instead of becoming a block of its own
+    i = 0
+    while i < n:
+        if owner[i] >= 0:
+            i += 1
+            continue
+        j = i
+        while j + 1 < n and owner[j + 1] < 0 and turns[j + 1].session_id == turns[i].session_id:
+            j += 1
+        run = sum(size[i:j + 1])
+        before = owner[i - 1] if i > 0 and owner[i - 1] >= 0 and turns[i - 1].session_id == turns[i].session_id else -1
+        after = owner[j + 1] if j + 1 < n and owner[j + 1] >= 0 and turns[j + 1].session_id == turns[i].session_id else -1
+        if run < span // 4 and (before >= 0 or after >= 0):
+            k = before if before >= 0 else after
+            segs[k] = [min(segs[k][0], i), max(segs[k][1], j)]
+            for t in range(i, j + 1):
+                owner[t] = k
+        else:
+            pieces = max(1, -(-run // span))
+            target = run / pieces
+            start, acc, made = i, 0, 0
+            for t in range(i, j + 1):
+                acc += size[t]
+                if acc >= target and made < pieces - 1 and t < j:
+                    claim(start, t)
+                    start, acc, made = t + 1, 0, made + 1
+            claim(start, j)
+        i = j + 1
+
+    # 3. never more segments than results allowed: merge the smallest neighbours (inside a session while possible)
+    def seg_size(k: int) -> int:
+        return sum(size[segs[k][0]:segs[k][1] + 1])
+
+    while len(segs) > top_k:
+        order = sorted(segs, key=lambda k: segs[k][0])
+        pairs = [(a, b) for a, b in zip(order, order[1:])]
+        same = [(a, b) for a, b in pairs if turns[segs[a][1]].session_id == turns[segs[b][0]].session_id]
+        a, b = min(same or pairs, key=lambda ab: seg_size(ab[0]) + seg_size(ab[1]))
+        segs[a] = [segs[a][0], segs[b][1]]
+        for t in range(segs[b][0], segs[b][1] + 1):
+            owner[t] = a
+        del segs[b]
+
+    # 4. order: by the rank of the best turn inside each segment, then the untouched segments in conversation order
+    best: dict[int, Chunk] = {}
+    ranked: list[int] = []
+    for chunk, _ in queue:
+        i = at.get(chunk.id)
+        if i is None:
+            continue
+        k = owner[i]
+        if k not in best:
+            best[k] = chunk
+            ranked.append(k)
+    rest = [k for k in sorted(segs, key=lambda k: segs[k][0]) if k not in best]
+
+    picked: list[tuple[Chunk, str]] = []
+    used = 0
+    for k in ranked + rest:
+        if len(picked) >= top_k or used >= settings.max_response_chars:
+            break
+        lo, hi = segs[k]
+        body = "\n".join(text[lo:hi + 1])
+        used += len(body)
+        head = best.get(k) or turns[lo]
+        picked.append((head, body))
+        if meta is not None and k in best:
+            meta.setdefault("hit_text", {})[head.id] = text[at[head.id]]
+    count = len(picked)
+    return [MemoryResult(id=head.id, content=body, created_at=event_time(head), score=round(1.0 - i / count, 4))
+            for i, (head, body) in enumerate(picked)]

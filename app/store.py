@@ -321,6 +321,7 @@ class MemoryStore:
         if embed_identity is not None:
             self._check_embed_identity(conn, embed_identity)
         stored = 0
+        chars = 0
         for index, message in enumerate(payload.messages):
             text = message.text().strip()
             if not text:
@@ -335,8 +336,23 @@ class MemoryStore:
             )
             self._index(conn, row.lastrowid, text, mem_id)
             stored += 1
+            chars += len(text)
+        if stored:
+            self._bump_corpus(conn, stored, chars)
         conn.commit()
         return stored
+
+    @staticmethod
+    def _bump_corpus(conn: sqlite3.Connection, turns: int, chars: int) -> None:
+        """Running totals of this user's stored turns and text length (v0.8 fit mode asks "does the whole memory
+        fit into the answer window?" on every Search; a SUM over the table would read every row each time)."""
+        have = {r["key"] for r in conn.execute("SELECT key FROM meta WHERE key IN ('turns', 'chars')")}
+        if have != {"turns", "chars"}:   # first write, or a file from before the counters existed: count once
+            r = conn.execute("SELECT COUNT(*) AS n, COALESCE(SUM(LENGTH(content)), 0) AS c FROM memories").fetchone()
+            conn.execute("INSERT OR REPLACE INTO meta(key, value) VALUES ('turns', ?), ('chars', ?)", (str(r["n"]), str(r["c"])))
+            return
+        conn.execute("UPDATE meta SET value = CAST(CAST(value AS INTEGER) + ? AS TEXT) WHERE key = 'turns'", (turns,))
+        conn.execute("UPDATE meta SET value = CAST(CAST(value AS INTEGER) + ? AS TEXT) WHERE key = 'chars'", (chars,))
 
     @staticmethod
     def _next_block(conn: sqlite3.Connection, session_id: str) -> int:
@@ -410,6 +426,30 @@ class MemoryStore:
                               (chunk.session_id, chunk.pos, window)).fetchall()
         u = chunk.user_id
         return [self._chunk(u, r) for r in reversed(before)] + [chunk] + [self._chunk(u, r) for r in after]
+
+    def corpus_size(self, user_id: str, conn: Optional[sqlite3.Connection] = None) -> tuple[int, int]:
+        """(turns, characters of stored text) for this user."""
+        with self._reader(user_id, conn) as c:
+            if c is None:
+                return (0, 0)
+            rows = {r["key"]: r["value"] for r in c.execute("SELECT key, value FROM meta WHERE key IN ('turns', 'chars')")}
+            if "turns" in rows and "chars" in rows:
+                return (int(rows["turns"]), int(rows["chars"]))
+            r = c.execute("SELECT COUNT(*) AS n, COALESCE(SUM(LENGTH(content)), 0) AS c FROM memories").fetchone()
+            return (int(r["n"]), int(r["c"]))
+
+    def all_turns(self, user_id: str, conn: Optional[sqlite3.Connection] = None) -> list[Chunk]:
+        """Every stored turn in conversation order: sessions in the order they first appeared, turns by position."""
+        with self._reader(user_id, conn) as c:
+            if c is None:
+                return []
+            rows = c.execute("SELECT id, session_id, role, content, event_ms, pos, standing, stored_at"
+                             " FROM memories ORDER BY rowid").fetchall()
+        first_seen: dict[str, int] = {}
+        for r in rows:
+            first_seen.setdefault(r["session_id"], len(first_seen))
+        rows.sort(key=lambda r: (first_seen[r["session_id"]], r["pos"]))
+        return [self._chunk(user_id, r) for r in rows]
 
     def standing_rules(self, user_id: str, limit: int, conn: Optional[sqlite3.Connection] = None) -> list[Chunk]:
         if limit <= 0:

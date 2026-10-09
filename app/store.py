@@ -13,10 +13,13 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Iterator, Optional
 
+import numpy as np
+
 from .models import AddRequest
+from .embed import Embedder, from_blob, to_blob
 from .timex import notes_suffix
 
-SCHEMA_VERSION = 5  # bump whenever the table layout or FTS tokenizer changes; old files are refused, not migrated
+SCHEMA_VERSION = 6  # bump whenever the table layout or FTS tokenizer changes; old files are refused, not migrated
 
 # Statements that read like standing instructions, constraints or preferences. Tagged at Add time
 # (user role only) so Search can always offer them: "rule execution" is where every system on the
@@ -118,7 +121,12 @@ CREATE TABLE IF NOT EXISTS memories (
     event_ms   INTEGER,
     pos        INTEGER NOT NULL,
     standing   INTEGER NOT NULL DEFAULT 0,
-    stored_at  TEXT NOT NULL
+    stored_at  TEXT NOT NULL,
+    vec        BLOB
+);
+CREATE TABLE IF NOT EXISTS meta (
+    key   TEXT PRIMARY KEY,
+    value TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS ix_mem_order    ON memories(session_id, pos);
 CREATE INDEX IF NOT EXISTS ix_mem_standing ON memories(standing, event_ms);
@@ -156,6 +164,11 @@ class MemoryStore:
         self._last_used: dict[str, float] = {}
         self._pool_lock = threading.Lock()
         self._checkouts = 0
+        # v0.5 dense channel: per-user vector matrices cached in memory (LRU), dropped on every write to that user
+        self.vector_cache_users = 64
+        self._vectors: "OrderedDict[str, tuple[np.ndarray, np.ndarray, np.ndarray, list[str]]]" = OrderedDict()
+        self._vectors_lock = threading.Lock()
+        self.vector_failures: set[str] = set()   # users with turns stored without a vector (embedding call failed)
         self.initialize()
 
     def initialize(self) -> None:
@@ -261,10 +274,19 @@ class MemoryStore:
             conn.execute("INSERT INTO memories_fts_tri(rowid, content, mem_id) VALUES (?,?,?)", (rowid, cjk, mem_id))
 
     # ---------------------------------------------------------------- add
-    def add(self, payload: AddRequest) -> int:
+    def seen_request(self, user_id: str, request_id: str) -> bool:
+        """True when this request_id was already ingested for the user (lets the caller skip embedding a replay)."""
+        with self.connect(user_id, create=False) as conn:
+            if conn is None:
+                return False
+            return conn.execute("SELECT 1 FROM ingest_log WHERE request_id = ?", (request_id,)).fetchone() is not None
+
+    def add(self, payload: AddRequest, vectors: Optional[list[Optional[bytes]]] = None,
+            embed_identity: Optional[tuple[str, int]] = None) -> int:
         """Persist one Add call in a single transaction on the user's own database. Returns the number
         of turns stored (0 for an idempotent replay). Raises ConflictingRequestError when the
-        request_id was already used with a different body."""
+        request_id was already used with a different body. `vectors` (one float16 blob or None per message,
+        aligned with payload.messages) and `embed_identity` = (model, dims) come from the dense channel."""
         canonical = json.dumps(payload.model_dump(), sort_keys=True, ensure_ascii=False, separators=(",", ":"))
         fingerprint = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
         received_at = datetime.now(timezone.utc).isoformat(timespec="milliseconds")
@@ -272,12 +294,18 @@ class MemoryStore:
         with self.connect(payload.user_id) as conn:
             assert conn is not None
             try:
-                return self._write(conn, payload, fingerprint, received_at, ordinal)
+                stored = self._write(conn, payload, fingerprint, received_at, ordinal, vectors, embed_identity)
             except BaseException:
                 conn.rollback()
                 raise
+        if stored:
+            self._drop_vectors(payload.user_id)
+            if vectors is not None and any(v is None for v in vectors):
+                self.vector_failures.add(payload.user_id)
+        return stored
 
-    def _write(self, conn: sqlite3.Connection, payload: AddRequest, fingerprint: str, received_at: str, ordinal) -> int:
+    def _write(self, conn: sqlite3.Connection, payload: AddRequest, fingerprint: str, received_at: str, ordinal,
+               vectors: Optional[list[Optional[bytes]]] = None, embed_identity: Optional[tuple[str, int]] = None) -> int:
         claimed = conn.execute(
             "INSERT OR IGNORE INTO ingest_log(request_id, fingerprint, session_id, received_at) VALUES (?,?,?,?)",
             (payload.request_id, fingerprint, payload.session_id, received_at),
@@ -289,17 +317,20 @@ class MemoryStore:
             conn.rollback()  # the ignored insert opened a write transaction; never leave it open on a cached connection
             return 0
         base = int(ordinal.group(1)) * POS_STRIDE if ordinal else self._next_block(conn, payload.session_id)
+        if embed_identity is not None:
+            self._check_embed_identity(conn, embed_identity)
         stored = 0
         for index, message in enumerate(payload.messages):
             text = message.text().strip()
             if not text:
                 continue
             mem_id = "mem_" + hashlib.blake2b(f"{payload.request_id}\x1f{index}".encode("utf-8"), digest_size=10).hexdigest()
+            vec = vectors[index] if vectors is not None and index < len(vectors) else None
             row = conn.execute(
-                "INSERT INTO memories(id, request_id, session_id, role, content, event_ms, pos, standing, stored_at)"
-                " VALUES (?,?,?,?,?,?,?,?,?)",
+                "INSERT INTO memories(id, request_id, session_id, role, content, event_ms, pos, standing, stored_at, vec)"
+                " VALUES (?,?,?,?,?,?,?,?,?,?)",
                 (mem_id, payload.request_id, payload.session_id, message.role, text,
-                 message.timestamp, base + index, int(looks_like_rule(message.role, text)), received_at),
+                 message.timestamp, base + index, int(looks_like_rule(message.role, text)), received_at, vec),
             )
             self._index(conn, row.lastrowid, text, mem_id)
             stored += 1
@@ -402,6 +433,112 @@ class MemoryStore:
             if conn is None:
                 return 0
             return int(conn.execute("SELECT COUNT(*) FROM memories").fetchone()[0])
+
+    # ------------------------------------------------------------- dense channel (v0.5)
+    @staticmethod
+    def _check_embed_identity(conn: sqlite3.Connection, identity: tuple[str, int]) -> None:
+        """A user file records the first embedding model/dims written into it and refuses any other,
+        so vectors from two models can never be mixed in one matrix."""
+        model, dims = identity
+        row = conn.execute("SELECT value FROM meta WHERE key = 'embed'").fetchone()
+        wanted = f"{model}:{dims}"
+        if row is None:
+            conn.execute("INSERT INTO meta(key, value) VALUES ('embed', ?)", (wanted,))
+        elif row["value"] != wanted:
+            raise RuntimeError(f"user database holds {row['value']} vectors, this process embeds with {wanted}; move the data directory away")
+
+    def _drop_vectors(self, user_id: str) -> None:
+        with self._vectors_lock:
+            self._vectors.pop(user_id, None)
+
+    def _matrix(self, user_id: str, dims: int, conn: sqlite3.Connection):
+        """(matrix float32 [n, dims], rowids int64, event_ms float64 (nan = none), ids) for every turn with a vector."""
+        with self._vectors_lock:
+            cached = self._vectors.get(user_id)
+            if cached is not None:
+                self._vectors.move_to_end(user_id)
+                return cached
+        rows = conn.execute("SELECT rowid, id, event_ms, vec FROM memories WHERE vec IS NOT NULL ORDER BY rowid").fetchall()
+        if rows:
+            matrix = np.vstack([from_blob(r["vec"], dims) for r in rows])
+            rowids = np.asarray([r["rowid"] for r in rows], dtype=np.int64)
+            event = np.asarray([r["event_ms"] if r["event_ms"] is not None else np.nan for r in rows], dtype=np.float64)
+            ids = [r["id"] for r in rows]
+        else:
+            matrix = np.zeros((0, dims), dtype=np.float32); rowids = np.zeros(0, dtype=np.int64)
+            event = np.zeros(0, dtype=np.float64); ids = []
+        entry = (matrix, rowids, event, ids)
+        with self._vectors_lock:
+            self._vectors[user_id] = entry
+            while len(self._vectors) > self.vector_cache_users:
+                self._vectors.popitem(last=False)
+        return entry
+
+    def dense_search(self, user_id: str, qvec: np.ndarray, limit: int, conn: Optional[sqlite3.Connection] = None,
+                     event_range: Optional[tuple[Optional[int], Optional[int]]] = None) -> list[tuple[Chunk, float]]:
+        """Cosine top-`limit` over the user's stored vectors (brute force; a user holds a few hundred to a few
+        thousand turns, so a dot product is faster than any index). Scores are cosine similarities in [-1, 1]."""
+        if limit <= 0:
+            return []
+        with self._reader(user_id, conn) as c:
+            if c is None:
+                return []
+            matrix, rowids, event, _ = self._matrix(user_id, int(qvec.shape[0]), c)
+            if matrix.shape[0] == 0:
+                return []
+            scores = matrix @ qvec.astype(np.float32)
+            if event_range is not None:
+                lo, hi = event_range
+                mask = ~np.isnan(event)
+                if lo is not None:
+                    mask &= event >= lo
+                if hi is not None:
+                    mask &= event <= hi
+                scores = np.where(mask, scores, -np.inf)
+            k = min(limit, scores.shape[0])
+            top = np.argpartition(-scores, k - 1)[:k]
+            top = top[np.argsort(-scores[top], kind="stable")]
+            top = [int(i) for i in top if np.isfinite(scores[i])]
+            if not top:
+                return []
+            wanted = [int(rowids[i]) for i in top]
+            marks = ",".join("?" * len(wanted))
+            rows = {r["rowid"]: r for r in c.execute(f"SELECT rowid, * FROM memories WHERE rowid IN ({marks})", wanted).fetchall()}
+        return [(self._chunk(user_id, rows[rid]), float(scores[i])) for i, rid in zip(top, wanted) if rid in rows]
+
+    def missing_vectors(self, user_id: str, limit: int) -> list[tuple[int, str]]:
+        """(rowid, content) of turns stored without a vector, oldest first."""
+        with self.connect(user_id, create=False) as conn:
+            if conn is None:
+                return []
+            rows = conn.execute("SELECT rowid, content FROM memories WHERE vec IS NULL ORDER BY rowid LIMIT ?", (limit,)).fetchall()
+            return [(int(r["rowid"]), r["content"]) for r in rows]
+
+    def store_vectors(self, user_id: str, pairs: list[tuple[int, bytes]]) -> int:
+        if not pairs:
+            return 0
+        with self.connect(user_id, create=False) as conn:
+            if conn is None:
+                return 0
+            conn.executemany("UPDATE memories SET vec = ? WHERE rowid = ? AND vec IS NULL", [(b, r) for r, b in pairs])
+            conn.commit()
+        self._drop_vectors(user_id)
+        return len(pairs)
+
+    def backfill_vectors(self, embedder: Embedder, limit_per_user: int = 200) -> int:
+        """Embed turns that were stored without a vector (service failure at Add time). Returns vectors written."""
+        written = 0
+        for user_id in list(self.vector_failures):
+            todo = self.missing_vectors(user_id, limit_per_user)
+            if not todo:
+                self.vector_failures.discard(user_id)
+                continue
+            vecs = embedder.embed([t for _, t in todo])
+            pairs = [(rid, to_blob(v)) for (rid, _), v in zip(todo, vecs) if v is not None]
+            written += self.store_vectors(user_id, pairs)
+            if len(pairs) == len(todo) and len(todo) < limit_per_user:
+                self.vector_failures.discard(user_id)
+        return written
 
     # --------------------------------------------------------- governance
     def delete_expired(self) -> int:

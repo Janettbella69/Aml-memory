@@ -22,7 +22,7 @@ Fill-in sheet mirroring the official evaluation-access form and the Create Eval 
 | Capacity declaration | Max add concurrency 16 · Search concurrency 16 · `top_k` 1–1000 (official runs use 100) · Add synchronous, persisted and searchable before the 200 · no server-side timeout (platform limit 30 min/request) · single instance |
 | Typical latency (FAQ Q5) | Measured 2026-10-08 through TLS at 16-way concurrency: Add p50 234 ms / p99 454 ms; Search p50 2.2 s / p99 5.0 s with the gpt-4o-mini planner (≈ 40 ms without it) |
 | Request body & storage capacity (FAQ Q5) | Add body up to 20 messages / 2,000 words per platform chunk (no explicit body limit enforced below FastAPI defaults); storage ≈ 5× raw text at rest, 34 GB free on the box (≥ 20 GB needed for the Textual track) |
-| Models & external dependencies (FAQ Q5/Q7) | `gpt-4o-mini` (via OpenRouter, model id `openai/gpt-4o-mini`) as the Search-time query planner only; no generative model in Add (N/A); no embedding model, no reranker in the current version (if a dense channel is added it will be `text-embedding-v4` only); SQLite FTS5; Caddy TLS |
+| Models & external dependencies (FAQ Q5/Q7) | `gpt-4o-mini` (via OpenRouter, model id `openai/gpt-4o-mini`) as the Search-time query planner only; no generative model in Add (N/A); `text-embedding-v4` (Alibaba Model Studio, China endpoint, 256 dims) for the dense channel at Add and Search; no reranker; SQLite FTS5; numpy; Caddy TLS |
 | Multimodal processing declaration (FAQ Q5) | N/A — Textual track only |
 | Service maintenance (FAQ Q5) | Single operator; health monitored via `/health`; Docker `restart: unless-stopped`; no planned changes during a Full run (FAQ Q29); idempotency records and data volume kept until the run is closed (FAQ Q26/Q27), deleted within 30 days after (FAQ Q31) |
 | Public repository URL | `https://github.com/Janettbella69/aml-memory` (created 2026-10-08 as private; switch to public before submitting: `gh repo edit Janettbella69/aml-memory --visibility public --accept-visibility-change-consequences`) |
@@ -51,3 +51,21 @@ Fill-in sheet mirroring the official evaluation-access form and the Create Eval 
 - Once a Full evaluation is accepted the version cannot be replaced or withdrawn because of an unfavourable result; freeze the version before applying.
 - Endpoints need not stay online after the evaluation closes.
 - Before every Full run the 8-item gate in `docs/CHECKLIST.md` must be confirmed.
+
+## 提交说明与运行指南（表单文本，冻结时把 <COMMIT> 换成固定 commit）
+
+```
+【系统】aml-memory v1.0，固定 commit <COMMIT>，公开仓库 https://github.com/Janettbella69/aml-memory（MIT）。参赛组别：开源方法榜；赛道：文本记忆。
+
+【部署】阿里云国际版单实例（2 vCPU / 1.6 GB / 34 GB 可用），Docker + Caddy 自动 TLS。
+Add：https://memory.azorashopping.site/v1/memories/add  Search：https://memory.azorashopping.site/v1/memories/search  Health：https://memory.azorashopping.site/health（无鉴权 GET）。
+鉴权：X-Api-Key（同时接受 Authorization: Bearer / Token）。容量与限制：Add 并发 16、Search 并发 16、top_k 1–1000；Add 同步写入，返回 200 即已持久化且可检索；request_id 幂等（同 id 不同内容返回 409），幂等记录持久化在 SQLite，重启不丢；无服务端超时（遵守平台 30 分钟上限）；限流时返回 429 + Retry-After。实测（16 路并发、公网 TLS）：Add p50 234 ms / p99 454 ms，Search p50 2.2 s / p99 5.0 s（含模型调用）。存储约为原文 5 倍。评测数据不记录文本日志、不用于训练，任务结束 30 天内删除。
+
+【方法】每个 user_id 一个独立 SQLite 文件，原始对话逐轮存储，不做摘要。检索为三路召回 + 倒数排名融合（RRF）：(1) FTS5 BM25（Porter 词干）；(2) CJK 字符三元组 BM25；(3) text-embedding-v4（256 维）余弦相似。排序上近分的新值优先（覆盖旧值）；用户的规则/偏好语句单独占位；每条命中附前后各 2 轮上下文并跨 Add 块去重；渲染为「[UTC 时间戳] 角色: 原文」，并对「昨天 / 三周前」等相对时间附上按该轮时间戳换算的绝对日期注释。Search 阶段调用一次 gpt-4o-mini 做查询规划（最多 3 个补充查询 + 可选日期范围），结果同样以 RRF 融合；调用失败则确定性回退。只返回原文证据，不生成、不伪装答案；不跨 user_id 读取。
+
+【模型】Add 阶段不调用生成模型（N/A）。Search 阶段生成模型为 gpt-4o-mini（经 OpenRouter 路由，模型标识 openai/gpt-4o-mini）。向量模型 text-embedding-v4（阿里云百炼）。无 reranker，无自训练或开放权重模型。
+
+【来源与披露】思路借鉴并已在 docs/METHOD_CARD.md、NOTICE 中注明：ReFind（imlrz/ReFind，MIT，arXiv:2608.12888）的时间戳渲染、上下文窗口、Porter + RRF、模型驱动的查询规划；InvMem（wenxiaof345-ctrl/vanilla-rag-memory）的稠密 + BM25 RRF 融合与相对时间标注；Hybrid Episodic Memory（tlysanhuo/agent-memory-challenge，MIT）的加权 RRF；FantaSmallhamster/ldbd-sqlite-fts-baseline 的「FTS5 存原文 + 最新回退」模式（v0.1 草稿曾改编其约 30 行，v0.2 起全部重写，现无其代码）。全部方法改动按版本（0.1–1.0）逐条记录在 docs/METHOD_CARD.md「Method changes by version」。
+
+【运行指南】本地：uv sync && uv run pytest -q && uv run uvicorn --factory app.main:create_app --port 8000。生产：cp .env.example .env，填写 MEMORY_API_KEY、MEMORY_DOMAIN、OPENAI_API_KEY（OpenRouter）、DASHSCOPE_API_KEY，然后 docker compose -f deploy/docker-compose.prod.yml --env-file .env up -d --build；详见 README.md、deploy/README.md，配置项见 .env.example。
+```

@@ -19,6 +19,7 @@ Auth: evaluator sends `X-Api-Key`, `Authorization: Bearer`, or `Authorization: T
 ## Layout
 - `app/store.py` one SQLite file per `user_id` under `DATA_DIR/users/ab/cd/<hash>.db` (WAL): `ingest_log` (idempotency by fingerprint), `memories` (one row per turn; `pos` = chunk ordinal × 1000 + index, `event_ms`, `standing` rule tag), FTS5 word index (porter, external content) + FTS5 trigram index (CJK-only turns). Connections cached per file with a lock (LRU 512, idle 120 s). `SCHEMA_VERSION` mismatch fails loudly (no migration; wipe the data dir between versions).
 - `app/search.py` evidence assembly: word BM25 (+ trigram BM25 fused by RRF when the query has CJK) → recency band (near-equal scores newest-first) → first `LEAD_HITS` hits, then `RULE_SLOTS` standing rules (query-matching first), then the rest → ±`CONTEXT_WINDOW` spans crossing chunk boundaries, de-duplicated → `MAX_RESPONSE_CHARS` budget → newest-turns fallback. Content rendered as `[YYYY-MM-DD HH:MM UTC] ROLE: text`. The docstring at the top of the file is the authoritative description.
+- `app/embed.py` v0.5 dense channel: `text-embedding-v4` through Model Studio's OpenAI-compatible `/embeddings` (batches of 10, token-bucket pacing, retries; failures degrade to lexical and are back-filled by a background loop). Vectors live in `memories.vec` (float16) in the user's own file; `meta` pins model:dims per file; `store.dense_search` is a per-user numpy dot product fused by RRF (`DENSE_WEIGHT`). Enabled by `EMBED_MODEL` + `DASHSCOPE_API_KEY`; the query embedding and the Add-time embedding run outside the SQLite gates.
 - `app/timex.py` v0.4 relative-time notes rendered after a turn (`(dates: yesterday = 2025-04-26)`), EN + ZH, derived only from the turn's own timestamp; `TIME_NOTES=0` disables. `OPTIONS_MODE` (append | none | channel) decides how answer options enter retrieval.
 - `app/planner.py` optional v0.3 query planner: one gpt-4o-mini call per Search (question + first 8 snippets → ≤3 extra keyword queries + date range), fused by RRF; never produces answer text; any failure = deterministic fallback. Enabled only by `PLANNER_MODEL=gpt-4o-mini` + `OPENAI_API_KEY`; the LLM call runs outside the SQLite gate.
 - `app/main.py` FastAPI factory `create_app()` (run with `uvicorn --factory`); auth; periodic retention sweep; per-process gates `SEARCH_PARALLELISM=1` / `WRITE_PARALLELISM=2` (SQLite mutex contention makes more threads slower; scale with `UVICORN_WORKERS`).
@@ -31,6 +32,6 @@ Auth: evaluator sends `X-Api-Key`, `Authorization: Bearer`, or `Authorization: T
 - Docker: `docker compose up -d --build` (reads `.env`; see `.env.example`).
 
 ## Conventions
-- Python 3.12, type hints, no new dependencies without a reason written in PLAN.md.
+- Python 3.12, type hints, no new dependencies without a reason written in PLAN.md (numpy added 2026-10-09 for the dense channel's matrix product).
 - Any ranking change needs a test in `tests/`, a before/after line from `scripts/eval_local.py`, and a line in `docs/METHOD_CARD.md`.
 - Never commit `.env`, keys, or evaluation data. `data/` is git-ignored.

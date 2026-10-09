@@ -51,6 +51,12 @@ class Settings:
     time_notes: bool = True            # v0.4: render "(dates: yesterday = 2025-04-26)" after turns with relative-time phrases
     options_mode: str = "append"       # v0.4: how answer options enter retrieval: append (query+options), none, channel (own RRF channel)
     options_weight: float = 0.6        # v0.4: RRF weight of the options channel when options_mode=channel
+    embed_model: str = ""              # v0.5: "text-embedding-v4" enables the dense channel ("" = lexical only)
+    embed_dims: int = 256              # v0.5: vector size (text-embedding-v4 accepts 64..2048); float16 on disk
+    embed_timeout: float = 30.0
+    embed_rps: float = 20.0            # v0.5: client-side pacing (service limit 1,800 requests/min per key)
+    dense_weight: float = 1.0          # v0.5: RRF weight of the dense list against the lexical lists
+    vector_cache_users: int = 64       # v0.5: per-process LRU of in-memory vector matrices
     log_level: str = "INFO"
 
     @classmethod
@@ -81,5 +87,11 @@ class Settings:
             time_notes=os.environ.get("TIME_NOTES", "1").strip().lower() not in ("0", "false", "no", "off", ""),
             options_mode=_choice("OPTIONS_MODE", "append", ("append", "none", "channel")),
             options_weight=_bounded("OPTIONS_WEIGHT", float, 0.6, 0.0, 2.0),
+            embed_model=os.environ.get("EMBED_MODEL", "").strip(),
+            embed_dims=_bounded("EMBED_DIMS", int, 256, 64, 2048),
+            embed_timeout=_bounded("EMBED_TIMEOUT", float, 30.0, 1.0, 300.0),
+            embed_rps=_bounded("EMBED_RPS", float, 20.0, 0.1, 100.0),
+            dense_weight=_bounded("DENSE_WEIGHT", float, 1.0, 0.0, 3.0),
+            vector_cache_users=_bounded("VECTOR_CACHE_USERS", int, 64, 1, 4096),
             log_level=os.environ.get("LOG_LEVEL", "INFO").strip().upper() or "INFO",
         )

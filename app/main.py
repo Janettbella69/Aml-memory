@@ -10,6 +10,7 @@ from fastapi import Depends, FastAPI, Header, HTTPException
 
 from . import __version__
 from .config import Settings
+from .embed import Embedder, embedder_from_env, to_blob
 from .models import AddRequest, AddResponse, HealthResponse, SearchRequest, SearchResponse
 from .planner import Planner, planner_from_env
 from .search import search as assemble_evidence
@@ -19,7 +20,7 @@ log = logging.getLogger("aml_memory")
 
 
 def create_app(settings: Settings | None = None, store: MemoryStore | None = None,
-               planner: Planner | None = None) -> FastAPI:
+               planner: Planner | None = None, embedder: Embedder | None = None) -> FastAPI:
     cfg = settings or Settings.from_env()
     logging.basicConfig(level=cfg.log_level)
     memory = store or MemoryStore(cfg.data_dir, retention_days=cfg.retention_days, pool_size=cfg.db_pool_size,
@@ -31,6 +32,10 @@ def create_app(settings: Settings | None = None, store: MemoryStore | None = Non
     query_planner = planner or planner_from_env(cfg.planner_model, cfg.planner_max_queries, cfg.planner_timeout)
     if query_planner is not None:
         log.info("query planner enabled: %s", cfg.planner_model)
+    dense = embedder or embedder_from_env(cfg.embed_model, cfg.embed_dims, cfg.embed_timeout, cfg.embed_rps)
+    memory.vector_cache_users = cfg.vector_cache_users
+    if dense is not None:
+        log.info("dense channel enabled: %s (%d dims)", dense.model, dense.dims)
 
     async def retention_loop() -> None:
         while True:
@@ -42,13 +47,27 @@ def create_app(settings: Settings | None = None, store: MemoryStore | None = Non
                 log.exception("retention sweep failed")
             await asyncio.sleep(cfg.sweep_hours * 3600)
 
+    async def backfill_loop() -> None:
+        """Turns stored without a vector (embedding service failure at Add time) get one later."""
+        while True:
+            await asyncio.sleep(60)
+            if dense is None or not memory.vector_failures:
+                continue
+            try:
+                written = await asyncio.to_thread(memory.backfill_vectors, dense)
+                if written:
+                    log.info("vector backfill wrote %d vectors", written)
+            except Exception:
+                log.exception("vector backfill failed")
+
     @asynccontextmanager
     async def lifespan(_: FastAPI):
-        task = asyncio.create_task(retention_loop())
+        tasks = [asyncio.create_task(retention_loop()), asyncio.create_task(backfill_loop())]
         try:
             yield
         finally:
-            task.cancel()
+            for task in tasks:
+                task.cancel()
             memory.close()
 
     app = FastAPI(title="aml-memory", version=__version__, lifespan=lifespan, docs_url=None, redoc_url=None)
@@ -74,16 +93,22 @@ def create_app(settings: Settings | None = None, store: MemoryStore | None = Non
         return HealthResponse(version=__version__)
 
     def add_memory(payload: AddRequest, _: None = Depends(authenticate)) -> AddResponse:
+        vectors = None
+        identity = None
+        if dense is not None and not memory.seen_request(payload.user_id, payload.request_id):
+            # network call outside the write gate; a replay of a known request_id skips it
+            vectors = [to_blob(v) if v is not None else None for v in dense.embed([m.text() for m in payload.messages])]
+            identity = (dense.model, dense.dims)
         try:
             with write_gate:
-                memory.add(payload)
+                memory.add(payload, vectors, identity)
         except ConflictingRequestError as conflict:
             raise HTTPException(status_code=409, detail=str(conflict)) from conflict
         return AddResponse(request_id=payload.request_id, user_id=payload.user_id, session_id=payload.session_id)
 
     def search_memory(payload: SearchRequest, _: None = Depends(authenticate)) -> SearchResponse:
         data = assemble_evidence(memory, cfg, payload.query, payload.options, payload.user_id, payload.top_k,
-                                 planner=query_planner, gate=search_gate)
+                                 planner=query_planner, gate=search_gate, embedder=dense)
         log.info("search results=%d top_k=%d", len(data), payload.top_k)  # never the query or memory text
         return SearchResponse(data=data)
 

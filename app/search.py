@@ -12,6 +12,7 @@ Pipeline (v0.2):
                    a hit already visible inside an earlier span is skipped
   6. fallback   : nothing matched -> the newest FALLBACK_RESULTS turns
   7. budget     : stop at top_k results or MAX_RESPONSE_CHARS characters
+v0.5: an optional dense channel (text-embedding-v4 cosine neighbours, app/embed.py) is fused by RRF into step 1.
 v0.4: turns are rendered with resolved relative-time notes (app/timex.py, TIME_NOTES) and answer options enter
 retrieval per OPTIONS_MODE (append | none | channel with OPTIONS_WEIGHT).
 """
@@ -20,10 +21,11 @@ from __future__ import annotations
 import re
 
 from contextlib import nullcontext
-from typing import ContextManager, Optional
+from typing import Any, ContextManager, Optional
 
 from .config import Settings
 from .models import MemoryResult
+from .embed import Embedder
 from .planner import Plan, Planner
 from .store import Chunk, MemoryStore, cjk_only, render
 
@@ -103,15 +105,25 @@ def newest_first_within_band(hits: list[tuple[Chunk, float]], band: float) -> li
     return sorted(hits, key=key)
 
 
+def retrieval_text(query: str, options: list[str] | None, settings: Settings) -> str:
+    """What the dense channel embeds: the question, plus the options when OPTIONS_MODE=append."""
+    if options and settings.options_mode == "append":
+        return query + "\n" + "\n".join(options)
+    return query
+
+
 def search(store: MemoryStore, settings: Settings, query: str, options: list[str] | None,
            user_id: str, top_k: int, planner: Optional[Planner] = None,
-           gate: Optional[ContextManager] = None) -> list[MemoryResult]:
-    """Two gated SQLite passes around one optional planner call (network time must not hold the gate)."""
+           gate: Optional[ContextManager] = None, embedder: Optional[Embedder] = None) -> list[MemoryResult]:
+    """Two gated SQLite passes around the network calls (query embedding, planner); network time never holds the gate."""
     gate = gate or nullcontext()
+    qvec: Any = None
+    if embedder is not None:
+        qvec = embedder.embed_one(retrieval_text(query, options, settings))   # None on failure -> lexical only
     with gate, store.connect(user_id, create=False) as conn:   # one connection per Search; None = unknown user
         if conn is None:
             return []
-        hits = _first_pass(store, conn, settings, query, options, user_id, top_k)
+        hits = _first_pass(store, conn, settings, query, options, user_id, top_k, qvec)
         if planner is None:
             return _assemble(store, conn, settings, query, options, user_id, top_k, hits)
         snippets = [render(c, settings.time_notes)[:400] for c, _ in hits[:settings.planner_snippets]]
@@ -120,19 +132,23 @@ def search(store: MemoryStore, settings: Settings, query: str, options: list[str
         if conn is None:
             return []
         if plan is not None and (plan.queries or plan.has_dates):
-            hits = _expand(store, conn, settings, user_id, top_k, query, options, hits, plan)
+            hits = _expand(store, conn, settings, user_id, top_k, query, options, hits, plan, qvec)
         if plan is not None and plan.has_dates:
             hits = _prefer_dates(hits, plan)
         return _assemble(store, conn, settings, query, options, user_id, top_k, hits)
 
 
 def _first_pass(store: MemoryStore, conn, settings: Settings, query: str, options: list[str] | None,
-                user_id: str, top_k: int) -> list[tuple[Chunk, float]]:
+                user_id: str, top_k: int, qvec: Any = None) -> list[tuple[Chunk, float]]:
     pool = top_k * 2
     opts = options if settings.options_mode == "append" else None
     by_words = store.fts_search(user_id, fts_expression(word_terms(query, opts)), pool, conn)
     by_trigrams = store.trigram_search(user_id, fts_expression(cjk_terms(query, opts), prefixes=False), pool, conn)
     hits = fuse(by_words, by_trigrams)
+    if qvec is not None:
+        # v0.5 dense channel: cosine neighbours of the question, fused by RRF (lexical first). This is what
+        # separated the Cycle-1 top 10 from plain BM25: evidence that shares no words with the question.
+        hits = fuse(hits, store.dense_search(user_id, qvec, pool, conn), weight=settings.dense_weight)
     if settings.options_mode == "channel" and options:
         # v0.4: the options as their own channel (idea: Hybrid Episodic Memory, Cycle-1 #6), so the question's terms
         # keep the lead and a distractor option alone cannot outrank evidence for the question itself
@@ -145,7 +161,7 @@ def _first_pass(store: MemoryStore, conn, settings: Settings, query: str, option
 
 
 def _expand(store: MemoryStore, conn, settings: Settings, user_id: str, top_k: int, query: str,
-            options: list[str] | None, hits: list[tuple[Chunk, float]], plan: Plan) -> list[tuple[Chunk, float]]:
+            options: list[str] | None, hits: list[tuple[Chunk, float]], plan: Plan, qvec: Any = None) -> list[tuple[Chunk, float]]:
     """Fold the planner's extra queries (and, with a date range, date-restricted searches of every query)
     into the first pass by reciprocal rank fusion, first pass first."""
     pool = top_k * 2
@@ -161,6 +177,8 @@ def _expand(store: MemoryStore, conn, settings: Settings, user_id: str, top_k: i
         more = fuse(store.fts_search(user_id, words, pool, conn), store.trigram_search(user_id, grams, pool, conn))
         if rng is not None:
             ranged = fuse(store.fts_search(user_id, words, pool, conn, rng), store.trigram_search(user_id, grams, pool, conn, rng))
+            if qvec is not None and text == query:   # only the original question has an embedding
+                ranged = fuse(ranged, store.dense_search(user_id, qvec, pool, conn, rng), weight=settings.dense_weight)
             more = fuse(ranged, more)
         fused = fuse(fused, more)
     return newest_first_within_band(fused, settings.recency_band)

@@ -145,17 +145,6 @@ def _first_pass(store: MemoryStore, conn, settings: Settings, query: str, option
     by_words = store.fts_search(user_id, fts_expression(word_terms(query, opts)), pool, conn)
     by_trigrams = store.trigram_search(user_id, fts_expression(cjk_terms(query, opts), prefixes=False), pool, conn)
     hits = fuse(by_words, by_trigrams)
-    if qvec is not None:
-        # v0.5 dense channel: cosine neighbours of the question, fused by RRF (lexical first). This is what
-        # separated the Cycle-1 top 10 from plain BM25: evidence that shares no words with the question.
-        # DENSE_HEAD keeps the first N lexical hits in place (exact name/number matches are the most precise
-        # signal we have) and lets the dense list reorder only what comes after them.
-        dense = store.dense_search(user_id, qvec, pool, conn)
-        head = hits[:settings.dense_head]
-        head_ids = {c.id for c, _ in head}
-        tail = fuse([h for h in hits if h[0].id not in head_ids], [d for d in dense if d[0].id not in head_ids],
-                    weight=settings.dense_weight)
-        hits = head + tail
     if settings.options_mode == "channel" and options:
         # v0.4: the options as their own channel (idea: Hybrid Episodic Memory, Cycle-1 #6), so the question's terms
         # keep the lead and a distractor option alone cannot outrank evidence for the question itself
@@ -164,7 +153,23 @@ def _first_pass(store: MemoryStore, conn, settings: Settings, query: str, option
         by_opts = fuse(store.fts_search(user_id, fts_expression(o_words), pool, conn) if o_words else [],
                        store.trigram_search(user_id, fts_expression(o_grams, prefixes=False), pool, conn) if o_grams else [])
         hits = fuse(hits, by_opts, weight=settings.options_weight)
-    return newest_first_within_band(hits, settings.recency_band)
+    lexical = newest_first_within_band(hits, settings.recency_band)
+    if qvec is None:
+        return lexical
+    # v0.5 dense channel: cosine neighbours of the question, fused by RRF (lexical first). This is what
+    # separated the Cycle-1 top 10 from plain BM25: evidence that shares no words with the question.
+    # DENSE_HEAD keeps the first N lexical hits in place (exact name/number matches are the most precise
+    # signal we have) and lets the dense list reorder only what comes after them. The recency band is applied
+    # to the lexical list and to the fused tail separately: BM25 and RRF scores live on different scales, and
+    # banding them together sorted the whole tail newest-first (measured 10-09: hit@100 0.975 -> 0.944).
+    dense = store.dense_search(user_id, qvec, pool, conn)
+    head = lexical[:settings.dense_head]
+    head_ids = {c.id for c, _ in head}
+    tail = fuse([h for h in lexical if h[0].id not in head_ids], [d for d in dense if d[0].id not in head_ids],
+                weight=settings.dense_weight)
+    tail = newest_first_within_band(tail, settings.recency_band)
+    head = [(c, 1.0 + 0.001 * (len(head) - i)) for i, (c, _) in enumerate(head)]   # scores above any RRF value
+    return head + tail
 
 
 def _expand(store: MemoryStore, conn, settings: Settings, user_id: str, top_k: int, query: str,

@@ -56,7 +56,7 @@ class Settings:
     embed_timeout: float = 30.0
     embed_rps: float = 14.0            # v0.5: client-side pacing; published key limits differ by source (1,000–1,800 req/min), 14/s ≈ 840/min stays under both
     dense_weight: float = 1.0          # v0.5: RRF weight of the dense list against the lexical lists
-    dense_head: int = 0                # v0.5: keep the first N lexical hits in front, fuse the dense list only behind them (0 = plain RRF)
+    dense_head: int = 5                # v0.5: keep the first N lexical hits in front, fuse the dense list only behind them (0 = plain RRF; 5 chosen on public LoCoMo-Refined)
     vector_cache_users: int = 64       # v0.5: per-process LRU of in-memory vector matrices
     log_level: str = "INFO"
 
@@ -93,7 +93,7 @@ class Settings:
             embed_timeout=_bounded("EMBED_TIMEOUT", float, 30.0, 1.0, 300.0),
             embed_rps=_bounded("EMBED_RPS", float, 14.0, 0.1, 100.0),
             dense_weight=_bounded("DENSE_WEIGHT", float, 1.0, 0.0, 3.0),
-            dense_head=_bounded("DENSE_HEAD", int, 0, 0, 50),
+            dense_head=_bounded("DENSE_HEAD", int, 5, 0, 50),
             vector_cache_users=_bounded("VECTOR_CACHE_USERS", int, 64, 1, 4096),
             log_level=os.environ.get("LOG_LEVEL", "INFO").strip().upper() or "INFO",
         )

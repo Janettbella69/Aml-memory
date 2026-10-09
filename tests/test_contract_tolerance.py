@@ -96,3 +96,32 @@ def test_search_accepts_odd_requests():
     assert ok({"query": "lost ring", "top_k": 3}).json()["data"].__len__() <= 3
     assert c.post("/v1/memories/search", json={"query": "x", "user_id": "", "top_k": 5}).status_code == 422   # no user: cannot serve
     assert c.post("/v1/memories/search", json={"query": "x", "user_id": "nobody", "top_k": 5}).json() == {"data": []}
+
+
+def test_question_that_carries_a_whole_reference_document():
+    """CL-bench style (organisers' prompt: "The question includes a reference document"): tens of thousands of words in
+    `query` must still be answered quickly, and helper models only ever see its two ends."""
+    import random
+    import time
+
+    from app.planner import clip_question
+    from app.search import word_terms
+
+    rng = random.Random(3)
+    vocab = [f"w{i:05d}" for i in range(15000)]
+    c = make_client()
+    msgs = [{"role": "user", "content": " ".join(rng.choice(vocab) for _ in range(50))} for _ in range(19)]
+    msgs.insert(7, {"role": "assistant", "content": "Earlier answer: when reactor pressure exceeds the threshold the operator starts the shutdown sequence."})
+    assert add(c, msgs).status_code == 200
+    document = " ".join(rng.choice(vocab) for _ in range(40000))
+    q = "What must the operator do when reactor pressure exceeds the threshold?\n\nReference document:\n" + document
+    t0 = time.time()
+    terms = word_terms(q, None)
+    assert len(terms) > 10000 and time.time() - t0 < 1.0                      # linear, not quadratic
+    t0 = time.time()
+    r = c.post("/v1/memories/search", json={"query": q, "user_id": "u", "top_k": 100})
+    assert r.status_code == 200 and time.time() - t0 < 10.0
+    assert any("starts the shutdown sequence" in d["content"] for d in r.json()["data"][:5])
+    clipped = clip_question(q)
+    assert len(clipped) <= 6100 and clipped.startswith("What must the operator do") and clipped.endswith(document[-100:])
+    assert clip_question("short question") == "short question"

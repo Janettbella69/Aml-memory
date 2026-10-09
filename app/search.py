@@ -67,12 +67,17 @@ RRF_K = 60
 
 
 def word_terms(query: str, options: list[str] | None) -> list[str]:
+    """Distinct query terms in first-seen order. Linear in the query length: a question may carry a whole reference
+    document (the organisers' CL-bench prompt says "The question includes a reference document"), i.e. tens of
+    thousands of words."""
     terms: list[str] = []
+    seen: set[str] = set()
     for text in (query, *(options or ())):
         for raw in WORD_RE.findall(text.lower()):
             tok = raw.strip("_")
-            if len(tok) < 2 or tok in STOPWORDS or CJK_CHAR.search(tok) or tok in terms:
+            if len(tok) < 2 or tok in seen or tok in STOPWORDS or CJK_CHAR.search(tok):
                 continue
+            seen.add(tok)
             terms.append(tok)
     return terms
 

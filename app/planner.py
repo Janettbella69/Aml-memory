@@ -56,6 +56,19 @@ class Plan:
         return True
 
 
+MAX_QUESTION_CHARS = 6000
+
+
+def clip_question(text: str, limit: int = MAX_QUESTION_CHARS) -> str:
+    """The opening and the closing of an over-long question. A question that carries a reference document can run to
+    tens of thousands of tokens; the task itself is stated at one of its ends, and sending all of it to a helper
+    model would cost seconds and cents on every Search (and time out)."""
+    if len(text) <= limit:
+        return text
+    half = limit // 2
+    return text[:half] + "\n[...]\n" + text[-half:]
+
+
 class Planner(Protocol):
     def plan(self, query: str, options: list[str] | None, snippets: list[str]) -> Optional[Plan]: ...
 
@@ -95,7 +108,7 @@ class OpenAIPlanner:
 
     def plan(self, query: str, options: list[str] | None, snippets: list[str]) -> Optional[Plan]:
         shown = "\n".join(f"- {s[:self.max_snippet_chars]}" for s in snippets) or "- (no results)"
-        question = query + ("\nOptions:\n" + "\n".join(options) if options else "")
+        question = clip_question(query + ("\nOptions:\n" + "\n".join(options) if options else ""))
         body = {
             "model": self.model, "temperature": 0, "max_tokens": 200,
             "response_format": {"type": "json_object"},

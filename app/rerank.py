@@ -77,7 +77,8 @@ class HttpReranker:
     def scores(self, query: str, documents: list[str]) -> Optional[list[float]]:
         if not documents:
             return None
-        body = self.build(self.model, query[:self.query_chars], [d[:self.doc_chars] for d in documents])
+        q = query if len(query) <= self.query_chars else query[:self.query_chars // 2] + "\n[...]\n" + query[-self.query_chars // 2:]
+        body = self.build(self.model, q, [d[:self.doc_chars] for d in documents])
         req = urllib.request.Request(self.endpoint, data=json.dumps(body).encode("utf-8"),
                                      headers={"Content-Type": "application/json", "Accept": "application/json",
                                               "Authorization": f"Bearer {self.api_key}"}, method="POST")

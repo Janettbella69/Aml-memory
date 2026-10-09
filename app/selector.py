@@ -21,6 +21,8 @@ import urllib.request
 from dataclasses import dataclass, field
 from typing import Optional, Protocol
 
+from .planner import clip_question
+
 log = logging.getLogger("aml_memory.selector")
 
 KINDS = ("fact", "task", "other")
@@ -82,7 +84,7 @@ class OpenAISelector:
         if not blocks:
             return None
         shown = "\n\n".join(f"[block {i}]\n{b[:self.block_chars]}" for i, b in enumerate(blocks, 1))
-        question = query + ("\nOptions:\n" + "\n".join(options) if options else "")
+        question = clip_question(query + ("\nOptions:\n" + "\n".join(options) if options else ""))
         body = {
             "model": self.model, "temperature": 0, "max_tokens": 120,
             "response_format": {"type": "json_object"},

@@ -127,6 +127,7 @@ def create_app(settings: Settings | None = None, store: MemoryStore | None = Non
     for path in ("/v1/memories/add", "/add"):
         app.add_api_route(path, add_memory, methods=["POST"], response_model=AddResponse)
     for path in ("/v1/memories/search", "/search"):
-        app.add_api_route(path, search_memory, methods=["POST"], response_model=SearchResponse)
+        # unknown optional fields are left out, never sent as null (the platform validates every returned item)
+        app.add_api_route(path, search_memory, methods=["POST"], response_model=SearchResponse, response_model_exclude_none=True)
     return app
 

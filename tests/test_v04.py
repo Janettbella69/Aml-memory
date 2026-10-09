@@ -78,3 +78,16 @@ def test_options_already_in_the_question_are_not_appended_again():
     assert dedupe_options(q, ["(B) He was angry.", "D. He left early."]) == ["D. He left early."]
     assert dedupe_options("plain question", ["A. x", "B. y"]) == ["A. x", "B. y"]
     assert dedupe_options("plain question", None) is None
+
+
+def test_split_question_pulls_embedded_options_and_drops_the_format_sentence():
+    from app.search import split_question
+    q = ("What misunderstanding does Ethan make while eavesdropping?\n\nA. He believes Nora is a writer.\nB. He mistakes Paolo for Rigatoni.\n"
+         "C. Cannot infer the answer based on the given information.\n\nPlease provide the option corresponding to the only correct answer, enclosed in parentheses, e.g., (X).")
+    stem, opts = split_question(q)
+    assert stem == "What misunderstanding does Ethan make while eavesdropping?"
+    assert opts == ["A. He believes Nora is a writer.", "B. He mistakes Paolo for Rigatoni.", "C. Cannot infer the answer based on the given information."]
+    assert split_question("When did Caroline go to the support group?") == ("When did Caroline go to the support group?", [])
+    assert split_question("A. only one lettered line\nmore text") == ("A. only one lettered line\nmore text", [])
+    assert split_question("Plan:\nB. starts at B\nC. then C")[1] == []
+    assert split_question("Pick one\n(A) red\n(B) blue")[1] == ["(A) red", "(B) blue"]

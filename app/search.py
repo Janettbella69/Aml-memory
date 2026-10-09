@@ -37,16 +37,18 @@ from .rerank import Reranker
 from .selector import Selection, Selector
 from .store import EPOCH, Chunk, MemoryStore, cjk_only, render
 
-def event_time(chunk: Chunk) -> str:
-    """`created_at` of a result = the hit turn's own timestamp (ISO 8601 UTC) when the adapter sent one, else the storage time.
+def event_time(chunk: Chunk) -> Optional[str]:
+    """`created_at` of a result = the hit turn's own timestamp (ISO 8601 UTC) when the adapter sent one, else nothing.
     The organisers' pipelines render each selected memory as "- [created_at] text", so this is "the memory timestamp" the
-    answer prompt tells the reader to use for relative-time conversion (seen 2026-10-09 in data/clbench/pipeline.py)."""
+    answer prompt tells the reader to use for relative-time conversion (seen 2026-10-09 in data/clbench/pipeline.py).
+    A memory that came without a timestamp (three of ScriptMem's four scripts) gets no `created_at` at all: the field is
+    optional, and the day we happened to store it would read as the day the line was spoken."""
     if chunk.event_ms is not None:
         try:
             return (EPOCH + timedelta(milliseconds=chunk.event_ms)).strftime("%Y-%m-%dT%H:%M:%SZ")
         except (OverflowError, OSError, ValueError):
             pass
-    return chunk.stored_at
+    return None
 
 
 WORD_RE = re.compile(r"\w+", re.UNICODE)
@@ -143,6 +145,30 @@ def dedupe_options(query: str, options: list[str] | None) -> list[str] | None:
     return kept or None
 
 
+OPTION_LINE = re.compile(r"^\s*\(?([A-H])[\.\):：]\s+(\S.*)$")
+
+
+def split_question(query: str) -> tuple[str, list[str]]:
+    """(stem, lettered options) when the question text itself carries the option list — ScriptMem's questions read
+    "stem, blank line, A. … to F. …, blank line, 'Please provide the option … enclosed in parentheses, e.g., (X).'" and
+    83 % of their words are option text (public release, 2026-10-09). The answer-format sentence after the list never
+    describes the memory, so it is dropped from retrieval. Anything else comes back unchanged with no options."""
+    lines = query.split("\n")
+    first = next((i for i, ln in enumerate(lines) if (m := OPTION_LINE.match(ln)) and m.group(1) == "A"), None)
+    if first is None:
+        return query, []
+    found: list[str] = []
+    for ln in lines[first:]:
+        m = OPTION_LINE.match(ln)
+        if not m or ord(m.group(1)) != ord("A") + len(found):
+            break
+        found.append(ln.strip())
+    stem = "\n".join(lines[:first]).strip()
+    if len(found) < 2 or not stem:
+        return query, []
+    return stem, found
+
+
 def retrieval_text(query: str, options: list[str] | None, settings: Settings) -> str:
     """What the dense channel embeds: the question, plus the options when OPTIONS_MODE=append."""
     if options and settings.options_mode == "append":
@@ -156,6 +182,10 @@ def search(store: MemoryStore, settings: Settings, query: str, options: list[str
            selector: Optional[Selector] = None, reranker: Optional[Reranker] = None) -> list[MemoryResult]:
     """Gated SQLite passes around the network calls (query embedding, planner, reranker, selector); network time never holds the gate."""
     meta: dict[str, Any] = {}
+    stem, embedded = split_question(query)
+    if embedded:                                  # options written into the question: retrieve with the stem + options
+        query = stem
+        options = embedded + [o for o in (dedupe_options("\n".join(embedded), options) or [])]
     options = dedupe_options(query, options)
     results = _retrieve(store, settings, query, options, user_id, top_k, planner, gate, embedder, meta)
     if reranker is not None and len(results) >= settings.rerank_min_results:

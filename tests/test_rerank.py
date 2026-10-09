@@ -175,5 +175,7 @@ def test_created_at_is_the_event_time_when_known():
     stamped = [r for r in data if "without a timestamp" not in r["content"]]
     assert stamped and all(r["created_at"].endswith("Z") and r["created_at"].startswith(datetime.fromtimestamp(T0 / 1000, tz=timezone.utc).strftime("%Y-%m-%d")[:4]) for r in stamped)
     assert stamped[0]["created_at"] == datetime.fromtimestamp((T0 + int(stamped[0]["content"].split("number ")[1].split(",")[0]) * DAY) / 1000, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    unstamped = [r for r in data if "without a timestamp" in r["content"]]
-    assert unstamped and not unstamped[0]["created_at"].endswith("Z") or unstamped == []
+    c.post("/v1/memories/add", json={"request_id": "x:chunk-0", "user_id": "bare", "session_id": "s",
+                                     "messages": [{"role": "user", "content": "Juror 8: a line that came without any timestamp."}]})
+    bare = c.post("/v1/memories/search", json={"query": "line without timestamp", "user_id": "bare", "top_k": 5}).json()["data"]
+    assert bare and "created_at" not in bare[0] and bare[0]["id"] and bare[0]["score"] is not None   # omitted, not null, never the storage day

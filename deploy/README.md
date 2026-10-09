@@ -26,6 +26,10 @@ server `.env`: `EMBED_MODEL=text-embedding-v4`, `EMBED_DIMS=256`, `DASHSCOPE_API
 `EMBED_RPS=14` (published key limits: 1,000 req/min on one Alibaba page, 1,800 on another; 14/s ≈ 840/min is safe under both), `VECTOR_CACHE_USERS=16` (the box has 1.6 GB; a cached user costs
 turns × dims × 4 bytes per worker). Then `bash deploy/deploy.sh`; the log must show `dense channel enabled: text-embedding-v4 (256 dims)`.
 
+## v0.7 reranker — one-time
+Add to the server `.env` (the Model Studio key is already there): `RERANK_PROVIDER=dashscope`, `RERANK_MODEL=qwen3-rerank`,
+`RERANK_MODE=replace`, `RERANK_CANDIDATES=40`. Then `bash deploy/deploy.sh`; the log must show `reranker enabled: dashscope/qwen3-rerank`.
+
 ## Every deploy
 ```bash
 bash deploy/deploy.sh          # build, start, wait for health, run the smoke test with the real key

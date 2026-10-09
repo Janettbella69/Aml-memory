@@ -5,6 +5,17 @@
 Target: a public HTTPS endpoint `https://memory.<domain>` on the existing 腾讯云 VPS, next to AZORA.
 Everything below is idempotent; re-run `deploy/deploy.sh` after every `git pull`.
 
+## Other sites on the same box
+The Caddy container owns ports 80/443, so any other app on this box is published through it. Put a
+complete site block into `deploy/sites/<name>.caddy` on the server and reload:
+`docker exec deploy-caddy-1 caddy reload --config /etc/caddy/Caddyfile --adapter caddyfile`.
+The directory is git-ignored and is not part of `git archive`, so updating this stack leaves it alone.
+A site file that does not parse stops Caddy from starting, and with it this service's endpoint: check
+it first with `docker exec deploy-caddy-1 caddy adapt --config /etc/caddy/Caddyfile --adapter caddyfile`.
+`down -v` drops Caddy's certificates for those sites too; they are issued again on the next start.
+TradeMind (`trademind.store`) has been served this way since 2026-10-09; its runbook is
+`/opt/trademind/deploy/README.md` on the box.
+
 ## One-time
 1. DNS: `A` record `memory.<domain>` → VPS public IP. Wait until `dig +short memory.<domain>` answers.
 2. Firewall / security group: allow TCP 80 and 443 (Caddy needs 80 for the certificate challenge).

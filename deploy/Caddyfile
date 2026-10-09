@@ -19,3 +19,8 @@
         format json
     }
 }
+
+# Other sites that share this box's ports 80/443 (optional). Each deploy/sites/*.caddy file is
+# a complete site block for an unrelated app. The directory is git-ignored and empty on a
+# memory-only box, where this line matches nothing.
+import sites/*.caddy

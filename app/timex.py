@@ -8,7 +8,9 @@ tables and the Chinese patterns here are our own, and we apply them at render ti
 
 Everything is derived from the turn's own timestamp, so no information is added that the conversation did not
 contain. Granularity follows the phrase: days -> YYYY-MM-DD, weeks -> "week of <Monday>", months -> YYYY-MM,
-years -> YYYY. Nothing here reads the query, so it can never encode an answer.
+years -> YYYY. Same-period phrases (today, this week, 今天, 本月 ...) are deliberately NOT annotated: the stamp in
+front of the turn already carries that date, and the extra note was pure clutter in the 10-08 judge runs.
+Nothing here reads the query, so it can never encode an answer.
 """
 from __future__ import annotations
 
@@ -70,15 +72,11 @@ EN_FIXED: list[tuple[str, Resolver]] = [
     (r"the day after tomorrow", _by_unit("day", 2)),
     (r"last night|yesterday", _by_unit("day", -1)),
     (r"tomorrow", _by_unit("day", 1)),
-    (r"today|tonight|this morning|this afternoon|this evening", _by_unit("day", 0)),
     (r"last week", _by_unit("week", -1)),
-    (r"this week", _by_unit("week", 0)),
     (r"next week", _by_unit("week", 1)),
     (r"last month", _by_unit("month", -1)),
-    (r"this month", _by_unit("month", 0)),
     (r"next month", _by_unit("month", 1)),
     (r"last year", _by_unit("year", -1)),
-    (r"this year", _by_unit("year", 0)),
     (r"next year", _by_unit("year", 1)),
 ]
 EN_AGO = re.compile(r"\b" + _EN_N + r"\s+" + _EN_U + r"\s+ago\b", re.IGNORECASE)
@@ -93,23 +91,19 @@ ZH_FIXED: list[tuple[str, Resolver]] = [
     (r"大前天", _by_unit("day", -3)),
     (r"前天", _by_unit("day", -2)),
     (r"昨天|昨晚|昨日", _by_unit("day", -1)),
-    (r"今天|今晚|今日", _by_unit("day", 0)),
     (r"明天|明日", _by_unit("day", 1)),
     (r"大后天", _by_unit("day", 3)),
     (r"后天", _by_unit("day", 2)),
     (r"上上周|上上个星期|上上星期", _by_unit("week", -2)),
     (r"上周|上星期|上个星期|上礼拜|上个礼拜", _by_unit("week", -1)),
-    (r"这周|本周|这个星期|这星期|这礼拜|本星期", _by_unit("week", 0)),
     (r"下下周|下下个星期", _by_unit("week", 2)),
     (r"下周|下星期|下个星期|下礼拜|下个礼拜", _by_unit("week", 1)),
     (r"上上个月", _by_unit("month", -2)),
     (r"上个月|上月", _by_unit("month", -1)),
-    (r"这个月|本月|这月", _by_unit("month", 0)),
     (r"下下个月", _by_unit("month", 2)),
     (r"下个月|下月", _by_unit("month", 1)),
     (r"前年", _by_unit("year", -2)),
     (r"去年", _by_unit("year", -1)),
-    (r"今年", _by_unit("year", 0)),
     (r"明年", _by_unit("year", 1)),
     (r"后年", _by_unit("year", 2)),
 ]

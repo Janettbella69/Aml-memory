@@ -39,8 +39,9 @@ def test_chinese_numerals():
 def test_limits_and_absence():
     assert relative_time_notes("yesterday", None) == []
     assert relative_time_notes("", BASE) == []
-    many = "yesterday, today, tomorrow, last week, next week, last year"
+    many = "yesterday, tomorrow, last week, next week, last year"
     assert len(relative_time_notes(many, BASE)) == 4          # capped
+    assert relative_time_notes("today, tonight, this week, this month, this year, 今天, 本周, 今年", BASE) == []   # stamp already says so
     assert relative_time_notes("Yesterday and YESTERDAY again", BASE) == ["Yesterday = 2025-04-26"]   # de-duplicated
     assert notes_suffix("no time words here", BASE) == ""
     assert notes_suffix("昨天到的", BASE) == " (dates: 昨天 = 2025-04-26)"

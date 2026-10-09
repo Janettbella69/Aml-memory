@@ -27,7 +27,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from evalset.samples import by_name  # noqa: E402
 from evalset.schema import CAPABILITIES  # noqa: E402
 
-MODEL = "gpt-4o-mini"
+MODEL = os.environ.get("JUDGE_MODEL", "gpt-4o-mini")   # e.g. JUDGE_MODEL=openai/gpt-4o-mini on OpenRouter
 PRICE_IN, PRICE_OUT = 0.15 / 1e6, 0.60 / 1e6   # USD per token, gpt-4o-mini list price
 
 ANSWER_SYSTEM = (

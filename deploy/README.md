@@ -19,6 +19,13 @@ Everything below is idempotent; re-run `deploy/deploy.sh` after every `git pull`
    - `DATA_DIR=/data` (default; one SQLite file per user_id under `/data/users/`)
    - `UVICORN_WORKERS=` number of CPU cores (`nproc`); keep `SEARCH_PARALLELISM=1`, `WRITE_PARALLELISM=2`
 
+## v0.5 upgrade (dense channel) — one-time
+The schema changed (SCHEMA_VERSION 6: `vec` column + `meta`), so existing user files are refused: wipe the volume
+(`docker compose -f deploy/docker-compose.prod.yml --env-file .env down -v`) before starting the new image. Add to the
+server `.env`: `EMBED_MODEL=text-embedding-v4`, `EMBED_DIMS=256`, `DASHSCOPE_API_KEY=…`, `DASHSCOPE_BASE_URL=…`,
+`EMBED_RPS=25` (key limit 1,800 req/min), `VECTOR_CACHE_USERS=16` (the box has 1.6 GB; a cached user costs
+turns × dims × 4 bytes per worker). Then `bash deploy/deploy.sh`; the log must show `dense channel enabled: text-embedding-v4 (256 dims)`.
+
 ## Every deploy
 ```bash
 bash deploy/deploy.sh          # build, start, wait for health, run the smoke test with the real key

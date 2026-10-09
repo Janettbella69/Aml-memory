@@ -24,7 +24,7 @@ retrieval per OPTIONS_MODE (append | none | channel with OPTIONS_WEIGHT).
 from __future__ import annotations
 
 import re
-from datetime import datetime, timezone
+from datetime import timedelta
 
 from contextlib import nullcontext
 from typing import Any, ContextManager, Optional
@@ -35,7 +35,7 @@ from .embed import Embedder
 from .planner import Plan, Planner
 from .rerank import Reranker
 from .selector import Selection, Selector
-from .store import Chunk, MemoryStore, cjk_only, render
+from .store import EPOCH, Chunk, MemoryStore, cjk_only, render
 
 def event_time(chunk: Chunk) -> str:
     """`created_at` of a result = the hit turn's own timestamp (ISO 8601 UTC) when the adapter sent one, else the storage time.
@@ -43,7 +43,7 @@ def event_time(chunk: Chunk) -> str:
     answer prompt tells the reader to use for relative-time conversion (seen 2026-10-09 in data/clbench/pipeline.py)."""
     if chunk.event_ms is not None:
         try:
-            return datetime.fromtimestamp(chunk.event_ms / 1000, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+            return (EPOCH + timedelta(milliseconds=chunk.event_ms)).strftime("%Y-%m-%dT%H:%M:%SZ")
         except (OverflowError, OSError, ValueError):
             pass
     return chunk.stored_at
@@ -176,7 +176,9 @@ def _retrieve(store: MemoryStore, settings: Settings, query: str, options: list[
               embedder: Optional[Embedder], meta: dict[str, Any]) -> list[MemoryResult]:
     gate = gate or nullcontext()
     qvec: Any = None
-    if embedder is not None:
+    if not query.strip() and not options:
+        planner = None                                   # nothing to plan or embed: the newest-turns fallback answers
+    elif embedder is not None:
         qvec = embedder.embed_one(retrieval_text(query, options, settings))   # None on failure -> lexical only
     with gate, store.connect(user_id, create=False) as conn:   # one connection per Search; None = unknown user
         if conn is None:

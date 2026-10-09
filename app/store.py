@@ -51,6 +51,7 @@ RULE_RE_CJK = re.compile(
 )
 CHUNK_ORDINAL_RE = re.compile(r"(?:chunk|part|seg|msg)[-_:](\d+)", re.IGNORECASE)
 CJK_RE = re.compile(r"[぀-ヿ㐀-䶿一-鿿가-힯]")
+EPOCH = datetime(1970, 1, 1, tzinfo=timezone.utc)   # epoch + timedelta renders pre-1970 stamps on every platform
 POS_STRIDE = 1000  # positions inside one Add chunk: ordinal * POS_STRIDE + message index
 
 
@@ -87,7 +88,7 @@ def render(chunk: Chunk, time_notes: bool = True) -> str:
     stamp = ""
     if chunk.event_ms is not None:
         try:
-            stamp = "[" + datetime.fromtimestamp(chunk.event_ms / 1000, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC") + "] "
+            stamp = "[" + (EPOCH + timedelta(milliseconds=chunk.event_ms)).strftime("%Y-%m-%d %H:%M UTC") + "] "
         except (OverflowError, OSError, ValueError):
             stamp = ""
     text = f"{stamp}{chunk.role.upper()}: {chunk.content}"

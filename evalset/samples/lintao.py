@@ -152,6 +152,8 @@ QUESTIONS = (
     Q("lt-co-04", "composition/multi_hop", "What does the brother of the nurse who moved to Hangzhou do for a living?", ["wei-info", "lin-offer"], mode="all", answer="works at a drone company in Shenzhen (Wei, Lin's brother)"),
     Q("lt-co-05", "composition/multi_hop", "How much did the person who owns Biscuit earn from the Chengdu contract?", ["biscuit-dog", "side-job"], mode="all", answer="15,000 yuan (Tao)"),
     Q("lt-sa-01", "safety/abstention", "What is the name of Wei's girlfriend?", [], answer="(never mentioned)"),
+    # v0.4 addition (2026-10-08): multiple-choice variant with in-conversation distractors
+    Q("lt-fr-05", "fact_recall/single_fact", "What is the name of the game Tao is making?", ["game-name"], options=["A. Paper Tides", "B. Siguniang", "C. Biscuit Run", "D. Hangzhou Nights"], answer="A"),
 )
 
 SAMPLE = Sample(name="lintao", style="dialogue", speakers=("Lin", "Tao"), sessions=SESSIONS, questions=QUESTIONS,

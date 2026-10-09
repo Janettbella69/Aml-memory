@@ -3,13 +3,15 @@
 Our own writing, fictional people and companies. It is **not** leaderboard data and must never be
 replaced by leaderboard data (rule: evaluation data may not be analysed or trained on).
 
+Set v2 (2026-10-08): 84 questions; v1 (2026-10-07) had 76. Added: relative-time questions (EN `mia-te-05`, ZH `zh-te-02/03`) and multiple-choice variants whose distractors appear elsewhere in the same conversation (`mia-fr-05/06`, `mia-go-05`, `lt-fr-05`, `dv-fr-03`).
+
 | sample | style | sessions | turns | questions | what it stresses |
 |---|---|---|---|---|---|
-| `mia` | user ↔ assistant, timestamps | 10 (Mar–Sep 2025) | 96 | 25 | rules, contract values that change, pet costs across sessions, stance change, deletion |
-| `lintao` | two friends, `Name:`-prefixed turns mapped to user/assistant | 11 (Feb–Oct 2025) | 100 | 19 | speaker attribution, a launch date that moves three times, multi-hop, career timeline |
-| `devops` | developer ↔ coding assistant | 8 (May–Sep 2025) | 60 | 15 | standing rules, workflow edits, a rule replaced by another, empirical numbers |
+| `mia` | user ↔ assistant, timestamps | 10 (Mar–Sep 2025) | 96 | 29 | rules, contract values that change, pet costs across sessions, stance change, deletion |
+| `lintao` | two friends, `Name:`-prefixed turns mapped to user/assistant | 11 (Feb–Oct 2025) | 100 | 20 | speaker attribution, a launch date that moves three times, multi-hop, career timeline |
+| `devops` | developer ↔ coding assistant | 8 (May–Sep 2025) | 60 | 16 | standing rules, workflow edits, a rule replaced by another, empirical numbers |
 | `nostamp` | user ↔ assistant, **no timestamps** | 3 | 20 | 6 | ordering by Add ordinal only, dates inside the text |
-| `xiaoyu` | Chinese, user ↔ assistant | 3 | 16 | 6 | the CJK trigram index and Chinese rule tagging |
+| `xiaoyu` | Chinese, user ↔ assistant | 3 | 18 | 8 | the CJK trigram index and Chinese rule tagging |
 
 Capabilities follow the leaderboard's seven groups: fact_recall, composition, temporal, governance,
 personalization, execution, safety. Each question carries `evidence` (message keys that must be

@@ -69,7 +69,9 @@ def main() -> None:
     ap.add_argument("--top-k", type=int, default=100)
     ap.add_argument("--label", default="dev")
     ap.add_argument("--max-context-chars", type=int, default=400_000)
+    ap.add_argument("--qids", help="comma-separated question ids or id prefixes to run (default: all)")
     args = ap.parse_args()
+    qid_filter = tuple(x.strip() for x in args.qids.split(",") if x.strip()) if args.qids else ()
     key = os.environ.get("OPENAI_API_KEY")
     if not key:
         sys.exit("OPENAI_API_KEY is not set")
@@ -93,6 +95,8 @@ def main() -> None:
         for payload in sample.add_payloads(run="judge"):
             assert client.post("/v1/memories/add", json=payload).status_code == 200
         questions = sample.questions[: args.limit] if args.limit else sample.questions
+        if qid_filter:
+            questions = [q for q in questions if any(q.qid == f or q.qid.startswith(f) for f in qid_filter)]
         for q in questions:
             body = {"query": q.query, "user_id": sample.user_id, "top_k": args.top_k}
             if q.options:

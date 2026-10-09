@@ -32,6 +32,8 @@ from typing import Callable
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from evalset.samples import by_name  # noqa: E402
+
+QID_FILTER: tuple[str, ...] = ()   # --qids
 from evalset.schema import CAPABILITIES, Sample  # noqa: E402
 
 KS = (1, 5, 10, 20)
@@ -86,6 +88,8 @@ def evaluate_sample(call: Callable[[str, dict], dict], sample: Sample, top_k: in
     all_texts = [norm(t) for t in sample.all_texts()]
     rows: list[dict] = []
     for q in sample.questions:
+        if QID_FILTER and not any(q.qid == f or q.qid.startswith(f) for f in QID_FILTER):
+            continue
         body = {"query": q.query, "user_id": sample.user_id, "top_k": top_k}
         if q.options:
             body["options"] = list(q.options)
@@ -175,7 +179,10 @@ def main() -> None:
     ap.add_argument("--json", help="write per-question rows + summary to this path (default evalset/results/<label>-<ts>.json)")
     ap.add_argument("--no-json", action="store_true")
     ap.add_argument("--verbose", "-v", action="store_true", help="print every question that missed hit@10 or failed order_ok")
+    ap.add_argument("--qids", help="comma-separated question ids or id prefixes to run (default: all)")
     args = ap.parse_args()
+    global QID_FILTER
+    QID_FILTER = tuple(x.strip() for x in args.qids.split(",") if x.strip()) if args.qids else ()
 
     samples = by_name(args.samples.split(",") if args.samples else None)
     run = "local" + datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")   # fresh request_ids/user_ids per run

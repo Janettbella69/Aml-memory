@@ -99,6 +99,8 @@ QUESTIONS = (
     Q("dv-pe-01", "personalization/preference_recall", "How does Sam want code reviews structured?", ["pref-review"], answer="blocker first, nits last and labelled"),
     Q("dv-co-02", "composition/multi_hop", "Which payment provider did the engineer who joined in August integrate?", ["priya", "stripe-live"], mode="all", answer="Stripe (Priya)"),
     Q("dv-sa-01", "safety/abstention", "What is Ledgerly's monthly revenue?", [], answer="(never mentioned)"),
+    # v0.4 addition (2026-10-08): multiple-choice variant with an in-conversation distractor
+    Q("dv-fr-03", "fact_recall/single_fact", "Who owns the payments integration at Ledgerly?", ["priya"], options=["A. Sam", "B. Priya", "C. Ravi", "D. Meera"], answer="B"),
 )
 
 SAMPLE = Sample(name="devops", style="assistant", sessions=SESSIONS, questions=QUESTIONS,

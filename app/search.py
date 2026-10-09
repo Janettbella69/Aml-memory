@@ -12,6 +12,8 @@ Pipeline (v0.2):
                    a hit already visible inside an earlier span is skipped
   6. fallback   : nothing matched -> the newest FALLBACK_RESULTS turns
   7. budget     : stop at top_k results or MAX_RESPONSE_CHARS characters
+v0.4: turns are rendered with resolved relative-time notes (app/timex.py, TIME_NOTES) and answer options enter
+retrieval per OPTIONS_MODE (append | none | channel with OPTIONS_WEIGHT).
 """
 from __future__ import annotations
 
@@ -72,17 +74,18 @@ def fts_expression(terms: list[str], prefixes: bool = True) -> str:
     return " OR ".join(parts)
 
 
-def fuse(primary: list[tuple[Chunk, float]], secondary: list[tuple[Chunk, float]]) -> list[tuple[Chunk, float]]:
-    """Reciprocal rank fusion; a no-op when only one list has hits."""
+def fuse(primary: list[tuple[Chunk, float]], secondary: list[tuple[Chunk, float]],
+         weight: float = 1.0) -> list[tuple[Chunk, float]]:
+    """Reciprocal rank fusion (the secondary list's contributions scaled by `weight`); a no-op when only one list has hits."""
     if not secondary:
         return primary
     if not primary:
         return secondary
     score: dict[str, float] = {}
     seen: dict[str, Chunk] = {}
-    for ranked in (primary, secondary):
+    for ranked, w in ((primary, 1.0), (secondary, weight)):
         for position, (chunk, _) in enumerate(ranked, start=1):
-            score[chunk.id] = score.get(chunk.id, 0.0) + 1.0 / (RRF_K + position)
+            score[chunk.id] = score.get(chunk.id, 0.0) + w / (RRF_K + position)
             seen[chunk.id] = chunk
     return sorted(((seen[i], s) for i, s in score.items()), key=lambda pair: -pair[1])
 
@@ -111,7 +114,7 @@ def search(store: MemoryStore, settings: Settings, query: str, options: list[str
         hits = _first_pass(store, conn, settings, query, options, user_id, top_k)
         if planner is None:
             return _assemble(store, conn, settings, query, options, user_id, top_k, hits)
-        snippets = [render(c)[:400] for c, _ in hits[:settings.planner_snippets]]
+        snippets = [render(c, settings.time_notes)[:400] for c, _ in hits[:settings.planner_snippets]]
     plan = planner.plan(query, options, snippets)          # outside the gate
     with gate, store.connect(user_id, create=False) as conn:
         if conn is None:
@@ -126,9 +129,19 @@ def search(store: MemoryStore, settings: Settings, query: str, options: list[str
 def _first_pass(store: MemoryStore, conn, settings: Settings, query: str, options: list[str] | None,
                 user_id: str, top_k: int) -> list[tuple[Chunk, float]]:
     pool = top_k * 2
-    by_words = store.fts_search(user_id, fts_expression(word_terms(query, options)), pool, conn)
-    by_trigrams = store.trigram_search(user_id, fts_expression(cjk_terms(query, options), prefixes=False), pool, conn)
-    return newest_first_within_band(fuse(by_words, by_trigrams), settings.recency_band)
+    opts = options if settings.options_mode == "append" else None
+    by_words = store.fts_search(user_id, fts_expression(word_terms(query, opts)), pool, conn)
+    by_trigrams = store.trigram_search(user_id, fts_expression(cjk_terms(query, opts), prefixes=False), pool, conn)
+    hits = fuse(by_words, by_trigrams)
+    if settings.options_mode == "channel" and options:
+        # v0.4: the options as their own channel (idea: Hybrid Episodic Memory, Cycle-1 #6), so the question's terms
+        # keep the lead and a distractor option alone cannot outrank evidence for the question itself
+        o_words = word_terms("", options)
+        o_grams = cjk_terms("", options)
+        by_opts = fuse(store.fts_search(user_id, fts_expression(o_words), pool, conn) if o_words else [],
+                       store.trigram_search(user_id, fts_expression(o_grams, prefixes=False), pool, conn) if o_grams else [])
+        hits = fuse(hits, by_opts, weight=settings.options_weight)
+    return newest_first_within_band(hits, settings.recency_band)
 
 
 def _expand(store: MemoryStore, conn, settings: Settings, user_id: str, top_k: int, query: str,
@@ -140,7 +153,8 @@ def _expand(store: MemoryStore, conn, settings: Settings, user_id: str, top_k: i
     rng = (plan.date_from_ms, plan.date_to_ms) if plan.has_dates else None
     queries: list[tuple[str, list[str] | None]] = [(extra, None) for extra in plan.queries]
     if rng is not None:
-        queries = [(query, options)] + queries   # the original question, restricted to the period
+        opts = options if settings.options_mode == "append" else None
+        queries = [(query, opts)] + queries   # the original question, restricted to the period
     for text, opts in queries:
         words = fts_expression(word_terms(text, opts))
         grams = fts_expression(cjk_terms(text, opts), prefixes=False)
@@ -197,7 +211,7 @@ def _assemble(store: MemoryStore, conn, settings: Settings, query: str, options:
             continue
         turns = store.span(chunk, settings.context_window, conn) if s > 0 or chunk.standing else [chunk]
         visible.update(t.pos for t in turns)
-        text = "\n".join(render(t) for t in turns)
+        text = "\n".join(render(t, settings.time_notes) for t in turns)
         used += len(text)
         results.append(MemoryResult(id=chunk.id, content=text, created_at=chunk.stored_at,
                                     score=round(min(s / top_score, 1.0), 4) if top_score else None))

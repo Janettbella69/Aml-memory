@@ -24,6 +24,8 @@ SESSIONS = (
     session("2025-07-03 20:15", [
         ("user", "柏林展会回来了，签了一个波兰的分销商，首批订单 2000 台。", "zh-order"),
         ("assistant", "恭喜！首批 2000 台是个很好的开始。"),
+        ("user", "前天刚把样品寄给他们，定金是三周前付的。", "zh-sample-ship"),
+        ("assistant", "好的，记下了：样品前天寄出，定金三周前已付。"),
         ("user", "以后别再推荐猫砂类产品了，我们决定只做狗用品。", "zh-rule-dog-only"),
         ("assistant", "明白，以后只讨论狗用品，不再推荐猫砂类产品。"),
     ]),
@@ -36,6 +38,9 @@ QUESTIONS = (
     Q("zh-ex-01", "execution/rule_application", "给小雨写一段新品文案时要遵守什么规则？", ["zh-rule-chinese"], answer="全部用简体中文，不夹英文缩写"),
     Q("zh-te-01", "temporal/dates_intervals", "柏林宠物用品展是什么时候？", ["zh-expo"], answer="2025 年 6 月 18 日到 20 日"),
     Q("zh-pe-01", "personalization/preference_recall", "小雨的店以后还做猫用品吗？", ["zh-rule-dog-only"], answer="不做，只做狗用品"),
+    # v0.4 additions (2026-10-08): relative-time resolution in Chinese
+    Q("zh-te-02", "temporal/dates_intervals", "小雨是哪一天把样品寄给波兰分销商的？", ["zh-sample-ship"], answer="2025 年 7 月 1 日（7 月 3 日的前天）"),
+    Q("zh-te-03", "temporal/dates_intervals", "波兰分销商的定金大约是什么时候付的？", ["zh-sample-ship"], answer="2025 年 6 月中旬，约 6 月 12 日（7 月 3 日的三周前）"),
 )
 
 SAMPLE = Sample(name="xiaoyu", style="assistant", sessions=SESSIONS, questions=QUESTIONS,

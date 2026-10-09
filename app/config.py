@@ -9,6 +9,11 @@ T = TypeVar("T", int, float)
 PLACEHOLDER_PREFIX = "change-me"
 
 
+
+def _choice(name: str, default: str, allowed: tuple[str, ...]) -> str:
+    raw = os.environ.get(name, "").strip().lower()
+    return raw if raw in allowed else default
+
 def _bounded(name: str, parse: Callable[[str], T], default: T, lo: T, hi: T) -> T:
     raw = os.environ.get(name)
     if raw is None or raw.strip() == "":
@@ -43,6 +48,9 @@ class Settings:
     planner_max_queries: int = 3
     planner_timeout: float = 20.0
     planner_snippets: int = 8          # first-pass results shown to the planner
+    time_notes: bool = True            # v0.4: render "(dates: yesterday = 2025-04-26)" after turns with relative-time phrases
+    options_mode: str = "append"       # v0.4: how answer options enter retrieval: append (query+options), none, channel (own RRF channel)
+    options_weight: float = 0.6        # v0.4: RRF weight of the options channel when options_mode=channel
     log_level: str = "INFO"
 
     @classmethod
@@ -70,5 +78,8 @@ class Settings:
             planner_max_queries=_bounded("PLANNER_MAX_QUERIES", int, 3, 1, 6),
             planner_timeout=_bounded("PLANNER_TIMEOUT", float, 20.0, 1.0, 120.0),
             planner_snippets=_bounded("PLANNER_SNIPPETS", int, 8, 0, 30),
+            time_notes=os.environ.get("TIME_NOTES", "1").strip().lower() not in ("0", "false", "no", "off", ""),
+            options_mode=_choice("OPTIONS_MODE", "append", ("append", "none", "channel")),
+            options_weight=_bounded("OPTIONS_WEIGHT", float, 0.6, 0.0, 2.0),
             log_level=os.environ.get("LOG_LEVEL", "INFO").strip().upper() or "INFO",
         )

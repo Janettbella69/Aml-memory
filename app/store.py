@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Iterator, Optional
 
 from .models import AddRequest
+from .timex import notes_suffix
 
 SCHEMA_VERSION = 5  # bump whenever the table layout or FTS tokenizer changes; old files are refused, not migrated
 
@@ -78,14 +79,18 @@ def cjk_only(text: str) -> str:
     return "".join(CJK_RE.findall(text))
 
 
-def render(chunk: Chunk) -> str:
+def render(chunk: Chunk, time_notes: bool = True) -> str:
+    """`[stamp] ROLE: text` plus, when the turn has a timestamp and relative-time phrases, a resolved-dates note (v0.4)."""
     stamp = ""
     if chunk.event_ms is not None:
         try:
             stamp = "[" + datetime.fromtimestamp(chunk.event_ms / 1000, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC") + "] "
         except (OverflowError, OSError, ValueError):
             stamp = ""
-    return f"{stamp}{chunk.role.upper()}: {chunk.content}"
+    text = f"{stamp}{chunk.role.upper()}: {chunk.content}"
+    if time_notes and stamp:
+        text += notes_suffix(chunk.content, chunk.event_ms)
+    return text
 
 
 def looks_like_rule(role: str, text: str) -> bool:

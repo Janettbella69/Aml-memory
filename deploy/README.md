@@ -30,6 +30,12 @@ docker compose -f deploy/docker-compose.prod.yml --env-file .env logs -f --tail 
 - `uv run python scripts/eval_local.py --base https://memory.<domain> --api-key $MEMORY_API_KEY` from the laptop (end-to-end through TLS)
 - `uv run python scripts/soak_local.py --base https://memory.<domain> --api-key $MEMORY_API_KEY --users 200` (16-way concurrent Add + Search; record p50/p99 in docs/METHOD_CARD.md)
 
+## Before the Full run
+Drop the soak/smoke data so the evaluation starts from an empty store, then redeploy:
+```bash
+docker compose -f deploy/docker-compose.prod.yml --env-file .env down -v && bash deploy/deploy.sh
+```
+
 ## After the Full run (within 30 days, rule)
 ```bash
 docker compose -f deploy/docker-compose.prod.yml --env-file .env down -v   # drops memory-data (evaluation data)

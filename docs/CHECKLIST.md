@@ -10,3 +10,12 @@ The platform's 8-item gate (wording copied from the Evaluation page on 2026-10-0
 - [ ] **Original work is disclosed** — "Any reused paper, repository, or code is attributed with its original authors, technical report, and the changes made; personal work is identified as such." *Done:* `docs/METHOD_CARD.md` + `NOTICE`. The 0.1 draft's lines adapted from the unlicensed FTS5 baseline were rewritten in 0.2 and the history is disclosed in the card; ReFind (MIT) ideas are listed with the notice.
 - [ ] **This is a substantive submission** — "It is not a repeated near-duplicate or a low-quality submission intended to occupy evaluation capacity." *Our position:* single system, one version, smoke runs only as needed, one Full run; the method changes relative to the baseline pattern are listed in the card.
 - [ ] **No manipulation or cheating** — "The system does not use prompt injection, benchmark leakage, result manipulation, malicious behavior, or other leaderboard abuse." *Done in code:* Search returns stored evidence only (no answer generation, no instructions in `content`), no hard-coded answers, strict `user_id` isolation, no logging or reuse of evaluation data, local tuning only on our own `evalset/`.
+
+## Pre-Full checks from the official FAQ (Q25–Q29, 2026-10-08)
+
+- [ ] Request success rate, p95/p99, any 429/5xx in the last smoke (FAQ Q25).
+- [ ] Disk and memory headroom on the box; data volume wiped of soak/smoke data *before* the Full starts, never during it (FAQ Q26/Q27 — the run may be resumed from checkpoints, so keep the version, data, idempotency records and namespace until it is closed).
+- [ ] OpenRouter balance topped up (planner cost ≈ US$2–3 per Full at ~10k searches; keep ≥ US$10) (FAQ Q25).
+- [ ] No deploys, model, prompt or algorithm changes once the Full is accepted; only stateless restarts (FAQ Q29).
+- [ ] Idempotency survives restarts (per-user `ingest_log` in SQLite, not in-process) (FAQ Q12). Streaming sub-suite interleaves Add and Search — Add stays synchronous (FAQ Q19).
+- [ ] Contact: contactus@agentmemoryleaderboard.ai with system name, version, track, Run/Job ID, timestamps, stage and redacted logs (FAQ Q32).

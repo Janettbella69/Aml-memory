@@ -55,6 +55,8 @@ def main() -> None:
     ap.add_argument("--label", default="proxy"); ap.add_argument("--out-dir", default=str(REPO / "evalset/results"))
     ap.add_argument("--limit", type=int); ap.add_argument("--no-answer", action="store_true", help="retrieval metrics only")
     ap.add_argument("--types", help="comma-separated qa_type filter, e.g. ordering")
+    ap.add_argument("--chronological", action="store_true", help="experiment: show the returned blocks in conversation order instead of rank order")
+    ap.add_argument("--evidence-only", action="store_true", help="experiment (oracle): keep only the returned blocks that hold a gold evidence line")
     args = ap.parse_args()
     play = json.load(open(args.play, encoding="utf-8")); questions = json.load(open(args.questions, encoding="utf-8"))
     if args.types: questions = [q for q in questions if q["qa_type"] in set(args.types.split(","))]
@@ -87,6 +89,14 @@ def main() -> None:
         t0 = time.time()
         data = client.post("/v1/memories/search", json={"query": q["question"], "options": q["option"], "user_id": user, "top_k": 100}).json()["data"]
         latency = time.time() - t0
+        if args.evidence_only:
+            data = [d for d in data if any(lines[e] in norm(d["content"]) for e in q["evidence"])]
+        if args.chronological:      # the same blocks, re-ordered by where their first line stands in the play
+            order = list(lines.values())
+            def place(d):
+                b = norm(d["content"])
+                return next((i for i, ln in enumerate(order) if ln in b), len(order))
+            data = sorted(data, key=place)
         blocks = [norm(d["content"]) for d in data]
         joined = "\n".join(blocks)
         ev_rank = {e: next((i + 1 for i, b in enumerate(blocks) if lines[e] in b), None) for e in q["evidence"]}

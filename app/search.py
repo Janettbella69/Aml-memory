@@ -191,7 +191,7 @@ def search(store: MemoryStore, settings: Settings, query: str, options: list[str
     if reranker is not None and len(results) >= settings.rerank_min_results:
         head = results[:settings.rerank_candidates]
         hit_text = meta.get("hit_text", {})
-        docs = [hit_text.get(r.id, r.content) if settings.rerank_doc == "hit" else r.content for r in head]
+        docs = [rerank_document(hit_text.get(r.id), r.content, settings.rerank_doc) for r in head]
         scores = reranker.scores(retrieval_text(query, options, settings), docs)   # outside the gate
         results = apply_rerank(results, scores, settings)
     if selector is not None and len(results) >= settings.selector_min_results:
@@ -232,6 +232,17 @@ def _retrieve(store: MemoryStore, settings: Settings, query: str, options: list[
             if plan.has_dates:   # a date range in the question outranks the head: in-range hits first, each group in order
                 hits = _prefer_dates(hits, plan)
         return _assemble(store, conn, settings, query, options, user_id, top_k, hits, meta)
+
+
+def rerank_document(hit: Optional[str], block: str, mode: str) -> str:
+    """What the cross-encoder scores for one result. `block` is the rendered span, `hit` the matched turn inside it.
+    The reranker reads only the first RERANK_DOC_CHARS characters, so on long turns the span's opening (the turns
+    BEFORE the hit) can fill the whole window; on short turns the hit alone loses the neighbour that holds the answer."""
+    if mode == "block" or not hit:
+        return block
+    if mode == "hit":
+        return hit
+    return hit if hit == block else hit + "\n" + block
 
 
 def apply_rerank(results: list[MemoryResult], scores: Optional[list[float]], settings: Settings) -> list[MemoryResult]:

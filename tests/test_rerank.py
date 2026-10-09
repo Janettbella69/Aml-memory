@@ -179,3 +179,13 @@ def test_created_at_is_the_event_time_when_known():
                                      "messages": [{"role": "user", "content": "Juror 8: a line that came without any timestamp."}]})
     bare = c.post("/v1/memories/search", json={"query": "line without timestamp", "user_id": "bare", "top_k": 5}).json()["data"]
     assert bare and "created_at" not in bare[0] and bare[0]["id"] and bare[0]["score"] is not None   # omitted, not null, never the storage day
+
+
+def test_rerank_document_modes():
+    from app.search import rerank_document
+    hit, block = "USER: the answer line", "USER: before\nUSER: the answer line\nUSER: after"
+    assert rerank_document(hit, block, "block") == block
+    assert rerank_document(hit, block, "hit") == hit
+    assert rerank_document(hit, block, "both") == hit + "\n" + block      # the hit always opens the reranker's window
+    assert rerank_document(hit, hit, "both") == hit
+    assert rerank_document(None, block, "hit") == block and rerank_document(None, block, "both") == block

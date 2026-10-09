@@ -24,6 +24,7 @@ retrieval per OPTIONS_MODE (append | none | channel with OPTIONS_WEIGHT).
 from __future__ import annotations
 
 import re
+from datetime import datetime, timezone
 
 from contextlib import nullcontext
 from typing import Any, ContextManager, Optional
@@ -35,6 +36,18 @@ from .planner import Plan, Planner
 from .rerank import Reranker
 from .selector import Selection, Selector
 from .store import Chunk, MemoryStore, cjk_only, render
+
+def event_time(chunk: Chunk) -> str:
+    """`created_at` of a result = the hit turn's own timestamp (ISO 8601 UTC) when the adapter sent one, else the storage time.
+    The organisers' pipelines render each selected memory as "- [created_at] text", so this is "the memory timestamp" the
+    answer prompt tells the reader to use for relative-time conversion (seen 2026-10-09 in data/clbench/pipeline.py)."""
+    if chunk.event_ms is not None:
+        try:
+            return datetime.fromtimestamp(chunk.event_ms / 1000, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        except (OverflowError, OSError, ValueError):
+            pass
+    return chunk.stored_at
+
 
 WORD_RE = re.compile(r"\w+", re.UNICODE)
 CJK_CHAR = re.compile(r"[぀-ヿ㐀-䶿一-鿿가-힯]")
@@ -318,7 +331,7 @@ def _assemble(store: MemoryStore, conn, settings: Settings, query: str, options:
         visible.update(t.pos for t in turns)
         text = "\n".join(render(t, settings.time_notes) for t in turns)
         used += len(text)
-        results.append(MemoryResult(id=chunk.id, content=text, created_at=chunk.stored_at,
+        results.append(MemoryResult(id=chunk.id, content=text, created_at=event_time(chunk),
                                     score=round(min(s / top_score, 1.0), 4) if top_score else None))
         if meta is not None:
             meta.setdefault("hit_text", {})[chunk.id] = render(chunk, settings.time_notes)   # the matched turn alone, for the reranker

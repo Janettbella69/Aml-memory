@@ -163,3 +163,17 @@ def test_hit_mode_sends_the_matched_turn_not_the_span():
     seed(c2)
     search(c2)
     assert any(d.count("\n") >= 2 for d in rr2.calls[-1][1])                   # spans carry neighbouring turns
+
+
+def test_created_at_is_the_event_time_when_known():
+    from datetime import datetime, timezone
+    c = make_client(None, context_window=0)
+    seed(c, n=3)
+    c.post("/v1/memories/add", json={"request_id": "c:chunk-nots", "user_id": "u", "session_id": "s",
+                                     "messages": [{"role": "user", "content": "Lin: tomato plants without a timestamp."}]})
+    data = search(c)
+    stamped = [r for r in data if "without a timestamp" not in r["content"]]
+    assert stamped and all(r["created_at"].endswith("Z") and r["created_at"].startswith(datetime.fromtimestamp(T0 / 1000, tz=timezone.utc).strftime("%Y-%m-%d")[:4]) for r in stamped)
+    assert stamped[0]["created_at"] == datetime.fromtimestamp((T0 + int(stamped[0]["content"].split("number ")[1].split(",")[0]) * DAY) / 1000, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    unstamped = [r for r in data if "without a timestamp" in r["content"]]
+    assert unstamped and not unstamped[0]["created_at"].endswith("Z") or unstamped == []

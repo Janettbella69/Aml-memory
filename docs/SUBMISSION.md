@@ -7,20 +7,20 @@ Fill-in sheet mirroring the official evaluation-access form and the Create Eval 
 | Field | Value |
 |---|---|
 | System name | `aml-memory` |
-| Version | TBD — `v1.0` at freeze (code is `0.2.0` today) |
+| Version | TBD — `v1.0` at freeze (code is `0.3.0` today) |
 | Contact details | TBD (enter in the form only; do not commit) |
 | Organization or team | TBD |
 | Intended evaluation type | Textual Memory track · Open-source Methods division |
 | Method or product description | Deterministic retrieval service for the AML Add/Search contract. Raw conversation turns are stored in SQLite and indexed with FTS5 (porter-stemmed words, plus character trigrams for CJK text); Search ranks them with BM25 over the question and its options, orders near-equal hits newest-first so overwritten values do not outrank their replacements, places the user's standing rules after the leading hits, expands each hit with the two turns around it, de-duplicates, and renders every turn with its UTC timestamp and role. No LLM, embedding or reranker is used; the same input always returns the same evidence. |
 | Information approved for public display | System name, version, the method description above, the public repository URL and the fixed commit. |
 | Complete submission notes | Deployed API version `TBD`; endpoints below; auth `X-Api-Key`; capacity below; operational constraints: single instance, SQLite, no server-side request timeout, Add is synchronous; prior-work attribution and method changes in `docs/METHOD_CARD.md`. |
-| Deployed Add endpoint URL | TBD — `https://memory.<domain>/v1/memories/add` (domain not decided; HTTPS required; no private/loopback addresses) |
-| Deployed Search endpoint URL | TBD — `https://memory.<domain>/v1/memories/search` |
-| Health URL | TBD — `https://memory.<domain>/health` (unauthenticated GET, any 2xx) |
+| Deployed Add endpoint URL | `https://memory.azorashopping.site/v1/memories/add` (Alibaba Cloud box, Caddy TLS; live since 2026-10-07) |
+| Deployed Search endpoint URL | `https://memory.azorashopping.site/v1/memories/search` |
+| Health URL | `https://memory.azorashopping.site/health` (unauthenticated GET, returns 200; re-checked 2026-10-08) |
 | Authentication | `X-Api-Key: <Memory System Key>` (declared scheme). The service also accepts `Authorization: Bearer <key>` and `Authorization: Token <key>`. The scheme chosen in the form must be the one used; a mismatch is a 401. `none` is allowed only for public smoke. |
 | Memory System Key | the value of `MEMORY_API_KEY` in the server's `.env` (≥ 16 characters); never committed |
 | Capacity declaration | Max add concurrency 16 · Search concurrency 16 · `top_k` 1–1000 (official runs use 100) · Add synchronous, persisted and searchable before the 200 · no server-side timeout (platform limit 30 min/request) · single instance |
-| Public repository URL | TBD (public GitHub repository, MIT) |
+| Public repository URL | `https://github.com/Janettbella69/aml-memory` (created 2026-10-08 as private; switch to public before submitting: `gh repo edit Janettbella69/aml-memory --visibility public --accept-visibility-change-consequences`) |
 | Fixed commit hash | TBD at freeze |
 | Attribution of prior work | `docs/METHOD_CARD.md` § "Prior work and attribution" (FTS5 baseline pattern, idea only — the 0.1 draft's adapted lines were rewritten in 0.2; ReFind: timestamp rendering, context window, ordinal ordering, porter, RRF, service shape — MIT, notice in `NOTICE`) |
 | Method changes | `docs/METHOD_CARD.md` § "Method changes by version" |

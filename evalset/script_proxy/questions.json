@@ -716,5 +716,209 @@
    "D3:136",
    "D3:403"
   ]
+ },
+ {
+  "qa_id": "proxy:conv-0#q0031",
+  "qa_type": "ordering",
+  "stem": "Arrange these moments in the order in which they happen.",
+  "option": [
+   "A. Miss Eastwood screams that there is a hand on her face.",
+   "B. Madame la Grange recognises Helen O'Neill and speaks to her in an undertone.",
+   "C. Pollock locks the last door from the outside.",
+   "D. Madame la Grange advises Miss Eastwood not to meet Jimmy at the Ritz."
+  ],
+  "question": "Arrange these moments in the order in which they happen.\n\nA. Miss Eastwood screams that there is a hand on her face.\nB. Madame la Grange recognises Helen O'Neill and speaks to her in an undertone.\nC. Pollock locks the last door from the outside.\nD. Madame la Grange advises Miss Eastwood not to meet Jimmy at the Ritz.\n\nPlease provide the options in the correct order enclosed in parentheses, separated by commas, e.g., (Y, Z, X, W). No points will be awarded for an incorrect sequence.",
+  "answer_letters": [
+   "D",
+   "B",
+   "C",
+   "A"
+  ],
+  "evidence": [
+   "D1:153",
+   "D1:276",
+   "D1:421",
+   "D1:467"
+  ]
+ },
+ {
+  "qa_id": "proxy:conv-0#q0032",
+  "qa_type": "ordering",
+  "stem": "Arrange these moments of the séance and its aftermath in order.",
+  "option": [
+   "A. Mr. Wales cries out about his back.",
+   "B. A man's voice calls for Ned.",
+   "C. Mr. Crosby tells Pollock to telephone Police Headquarters.",
+   "D. The message about the swimming pool is given.",
+   "E. Trent says that Mr. Wales is dead."
+  ],
+  "question": "Arrange these moments of the séance and its aftermath in order.\n\nA. Mr. Wales cries out about his back.\nB. A man's voice calls for Ned.\nC. Mr. Crosby tells Pollock to telephone Police Headquarters.\nD. The message about the swimming pool is given.\nE. Trent says that Mr. Wales is dead.\n\nPlease provide the options in the correct order enclosed in parentheses, separated by commas, e.g., (Y, Z, X, W). No points will be awarded for an incorrect sequence.",
+  "answer_letters": [
+   "B",
+   "D",
+   "A",
+   "C",
+   "E"
+  ],
+  "evidence": [
+   "D1:508",
+   "D1:515",
+   "D1:536",
+   "D1:549",
+   "D1:556"
+  ]
+ },
+ {
+  "qa_id": "proxy:conv-0#q0033",
+  "qa_type": "ordering",
+  "stem": "Arrange these moments after the Inspector arrives in order.",
+  "option": [
+   "A. Standish begs the Inspector's pardon for acting like a fool.",
+   "B. Miss Eastwood explains how the medium got out of the circle.",
+   "C. The Inspector takes out his watch and waits for a confession.",
+   "D. Sergeant Dunn reports that Dr. Bernstein is on his way."
+  ],
+  "question": "Arrange these moments after the Inspector arrives in order.\n\nA. Standish begs the Inspector's pardon for acting like a fool.\nB. Miss Eastwood explains how the medium got out of the circle.\nC. The Inspector takes out his watch and waits for a confession.\nD. Sergeant Dunn reports that Dr. Bernstein is on his way.\n\nPlease provide the options in the correct order enclosed in parentheses, separated by commas, e.g., (Y, Z, X, W). No points will be awarded for an incorrect sequence.",
+  "answer_letters": [
+   "C",
+   "B",
+   "A",
+   "D"
+  ],
+  "evidence": [
+   "D2:78",
+   "D2:83",
+   "D2:115",
+   "D2:122"
+  ]
+ },
+ {
+  "qa_id": "proxy:conv-0#q0034",
+  "qa_type": "ordering",
+  "stem": "Arrange these moments of the Inspector's questioning in order.",
+  "option": [
+   "A. Helen O'Neill cries, \"Let my mother alone.\"",
+   "B. The Inspector reads the prepared messages aloud from a paper.",
+   "C. The Inspector asks each of the women for her first name.",
+   "D. Sergeant Dunn reports that the knife was not on either of the two people searched."
+  ],
+  "question": "Arrange these moments of the Inspector's questioning in order.\n\nA. Helen O'Neill cries, \"Let my mother alone.\"\nB. The Inspector reads the prepared messages aloud from a paper.\nC. The Inspector asks each of the women for her first name.\nD. Sergeant Dunn reports that the knife was not on either of the two people searched.\n\nPlease provide the options in the correct order enclosed in parentheses, separated by commas, e.g., (Y, Z, X, W). No points will be awarded for an incorrect sequence.",
+  "answer_letters": [
+   "B",
+   "C",
+   "A",
+   "D"
+  ],
+  "evidence": [
+   "D2:358",
+   "D2:371",
+   "D2:404",
+   "D2:419"
+  ]
+ },
+ {
+  "qa_id": "proxy:conv-0#q0035",
+  "qa_type": "ordering",
+  "stem": "Arrange these moments in order.",
+  "option": [
+   "A. Doolan reports through the window that the woman threw nothing out.",
+   "B. Madame la Grange prays for guidance.",
+   "C. Helen O'Neill refuses to answer the Inspector's questions.",
+   "D. Mr. Crosby tells the Inspector to regard the house as his own."
+  ],
+  "question": "Arrange these moments in order.\n\nA. Doolan reports through the window that the woman threw nothing out.\nB. Madame la Grange prays for guidance.\nC. Helen O'Neill refuses to answer the Inspector's questions.\nD. Mr. Crosby tells the Inspector to regard the house as his own.\n\nPlease provide the options in the correct order enclosed in parentheses, separated by commas, e.g., (Y, Z, X, W). No points will be awarded for an incorrect sequence.",
+  "answer_letters": [
+   "B",
+   "A",
+   "D",
+   "C"
+  ],
+  "evidence": [
+   "D3:3",
+   "D3:61",
+   "D3:65",
+   "D3:73",
+   "D3:101",
+   "D3:107"
+  ]
+ },
+ {
+  "qa_id": "proxy:conv-0#q0036",
+  "qa_type": "ordering",
+  "stem": "Arrange these moments in order.",
+  "option": [
+   "A. Helen O'Neill admits that she went to Spencer Lee's rooms.",
+   "B. Helen O'Neill says that Mrs. Trent sent her for some letters.",
+   "C. Madame la Grange dares the Inspector to compare her daughter's finger-prints.",
+   "D. The Inspector gives Madame la Grange ten minutes."
+  ],
+  "question": "Arrange these moments in order.\n\nA. Helen O'Neill admits that she went to Spencer Lee's rooms.\nB. Helen O'Neill says that Mrs. Trent sent her for some letters.\nC. Madame la Grange dares the Inspector to compare her daughter's finger-prints.\nD. The Inspector gives Madame la Grange ten minutes.\n\nPlease provide the options in the correct order enclosed in parentheses, separated by commas, e.g., (Y, Z, X, W). No points will be awarded for an incorrect sequence.",
+  "answer_letters": [
+   "C",
+   "A",
+   "B",
+   "D"
+  ],
+  "evidence": [
+   "D3:119",
+   "D3:152",
+   "D3:195",
+   "D3:198",
+   "D3:300"
+  ]
+ },
+ {
+  "qa_id": "proxy:conv-0#q0037",
+  "qa_type": "ordering",
+  "stem": "Arrange these moments in order.",
+  "option": [
+   "A. Pollock knocks twice at the door.",
+   "B. Standish slips quietly out of the room.",
+   "C. William fetches a glove from Mr. Wales' overcoat.",
+   "D. Mason cries that he cannot fight the dead.",
+   "E. Mrs. Trent tells her father that she lied."
+  ],
+  "question": "Arrange these moments in order.\n\nA. Pollock knocks twice at the door.\nB. Standish slips quietly out of the room.\nC. William fetches a glove from Mr. Wales' overcoat.\nD. Mason cries that he cannot fight the dead.\nE. Mrs. Trent tells her father that she lied.\n\nPlease provide the options in the correct order enclosed in parentheses, separated by commas, e.g., (Y, Z, X, W). No points will be awarded for an incorrect sequence.",
+  "answer_letters": [
+   "C",
+   "B",
+   "A",
+   "D",
+   "E"
+  ],
+  "evidence": [
+   "D3:310",
+   "D3:343",
+   "D3:372",
+   "D3:400",
+   "D3:433"
+  ]
+ },
+ {
+  "qa_id": "proxy:conv-0#q0038",
+  "qa_type": "ordering",
+  "stem": "Arrange these moments from the whole evening in order.",
+  "option": [
+   "A. The Inspector unties Madame la Grange.",
+   "B. Madame la Grange shows the wooden sole in her shoe.",
+   "C. A policeman comes down the chimney.",
+   "D. Mr. Wales says that he offered the reward himself.",
+   "E. The Inspector remarks that there are two Helens."
+  ],
+  "question": "Arrange these moments from the whole evening in order.\n\nA. The Inspector unties Madame la Grange.\nB. Madame la Grange shows the wooden sole in her shoe.\nC. A policeman comes down the chimney.\nD. Mr. Wales says that he offered the reward himself.\nE. The Inspector remarks that there are two Helens.\n\nPlease provide the options in the correct order enclosed in parentheses, separated by commas, e.g., (Y, Z, X, W). No points will be awarded for an incorrect sequence.",
+  "answer_letters": [
+   "B",
+   "D",
+   "A",
+   "E",
+   "C"
+  ],
+  "evidence": [
+   "D1:228",
+   "D1:370",
+   "D2:97",
+   "D2:384",
+   "D3:34"
+  ]
  }
 ]

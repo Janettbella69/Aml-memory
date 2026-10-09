@@ -54,8 +54,10 @@ def main() -> None:
     ap.add_argument("--questions", default=str(REPO / "evalset/script_proxy/questions.json"))
     ap.add_argument("--label", default="proxy"); ap.add_argument("--out-dir", default=str(REPO / "evalset/results"))
     ap.add_argument("--limit", type=int); ap.add_argument("--no-answer", action="store_true", help="retrieval metrics only")
+    ap.add_argument("--types", help="comma-separated qa_type filter, e.g. ordering")
     args = ap.parse_args()
     play = json.load(open(args.play, encoding="utf-8")); questions = json.load(open(args.questions, encoding="utf-8"))
+    if args.types: questions = [q for q in questions if q["qa_type"] in set(args.types.split(","))]
     if args.limit: questions = questions[: args.limit]
 
     from fastapi.testclient import TestClient
@@ -64,7 +66,7 @@ def main() -> None:
     from app.store import MemoryStore
     tmp = tempfile.TemporaryDirectory()
     settings = replace(Settings.from_env(), api_key="", data_dir=os.path.join(tmp.name, "d"), log_level="WARNING")
-    print(f"config: fit_chars={settings.fit_chars} window={settings.context_window} embed={settings.embed_model!r} head={settings.dense_head} "
+    print(f"config: fit_chars={settings.fit_chars} turn_marks={settings.turn_marks} window={settings.context_window} embed={settings.embed_model!r} head={settings.dense_head} "
           f"planner={settings.planner_model!r} rerank={settings.rerank_model!r}/{settings.rerank_doc} options={settings.options_mode} answer={MODEL}", flush=True)
     client = TestClient(create_app(settings=settings, store=MemoryStore(settings.data_dir))); client.__enter__()
     run = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")

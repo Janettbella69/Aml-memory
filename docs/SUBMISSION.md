@@ -63,7 +63,7 @@ Add：https://memory.azorashopping.site/v1/memories/add  Search：https://memory
 
 【方法】每个 user_id 一个独立 SQLite 文件，原始对话逐轮存储，不做摘要。检索为三路召回 + 倒数排名融合（RRF）：(1) FTS5 BM25（Porter 词干）；(2) CJK 字符三元组 BM25；(3) text-embedding-v4（256 维）余弦相似。排序上近分的新值优先（覆盖旧值）；用户的规则/偏好语句单独占位；每条命中附前后各 2 轮上下文并跨 Add 块去重；渲染为「[UTC 时间戳] 角色: 原文」，并对「昨天 / 三周前」等相对时间附上按该轮时间戳换算的绝对日期注释。Search 阶段调用一次 gpt-4o-mini 做查询规划（最多 3 个补充查询 + 可选日期范围），结果同样以 RRF 融合；调用失败则确定性回退。只返回原文证据，不生成、不伪装答案；不跨 user_id 读取。
 
-【模型】Add 阶段不调用生成模型（N/A）。Search 阶段生成模型为 gpt-4o-mini（经 OpenRouter 路由，模型标识 openai/gpt-4o-mini）。向量模型 text-embedding-v4（阿里云百炼）。无 reranker，无自训练或开放权重模型。
+【模型】Add 阶段不调用生成模型（N/A）。Search 阶段唯一的生成模型是 gpt-4o-mini：我们经 OpenRouter 路由（模型标识 openai/gpt-4o-mini，即 OpenAI 同一模型）；复现时可直接设置 OPENAI_BASE_URL=https://api.openai.com/v1、PLANNER_MODEL=gpt-4o-mini 使用 OpenAI 官方接口，代码无需改动。向量模型为 text-embedding-v4（阿里云百炼，参赛问答第 05 条指定），DASHSCOPE_API_KEY / DASHSCOPE_BASE_URL 可配置。无 reranker，无自训练或开放权重模型。除规划器这一次模型调用外，整条链路是确定性的，便于复现。
 
 【来源与披露】思路借鉴并已在 docs/METHOD_CARD.md、NOTICE 中注明：ReFind（imlrz/ReFind，MIT，arXiv:2608.12888）的时间戳渲染、上下文窗口、Porter + RRF、模型驱动的查询规划；InvMem（wenxiaof345-ctrl/vanilla-rag-memory）的稠密 + BM25 RRF 融合与相对时间标注；Hybrid Episodic Memory（tlysanhuo/agent-memory-challenge，MIT）的加权 RRF；FantaSmallhamster/ldbd-sqlite-fts-baseline 的「FTS5 存原文 + 最新回退」模式（v0.1 草稿曾改编其约 30 行，v0.2 起全部重写，现无其代码）。全部方法改动按版本（0.1–1.0）逐条记录在 docs/METHOD_CARD.md「Method changes by version」。
 

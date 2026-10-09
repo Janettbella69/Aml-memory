@@ -71,3 +71,18 @@ def test_bucket_paces_calls():
             b.acquire()
     # 5 tokens burst, then every further call needs to wait about 1/5 s
     assert len(waited) >= 1 and all(0 < w <= 0.21 for w in waited)
+
+
+def test_disk_cache_skips_repeat_calls(tmp_path):
+    calls = {"n": 0}
+
+    def counting(req, timeout=0):
+        calls["n"] += 1
+        return _ok_response(req)
+
+    emb = HttpEmbedder("text-embedding-v4", "k", dims=8, rps=1000, cache_path=str(tmp_path / "c.sqlite"))
+    with mock.patch("urllib.request.urlopen", counting):
+        a = emb.embed(["alpha", "beta"])
+        b = emb.embed(["beta", "gamma", "alpha"])
+    assert calls["n"] == 2                     # second call only fetched "gamma"
+    assert np.allclose(a[1], b[0], atol=1e-3) and np.allclose(a[0], b[2], atol=1e-3)

@@ -148,7 +148,14 @@ def _first_pass(store: MemoryStore, conn, settings: Settings, query: str, option
     if qvec is not None:
         # v0.5 dense channel: cosine neighbours of the question, fused by RRF (lexical first). This is what
         # separated the Cycle-1 top 10 from plain BM25: evidence that shares no words with the question.
-        hits = fuse(hits, store.dense_search(user_id, qvec, pool, conn), weight=settings.dense_weight)
+        # DENSE_HEAD keeps the first N lexical hits in place (exact name/number matches are the most precise
+        # signal we have) and lets the dense list reorder only what comes after them.
+        dense = store.dense_search(user_id, qvec, pool, conn)
+        head = hits[:settings.dense_head]
+        head_ids = {c.id for c, _ in head}
+        tail = fuse([h for h in hits if h[0].id not in head_ids], [d for d in dense if d[0].id not in head_ids],
+                    weight=settings.dense_weight)
+        hits = head + tail
     if settings.options_mode == "channel" and options:
         # v0.4: the options as their own channel (idea: Hybrid Episodic Memory, Cycle-1 #6), so the question's terms
         # keep the lead and a distractor option alone cannot outrank evidence for the question itself

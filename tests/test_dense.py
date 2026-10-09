@@ -124,3 +124,18 @@ def test_unknown_user_dense_search_is_empty():
         assert search(c, "nobody", "anything") == []
     finally:
         c.__exit__(None, None, None)
+
+
+def test_dense_head_keeps_lexical_order_in_front():
+    emb = FakeEmbedder(aliases={"puppy": "dog"})
+    msgs = [{"role": "user", "content": "Tao has a dog called Biscuit."},
+            {"role": "user", "content": "The puppy ate a cable sleeve."},
+            {"role": "user", "content": "Lin passed the exam."}]
+    for head in (0, 1):
+        c = make(emb, dense_head=head)
+        try:
+            add(c, "c:chunk-0", "u", msgs)
+            data = search(c, "u", "exam Lin passed", top_k=10)
+            assert "exam" in data[0]["content"]          # the exact lexical hit leads either way here
+        finally:
+            c.__exit__(None, None, None)

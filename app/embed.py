@@ -17,6 +17,7 @@ import json
 import logging
 import os
 import re
+import sqlite3
 import threading
 import time
 import urllib.error
@@ -77,7 +78,7 @@ class _Bucket:
 
 class HttpEmbedder:
     def __init__(self, model: str, api_key: str, base_url: str = DEFAULT_BASE_URL, dims: int = 256,
-                 timeout: float = 30.0, rps: float = 14.0, retries: int = 3) -> None:
+                 timeout: float = 30.0, rps: float = 14.0, retries: int = 3, cache_path: Optional[str] = None) -> None:
         self.model = model
         self.dims = dims
         self.api_key = api_key
@@ -86,6 +87,35 @@ class HttpEmbedder:
         self.retries = retries
         self.bucket = _Bucket(rps)
         self.failures = 0            # calls that gave up (metrics only)
+        # Optional on-disk cache (EMBED_CACHE=<sqlite file>): identical text -> identical vector, so repeated
+        # evaluation runs stop paying for the same embeddings. Never set in production (it would retain text).
+        self._cache: Optional[sqlite3.Connection] = None
+        self._cache_lock = threading.Lock()
+        if cache_path:
+            self._cache = sqlite3.connect(cache_path, check_same_thread=False)
+            self._cache.execute("CREATE TABLE IF NOT EXISTS vec (k TEXT PRIMARY KEY, v BLOB NOT NULL)")
+            self._cache.commit()
+
+    def _key(self, text: str) -> str:
+        return hashlib.sha256(f"{self.model}:{self.dims}:{text}".encode("utf-8")).hexdigest()
+
+    def _cache_get(self, texts: list[str]) -> dict[int, np.ndarray]:
+        if self._cache is None:
+            return {}
+        out: dict[int, np.ndarray] = {}
+        with self._cache_lock:
+            for i, t in enumerate(texts):
+                row = self._cache.execute("SELECT v FROM vec WHERE k = ?", (self._key(t),)).fetchone()
+                if row is not None:
+                    out[i] = from_blob(row[0], self.dims)
+        return out
+
+    def _cache_put(self, pairs: list[tuple[str, np.ndarray]]) -> None:
+        if self._cache is None or not pairs:
+            return
+        with self._cache_lock:
+            self._cache.executemany("INSERT OR IGNORE INTO vec(k, v) VALUES (?, ?)", [(self._key(t), to_blob(v)) for t, v in pairs])
+            self._cache.commit()
 
     def _call(self, batch: list[str]) -> Optional[list[np.ndarray]]:
         body = json.dumps({"model": self.model, "input": batch, "dimensions": self.dims,
@@ -122,7 +152,11 @@ class HttpEmbedder:
     def embed(self, texts: list[str]) -> list[Optional[np.ndarray]]:
         """One vector per text (None where the service could not be reached); empty texts get None."""
         out: list[Optional[np.ndarray]] = [None] * len(texts)
-        todo = [(i, t.strip()[:MAX_INPUT_CHARS]) for i, t in enumerate(texts) if t and t.strip()]
+        clipped = [t.strip()[:MAX_INPUT_CHARS] if t else "" for t in texts]
+        cached = self._cache_get(clipped)
+        for i, v in cached.items():
+            out[i] = v
+        todo = [(i, t) for i, t in enumerate(clipped) if t and i not in cached]
         for start in range(0, len(todo), MAX_BATCH):
             chunk = todo[start:start + MAX_BATCH]
             vecs = self._call([t for _, t in chunk])
@@ -130,6 +164,7 @@ class HttpEmbedder:
                 continue
             for (i, _), v in zip(chunk, vecs):
                 out[i] = v
+            self._cache_put([(t, v) for (_, t), v in zip(chunk, vecs)])
         return out
 
     def embed_one(self, text: str) -> Optional[np.ndarray]:
@@ -176,4 +211,4 @@ def embedder_from_env(model: str, dims: int, timeout: float, rps: float) -> Opti
         log.warning("EMBED_MODEL=%s set but DASHSCOPE_API_KEY is empty; dense channel disabled", model)
         return None
     return HttpEmbedder(model, key, os.environ.get("DASHSCOPE_BASE_URL", DEFAULT_BASE_URL).strip() or DEFAULT_BASE_URL,
-                        dims=dims, timeout=timeout, rps=rps)
+                        dims=dims, timeout=timeout, rps=rps, cache_path=os.environ.get("EMBED_CACHE", "").strip() or None)

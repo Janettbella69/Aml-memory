@@ -106,3 +106,20 @@ def test_fit_without_any_lexical_hit_still_returns_everything():
     lines = script(c, turns=80)
     data = search(c, "zzzz qqqq")
     assert sorted(lines_of(data)) == sorted("USER: " + x for x in lines) and len(data) <= 100
+
+
+def test_turn_marks_only_on_untimed_turns_and_off_by_default():
+    assert Settings().turn_marks is False
+    c = make_client(turn_marks=True, context_window=2)
+    c.post("/v1/memories/add", json={"request_id": "eval:r:s:chunk-3", "user_id": "u", "session_id": "s", "messages": [
+        {"role": "user", "content": "Juror 8: the knife was bought in a junk shop."},
+        {"role": "user", "content": "Juror 3: you can not prove that.", "timestamp": 1704067200000},
+        {"role": "user", "content": "Juror 8: here is one exactly like it."}]})
+    body = search(c, "knife junk shop exactly like")[0]["content"].split("\n")
+    assert body[0] == "[turn 3001] USER: Juror 8: the knife was bought in a junk shop."
+    assert body[1].startswith("[2024-01-01 00:00 UTC] USER: Juror 3:") and "[turn" not in body[1]
+    assert body[2] == "[turn 3003] USER: Juror 8: here is one exactly like it."
+    plain = make_client(context_window=1)
+    plain.post("/v1/memories/add", json={"request_id": "eval:r:s:chunk-3", "user_id": "u", "session_id": "s", "messages": [
+        {"role": "user", "content": "Juror 8: the knife was bought in a junk shop."}]})
+    assert search(plain, "knife junk shop")[0]["content"] == "USER: Juror 8: the knife was bought in a junk shop."

@@ -78,6 +78,7 @@ class Settings:
     fit_fill: float = 0.8              # v0.8: share of the top_k result slots the segmentation aims to use
     fit_span_min: int = 800            # v0.8: smallest segment size in rendered characters
     fit_anchors: int = 8               # v0.8: leading hits that get a segment centred on them
+    turn_marks: bool = False           # v0.8: render `[turn N]` on turns that came without a timestamp (N = place in the conversation)
     log_level: str = "INFO"
 
     @classmethod
@@ -134,5 +135,6 @@ class Settings:
             fit_fill=_bounded("FIT_FILL", float, 0.8, 0.1, 1.0),
             fit_span_min=_bounded("FIT_SPAN_MIN", int, 800, 50, 100_000),
             fit_anchors=_bounded("FIT_ANCHORS", int, 8, 0, 100),
+            turn_marks=os.environ.get("TURN_MARKS", "0").strip().lower() in ("1", "true", "yes", "on", "untimed"),
             log_level=os.environ.get("LOG_LEVEL", "INFO").strip().upper() or "INFO",
         )

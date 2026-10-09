@@ -83,15 +83,19 @@ def cjk_only(text: str) -> str:
     return "".join(CJK_RE.findall(text))
 
 
-def render(chunk: Chunk, time_notes: bool = True) -> str:
-    """`[stamp] ROLE: text` plus, when the turn has a timestamp and relative-time phrases, a resolved-dates note (v0.4)."""
+def render(chunk: Chunk, time_notes: bool = True, turn_marks: bool = False) -> str:
+    """`[stamp] ROLE: text` plus, when the turn has a timestamp and relative-time phrases, a resolved-dates note (v0.4).
+    A turn that came without a timestamp can carry its place in the conversation instead (`[turn 1203]`, v0.8
+    TURN_MARKS): results are returned in relevance order, so without it nothing tells the reader which of two
+    untimed lines was said first."""
     stamp = ""
     if chunk.event_ms is not None:
         try:
             stamp = "[" + (EPOCH + timedelta(milliseconds=chunk.event_ms)).strftime("%Y-%m-%d %H:%M UTC") + "] "
         except (OverflowError, OSError, ValueError):
             stamp = ""
-    text = f"{stamp}{chunk.role.upper()}: {chunk.content}"
+    mark = f"[turn {chunk.pos + 1}] " if turn_marks and not stamp else ""
+    text = f"{stamp}{mark}{chunk.role.upper()}: {chunk.content}"
     if time_notes and stamp:
         text += notes_suffix(chunk.content, chunk.event_ms)
     return text

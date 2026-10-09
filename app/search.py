@@ -216,7 +216,7 @@ def _retrieve(store: MemoryStore, settings: Settings, query: str, options: list[
         hits = _first_pass(store, conn, settings, query, options, user_id, top_k, qvec)
         if planner is None:
             return _assemble(store, conn, settings, query, options, user_id, top_k, hits, meta)
-        snippets = [render(c, settings.time_notes)[:400] for c, _ in hits[:settings.planner_snippets]]
+        snippets = [render(c, settings.time_notes, settings.turn_marks)[:400] for c, _ in hits[:settings.planner_snippets]]
     plan = planner.plan(query, options, snippets)          # outside the gate
     with gate, store.connect(user_id, create=False) as conn:
         if conn is None:
@@ -385,12 +385,12 @@ def _assemble(store: MemoryStore, conn, settings: Settings, query: str, options:
             continue
         turns = store.span(chunk, settings.context_window, conn) if s > 0 or chunk.standing else [chunk]
         visible.update((t.session_id, t.pos) for t in turns)
-        text = "\n".join(render(t, settings.time_notes) for t in turns)
+        text = "\n".join(render(t, settings.time_notes, settings.turn_marks) for t in turns)
         used += len(text)
         results.append(MemoryResult(id=chunk.id, content=text, created_at=event_time(chunk),
                                     score=round(min(s / top_score, 1.0), 4) if top_score else None))
         if meta is not None:
-            meta.setdefault("hit_text", {})[chunk.id] = render(chunk, settings.time_notes)   # the matched turn alone, for the reranker
+            meta.setdefault("hit_text", {})[chunk.id] = render(chunk, settings.time_notes, settings.turn_marks)   # the matched turn alone, for the reranker
     return results
 
 
@@ -410,7 +410,7 @@ def _assemble_fit(store: MemoryStore, conn, settings: Settings, user_id: str, to
     n = len(turns)
     if n == 0:
         return []
-    text = [render(t, settings.time_notes) for t in turns]
+    text = [render(t, settings.time_notes, settings.turn_marks) for t in turns]
     size = [len(x) + 1 for x in text]
     total = sum(size)
     span = max(settings.fit_span_min, -(-total // max(1, int(top_k * settings.fit_fill))))

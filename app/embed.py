@@ -77,7 +77,7 @@ class _Bucket:
 
 class HttpEmbedder:
     def __init__(self, model: str, api_key: str, base_url: str = DEFAULT_BASE_URL, dims: int = 256,
-                 timeout: float = 30.0, rps: float = 20.0, retries: int = 3) -> None:
+                 timeout: float = 30.0, rps: float = 14.0, retries: int = 3) -> None:
         self.model = model
         self.dims = dims
         self.api_key = api_key

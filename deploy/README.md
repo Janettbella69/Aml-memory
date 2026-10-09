@@ -23,7 +23,7 @@ Everything below is idempotent; re-run `deploy/deploy.sh` after every `git pull`
 The schema changed (SCHEMA_VERSION 6: `vec` column + `meta`), so existing user files are refused: wipe the volume
 (`docker compose -f deploy/docker-compose.prod.yml --env-file .env down -v`) before starting the new image. Add to the
 server `.env`: `EMBED_MODEL=text-embedding-v4`, `EMBED_DIMS=256`, `DASHSCOPE_API_KEY=…`, `DASHSCOPE_BASE_URL=…`,
-`EMBED_RPS=25` (key limit 1,800 req/min), `VECTOR_CACHE_USERS=16` (the box has 1.6 GB; a cached user costs
+`EMBED_RPS=14` (published key limits: 1,000 req/min on one Alibaba page, 1,800 on another; 14/s ≈ 840/min is safe under both), `VECTOR_CACHE_USERS=16` (the box has 1.6 GB; a cached user costs
 turns × dims × 4 bytes per worker). Then `bash deploy/deploy.sh`; the log must show `dense channel enabled: text-embedding-v4 (256 dims)`.
 
 ## Every deploy

@@ -13,6 +13,7 @@ from .config import Settings
 from .embed import Embedder, embedder_from_env, to_blob
 from .models import AddRequest, AddResponse, HealthResponse, SearchRequest, SearchResponse
 from .planner import Planner, planner_from_env
+from .rerank import Reranker, reranker_from_env
 from .selector import Selector, selector_from_env
 from .search import search as assemble_evidence
 from .store import ConflictingRequestError, MemoryStore
@@ -22,7 +23,7 @@ log = logging.getLogger("aml_memory")
 
 def create_app(settings: Settings | None = None, store: MemoryStore | None = None,
                planner: Planner | None = None, embedder: Embedder | None = None,
-               selector: Selector | None = None) -> FastAPI:
+               selector: Selector | None = None, reranker: Reranker | None = None) -> FastAPI:
     cfg = settings or Settings.from_env()
     logging.basicConfig(level=cfg.log_level)
     memory = store or MemoryStore(cfg.data_dir, retention_days=cfg.retention_days, pool_size=cfg.db_pool_size,
@@ -39,6 +40,9 @@ def create_app(settings: Settings | None = None, store: MemoryStore | None = Non
     if evidence_selector is not None:
         log.info("evidence selector enabled: %s (candidates %d, tail %d)", cfg.selector_model,
                  cfg.selector_candidates, cfg.selector_tail)
+    cross_reranker = reranker or reranker_from_env(cfg.rerank_provider, cfg.rerank_model, cfg.rerank_timeout, cfg.rerank_doc_chars)
+    if cross_reranker is not None:
+        log.info("reranker enabled: %s/%s (candidates %d, mode %s)", cfg.rerank_provider, cfg.rerank_model, cfg.rerank_candidates, cfg.rerank_mode)
     dense = embedder or embedder_from_env(cfg.embed_model, cfg.embed_dims, cfg.embed_timeout, cfg.embed_rps)
     memory.vector_cache_users = cfg.vector_cache_users
     if dense is not None:
@@ -116,7 +120,7 @@ def create_app(settings: Settings | None = None, store: MemoryStore | None = Non
     def search_memory(payload: SearchRequest, _: None = Depends(authenticate)) -> SearchResponse:
         data = assemble_evidence(memory, cfg, payload.query, payload.options, payload.user_id, payload.top_k,
                                  planner=query_planner, gate=search_gate, embedder=dense,
-                                 selector=evidence_selector)
+                                 selector=evidence_selector, reranker=cross_reranker)
         log.info("search results=%d top_k=%d", len(data), payload.top_k)  # never the query or memory text
         return SearchResponse(data=data)
 

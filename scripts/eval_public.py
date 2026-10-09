@@ -145,11 +145,19 @@ def main() -> None:
             if judge is not None:
                 ANSWER_SYSTEM, JUDGE_SYSTEM, chat, key = judge
                 context = "\n\n".join(f"[memory {i}]\n{d['content']}" for i, d in enumerate(data, 1))[: args.max_context_chars]
-                answer, u1 = chat([{"role": "system", "content": ANSWER_SYSTEM},
-                                   {"role": "user", "content": f"Memories:\n{context}\n\nQuestion: {q['question']}"}], 120, key)
-                reference = " | ".join(str(a) for a in q.get("answer", [])) + "  (any one of these is a complete correct answer)"
-                verdict, u2 = chat([{"role": "system", "content": JUDGE_SYSTEM},
-                                    {"role": "user", "content": f"Question: {q['question']}\nReference: {reference}\nAnswer: {answer}"}], 3, key)
+                try:
+                    answer, u1 = chat([{"role": "system", "content": ANSWER_SYSTEM},
+                                       {"role": "user", "content": f"Memories:\n{context}\n\nQuestion: {q['question']}"}], 120, key)
+                    reference = " | ".join(str(a) for a in q.get("answer", [])) + "  (any one of these is a complete correct answer)"
+                    verdict, u2 = chat([{"role": "system", "content": JUDGE_SYSTEM},
+                                        {"role": "user", "content": f"Question: {q['question']}\nReference: {reference}\nAnswer: {answer}"}], 3, key)
+                except Exception as exc:   # a gateway refusal (e.g. HTTP 403 moderation) must not kill a 200-question run
+                    row["answer"] = None
+                    row["correct"] = False
+                    row["error"] = type(exc).__name__ + ": " + str(exc)[:120]
+                    print(f"  {q['qa_id']}: judge call failed ({row['error']})", flush=True)
+                    rows.append(row)
+                    continue
                 for u in (u1, u2):
                     usage["prompt_tokens"] += u.get("prompt_tokens", 0)
                     usage["completion_tokens"] += u.get("completion_tokens", 0)

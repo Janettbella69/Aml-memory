@@ -65,6 +65,13 @@ class Settings:
     selector_block_chars: int = 1200   # v0.6: characters of each block shown to the selector
     selector_timeout: float = 20.0
     selector_min_results: int = 12     # v0.6: shorter result lists are returned as they are
+    rerank_provider: str = "dashscope" # v0.7: dashscope | voyage | cohere | jina (hosted rerank APIs; see app/rerank.py)
+    rerank_model: str = ""            # v0.7: "gte-rerank-v2" | "qwen3-rerank" enables the cross-encoder reranker (rules: rerankers unrestricted); "" = off
+    rerank_candidates: int = 40        # v0.7: leading blocks that are reranked; the rest keep their order behind them
+    rerank_mode: str = "replace"       # v0.7: replace (reranker order for the head) | rrf (fuse reranker rank with the retrieval rank, k = 60)
+    rerank_timeout: float = 20.0
+    rerank_doc_chars: int = 1500       # v0.7: characters of each block sent to the reranker (4,000-token limit per document)
+    rerank_min_results: int = 6        # v0.7: shorter lists are returned as they are
     log_level: str = "INFO"
 
     @classmethod
@@ -109,5 +116,12 @@ class Settings:
             selector_block_chars=_bounded("SELECTOR_BLOCK_CHARS", int, 1200, 200, 6000),
             selector_timeout=_bounded("SELECTOR_TIMEOUT", float, 20.0, 1.0, 120.0),
             selector_min_results=_bounded("SELECTOR_MIN_RESULTS", int, 12, 2, 1000),
+            rerank_provider=_choice("RERANK_PROVIDER", "dashscope", ("dashscope", "voyage", "cohere", "jina")),
+            rerank_model=os.environ.get("RERANK_MODEL", "").strip(),
+            rerank_candidates=_bounded("RERANK_CANDIDATES", int, 40, 2, 500),
+            rerank_mode=_choice("RERANK_MODE", "replace", ("replace", "rrf")),
+            rerank_timeout=_bounded("RERANK_TIMEOUT", float, 20.0, 1.0, 120.0),
+            rerank_doc_chars=_bounded("RERANK_DOC_CHARS", int, 1500, 200, 12000),
+            rerank_min_results=_bounded("RERANK_MIN_RESULTS", int, 6, 2, 1000),
             log_level=os.environ.get("LOG_LEVEL", "INFO").strip().upper() or "INFO",
         )

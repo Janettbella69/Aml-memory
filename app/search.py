@@ -16,6 +16,8 @@ v0.5: an optional dense channel (text-embedding-v4 cosine neighbours, app/embed.
 v0.6: an optional evidence selector (app/selector.py, SELECTOR_MODEL) looks at the first SELECTOR_CANDIDATES blocks
 and moves the ones holding evidence to the front; for 'fact' questions the unselected tail may be cut to
 SELECTOR_TAIL blocks (standing rules survive the cut). It changes only the order of verbatim blocks.
+v0.7: an optional cross-encoder reranker (app/rerank.py, RERANK_MODEL) re-orders the first RERANK_CANDIDATES blocks by
+query-block relevance (replace) or by RRF with the retrieval rank, before the selector; verbatim blocks only.
 v0.4: turns are rendered with resolved relative-time notes (app/timex.py, TIME_NOTES) and answer options enter
 retrieval per OPTIONS_MODE (append | none | channel with OPTIONS_WEIGHT).
 """
@@ -30,6 +32,7 @@ from .config import Settings
 from .models import MemoryResult
 from .embed import Embedder
 from .planner import Plan, Planner
+from .rerank import Reranker
 from .selector import Selection, Selector
 from .store import Chunk, MemoryStore, cjk_only, render
 
@@ -119,10 +122,14 @@ def retrieval_text(query: str, options: list[str] | None, settings: Settings) ->
 def search(store: MemoryStore, settings: Settings, query: str, options: list[str] | None,
            user_id: str, top_k: int, planner: Optional[Planner] = None,
            gate: Optional[ContextManager] = None, embedder: Optional[Embedder] = None,
-           selector: Optional[Selector] = None) -> list[MemoryResult]:
-    """Gated SQLite passes around the network calls (query embedding, planner, selector); network time never holds the gate."""
+           selector: Optional[Selector] = None, reranker: Optional[Reranker] = None) -> list[MemoryResult]:
+    """Gated SQLite passes around the network calls (query embedding, planner, reranker, selector); network time never holds the gate."""
     meta: dict[str, Any] = {}
     results = _retrieve(store, settings, query, options, user_id, top_k, planner, gate, embedder, meta)
+    if reranker is not None and len(results) >= settings.rerank_min_results:
+        head = results[:settings.rerank_candidates]
+        scores = reranker.scores(retrieval_text(query, options, settings), [r.content for r in head])   # outside the gate
+        results = apply_rerank(results, scores, settings)
     if selector is not None and len(results) >= settings.selector_min_results:
         candidates = results[:settings.selector_candidates]
         selection = selector.select(query, options, [r.content for r in candidates])   # outside the gate
@@ -159,6 +166,25 @@ def _retrieve(store: MemoryStore, settings: Settings, query: str, options: list[
             if plan.has_dates:   # a date range in the question outranks the head: in-range hits first, each group in order
                 hits = _prefer_dates(hits, plan)
         return _assemble(store, conn, settings, query, options, user_id, top_k, hits, meta)
+
+
+def apply_rerank(results: list[MemoryResult], scores: Optional[list[float]], settings: Settings) -> list[MemoryResult]:
+    """Re-order the first len(scores) blocks by the reranker (replace) or by RRF of retrieval rank and reranker rank;
+    blocks behind the reranked head keep their order. Scores are re-issued so that order and score agree."""
+    if not scores or len(scores) > len(results):
+        return results
+    n_head = len(scores)
+    by_rerank = sorted(range(n_head), key=lambda i: (-scores[i], i))
+    if settings.rerank_mode == "rrf":
+        rr = {i: r for r, i in enumerate(by_rerank)}
+        fused = sorted(range(n_head), key=lambda i: (-(1.0 / (RRF_K + i) + 1.0 / (RRF_K + rr[i])), i))
+        order = fused
+    else:
+        order = by_rerank
+    ordered = [results[i] for i in order] + results[n_head:]
+    n = len(ordered)
+    return [MemoryResult(id=r.id, content=r.content, created_at=r.created_at, score=round(1.0 - i / n, 4))
+            for i, r in enumerate(ordered)]
 
 
 def apply_selection(results: list[MemoryResult], selection: Optional[Selection], rule_ids: set[str],

@@ -139,3 +139,27 @@ def test_dense_head_keeps_lexical_order_in_front():
             assert "exam" in data[0]["content"]          # the exact lexical hit leads either way here
         finally:
             c.__exit__(None, None, None)
+
+
+def test_planner_expansion_keeps_lexical_head():
+    from app.planner import Plan
+
+    class FakePlanner:
+        def plan(self, query, options, snippets):
+            return Plan(queries=["cable sleeve"], date_from_ms=None, date_to_ms=None)
+
+    tmp = tempfile.TemporaryDirectory()
+    settings = Settings(api_key="", data_dir=os.path.join(tmp.name, "d"), dense_head=1)
+    store = MemoryStore(settings.data_dir)
+    app = create_app(settings=settings, store=store, planner=FakePlanner())
+    c = TestClient(app)
+    c.__enter__()
+    try:
+        add(c, "c:chunk-0", "u", [{"role": "user", "content": "Lin passed the critical care exam on 28 September."}])
+        add(c, "c:chunk-1", "u", [{"role": "user", "content": "Biscuit ate a cable sleeve again."}])
+        add(c, "c:chunk-2", "u", [{"role": "user", "content": "The cable sleeve was replaced by a metal cable cover."}])
+        data = search(c, "u", "When did Lin pass the exam?", top_k=10)
+        assert "exam" in data[0]["content"]      # the planner's extra query must not push the lexical head down
+    finally:
+        c.__exit__(None, None, None)
+        tmp.cleanup()

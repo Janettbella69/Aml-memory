@@ -61,3 +61,39 @@ MemMachine's extraction-based memory moved temporal (37.9) and it paid 17 points
    (we do) and, optionally, as a separately weighted channel.
 5. **Not now:** gpt-4o-mini fact extraction at Add (ActiveMemoryIndex, ChronoHybridMem, MemMachine) — the biggest build,
    ≈ US$45+ per Full run at 300 M tokens, and MemMachine shows the execution-score risk of derived memories.
+
+## Score weights: what the Overall actually counts (fitted 2026-10-09)
+
+The platform does not publish how the seven capability scores are aggregated. Fitting the official file's 50 open-source
+rows (Overall vs the seven scores, non-negative weights summing to one; `scripts/fit_weights.py`) recovers it almost
+exactly: RMSE 0.16 points, leave-one-out error 0.14 (max 0.40). Forcing temporal to one seventh makes the fit five
+times worse, forcing fact recall to one seventh seven times worse. Overall is, in effect, a question-count-weighted mean.
+
+| capability | weight | what +10 capability points buy on Overall |
+|---|---|---|
+| fact recall | 0.46 | +4.6 |
+| execution | 0.33 | +3.3 |
+| personalization | 0.09 | +0.9 |
+| composition | 0.05 | +0.5 |
+| governance | 0.03 | +0.3 |
+| safety | 0.03 | +0.3 |
+| temporal | 0.02 | +0.2 |
+
+What this changes for us:
+
+1. **Temporal and governance are worth almost nothing on the board.** The "temporal is a lever" line in PLAN.md was
+   wrong. The v0.4 time notes stay (free, deterministic) but no further work goes there.
+2. **Execution (33 %) can only be lost, not won.** Its leaves are CL-bench's four task families (domain knowledge,
+   rule systems, procedures, empirical laws; 1,899 tasks on which even GPT-5.1 solves 23.7 % with the context handed
+   to it directly) plus format following. Every board sits at 26–31, commercial included; the locked answer model is
+   the limit. The score only moves *down* when a system stops returning the verbatim context: MemMachine 11.7,
+   MemOS 9.8. Rule: never fragment, summarise or replace rule/workflow text; keep verbatim blocks first.
+3. **The only large headroom is fact recall (46 %).** Open-source best 56.8 (single-fact 57.6) against MemoraX 89.9
+   (single-fact 93.5). On the organisers' public LoCoMo-Refined data our evidence is inside the top-100 for 98.9 % of
+   questions, so on data of that kind recall is not the bottleneck; the hypothesis is precision — what the answer model
+   sees first and how much unrelated text surrounds it (LongMemEval: GPT-4o 0.87 on evidence sessions only vs 0.61 on
+   the full history). That is what the window-arms experiment measures (PLAN.md 10-09 E).
+4. **Counterfactual.** MemMachine's profile (fact 63.5, composition 53.1, temporal 37.9, governance 38.7,
+   personalization 44.2, safety 30.3) with execution held at the field's 30.0 would score ≈ 48.1 — three points above
+   the cycle-1 winner. Add-time gpt-4o-mini extraction behind a verbatim-first store is therefore the proven ceiling
+   route under the open-source rules; nobody in cycle 1 did both halves.

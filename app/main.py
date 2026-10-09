@@ -13,6 +13,7 @@ from .config import Settings
 from .embed import Embedder, embedder_from_env, to_blob
 from .models import AddRequest, AddResponse, HealthResponse, SearchRequest, SearchResponse
 from .planner import Planner, planner_from_env
+from .selector import Selector, selector_from_env
 from .search import search as assemble_evidence
 from .store import ConflictingRequestError, MemoryStore
 
@@ -20,7 +21,8 @@ log = logging.getLogger("aml_memory")
 
 
 def create_app(settings: Settings | None = None, store: MemoryStore | None = None,
-               planner: Planner | None = None, embedder: Embedder | None = None) -> FastAPI:
+               planner: Planner | None = None, embedder: Embedder | None = None,
+               selector: Selector | None = None) -> FastAPI:
     cfg = settings or Settings.from_env()
     logging.basicConfig(level=cfg.log_level)
     memory = store or MemoryStore(cfg.data_dir, retention_days=cfg.retention_days, pool_size=cfg.db_pool_size,
@@ -32,6 +34,11 @@ def create_app(settings: Settings | None = None, store: MemoryStore | None = Non
     query_planner = planner or planner_from_env(cfg.planner_model, cfg.planner_max_queries, cfg.planner_timeout)
     if query_planner is not None:
         log.info("query planner enabled: %s", cfg.planner_model)
+    evidence_selector = selector or selector_from_env(cfg.selector_model, cfg.selector_timeout,
+                                                      cfg.selector_max_select, cfg.selector_block_chars)
+    if evidence_selector is not None:
+        log.info("evidence selector enabled: %s (candidates %d, tail %d)", cfg.selector_model,
+                 cfg.selector_candidates, cfg.selector_tail)
     dense = embedder or embedder_from_env(cfg.embed_model, cfg.embed_dims, cfg.embed_timeout, cfg.embed_rps)
     memory.vector_cache_users = cfg.vector_cache_users
     if dense is not None:
@@ -108,7 +115,8 @@ def create_app(settings: Settings | None = None, store: MemoryStore | None = Non
 
     def search_memory(payload: SearchRequest, _: None = Depends(authenticate)) -> SearchResponse:
         data = assemble_evidence(memory, cfg, payload.query, payload.options, payload.user_id, payload.top_k,
-                                 planner=query_planner, gate=search_gate, embedder=dense)
+                                 planner=query_planner, gate=search_gate, embedder=dense,
+                                 selector=evidence_selector)
         log.info("search results=%d top_k=%d", len(data), payload.top_k)  # never the query or memory text
         return SearchResponse(data=data)
 

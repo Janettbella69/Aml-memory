@@ -11,6 +11,7 @@ Never run it on leaderboard data; evalset/ is our own writing.
 from __future__ import annotations
 
 import argparse
+import http.client
 import json
 import os
 import sys
@@ -49,13 +50,19 @@ def chat(messages: list[dict], max_tokens: int, key: str) -> tuple[str, dict]:
     base = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
     req = urllib.request.Request(base + "/chat/completions", data=json.dumps(body).encode(),
                                  headers={"Content-Type": "application/json", "Authorization": f"Bearer {key}"}, method="POST")
-    for attempt in range(4):
+    for attempt in range(6):
         try:
             with urllib.request.urlopen(req, timeout=120) as resp:
                 out = json.load(resp)
             return out["choices"][0]["message"]["content"].strip(), out.get("usage", {})
         except urllib.error.HTTPError as err:
-            if err.code in (429, 500, 502, 503) and attempt < 3:
+            if err.code in (408, 429, 500, 502, 503, 504, 524) and attempt < 5:
+                time.sleep(2 ** attempt)
+                continue
+            raise
+        except (urllib.error.URLError, TimeoutError, ConnectionError, OSError, http.client.HTTPException):
+            # dropped connections / timeouts on the gateway side: retry with backoff (seen 2026-10-09: RemoteDisconnected)
+            if attempt < 5:
                 time.sleep(2 ** attempt)
                 continue
             raise

@@ -13,6 +13,9 @@ Pipeline (v0.2):
   6. fallback   : nothing matched -> the newest FALLBACK_RESULTS turns
   7. budget     : stop at top_k results or MAX_RESPONSE_CHARS characters
 v0.5: an optional dense channel (text-embedding-v4 cosine neighbours, app/embed.py) is fused by RRF into step 1.
+v0.6: an optional evidence selector (app/selector.py, SELECTOR_MODEL) looks at the first SELECTOR_CANDIDATES blocks
+and moves the ones holding evidence to the front; for 'fact' questions the unselected tail may be cut to
+SELECTOR_TAIL blocks (standing rules survive the cut). It changes only the order of verbatim blocks.
 v0.4: turns are rendered with resolved relative-time notes (app/timex.py, TIME_NOTES) and answer options enter
 retrieval per OPTIONS_MODE (append | none | channel with OPTIONS_WEIGHT).
 """
@@ -27,6 +30,7 @@ from .config import Settings
 from .models import MemoryResult
 from .embed import Embedder
 from .planner import Plan, Planner
+from .selector import Selection, Selector
 from .store import Chunk, MemoryStore, cjk_only, render
 
 WORD_RE = re.compile(r"\w+", re.UNICODE)
@@ -114,8 +118,21 @@ def retrieval_text(query: str, options: list[str] | None, settings: Settings) ->
 
 def search(store: MemoryStore, settings: Settings, query: str, options: list[str] | None,
            user_id: str, top_k: int, planner: Optional[Planner] = None,
-           gate: Optional[ContextManager] = None, embedder: Optional[Embedder] = None) -> list[MemoryResult]:
-    """Two gated SQLite passes around the network calls (query embedding, planner); network time never holds the gate."""
+           gate: Optional[ContextManager] = None, embedder: Optional[Embedder] = None,
+           selector: Optional[Selector] = None) -> list[MemoryResult]:
+    """Gated SQLite passes around the network calls (query embedding, planner, selector); network time never holds the gate."""
+    meta: dict[str, Any] = {}
+    results = _retrieve(store, settings, query, options, user_id, top_k, planner, gate, embedder, meta)
+    if selector is not None and len(results) >= settings.selector_min_results:
+        candidates = results[:settings.selector_candidates]
+        selection = selector.select(query, options, [r.content for r in candidates])   # outside the gate
+        results = apply_selection(results, selection, meta.get("rule_ids", set()), settings)
+    return results
+
+
+def _retrieve(store: MemoryStore, settings: Settings, query: str, options: list[str] | None,
+              user_id: str, top_k: int, planner: Optional[Planner], gate: Optional[ContextManager],
+              embedder: Optional[Embedder], meta: dict[str, Any]) -> list[MemoryResult]:
     gate = gate or nullcontext()
     qvec: Any = None
     if embedder is not None:
@@ -125,17 +142,44 @@ def search(store: MemoryStore, settings: Settings, query: str, options: list[str
             return []
         hits = _first_pass(store, conn, settings, query, options, user_id, top_k, qvec)
         if planner is None:
-            return _assemble(store, conn, settings, query, options, user_id, top_k, hits)
+            return _assemble(store, conn, settings, query, options, user_id, top_k, hits, meta)
         snippets = [render(c, settings.time_notes)[:400] for c, _ in hits[:settings.planner_snippets]]
     plan = planner.plan(query, options, snippets)          # outside the gate
     with gate, store.connect(user_id, create=False) as conn:
         if conn is None:
             return []
         if plan is not None and (plan.queries or plan.has_dates):
-            hits = _expand(store, conn, settings, user_id, top_k, query, options, hits, plan, qvec)
-        if plan is not None and plan.has_dates:
-            hits = _prefer_dates(hits, plan)
-        return _assemble(store, conn, settings, query, options, user_id, top_k, hits)
+            # The first DENSE_HEAD lexical hits stay in front of everything the planner adds. Measured 2026-10-09 on
+            # public LoCoMo-Refined (200 q): letting the expansion re-rank the head took hit@1 0.405 -> 0.140 and the
+            # reader's accuracy went down with it even though recall@100 reached 1.0 - the head is what gets read.
+            head = hits[:settings.dense_head]
+            head_ids = {c.id for c, _ in head}
+            tail = _expand(store, conn, settings, user_id, top_k, query, options, hits[len(head):], plan, qvec)
+            hits = head + [h for h in tail if h[0].id not in head_ids]
+            if plan.has_dates:   # a date range in the question outranks the head: in-range hits first, each group in order
+                hits = _prefer_dates(hits, plan)
+        return _assemble(store, conn, settings, query, options, user_id, top_k, hits, meta)
+
+
+def apply_selection(results: list[MemoryResult], selection: Optional[Selection], rule_ids: set[str],
+                    settings: Settings) -> list[MemoryResult]:
+    """Selected blocks first (in the selector's order), then the rest in their original order. For 'fact'
+    questions with SELECTOR_TAIL >= 0 the unselected non-rule blocks are cut to that many; standing rules are
+    always kept. Scores are re-issued so that order and score agree (the platform treats order as priority)."""
+    if selection is None or not selection.blocks:
+        return results
+    picked = [i for i in selection.blocks if 0 <= i < len(results)]
+    if not picked:
+        return results
+    chosen = set(picked)
+    head = [results[i] for i in picked]
+    rest = [r for j, r in enumerate(results) if j not in chosen]
+    if selection.kind == "fact" and settings.selector_tail >= 0:
+        rest = [r for r in rest if r.id not in rule_ids][:settings.selector_tail] + [r for r in rest if r.id in rule_ids]
+    ordered = head + rest
+    n = len(ordered)
+    return [MemoryResult(id=r.id, content=r.content, created_at=r.created_at, score=round(1.0 - i / n, 4))
+            for i, r in enumerate(ordered)]
 
 
 def _first_pass(store: MemoryStore, conn, settings: Settings, query: str, options: list[str] | None,
@@ -204,7 +248,8 @@ def _prefer_dates(hits: list[tuple[Chunk, float]], plan: Plan) -> list[tuple[Chu
 
 
 def _assemble(store: MemoryStore, conn, settings: Settings, query: str, options: list[str] | None,
-              user_id: str, top_k: int, hits: list[tuple[Chunk, float]]) -> list[MemoryResult]:
+              user_id: str, top_k: int, hits: list[tuple[Chunk, float]],
+              meta: Optional[dict[str, Any]] = None) -> list[MemoryResult]:
     top_score = hits[0][1] if hits else 1.0
     score_of = {chunk.id: s for chunk, s in hits}
 
@@ -212,6 +257,8 @@ def _assemble(store: MemoryStore, conn, settings: Settings, query: str, options:
     rules = store.standing_rules(user_id, rule_budget * 4, conn) if rule_budget > 0 else []
     rules.sort(key=lambda c: (-score_of.get(c.id, 0.0), -c.order_key[0], -c.order_key[1]))
     rules = rules[:rule_budget]
+    if meta is not None:
+        meta["rule_ids"] = {c.id for c in rules}
 
     queue: list[tuple[Chunk, float]] = []
     queued: set[str] = set()

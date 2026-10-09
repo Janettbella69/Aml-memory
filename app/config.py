@@ -58,6 +58,13 @@ class Settings:
     dense_weight: float = 1.0          # v0.5: RRF weight of the dense list against the lexical lists
     dense_head: int = 5                # v0.5: keep the first N lexical hits in front, fuse the dense list only behind them (0 = plain RRF; 5 chosen on public LoCoMo-Refined)
     vector_cache_users: int = 64       # v0.5: per-process LRU of in-memory vector matrices
+    selector_model: str = ""          # v0.6: "gpt-4o-mini" enables the evidence selector (a reranker over our own blocks); "" = off
+    selector_candidates: int = 40      # v0.6: how many leading blocks the selector sees
+    selector_max_select: int = 8       # v0.6: blocks it may move to the front
+    selector_tail: int = -1            # v0.6: for 'fact' questions, unselected blocks kept after the selected ones; -1 = keep all (reorder only)
+    selector_block_chars: int = 1200   # v0.6: characters of each block shown to the selector
+    selector_timeout: float = 20.0
+    selector_min_results: int = 12     # v0.6: shorter result lists are returned as they are
     log_level: str = "INFO"
 
     @classmethod
@@ -95,5 +102,12 @@ class Settings:
             dense_weight=_bounded("DENSE_WEIGHT", float, 1.0, 0.0, 3.0),
             dense_head=_bounded("DENSE_HEAD", int, 5, 0, 50),
             vector_cache_users=_bounded("VECTOR_CACHE_USERS", int, 64, 1, 4096),
+            selector_model=os.environ.get("SELECTOR_MODEL", "").strip(),
+            selector_candidates=_bounded("SELECTOR_CANDIDATES", int, 40, 5, 100),
+            selector_max_select=_bounded("SELECTOR_MAX_SELECT", int, 8, 1, 20),
+            selector_tail=_bounded("SELECTOR_TAIL", int, -1, -1, 1000),
+            selector_block_chars=_bounded("SELECTOR_BLOCK_CHARS", int, 1200, 200, 6000),
+            selector_timeout=_bounded("SELECTOR_TIMEOUT", float, 20.0, 1.0, 120.0),
+            selector_min_results=_bounded("SELECTOR_MIN_RESULTS", int, 12, 2, 1000),
             log_level=os.environ.get("LOG_LEVEL", "INFO").strip().upper() or "INFO",
         )

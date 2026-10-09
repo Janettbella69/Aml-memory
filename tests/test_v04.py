@@ -69,3 +69,12 @@ def test_options_modes():
         assert any("Mochi" in x for x in contents)          # present, but behind the question's own evidence
     finally:
         c.__exit__(None, None, None)
+
+
+def test_options_already_in_the_question_are_not_appended_again():
+    from app.search import dedupe_options
+    q = "What did Ethan mean?\n\nA. He was teasing Bennett.\nB. He was angry.\nC. Cannot infer"
+    assert dedupe_options(q, ["A. He was teasing Bennett.", "B. He was angry.", "C. Cannot infer"]) is None
+    assert dedupe_options(q, ["(B) He was angry.", "D. He left early."]) == ["D. He left early."]
+    assert dedupe_options("plain question", ["A. x", "B. y"]) == ["A. x", "B. y"]
+    assert dedupe_options("plain question", None) is None

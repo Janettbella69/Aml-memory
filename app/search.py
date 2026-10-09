@@ -125,6 +125,24 @@ def newest_first_within_band(hits: list[tuple[Chunk, float]], band: float) -> li
     return sorted(hits, key=key)
 
 
+OPTION_PREFIX = re.compile(r"^\s*(?:\(?[A-Za-z]\)|[A-Za-z][\.\:：、])\s*")
+
+
+def dedupe_options(query: str, options: list[str] | None) -> list[str] | None:
+    """Drop answer options whose text is already inside the question. ScriptMem-style questions carry the lettered
+    options in the question text AND in the request's `options` field (seen 2026-10-09 in the public release), so
+    appending them again would double the distractor wording in the lexical and dense queries."""
+    if not options:
+        return options
+    q = " ".join(query.lower().split())
+    kept = []
+    for opt in options:
+        body = " ".join(OPTION_PREFIX.sub("", str(opt)).lower().split())
+        if body and body not in q:
+            kept.append(opt)
+    return kept or None
+
+
 def retrieval_text(query: str, options: list[str] | None, settings: Settings) -> str:
     """What the dense channel embeds: the question, plus the options when OPTIONS_MODE=append."""
     if options and settings.options_mode == "append":
@@ -138,6 +156,7 @@ def search(store: MemoryStore, settings: Settings, query: str, options: list[str
            selector: Optional[Selector] = None, reranker: Optional[Reranker] = None) -> list[MemoryResult]:
     """Gated SQLite passes around the network calls (query embedding, planner, reranker, selector); network time never holds the gate."""
     meta: dict[str, Any] = {}
+    options = dedupe_options(query, options)
     results = _retrieve(store, settings, query, options, user_id, top_k, planner, gate, embedder, meta)
     if reranker is not None and len(results) >= settings.rerank_min_results:
         head = results[:settings.rerank_candidates]

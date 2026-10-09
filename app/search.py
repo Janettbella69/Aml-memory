@@ -128,7 +128,9 @@ def search(store: MemoryStore, settings: Settings, query: str, options: list[str
     results = _retrieve(store, settings, query, options, user_id, top_k, planner, gate, embedder, meta)
     if reranker is not None and len(results) >= settings.rerank_min_results:
         head = results[:settings.rerank_candidates]
-        scores = reranker.scores(retrieval_text(query, options, settings), [r.content for r in head])   # outside the gate
+        hit_text = meta.get("hit_text", {})
+        docs = [hit_text.get(r.id, r.content) if settings.rerank_doc == "hit" else r.content for r in head]
+        scores = reranker.scores(retrieval_text(query, options, settings), docs)   # outside the gate
         results = apply_rerank(results, scores, settings)
     if selector is not None and len(results) >= settings.selector_min_results:
         candidates = results[:settings.selector_candidates]
@@ -318,4 +320,6 @@ def _assemble(store: MemoryStore, conn, settings: Settings, query: str, options:
         used += len(text)
         results.append(MemoryResult(id=chunk.id, content=text, created_at=chunk.stored_at,
                                     score=round(min(s / top_score, 1.0), 4) if top_score else None))
+        if meta is not None:
+            meta.setdefault("hit_text", {})[chunk.id] = render(chunk, settings.time_notes)   # the matched turn alone, for the reranker
     return results

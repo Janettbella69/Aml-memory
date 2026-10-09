@@ -149,3 +149,17 @@ def test_reranker_from_env_keys(monkeypatch):
     r = rr.reranker_from_env("voyage", "rerank-2.5", 20.0, 1500)
     assert r.api_key == "override" and r.endpoint == "https://proxy.example/rerank"
     assert rr.reranker_from_env("nope", "x", 20.0, 1500) is None and rr.reranker_from_env("voyage", "", 20.0, 1500) is None
+
+
+def test_hit_mode_sends_the_matched_turn_not_the_span():
+    rr = FakeReranker([0.5, 0.4, 0.3, 0.2])
+    c = make_client(rr, context_window=2, rerank_candidates=4, rerank_min_results=3)      # rerank_doc defaults to "hit"
+    seed(c)
+    search(c)
+    docs = rr.calls[-1][1]
+    assert all(d.count("\n") == 0 and "tomato note" in d for d in docs), docs   # one rendered turn each
+    rr2 = FakeReranker([0.5, 0.4, 0.3, 0.2])
+    c2 = make_client(rr2, context_window=2, rerank_candidates=4, rerank_min_results=3, rerank_doc="block")
+    seed(c2)
+    search(c2)
+    assert any(d.count("\n") >= 2 for d in rr2.calls[-1][1])                   # spans carry neighbouring turns

@@ -70,7 +70,8 @@ class Settings:
     rerank_candidates: int = 40        # v0.7: leading blocks that are reranked; the rest keep their order behind them
     rerank_mode: str = "replace"       # v0.7: replace (reranker order for the head) | rrf (fuse reranker rank with the retrieval rank, k = 60)
     rerank_timeout: float = 20.0
-    rerank_doc_chars: int = 1500       # v0.7: characters of each block sent to the reranker (4,000-token limit per document)
+    rerank_doc_chars: int = 1500       # v0.7: characters of each document sent to the reranker (4,000-token limit per document)
+    rerank_doc: str = "hit"            # v0.7: hit = score the matched turn itself; block = the rendered span (its first chars may be only the preceding turns — on long-turn data that hid the hit and scrambled the order)
     rerank_min_results: int = 6        # v0.7: shorter lists are returned as they are
     log_level: str = "INFO"
 
@@ -122,6 +123,7 @@ class Settings:
             rerank_mode=_choice("RERANK_MODE", "replace", ("replace", "rrf")),
             rerank_timeout=_bounded("RERANK_TIMEOUT", float, 20.0, 1.0, 120.0),
             rerank_doc_chars=_bounded("RERANK_DOC_CHARS", int, 1500, 200, 12000),
+            rerank_doc=_choice("RERANK_DOC", "hit", ("hit", "block")),
             rerank_min_results=_bounded("RERANK_MIN_RESULTS", int, 6, 2, 1000),
             log_level=os.environ.get("LOG_LEVEL", "INFO").strip().upper() or "INFO",
         )

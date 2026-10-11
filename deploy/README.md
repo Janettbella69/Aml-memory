@@ -39,7 +39,7 @@ turns × dims × 4 bytes per worker). Then `bash deploy/deploy.sh`; the log must
 
 ## v0.7 reranker — one-time
 Add to the server `.env` (the Model Studio key is already there): `RERANK_PROVIDER=dashscope`, `RERANK_MODEL=qwen3-rerank`,
-`RERANK_MODE=replace`, `RERANK_CANDIDATES=40`. Then `bash deploy/deploy.sh`; the log must show `reranker enabled: dashscope/qwen3-rerank`.
+`RERANK_MODE=replace`, `RERANK_CANDIDATES=40`, `RERANK_DOC=both`. Then `bash deploy/deploy.sh`; the log must show `reranker enabled: dashscope/qwen3-rerank`.
 
 ## Every deploy
 ```bash

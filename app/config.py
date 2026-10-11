@@ -71,7 +71,7 @@ class Settings:
     rerank_mode: str = "replace"       # v0.7: replace (reranker order for the head) | rrf (fuse reranker rank with the retrieval rank, k = 60)
     rerank_timeout: float = 20.0
     rerank_doc_chars: int = 1500       # v0.7: characters of each document sent to the reranker (4,000-token limit per document)
-    rerank_doc: str = "hit"            # v0.7: hit = score the matched turn itself; block = the rendered span (its first chars may be only the preceding turns — on long-turn data that hid the hit and scrambled the order); both = the matched turn first, then the span (the hit is always inside the reranker's window and short turns keep their context)
+    rerank_doc: str = "both"           # v0.7 (default since 2026-10-11, see METHOD_CARD): hit = score the matched turn itself; block = the rendered span (its first chars may be only the preceding turns — on long-turn data that hid the hit and scrambled the order); both = the matched turn first, then the span (the hit is always inside the reranker's window and short turns keep their context)
     rerank_min_results: int = 6        # v0.7: shorter lists are returned as they are
     fit_chars: int = 0                 # v0.8 fit mode: when the user's whole stored text is at most this many characters, return ALL of it in
                                        # relevance order (contiguous segments, top hits centred) instead of hit ± window blocks. 0 = off
@@ -129,7 +129,7 @@ class Settings:
             rerank_mode=_choice("RERANK_MODE", "replace", ("replace", "rrf")),
             rerank_timeout=_bounded("RERANK_TIMEOUT", float, 20.0, 1.0, 120.0),
             rerank_doc_chars=_bounded("RERANK_DOC_CHARS", int, 1500, 200, 12000),
-            rerank_doc=_choice("RERANK_DOC", "hit", ("hit", "block", "both")),
+            rerank_doc=_choice("RERANK_DOC", "both", ("hit", "block", "both")),
             rerank_min_results=_bounded("RERANK_MIN_RESULTS", int, 6, 2, 1000),
             fit_chars=_bounded("FIT_CHARS", int, 0, 0, 2_000_000),
             fit_fill=_bounded("FIT_FILL", float, 0.8, 0.1, 1.0),

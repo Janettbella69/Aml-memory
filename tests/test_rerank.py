@@ -153,7 +153,7 @@ def test_reranker_from_env_keys(monkeypatch):
 
 def test_hit_mode_sends_the_matched_turn_not_the_span():
     rr = FakeReranker([0.5, 0.4, 0.3, 0.2])
-    c = make_client(rr, context_window=2, rerank_candidates=4, rerank_min_results=3)      # rerank_doc defaults to "hit"
+    c = make_client(rr, context_window=2, rerank_candidates=4, rerank_min_results=3, rerank_doc="hit")
     seed(c)
     search(c)
     docs = rr.calls[-1][1]
@@ -179,6 +179,19 @@ def test_created_at_is_the_event_time_when_known():
                                      "messages": [{"role": "user", "content": "Juror 8: a line that came without any timestamp."}]})
     bare = c.post("/v1/memories/search", json={"query": "line without timestamp", "user_id": "bare", "top_k": 5}).json()["data"]
     assert bare and "created_at" not in bare[0] and bare[0]["id"] and bare[0]["score"] is not None   # omitted, not null, never the storage day
+
+
+def test_default_document_is_the_matched_turn_followed_by_its_span(monkeypatch):
+    from app.config import Settings
+    monkeypatch.delenv("RERANK_DOC", raising=False)
+    assert Settings().rerank_doc == "both" and Settings.from_env().rerank_doc == "both"
+    rr = FakeReranker([0.5, 0.4, 0.3, 0.2])
+    c = make_client(rr, context_window=2, rerank_candidates=4, rerank_min_results=3)
+    seed(c)
+    search(c)
+    docs = rr.calls[-1][1]
+    assert all("tomato note" in d.split("\n", 1)[0] for d in docs), docs      # every document opens with the matched turn
+    assert any(d.count("\n") >= 2 for d in docs)                              # and carries its neighbours behind it
 
 
 def test_rerank_document_modes():

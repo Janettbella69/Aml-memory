@@ -37,9 +37,11 @@ server `.env`: `EMBED_MODEL=text-embedding-v4`, `EMBED_DIMS=256`, `DASHSCOPE_API
 `EMBED_RPS=14` (published key limits: 1,000 req/min on one Alibaba page, 1,800 on another; 14/s ≈ 840/min is safe under both), `VECTOR_CACHE_USERS=16` (the box has 1.6 GB; a cached user costs
 turns × dims × 4 bytes per worker). Then `bash deploy/deploy.sh`; the log must show `dense channel enabled: text-embedding-v4 (256 dims)`.
 
-## v0.7 reranker — one-time
-Add to the server `.env` (the Model Studio key is already there): `RERANK_PROVIDER=dashscope`, `RERANK_MODEL=qwen3-rerank`,
-`RERANK_MODE=replace`, `RERANK_CANDIDATES=40`, `RERANK_DOC=both`. Then `bash deploy/deploy.sh`; the log must show `reranker enabled: dashscope/qwen3-rerank`.
+## v0.7 reranker — OFF in the submitted configuration (2026-10-15)
+Keep `RERANK_MODEL=` empty in the server `.env` (measured with the organisers' prompts: no accuracy gain, see
+`docs/METHOD_CARD.md` 0.10); the start-up log must then show the `dense channel enabled` and `query planner enabled` lines
+and NO `reranker enabled` line. To enable it anyway: `RERANK_PROVIDER=dashscope`, `RERANK_MODEL=qwen3-rerank` (or
+`qwen3.7-text-rerank`), `RERANK_MODE=replace`, `RERANK_CANDIDATES=40`, `RERANK_DOC=both`, then `bash deploy/deploy.sh`.
 
 ## Every deploy
 ```bash

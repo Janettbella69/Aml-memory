@@ -20,6 +20,8 @@ v0.7: an optional cross-encoder reranker (app/rerank.py, RERANK_MODEL) re-orders
 query-block relevance (replace) or by RRF with the retrieval rank, before the selector; verbatim blocks only.
 v0.4: turns are rendered with resolved relative-time notes (app/timex.py, TIME_NOTES) and answer options enter
 retrieval per OPTIONS_MODE (append | none | channel with OPTIONS_WEIGHT).
+v0.9: an optional final cut (RETURN_CHARS, default off) after every reordering; standing rules survive it. Measured with
+the organisers' answer and judge prompts it did not help (PLAN.md 10-15), so the whole assembled list goes out.
 """
 from __future__ import annotations
 
@@ -203,7 +205,28 @@ def search(store: MemoryStore, settings: Settings, query: str, options: list[str
         candidates = results[:settings.selector_candidates]
         selection = selector.select(query, options, [r.content for r in candidates])   # outside the gate
         results = apply_selection(results, selection, meta.get("rule_ids", set()), settings)
-    return results
+    return cap_response(results, settings, meta)
+
+
+def cap_response(results: list[MemoryResult], settings: Settings, meta: dict[str, Any]) -> list[MemoryResult]:
+    """v0.9 RETURN_CHARS: the last step, after every reordering, so the reranker and selector still choose from the full
+    assembled list. Whole blocks are kept while the running total is below the cap (the same rule as the assembly
+    budget); standing rules that fall behind the cut are kept after it, as the selector keeps them. With
+    RETURN_FROM_CHARS, users whose whole stored text is at most that size are not cut at all."""
+    cap = settings.return_chars
+    if cap <= 0 or not results:
+        return results
+    if settings.return_from_chars > 0 and meta.get("corpus_chars", 0) <= settings.return_from_chars:
+        return results
+    kept: list[MemoryResult] = []
+    used = 0
+    for r in results:
+        if used >= cap:
+            break
+        kept.append(r)
+        used += len(r.content)
+    rule_ids = meta.get("rule_ids", set())
+    return kept + [r for r in results[len(kept):] if r.id in rule_ids]
 
 
 def _retrieve(store: MemoryStore, settings: Settings, query: str, options: list[str] | None,
@@ -367,6 +390,8 @@ def _assemble(store: MemoryStore, conn, settings: Settings, query: str, options:
     rules = rules[:rule_budget]
     if meta is not None:
         meta["rule_ids"] = {c.id for c in rules}
+        if settings.return_chars > 0 and settings.return_from_chars > 0:
+            meta["corpus_chars"] = store.corpus_size(user_id, conn)[1]
 
     queue: list[tuple[Chunk, float]] = []
     queued: set[str] = set()

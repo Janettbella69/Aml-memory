@@ -79,6 +79,11 @@ class Settings:
     fit_span_min: int = 800            # v0.8: smallest segment size in rendered characters
     fit_anchors: int = 8               # v0.8: leading hits that get a segment centred on them
     turn_marks: bool = False           # v0.8: render `[turn N]` on turns that came without a timestamp (N = place in the conversation)
+    return_chars: int = 0              # v0.9: final cut AFTER the reranker/selector: whole blocks while the running total is below this many
+                                       # characters, standing rules behind the cut kept. MAX_RESPONSE_CHARS still bounds assembly (what the
+                                       # reranker chooses from). 0 = off
+    return_from_chars: int = 0         # v0.9: apply RETURN_CHARS only to users whose stored text exceeds this many characters; smaller
+                                       # memories go out whole. 0 = every user
     log_level: str = "INFO"
 
     @classmethod
@@ -136,5 +141,7 @@ class Settings:
             fit_span_min=_bounded("FIT_SPAN_MIN", int, 800, 50, 100_000),
             fit_anchors=_bounded("FIT_ANCHORS", int, 8, 0, 100),
             turn_marks=os.environ.get("TURN_MARKS", "0").strip().lower() in ("1", "true", "yes", "on", "untimed"),
+            return_chars=_bounded("RETURN_CHARS", int, 0, 0, 2_000_000),
+            return_from_chars=_bounded("RETURN_FROM_CHARS", int, 0, 0, 1_000_000_000),
             log_level=os.environ.get("LOG_LEVEL", "INFO").strip().upper() or "INFO",
         )

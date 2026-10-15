@@ -1,6 +1,6 @@
 # aml-memory — Agent Memory Leaderboard (AML 记忆之巅) submission
 
-Open-source Methods entry for the Cycle 2 textual-memory track. Deadline: materials by 2026-10-31 23:59 UTC+8; evaluation closes 2026-11-04; results mid-November.
+Open-source Methods entry for the Cycle 2 textual-memory track. Deadline: materials by 2026-10-31 23:59 UTC+8; evaluation closes 2026-11-04 23:59 UTC+8; results mid-November.
 
 ## What this service is
 A participant-hosted HTTP service with two endpoints the evaluator calls:

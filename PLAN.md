@@ -1,6 +1,6 @@
 # PLAN — AML Cycle 2 (textual, Open-source Methods)
 
-Start 2026-10-07. Materials deadline 2026-10-31. Evaluation closes 2026-11-04.
+Start 2026-10-07. Materials deadline 2026-10-31 23:59 UTC+8 (= 08:59 US Pacific the same day). Evaluation closes 2026-11-04 23:59 UTC+8 (= 07:59 US Pacific; US daylight saving ends 11-01). A Full run must be accepted early enough to finish before the close.
 
 ## Why we can place
 Cycle-1 open-source board: a plain SQLite-FTS5 baseline scored 41.8 (#22 of 50); #1 was 45.1. The whole open-source field sits in a 4-point band. Fitted on the official data (10-09, `scripts/fit_weights.py`): Overall ≈ 0.46 × fact recall + 0.33 × execution + 0.09 × personalization + 0.05 × composition + 0.03 × governance + 0.03 × safety + 0.02 × temporal. So: temporal/governance tricks are worth ≤ 0.3 points; execution is bounded by the locked answer model and only moves down when verbatim context is replaced (protect it); the headroom is fact-recall precision (open-source best 56.8 vs commercial 89.9). See `docs/CYCLE1_NOTES.md` § Score weights.

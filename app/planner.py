@@ -8,6 +8,7 @@ Enable with PLANNER_MODEL=gpt-4o-mini and OPENAI_API_KEY (OPENAI_BASE_URL option
 """
 from __future__ import annotations
 
+import http.client
 import json
 import logging
 import os
@@ -124,7 +125,9 @@ class OpenAIPlanner:
             with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                 out = json.load(resp)
             return parse_plan(out["choices"][0]["message"]["content"], self.max_queries)
-        except (urllib.error.URLError, TimeoutError, KeyError, ValueError, json.JSONDecodeError) as exc:
+        # OSError/HTTPException: a TLS alert, reset or short read while the response is read is not wrapped in URLError
+        except (urllib.error.URLError, TimeoutError, OSError, http.client.HTTPException, KeyError, ValueError,
+                json.JSONDecodeError) as exc:
             log.warning("planner call failed (%s); deterministic fallback", type(exc).__name__)  # no query text in logs
             return None
 

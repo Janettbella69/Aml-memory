@@ -13,6 +13,7 @@ docs/CYCLE1_NOTES.md); the code here is our own. `FakeEmbedder` exists for tests
 from __future__ import annotations
 
 import hashlib
+import http.client
 import json
 import logging
 import os
@@ -140,7 +141,8 @@ class HttpEmbedder:
                 log.warning("embedding call failed: HTTP %s (attempt %d)", err.code, attempt + 1)  # no text in logs
                 if not retryable or attempt == self.retries:
                     break
-            except (urllib.error.URLError, TimeoutError, OSError, ValueError, KeyError, json.JSONDecodeError) as exc:
+            except (urllib.error.URLError, TimeoutError, OSError, http.client.HTTPException, ValueError, KeyError,
+                    json.JSONDecodeError) as exc:
                 log.warning("embedding call failed: %s (attempt %d)", type(exc).__name__, attempt + 1)
                 if attempt == self.retries:
                     break

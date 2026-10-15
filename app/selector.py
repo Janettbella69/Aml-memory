@@ -13,6 +13,7 @@ Enable with SELECTOR_MODEL=gpt-4o-mini and OPENAI_API_KEY (OPENAI_BASE_URL optio
 """
 from __future__ import annotations
 
+import http.client
 import json
 import logging
 import os
@@ -100,7 +101,8 @@ class OpenAISelector:
             with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                 out = json.load(resp)
             return parse_selection(out["choices"][0]["message"]["content"], len(blocks), self.max_select)
-        except (urllib.error.URLError, TimeoutError, KeyError, ValueError, json.JSONDecodeError, OSError) as exc:
+        except (urllib.error.URLError, TimeoutError, KeyError, ValueError, json.JSONDecodeError, OSError,
+                http.client.HTTPException) as exc:
             log.warning("selector call failed (%s); deterministic order kept", type(exc).__name__)  # no query text in logs
             return None
 

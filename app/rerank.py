@@ -14,6 +14,7 @@ the URL. Every provider returns {index, relevance_score} per document, so one cl
 """
 from __future__ import annotations
 
+import http.client
 import json
 import logging
 import os
@@ -94,7 +95,8 @@ class HttpReranker:
                 if 0 <= idx < len(documents):
                     scores[idx] = float(item["relevance_score"])
             return scores
-        except (urllib.error.URLError, TimeoutError, KeyError, ValueError, TypeError, json.JSONDecodeError, OSError) as exc:
+        except (urllib.error.URLError, TimeoutError, KeyError, ValueError, TypeError, json.JSONDecodeError, OSError,
+                http.client.HTTPException) as exc:
             log.warning("rerank call failed (%s %s); deterministic order kept", self.provider, type(exc).__name__)  # no query text
             return None
 

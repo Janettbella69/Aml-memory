@@ -13,7 +13,7 @@ Fill-in sheet mirroring the official evaluation-access form and the Create Eval 
 | Intended evaluation type | Textual Memory track · Open-source Methods division |
 | Method or product description | Deterministic retrieval service for the AML Add/Search contract. Raw conversation turns are stored in SQLite and indexed with FTS5 (porter-stemmed words, plus character trigrams for CJK text); Search ranks them with BM25 over the question and its options, orders near-equal hits newest-first so overwritten values do not outrank their replacements, places the user's standing rules after the leading hits, expands each hit with the two turns around it, de-duplicates, and renders every turn with its UTC timestamp and role. A dense channel (`text-embedding-v4`, 256 d) is fused by RRF behind the first five lexical hits; one `gpt-4o-mini` call per Search proposes up to three extra queries and a date range (fused the same way); the full top-100 of verbatim blocks is returned. Nothing is generated; every result is conversation text with its timestamp and role. |
 | Information approved for public display | System name, version, the method description above, the public repository URL and the fixed commit. |
-| Complete submission notes | Deployed API version `TBD`; endpoints below; auth `X-Api-Key`; capacity below; operational constraints: single instance, SQLite, no server-side request timeout, Add is synchronous; prior-work attribution and method changes in `docs/METHOD_CARD.md`. |
+| Complete submission notes | Deployed API version `1.0.0`; endpoints below; auth `X-Api-Key`; capacity below; operational constraints: single instance, SQLite, no server-side request timeout, Add is synchronous; prior-work attribution and method changes in `docs/METHOD_CARD.md`. |
 | Deployed Add endpoint URL | `https://memory.azorashopping.site/v1/memories/add` (Alibaba Cloud box, Caddy TLS; live since 2026-10-07) |
 | Deployed Search endpoint URL | `https://memory.azorashopping.site/v1/memories/search` |
 | Health URL | `https://memory.azorashopping.site/health` (unauthenticated GET, returns 200; re-checked 2026-10-08) |
@@ -25,8 +25,8 @@ Fill-in sheet mirroring the official evaluation-access form and the Create Eval 
 | Models & external dependencies (FAQ Q5/Q7) | `gpt-4o-mini` (via OpenRouter, model id `openai/gpt-4o-mini`) as the Search-time query planner only; no generative model in Add (N/A); `text-embedding-v4` (Alibaba Model Studio, China endpoint, 256 dims) for the dense channel at Add and Search; no reranker (the optional reranker module is off in the submitted configuration); SQLite FTS5; numpy; Caddy TLS |
 | Multimodal processing declaration (FAQ Q5) | N/A — Textual track only |
 | Service maintenance (FAQ Q5) | Single operator; health monitored via `/health`; Docker `restart: unless-stopped`; no planned changes during a Full run (FAQ Q29); idempotency records and data volume kept until the run is closed (FAQ Q26/Q27), deleted within 30 days after (FAQ Q31) |
-| Public repository URL | `https://github.com/Janettbella69/aml-memory` (created 2026-10-08 as private; switch to public before submitting: `gh repo edit Janettbella69/aml-memory --visibility public --accept-visibility-change-consequences`) |
-| Fixed commit hash | TBD at freeze |
+| Public repository URL | `https://github.com/Janettbella69/Aml-memory` (the old lowercase URL redirects; private until the release — switch with `gh repo edit Janettbella69/Aml-memory --visibility public --accept-visibility-change-consequences`) |
+| Fixed commit hash | the commit tagged `v1.0.0` (full hash: `git rev-parse v1.0.0^{commit}`) |
 | Attribution of prior work | `docs/METHOD_CARD.md` § "Prior work and attribution" (FTS5 baseline pattern, idea only — the 0.1 draft's adapted lines were rewritten in 0.2; ReFind: timestamp rendering, context window, ordinal ordering, porter, RRF, service shape — MIT, notice in `NOTICE`) |
 | Method changes | `docs/METHOD_CARD.md` § "Method changes by version" |
 
@@ -36,7 +36,7 @@ Fill-in sheet mirroring the official evaluation-access form and the Create Eval 
 |---|---|
 | Evaluation track | Textual |
 | System name | `aml-memory` |
-| Version name | the bound version (`v1.0` after freeze) |
+| Version name | `v1.0.0` |
 | Run label | `aml-memory-v1.0-smoke-01`, `-smoke-02`, … then `aml-memory-v1.0-full-01` (labels must be unique per key) |
 | Mode | `smoke` first; `full` once smoke passes and the checklist is confirmed. The form also offers `light` and `scriptmem`; `full` is the only formal participant mode. |
 | Max add concurrency | 16 |
@@ -55,7 +55,7 @@ Fill-in sheet mirroring the official evaluation-access form and the Create Eval 
 ## 提交说明与运行指南（表单文本，冻结时把 <COMMIT> 换成固定 commit）
 
 ```
-【系统】aml-memory v1.0，固定 commit <COMMIT>，公开仓库 https://github.com/Janettbella69/aml-memory（MIT）。参赛组别：开源方法榜；赛道：文本记忆。
+【系统】aml-memory v1.0.0，固定 commit <COMMIT>，公开仓库 https://github.com/Janettbella69/Aml-memory（MIT）。参赛组别：开源方法榜；赛道：文本记忆。
 
 【部署】阿里云国际版单实例（2 vCPU / 1.6 GB / 34 GB 可用），Docker + Caddy 自动 TLS。
 Add：https://memory.azorashopping.site/v1/memories/add  Search：https://memory.azorashopping.site/v1/memories/search  Health：https://memory.azorashopping.site/health（无鉴权 GET）。

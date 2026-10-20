@@ -1,8 +1,8 @@
-# Deploy runbook (Window B)
+# Deploy runbook
 
-**Current production box (10-07):** Alibaba Cloud `root@47.77.196.181`, repo at `/root/aml-memory`, stack `deploy/docker-compose.prod.yml` (project name `deploy`). Update with `git archive --format=tar HEAD | ssh root@47.77.196.181 'tar -x -C /root/aml-memory'` then `docker compose -f deploy/docker-compose.prod.yml --env-file .env up -d --build` there. The AZORA VPS is NOT used for this project.
+**Production (the submitted entry):** one Alibaba Cloud instance (Ubuntu 24.04, 2 vCPU / 1.6 GB), the repository unpacked on the server, stack `deploy/docker-compose.prod.yml` (project name `deploy`). Update with `git archive --format=tar HEAD | ssh <user>@<server> 'tar -x -C <repo dir>'`, then `bash deploy/deploy.sh` there.
 
-Target: a public HTTPS endpoint `https://memory.<domain>` on the existing 腾讯云 VPS, next to AZORA.
+Target: a public HTTPS endpoint `https://memory.<domain>`.
 Everything below is idempotent; re-run `deploy/deploy.sh` after every `git pull`.
 
 ## Other sites on the same box
@@ -13,13 +13,11 @@ The directory is git-ignored and is not part of `git archive`, so updating this 
 A site file that does not parse stops Caddy from starting, and with it this service's endpoint: check
 it first with `docker exec deploy-caddy-1 caddy adapt --config /etc/caddy/Caddyfile --adapter caddyfile`.
 `down -v` drops Caddy's certificates for those sites too; they are issued again on the next start.
-TradeMind (`trademind.store`) has been served this way since 2026-10-09; its runbook is
-`/opt/trademind/deploy/README.md` on the box.
 
 ## One-time
 1. DNS: `A` record `memory.<domain>` → VPS public IP. Wait until `dig +short memory.<domain>` answers.
 2. Firewall / security group: allow TCP 80 and 443 (Caddy needs 80 for the certificate challenge).
-   If AZORA's own nginx/Caddy already owns 80/443, do NOT start the caddy service here; instead add a
+   If another proxy already owns 80/443 on the box, do NOT start the caddy service here; instead add a
    `memory.<domain>` server block to that proxy pointing at `127.0.0.1:8000` and run the dev
    `docker-compose.yml` (which binds 127.0.0.1:8000). Proxy timeouts ≥ 60 s.
 3. Disk: `df -h /` must show ≥ 20 GB free (official textual volume ≈ 300 M tokens). Docker volume `memory-data` holds the DB.
@@ -34,7 +32,7 @@ TradeMind (`trademind.store`) has been served this way since 2026-10-09; its run
 The schema changed (SCHEMA_VERSION 6: `vec` column + `meta`), so existing user files are refused: wipe the volume
 (`docker compose -f deploy/docker-compose.prod.yml --env-file .env down -v`) before starting the new image. Add to the
 server `.env`: `EMBED_MODEL=text-embedding-v4`, `EMBED_DIMS=256`, `DASHSCOPE_API_KEY=…`, `DASHSCOPE_BASE_URL=…`,
-`EMBED_RPS=14` (published key limits: 1,000 req/min on one Alibaba page, 1,800 on another; 14/s ≈ 840/min is safe under both), `VECTOR_CACHE_USERS=16` (the box has 1.6 GB; a cached user costs
+`EMBED_RPS=14` (the bucket is per worker process, so 2 workers send up to 28/s ≈ 1,680/min; published key limits: 1,000 req/min on one Alibaba page, 1,800 on another — if the soak shows 429s, set `EMBED_RPS=7`), `VECTOR_CACHE_USERS=16` (the box has 1.6 GB; a cached user costs
 turns × dims × 4 bytes per worker). Then `bash deploy/deploy.sh`; the log must show `dense channel enabled: text-embedding-v4 (256 dims)`.
 
 ## v0.7 reranker — OFF in the submitted configuration (2026-10-15)

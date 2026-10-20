@@ -54,7 +54,7 @@ class Settings:
     embed_model: str = ""              # v0.5: "text-embedding-v4" enables the dense channel ("" = lexical only)
     embed_dims: int = 256              # v0.5: vector size (text-embedding-v4 accepts 64..2048); float16 on disk
     embed_timeout: float = 30.0
-    embed_rps: float = 14.0            # v0.5: client-side pacing; published key limits differ by source (1,000–1,800 req/min), 14/s ≈ 840/min stays under both
+    embed_rps: float = 14.0            # v0.5: client-side pacing PER WORKER PROCESS (the service sends up to UVICORN_WORKERS × this); published key limits differ by source (1,000–1,800 req/min)
     dense_weight: float = 1.0          # v0.5: RRF weight of the dense list against the lexical lists
     dense_head: int = 5                # v0.5: keep the first N lexical hits in front, fuse the dense list only behind them (0 = plain RRF; 5 chosen on public LoCoMo-Refined)
     vector_cache_users: int = 64       # v0.5: per-process LRU of in-memory vector matrices

@@ -69,7 +69,8 @@ def chat(prompt: str, max_tokens: int = 256) -> tuple[str, dict]:
             with urllib.request.urlopen(req, timeout=180) as r:
                 out = json.load(r)
             return out["choices"][0]["message"]["content"].strip(), out.get("usage", {})
-        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, KeyError, json.JSONDecodeError) as exc:
+        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError, KeyError, json.JSONDecodeError):
+            # OSError covers ssl.SSLError / ConnectionResetError: a local proxy drops TLS records now and then
             if attempt == 5:
                 raise
             time.sleep(delay)

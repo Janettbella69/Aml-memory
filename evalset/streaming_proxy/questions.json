@@ -1,0 +1,6072 @@
+[
+ {
+  "qid": "stream-0#q001",
+  "user": "stream-0",
+  "checkpoint": 2,
+  "kind": "now",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Aberdeen",
+  "stale_values": [],
+  "evidence_key": "stream-0:s02:m001",
+  "stale_keys": [],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-0#q045",
+  "user": "stream-0",
+  "checkpoint": 2,
+  "kind": "now",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "2 April",
+  "stale_values": [],
+  "evidence_key": "stream-0:s02:m011",
+  "stale_keys": [],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-0#q111",
+  "user": "stream-0",
+  "checkpoint": 2,
+  "kind": "now",
+  "slot": "spring trip",
+  "stem": "What is the user's current plan for the spring trip?",
+  "gold_value": "Seville in May",
+  "stale_values": [],
+  "evidence_key": "stream-0:s02:m033",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the spring trip?"
+ },
+ {
+  "qid": "stream-0#q003",
+  "user": "stream-0",
+  "checkpoint": 3,
+  "kind": "mcq",
+  "options": [
+   "Norwich",
+   "Bristol",
+   "Aberdeen",
+   "Leeds"
+  ],
+  "gold_letter": "C",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Aberdeen",
+  "stale_values": [],
+  "evidence_key": "stream-0:s02:m001",
+  "stale_keys": [],
+  "question": "What is the city the user lives in right now?\n\nA. Norwich\nB. Bristol\nC. Aberdeen\nD. Leeds\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q015",
+  "user": "stream-0",
+  "checkpoint": 3,
+  "kind": "now",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Halvern Logistics",
+  "stale_values": [],
+  "evidence_key": "stream-0:s03:m004",
+  "stale_keys": [],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-0#q022",
+  "user": "stream-0",
+  "checkpoint": 3,
+  "kind": "now",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "operations analyst",
+  "stale_values": [],
+  "evidence_key": "stream-0:s03:m006",
+  "stale_keys": [],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-0#q047",
+  "user": "stream-0",
+  "checkpoint": 3,
+  "kind": "mcq",
+  "options": [
+   "19 May",
+   "2 April",
+   "28 April",
+   "14 March"
+  ],
+  "gold_letter": "B",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "2 April",
+  "stale_values": [],
+  "evidence_key": "stream-0:s02:m011",
+  "stale_keys": [],
+  "question": "What is the deadline of the user's Marigold project right now?\n\nA. 19 May\nB. 2 April\nC. 28 April\nD. 14 March\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q073",
+  "user": "stream-0",
+  "checkpoint": 3,
+  "kind": "now",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Brightwater Foods",
+  "stale_values": [],
+  "evidence_key": "stream-0:s03:m019",
+  "stale_keys": [],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-0#q084",
+  "user": "stream-0",
+  "checkpoint": 3,
+  "kind": "now",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "the university sports centre",
+  "stale_values": [],
+  "evidence_key": "stream-0:s03:m022",
+  "stale_keys": [],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-0#q113",
+  "user": "stream-0",
+  "checkpoint": 3,
+  "kind": "mcq",
+  "options": [
+   "Lisbon in March",
+   "Seville in May"
+  ],
+  "gold_letter": "B",
+  "slot": "spring trip",
+  "stem": "What is the user's current plan for the spring trip?",
+  "gold_value": "Seville in May",
+  "stale_values": [],
+  "evidence_key": "stream-0:s02:m033",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the spring trip?\n\nA. Lisbon in March\nB. Seville in May\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q017",
+  "user": "stream-0",
+  "checkpoint": 4,
+  "kind": "mcq",
+  "options": [
+   "Mossbank Press",
+   "Pinecrest Analytics",
+   "Halvern Logistics"
+  ],
+  "gold_letter": "C",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Halvern Logistics",
+  "stale_values": [],
+  "evidence_key": "stream-0:s03:m004",
+  "stale_keys": [],
+  "question": "What is the company the user works for right now?\n\nA. Mossbank Press\nB. Pinecrest Analytics\nC. Halvern Logistics\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q024",
+  "user": "stream-0",
+  "checkpoint": 4,
+  "kind": "mcq",
+  "options": [
+   "operations analyst",
+   "fleet coordinator",
+   "supply planner"
+  ],
+  "gold_letter": "A",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "operations analyst",
+  "stale_values": [],
+  "evidence_key": "stream-0:s03:m006",
+  "stale_keys": [],
+  "question": "What is the user's job title right now?\n\nA. operations analyst\nB. fleet coordinator\nC. supply planner\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q046",
+  "user": "stream-0",
+  "checkpoint": 4,
+  "kind": "later",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "2 April",
+  "stale_values": [],
+  "evidence_key": "stream-0:s02:m011",
+  "stale_keys": [],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-0#q075",
+  "user": "stream-0",
+  "checkpoint": 4,
+  "kind": "mcq",
+  "options": [
+   "Ashgrove Timber",
+   "Brightwater Foods",
+   "Dunmore Hotels",
+   "Kestrel Marine"
+  ],
+  "gold_letter": "B",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Brightwater Foods",
+  "stale_values": [],
+  "evidence_key": "stream-0:s03:m019",
+  "stale_keys": [],
+  "question": "What is the user's main client account right now?\n\nA. Ashgrove Timber\nB. Brightwater Foods\nC. Dunmore Hotels\nD. Kestrel Marine\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q086",
+  "user": "stream-0",
+  "checkpoint": 4,
+  "kind": "mcq",
+  "options": [
+   "Nuffield on Park Row",
+   "PureGym Kirkstall",
+   "the university sports centre"
+  ],
+  "gold_letter": "C",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "the university sports centre",
+  "stale_values": [],
+  "evidence_key": "stream-0:s03:m022",
+  "stale_keys": [],
+  "question": "What is the gym the user goes to right now?\n\nA. Nuffield on Park Row\nB. PureGym Kirkstall\nC. the university sports centre\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q103",
+  "user": "stream-0",
+  "checkpoint": 4,
+  "kind": "now",
+  "slot": "scheduling",
+  "stem": "What is the user's current rule about scheduling?",
+  "gold_value": "avoid back-to-back calls",
+  "stale_values": [],
+  "evidence_key": "stream-0:s04:m029",
+  "stale_keys": [],
+  "question": "What is the user's current rule about scheduling?"
+ },
+ {
+  "qid": "stream-0#q002",
+  "user": "stream-0",
+  "checkpoint": 5,
+  "kind": "later",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Aberdeen",
+  "stale_values": [],
+  "evidence_key": "stream-0:s02:m001",
+  "stale_keys": [],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-0#q063",
+  "user": "stream-0",
+  "checkpoint": 5,
+  "kind": "now",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a blue Skoda Fabia",
+  "stale_values": [],
+  "evidence_key": "stream-0:s05:m016",
+  "stale_keys": [],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-0#q105",
+  "user": "stream-0",
+  "checkpoint": 5,
+  "kind": "mcq",
+  "options": [
+   "avoid back-to-back calls",
+   "never book anything before 10am"
+  ],
+  "gold_letter": "A",
+  "slot": "scheduling",
+  "stem": "What is the user's current rule about scheduling?",
+  "gold_value": "avoid back-to-back calls",
+  "stale_values": [],
+  "evidence_key": "stream-0:s04:m029",
+  "stale_keys": [],
+  "question": "What is the user's current rule about scheduling?\n\nA. avoid back-to-back calls\nB. never book anything before 10am\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q028",
+  "user": "stream-0",
+  "checkpoint": 6,
+  "kind": "now",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Wednesday",
+  "stale_values": [],
+  "evidence_key": "stream-0:s06:m008",
+  "stale_keys": [],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-0#q065",
+  "user": "stream-0",
+  "checkpoint": 6,
+  "kind": "mcq",
+  "options": [
+   "a red Honda Jazz",
+   "a blue Skoda Fabia",
+   "a grey Toyota Yaris"
+  ],
+  "gold_letter": "B",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a blue Skoda Fabia",
+  "stale_values": [],
+  "evidence_key": "stream-0:s05:m016",
+  "stale_keys": [],
+  "question": "What is the car the user drives right now?\n\nA. a red Honda Jazz\nB. a blue Skoda Fabia\nC. a grey Toyota Yaris\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q096",
+  "user": "stream-0",
+  "checkpoint": 6,
+  "kind": "now",
+  "slot": "reply format",
+  "stem": "What is the user's current rule about reply format?",
+  "gold_value": "always answer in bullet points",
+  "stale_values": [],
+  "evidence_key": "stream-0:s06:m026",
+  "stale_keys": [],
+  "question": "What is the user's current rule about reply format?"
+ },
+ {
+  "qid": "stream-0#q112",
+  "user": "stream-0",
+  "checkpoint": 6,
+  "kind": "later",
+  "slot": "spring trip",
+  "stem": "What is the user's current plan for the spring trip?",
+  "gold_value": "Seville in May",
+  "stale_values": [],
+  "evidence_key": "stream-0:s02:m033",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the spring trip?"
+ },
+ {
+  "qid": "stream-0#q030",
+  "user": "stream-0",
+  "checkpoint": 7,
+  "kind": "mcq",
+  "options": [
+   "Tuesday",
+   "Thursday",
+   "Monday",
+   "Wednesday"
+  ],
+  "gold_letter": "D",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Wednesday",
+  "stale_values": [],
+  "evidence_key": "stream-0:s06:m008",
+  "stale_keys": [],
+  "question": "What is the weekday of the user's weekly team meeting right now?\n\nA. Tuesday\nB. Thursday\nC. Monday\nD. Wednesday\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q074",
+  "user": "stream-0",
+  "checkpoint": 7,
+  "kind": "later",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Brightwater Foods",
+  "stale_values": [],
+  "evidence_key": "stream-0:s03:m019",
+  "stale_keys": [],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-0#q098",
+  "user": "stream-0",
+  "checkpoint": 7,
+  "kind": "mcq",
+  "options": [
+   "answer in plain paragraphs, no bullet points",
+   "always answer in bullet points",
+   "keep every answer under three sentences"
+  ],
+  "gold_letter": "B",
+  "slot": "reply format",
+  "stem": "What is the user's current rule about reply format?",
+  "gold_value": "always answer in bullet points",
+  "stale_values": [],
+  "evidence_key": "stream-0:s06:m026",
+  "stale_keys": [],
+  "question": "What is the user's current rule about reply format?\n\nA. answer in plain paragraphs, no bullet points\nB. always answer in bullet points\nC. keep every answer under three sentences\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q016",
+  "user": "stream-0",
+  "checkpoint": 8,
+  "kind": "later",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Halvern Logistics",
+  "stale_values": [],
+  "evidence_key": "stream-0:s03:m004",
+  "stale_keys": [],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-0#q029",
+  "user": "stream-0",
+  "checkpoint": 8,
+  "kind": "later",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Wednesday",
+  "stale_values": [],
+  "evidence_key": "stream-0:s06:m008",
+  "stale_keys": [],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-0#q048",
+  "user": "stream-0",
+  "checkpoint": 8,
+  "kind": "now",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "28 April",
+  "stale_values": [
+   "2 April"
+  ],
+  "evidence_key": "stream-0:s08:m012",
+  "stale_keys": [
+   "stream-0:s02:m011"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-0#q064",
+  "user": "stream-0",
+  "checkpoint": 8,
+  "kind": "later",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a blue Skoda Fabia",
+  "stale_values": [],
+  "evidence_key": "stream-0:s05:m016",
+  "stale_keys": [],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-0#q050",
+  "user": "stream-0",
+  "checkpoint": 9,
+  "kind": "mcq",
+  "options": [
+   "2 April",
+   "19 May",
+   "28 April",
+   "14 March"
+  ],
+  "gold_letter": "C",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "28 April",
+  "stale_values": [
+   "2 April"
+  ],
+  "evidence_key": "stream-0:s08:m012",
+  "stale_keys": [
+   "stream-0:s02:m011"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?\n\nA. 2 April\nB. 19 May\nC. 28 April\nD. 14 March\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q051",
+  "user": "stream-0",
+  "checkpoint": 9,
+  "kind": "prev",
+  "slot": "Marigold deadline",
+  "stem": "What was the deadline of the user's Marigold project before the most recent change?",
+  "gold_value": "2 April",
+  "stale_values": [
+   "28 April"
+  ],
+  "evidence_key": "stream-0:s02:m011",
+  "stale_keys": [
+   "stream-0:s08:m012"
+  ],
+  "question": "What was the deadline of the user's Marigold project before the most recent change?"
+ },
+ {
+  "qid": "stream-0#q004",
+  "user": "stream-0",
+  "checkpoint": 10,
+  "kind": "now",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Norwich",
+  "stale_values": [
+   "Aberdeen"
+  ],
+  "evidence_key": "stream-0:s10:m002",
+  "stale_keys": [
+   "stream-0:s02:m001"
+  ],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-0#q018",
+  "user": "stream-0",
+  "checkpoint": 10,
+  "kind": "now",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Pinecrest Analytics",
+  "stale_values": [
+   "Halvern Logistics"
+  ],
+  "evidence_key": "stream-0:s10:m005",
+  "stale_keys": [
+   "stream-0:s03:m004"
+  ],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-0#q006",
+  "user": "stream-0",
+  "checkpoint": 11,
+  "kind": "mcq",
+  "options": [
+   "Aberdeen",
+   "Norwich",
+   "Leeds",
+   "Bristol"
+  ],
+  "gold_letter": "B",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Norwich",
+  "stale_values": [
+   "Aberdeen"
+  ],
+  "evidence_key": "stream-0:s10:m002",
+  "stale_keys": [
+   "stream-0:s02:m001"
+  ],
+  "question": "What is the city the user lives in right now?\n\nA. Aberdeen\nB. Norwich\nC. Leeds\nD. Bristol\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q020",
+  "user": "stream-0",
+  "checkpoint": 11,
+  "kind": "mcq",
+  "options": [
+   "Orbital Dairy",
+   "Halvern Logistics",
+   "Pinecrest Analytics"
+  ],
+  "gold_letter": "C",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Pinecrest Analytics",
+  "stale_values": [
+   "Halvern Logistics"
+  ],
+  "evidence_key": "stream-0:s10:m005",
+  "stale_keys": [
+   "stream-0:s03:m004"
+  ],
+  "question": "What is the company the user works for right now?\n\nA. Orbital Dairy\nB. Halvern Logistics\nC. Pinecrest Analytics\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q021",
+  "user": "stream-0",
+  "checkpoint": 11,
+  "kind": "prev",
+  "slot": "employer",
+  "stem": "What was the company the user works for before the most recent change?",
+  "gold_value": "Halvern Logistics",
+  "stale_values": [
+   "Pinecrest Analytics"
+  ],
+  "evidence_key": "stream-0:s03:m004",
+  "stale_keys": [
+   "stream-0:s10:m005"
+  ],
+  "question": "What was the company the user works for before the most recent change?"
+ },
+ {
+  "qid": "stream-0#q049",
+  "user": "stream-0",
+  "checkpoint": 11,
+  "kind": "later",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "28 April",
+  "stale_values": [
+   "2 April"
+  ],
+  "evidence_key": "stream-0:s08:m012",
+  "stale_keys": [
+   "stream-0:s02:m011"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-0#q056",
+  "user": "stream-0",
+  "checkpoint": 11,
+  "kind": "now",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "giffgaff",
+  "stale_values": [],
+  "evidence_key": "stream-0:s11:m014",
+  "stale_keys": [],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-0#q097",
+  "user": "stream-0",
+  "checkpoint": 11,
+  "kind": "later",
+  "slot": "reply format",
+  "stem": "What is the user's current rule about reply format?",
+  "gold_value": "always answer in bullet points",
+  "stale_values": [],
+  "evidence_key": "stream-0:s06:m026",
+  "stale_keys": [],
+  "question": "What is the user's current rule about reply format?"
+ },
+ {
+  "qid": "stream-0#q031",
+  "user": "stream-0",
+  "checkpoint": 12,
+  "kind": "now",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Monday",
+  "stale_values": [
+   "Wednesday"
+  ],
+  "evidence_key": "stream-0:s12:m009",
+  "stale_keys": [
+   "stream-0:s06:m008"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-0#q058",
+  "user": "stream-0",
+  "checkpoint": 12,
+  "kind": "mcq",
+  "options": [
+   "Three",
+   "giffgaff",
+   "Vodafone"
+  ],
+  "gold_letter": "B",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "giffgaff",
+  "stale_values": [],
+  "evidence_key": "stream-0:s11:m014",
+  "stale_keys": [],
+  "question": "What is the user's phone carrier right now?\n\nA. Three\nB. giffgaff\nC. Vodafone\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q099",
+  "user": "stream-0",
+  "checkpoint": 12,
+  "kind": "now",
+  "slot": "reply format",
+  "stem": "What is the user's current rule about reply format?",
+  "gold_value": "keep every answer under three sentences",
+  "stale_values": [
+   "always answer in bullet points"
+  ],
+  "evidence_key": "stream-0:s12:m027",
+  "stale_keys": [
+   "stream-0:s06:m026"
+  ],
+  "question": "What is the user's current rule about reply format?"
+ },
+ {
+  "qid": "stream-0#q005",
+  "user": "stream-0",
+  "checkpoint": 13,
+  "kind": "later",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Norwich",
+  "stale_values": [
+   "Aberdeen"
+  ],
+  "evidence_key": "stream-0:s10:m002",
+  "stale_keys": [
+   "stream-0:s02:m001"
+  ],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-0#q033",
+  "user": "stream-0",
+  "checkpoint": 13,
+  "kind": "mcq",
+  "options": [
+   "Wednesday",
+   "Monday",
+   "Tuesday",
+   "Thursday"
+  ],
+  "gold_letter": "B",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Monday",
+  "stale_values": [
+   "Wednesday"
+  ],
+  "evidence_key": "stream-0:s12:m009",
+  "stale_keys": [
+   "stream-0:s06:m008"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?\n\nA. Wednesday\nB. Monday\nC. Tuesday\nD. Thursday\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q034",
+  "user": "stream-0",
+  "checkpoint": 13,
+  "kind": "prev",
+  "slot": "team meeting day",
+  "stem": "What was the weekday of the user's weekly team meeting before the most recent change?",
+  "gold_value": "Wednesday",
+  "stale_values": [
+   "Monday"
+  ],
+  "evidence_key": "stream-0:s06:m008",
+  "stale_keys": [
+   "stream-0:s12:m009"
+  ],
+  "question": "What was the weekday of the user's weekly team meeting before the most recent change?"
+ },
+ {
+  "qid": "stream-0#q052",
+  "user": "stream-0",
+  "checkpoint": 13,
+  "kind": "now",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "19 May",
+  "stale_values": [
+   "2 April",
+   "28 April"
+  ],
+  "evidence_key": "stream-0:s13:m013",
+  "stale_keys": [
+   "stream-0:s02:m011",
+   "stream-0:s08:m012"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-0#q101",
+  "user": "stream-0",
+  "checkpoint": 13,
+  "kind": "mcq",
+  "options": [
+   "always answer in bullet points",
+   "keep every answer under three sentences",
+   "answer in plain paragraphs, no bullet points"
+  ],
+  "gold_letter": "B",
+  "slot": "reply format",
+  "stem": "What is the user's current rule about reply format?",
+  "gold_value": "keep every answer under three sentences",
+  "stale_values": [
+   "always answer in bullet points"
+  ],
+  "evidence_key": "stream-0:s12:m027",
+  "stale_keys": [
+   "stream-0:s06:m026"
+  ],
+  "question": "What is the user's current rule about reply format?\n\nA. always answer in bullet points\nB. keep every answer under three sentences\nC. answer in plain paragraphs, no bullet points\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q023",
+  "user": "stream-0",
+  "checkpoint": 14,
+  "kind": "later",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "operations analyst",
+  "stale_values": [],
+  "evidence_key": "stream-0:s03:m006",
+  "stale_keys": [],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-0#q054",
+  "user": "stream-0",
+  "checkpoint": 14,
+  "kind": "mcq",
+  "options": [
+   "14 March",
+   "2 April",
+   "19 May",
+   "28 April"
+  ],
+  "gold_letter": "C",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "19 May",
+  "stale_values": [
+   "2 April",
+   "28 April"
+  ],
+  "evidence_key": "stream-0:s13:m013",
+  "stale_keys": [
+   "stream-0:s02:m011",
+   "stream-0:s08:m012"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?\n\nA. 14 March\nB. 2 April\nC. 19 May\nD. 28 April\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q055",
+  "user": "stream-0",
+  "checkpoint": 14,
+  "kind": "prev",
+  "slot": "Marigold deadline",
+  "stem": "What was the deadline of the user's Marigold project before the most recent change?",
+  "gold_value": "28 April",
+  "stale_values": [
+   "2 April",
+   "19 May"
+  ],
+  "evidence_key": "stream-0:s08:m012",
+  "stale_keys": [
+   "stream-0:s02:m011",
+   "stream-0:s13:m013"
+  ],
+  "question": "What was the deadline of the user's Marigold project before the most recent change?"
+ },
+ {
+  "qid": "stream-0#q057",
+  "user": "stream-0",
+  "checkpoint": 15,
+  "kind": "later",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "giffgaff",
+  "stale_values": [],
+  "evidence_key": "stream-0:s11:m014",
+  "stale_keys": [],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-0#q066",
+  "user": "stream-0",
+  "checkpoint": 15,
+  "kind": "now",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a grey Toyota Yaris",
+  "stale_values": [
+   "a blue Skoda Fabia"
+  ],
+  "evidence_key": "stream-0:s15:m017",
+  "stale_keys": [
+   "stream-0:s05:m016"
+  ],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-0#q032",
+  "user": "stream-0",
+  "checkpoint": 16,
+  "kind": "later",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Monday",
+  "stale_values": [
+   "Wednesday"
+  ],
+  "evidence_key": "stream-0:s12:m009",
+  "stale_keys": [
+   "stream-0:s06:m008"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-0#q059",
+  "user": "stream-0",
+  "checkpoint": 16,
+  "kind": "now",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Vodafone",
+  "stale_values": [
+   "giffgaff"
+  ],
+  "evidence_key": "stream-0:s16:m015",
+  "stale_keys": [
+   "stream-0:s11:m014"
+  ],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-0#q068",
+  "user": "stream-0",
+  "checkpoint": 16,
+  "kind": "mcq",
+  "options": [
+   "a red Honda Jazz",
+   "a grey Toyota Yaris",
+   "a blue Skoda Fabia"
+  ],
+  "gold_letter": "B",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a grey Toyota Yaris",
+  "stale_values": [
+   "a blue Skoda Fabia"
+  ],
+  "evidence_key": "stream-0:s15:m017",
+  "stale_keys": [
+   "stream-0:s05:m016"
+  ],
+  "question": "What is the car the user drives right now?\n\nA. a red Honda Jazz\nB. a grey Toyota Yaris\nC. a blue Skoda Fabia\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q061",
+  "user": "stream-0",
+  "checkpoint": 17,
+  "kind": "mcq",
+  "options": [
+   "Three",
+   "giffgaff",
+   "Vodafone"
+  ],
+  "gold_letter": "C",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Vodafone",
+  "stale_values": [
+   "giffgaff"
+  ],
+  "evidence_key": "stream-0:s16:m015",
+  "stale_keys": [
+   "stream-0:s11:m014"
+  ],
+  "question": "What is the user's phone carrier right now?\n\nA. Three\nB. giffgaff\nC. Vodafone\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q062",
+  "user": "stream-0",
+  "checkpoint": 17,
+  "kind": "prev",
+  "slot": "phone carrier",
+  "stem": "What was the user's phone carrier before the most recent change?",
+  "gold_value": "giffgaff",
+  "stale_values": [
+   "Vodafone"
+  ],
+  "evidence_key": "stream-0:s11:m014",
+  "stale_keys": [
+   "stream-0:s16:m015"
+  ],
+  "question": "What was the user's phone carrier before the most recent change?"
+ },
+ {
+  "qid": "stream-0#q090",
+  "user": "stream-0",
+  "checkpoint": 17,
+  "kind": "now",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "an oat latte",
+  "stale_values": [],
+  "evidence_key": "stream-0:s17:m024",
+  "stale_keys": [],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-0#q007",
+  "user": "stream-0",
+  "checkpoint": 18,
+  "kind": "now",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Bristol",
+  "stale_values": [
+   "Aberdeen",
+   "Norwich"
+  ],
+  "evidence_key": "stream-0:s18:m003",
+  "stale_keys": [
+   "stream-0:s02:m001",
+   "stream-0:s10:m002"
+  ],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-0#q008",
+  "user": "stream-0",
+  "checkpoint": 18,
+  "kind": "mcq",
+  "options": [
+   "Norwich",
+   "Leeds",
+   "Aberdeen",
+   "Bristol"
+  ],
+  "gold_letter": "D",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Bristol",
+  "stale_values": [
+   "Aberdeen",
+   "Norwich"
+  ],
+  "evidence_key": "stream-0:s18:m003",
+  "stale_keys": [
+   "stream-0:s02:m001",
+   "stream-0:s10:m002"
+  ],
+  "question": "What is the city the user lives in right now?\n\nA. Norwich\nB. Leeds\nC. Aberdeen\nD. Bristol\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q009",
+  "user": "stream-0",
+  "checkpoint": 18,
+  "kind": "prev",
+  "slot": "city",
+  "stem": "What was the city the user lives in before the most recent change?",
+  "gold_value": "Norwich",
+  "stale_values": [
+   "Aberdeen",
+   "Bristol"
+  ],
+  "evidence_key": "stream-0:s10:m002",
+  "stale_keys": [
+   "stream-0:s02:m001",
+   "stream-0:s18:m003"
+  ],
+  "question": "What was the city the user lives in before the most recent change?"
+ },
+ {
+  "qid": "stream-0#q019",
+  "user": "stream-0",
+  "checkpoint": 18,
+  "kind": "later",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Pinecrest Analytics",
+  "stale_values": [
+   "Halvern Logistics"
+  ],
+  "evidence_key": "stream-0:s10:m005",
+  "stale_keys": [
+   "stream-0:s03:m004"
+  ],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-0#q025",
+  "user": "stream-0",
+  "checkpoint": 18,
+  "kind": "now",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "fleet coordinator",
+  "stale_values": [
+   "operations analyst"
+  ],
+  "evidence_key": "stream-0:s18:m007",
+  "stale_keys": [
+   "stream-0:s03:m006"
+  ],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-0#q092",
+  "user": "stream-0",
+  "checkpoint": 18,
+  "kind": "mcq",
+  "options": [
+   "a flat white",
+   "an oat latte",
+   "a black americano"
+  ],
+  "gold_letter": "B",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "an oat latte",
+  "stale_values": [],
+  "evidence_key": "stream-0:s17:m024",
+  "stale_keys": [],
+  "question": "What is the user's usual coffee order right now?\n\nA. a flat white\nB. an oat latte\nC. a black americano\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q010",
+  "user": "stream-0",
+  "checkpoint": 19,
+  "kind": "now",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Norwich",
+  "stale_values": [
+   "Aberdeen",
+   "Bristol"
+  ],
+  "evidence_key": "stream-0:s19:m037",
+  "stale_keys": [
+   "stream-0:s02:m001",
+   "stream-0:s18:m003"
+  ],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-0#q011",
+  "user": "stream-0",
+  "checkpoint": 19,
+  "kind": "mcq",
+  "options": [
+   "Bristol",
+   "Norwich",
+   "Leeds",
+   "Aberdeen"
+  ],
+  "gold_letter": "B",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Norwich",
+  "stale_values": [
+   "Aberdeen",
+   "Bristol"
+  ],
+  "evidence_key": "stream-0:s19:m037",
+  "stale_keys": [
+   "stream-0:s02:m001",
+   "stream-0:s18:m003"
+  ],
+  "question": "What is the city the user lives in right now?\n\nA. Bristol\nB. Norwich\nC. Leeds\nD. Aberdeen\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q027",
+  "user": "stream-0",
+  "checkpoint": 19,
+  "kind": "mcq",
+  "options": [
+   "supply planner",
+   "fleet coordinator",
+   "operations analyst"
+  ],
+  "gold_letter": "B",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "fleet coordinator",
+  "stale_values": [
+   "operations analyst"
+  ],
+  "evidence_key": "stream-0:s18:m007",
+  "stale_keys": [
+   "stream-0:s03:m006"
+  ],
+  "question": "What is the user's job title right now?\n\nA. supply planner\nB. fleet coordinator\nC. operations analyst\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q091",
+  "user": "stream-0",
+  "checkpoint": 19,
+  "kind": "later",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "an oat latte",
+  "stale_values": [],
+  "evidence_key": "stream-0:s17:m024",
+  "stale_keys": [],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-0#q100",
+  "user": "stream-0",
+  "checkpoint": 19,
+  "kind": "later",
+  "slot": "reply format",
+  "stem": "What is the user's current rule about reply format?",
+  "gold_value": "keep every answer under three sentences",
+  "stale_values": [
+   "always answer in bullet points"
+  ],
+  "evidence_key": "stream-0:s12:m027",
+  "stale_keys": [
+   "stream-0:s06:m026"
+  ],
+  "question": "What is the user's current rule about reply format?"
+ },
+ {
+  "qid": "stream-0#q012",
+  "user": "stream-0",
+  "checkpoint": 20,
+  "kind": "now",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Bristol",
+  "stale_values": [
+   "Aberdeen",
+   "Norwich",
+   "Norwich"
+  ],
+  "evidence_key": "stream-0:s20:m038",
+  "stale_keys": [
+   "stream-0:s02:m001",
+   "stream-0:s10:m002",
+   "stream-0:s19:m037"
+  ],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-0#q060",
+  "user": "stream-0",
+  "checkpoint": 20,
+  "kind": "later",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Vodafone",
+  "stale_values": [
+   "giffgaff"
+  ],
+  "evidence_key": "stream-0:s16:m015",
+  "stale_keys": [
+   "stream-0:s11:m014"
+  ],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-0#q104",
+  "user": "stream-0",
+  "checkpoint": 20,
+  "kind": "later",
+  "slot": "scheduling",
+  "stem": "What is the user's current rule about scheduling?",
+  "gold_value": "avoid back-to-back calls",
+  "stale_values": [],
+  "evidence_key": "stream-0:s04:m029",
+  "stale_keys": [],
+  "question": "What is the user's current rule about scheduling?"
+ },
+ {
+  "qid": "stream-0#q114",
+  "user": "stream-0",
+  "checkpoint": 20,
+  "kind": "revoke",
+  "slot": "spring trip",
+  "stem": "What is currently planned for the spring trip?",
+  "options": [
+   "No spring trip is planned",
+   "Seville in May"
+  ],
+  "gold_letter": "A",
+  "gold_value": null,
+  "stale_values": [
+   "Seville in May"
+  ],
+  "evidence_key": "stream-0:s19:m034",
+  "stale_keys": [
+   "stream-0:s02:m033"
+  ],
+  "question": "What is currently planned for the spring trip?\n\nA. No spring trip is planned\nB. Seville in May\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q014",
+  "user": "stream-0",
+  "checkpoint": 21,
+  "kind": "mcq",
+  "options": [
+   "Aberdeen",
+   "Bristol",
+   "Leeds",
+   "Norwich"
+  ],
+  "gold_letter": "B",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Bristol",
+  "stale_values": [
+   "Aberdeen",
+   "Norwich",
+   "Norwich"
+  ],
+  "evidence_key": "stream-0:s20:m038",
+  "stale_keys": [
+   "stream-0:s02:m001",
+   "stream-0:s10:m002",
+   "stream-0:s19:m037"
+  ],
+  "question": "What is the city the user lives in right now?\n\nA. Aberdeen\nB. Bristol\nC. Leeds\nD. Norwich\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q035",
+  "user": "stream-0",
+  "checkpoint": 21,
+  "kind": "now",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Thursday",
+  "stale_values": [
+   "Wednesday",
+   "Monday"
+  ],
+  "evidence_key": "stream-0:s21:m010",
+  "stale_keys": [
+   "stream-0:s06:m008",
+   "stream-0:s12:m009"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-0#q036",
+  "user": "stream-0",
+  "checkpoint": 21,
+  "kind": "mcq",
+  "options": [
+   "Thursday",
+   "Tuesday",
+   "Monday",
+   "Wednesday"
+  ],
+  "gold_letter": "A",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Thursday",
+  "stale_values": [
+   "Wednesday",
+   "Monday"
+  ],
+  "evidence_key": "stream-0:s21:m010",
+  "stale_keys": [
+   "stream-0:s06:m008",
+   "stream-0:s12:m009"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?\n\nA. Thursday\nB. Tuesday\nC. Monday\nD. Wednesday\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q037",
+  "user": "stream-0",
+  "checkpoint": 21,
+  "kind": "prev",
+  "slot": "team meeting day",
+  "stem": "What was the weekday of the user's weekly team meeting before the most recent change?",
+  "gold_value": "Monday",
+  "stale_values": [
+   "Wednesday",
+   "Thursday"
+  ],
+  "evidence_key": "stream-0:s12:m009",
+  "stale_keys": [
+   "stream-0:s06:m008",
+   "stream-0:s21:m010"
+  ],
+  "question": "What was the weekday of the user's weekly team meeting before the most recent change?"
+ },
+ {
+  "qid": "stream-0#q085",
+  "user": "stream-0",
+  "checkpoint": 21,
+  "kind": "later",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "the university sports centre",
+  "stale_values": [],
+  "evidence_key": "stream-0:s03:m022",
+  "stale_keys": [],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-0#q038",
+  "user": "stream-0",
+  "checkpoint": 22,
+  "kind": "now",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Tuesday",
+  "stale_values": [
+   "Wednesday",
+   "Monday",
+   "Thursday"
+  ],
+  "evidence_key": "stream-0:s22:m039",
+  "stale_keys": [
+   "stream-0:s06:m008",
+   "stream-0:s12:m009",
+   "stream-0:s21:m010"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-0#q039",
+  "user": "stream-0",
+  "checkpoint": 22,
+  "kind": "mcq",
+  "options": [
+   "Tuesday",
+   "Monday",
+   "Wednesday",
+   "Thursday"
+  ],
+  "gold_letter": "A",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Tuesday",
+  "stale_values": [
+   "Wednesday",
+   "Monday",
+   "Thursday"
+  ],
+  "evidence_key": "stream-0:s22:m039",
+  "stale_keys": [
+   "stream-0:s06:m008",
+   "stream-0:s12:m009",
+   "stream-0:s21:m010"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?\n\nA. Tuesday\nB. Monday\nC. Wednesday\nD. Thursday\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q040",
+  "user": "stream-0",
+  "checkpoint": 22,
+  "kind": "prev",
+  "slot": "team meeting day",
+  "stem": "What was the weekday of the user's weekly team meeting before the most recent change?",
+  "gold_value": "Thursday",
+  "stale_values": [
+   "Wednesday",
+   "Monday",
+   "Tuesday"
+  ],
+  "evidence_key": "stream-0:s21:m010",
+  "stale_keys": [
+   "stream-0:s06:m008",
+   "stream-0:s12:m009",
+   "stream-0:s22:m039"
+  ],
+  "question": "What was the weekday of the user's weekly team meeting before the most recent change?"
+ },
+ {
+  "qid": "stream-0#q087",
+  "user": "stream-0",
+  "checkpoint": 22,
+  "kind": "now",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "Nuffield on Park Row",
+  "stale_values": [
+   "the university sports centre"
+  ],
+  "evidence_key": "stream-0:s22:m023",
+  "stale_keys": [
+   "stream-0:s03:m022"
+  ],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-0#q041",
+  "user": "stream-0",
+  "checkpoint": 23,
+  "kind": "now",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Thursday",
+  "stale_values": [
+   "Wednesday",
+   "Monday",
+   "Tuesday"
+  ],
+  "evidence_key": "stream-0:s23:m040",
+  "stale_keys": [
+   "stream-0:s06:m008",
+   "stream-0:s12:m009",
+   "stream-0:s22:m039"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-0#q089",
+  "user": "stream-0",
+  "checkpoint": 23,
+  "kind": "mcq",
+  "options": [
+   "PureGym Kirkstall",
+   "the university sports centre",
+   "Nuffield on Park Row"
+  ],
+  "gold_letter": "C",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "Nuffield on Park Row",
+  "stale_values": [
+   "the university sports centre"
+  ],
+  "evidence_key": "stream-0:s22:m023",
+  "stale_keys": [
+   "stream-0:s03:m022"
+  ],
+  "question": "What is the gym the user goes to right now?\n\nA. PureGym Kirkstall\nB. the university sports centre\nC. Nuffield on Park Row\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q043",
+  "user": "stream-0",
+  "checkpoint": 24,
+  "kind": "mcq",
+  "options": [
+   "Wednesday",
+   "Thursday",
+   "Monday",
+   "Tuesday"
+  ],
+  "gold_letter": "B",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Thursday",
+  "stale_values": [
+   "Wednesday",
+   "Monday",
+   "Tuesday"
+  ],
+  "evidence_key": "stream-0:s23:m040",
+  "stale_keys": [
+   "stream-0:s06:m008",
+   "stream-0:s12:m009",
+   "stream-0:s22:m039"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?\n\nA. Wednesday\nB. Thursday\nC. Monday\nD. Tuesday\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q044",
+  "user": "stream-0",
+  "checkpoint": 24,
+  "kind": "prev",
+  "slot": "team meeting day",
+  "stem": "What was the weekday of the user's weekly team meeting before the most recent change?",
+  "gold_value": "Tuesday",
+  "stale_values": [
+   "Wednesday",
+   "Monday",
+   "Thursday",
+   "Thursday"
+  ],
+  "evidence_key": "stream-0:s22:m039",
+  "stale_keys": [
+   "stream-0:s06:m008",
+   "stream-0:s12:m009",
+   "stream-0:s21:m010",
+   "stream-0:s23:m040"
+  ],
+  "question": "What was the weekday of the user's weekly team meeting before the most recent change?"
+ },
+ {
+  "qid": "stream-0#q102",
+  "user": "stream-0",
+  "checkpoint": 26,
+  "kind": "revoke",
+  "slot": "reply format",
+  "stem": "Which instruction about reply format is currently in effect?",
+  "options": [
+   "always answer in bullet points",
+   "No reply format rule is in effect",
+   "keep every answer under three sentences"
+  ],
+  "gold_letter": "B",
+  "gold_value": null,
+  "stale_values": [
+   "always answer in bullet points",
+   "keep every answer under three sentences"
+  ],
+  "evidence_key": "stream-0:s25:m028",
+  "stale_keys": [
+   "stream-0:s06:m026",
+   "stream-0:s12:m027"
+  ],
+  "question": "Which instruction about reply format is currently in effect?\n\nA. always answer in bullet points\nB. No reply format rule is in effect\nC. keep every answer under three sentences\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q115",
+  "user": "stream-0",
+  "checkpoint": 26,
+  "kind": "now",
+  "slot": "course",
+  "stem": "What is the user's current plan for the course?",
+  "gold_value": "the Thursday Spanish class",
+  "stale_values": [],
+  "evidence_key": "stream-0:s26:m035",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the course?"
+ },
+ {
+  "qid": "stream-0#q076",
+  "user": "stream-0",
+  "checkpoint": 27,
+  "kind": "now",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Dunmore Hotels",
+  "stale_values": [
+   "Brightwater Foods"
+  ],
+  "evidence_key": "stream-0:s27:m020",
+  "stale_keys": [
+   "stream-0:s03:m019"
+  ],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-0#q117",
+  "user": "stream-0",
+  "checkpoint": 27,
+  "kind": "mcq",
+  "options": [
+   "the Tuesday pottery course",
+   "the Thursday Spanish class"
+  ],
+  "gold_letter": "B",
+  "slot": "course",
+  "stem": "What is the user's current plan for the course?",
+  "gold_value": "the Thursday Spanish class",
+  "stale_values": [],
+  "evidence_key": "stream-0:s26:m035",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the course?\n\nA. the Tuesday pottery course\nB. the Thursday Spanish class\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q053",
+  "user": "stream-0",
+  "checkpoint": 28,
+  "kind": "later",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "19 May",
+  "stale_values": [
+   "2 April",
+   "28 April"
+  ],
+  "evidence_key": "stream-0:s13:m013",
+  "stale_keys": [
+   "stream-0:s02:m011",
+   "stream-0:s08:m012"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-0#q078",
+  "user": "stream-0",
+  "checkpoint": 28,
+  "kind": "mcq",
+  "options": [
+   "Ashgrove Timber",
+   "Brightwater Foods",
+   "Dunmore Hotels",
+   "Kestrel Marine"
+  ],
+  "gold_letter": "C",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Dunmore Hotels",
+  "stale_values": [
+   "Brightwater Foods"
+  ],
+  "evidence_key": "stream-0:s27:m020",
+  "stale_keys": [
+   "stream-0:s03:m019"
+  ],
+  "question": "What is the user's main client account right now?\n\nA. Ashgrove Timber\nB. Brightwater Foods\nC. Dunmore Hotels\nD. Kestrel Marine\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q079",
+  "user": "stream-0",
+  "checkpoint": 28,
+  "kind": "prev",
+  "slot": "main client",
+  "stem": "What was the user's main client account before the most recent change?",
+  "gold_value": "Brightwater Foods",
+  "stale_values": [
+   "Dunmore Hotels"
+  ],
+  "evidence_key": "stream-0:s03:m019",
+  "stale_keys": [
+   "stream-0:s27:m020"
+  ],
+  "question": "What was the user's main client account before the most recent change?"
+ },
+ {
+  "qid": "stream-0#q107",
+  "user": "stream-0",
+  "checkpoint": 28,
+  "kind": "now",
+  "slot": "units",
+  "stem": "What is the user's current rule about units?",
+  "gold_value": "use imperial units",
+  "stale_values": [],
+  "evidence_key": "stream-0:s28:m031",
+  "stale_keys": [],
+  "question": "What is the user's current rule about units?"
+ },
+ {
+  "qid": "stream-0#q042",
+  "user": "stream-0",
+  "checkpoint": 29,
+  "kind": "later",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Thursday",
+  "stale_values": [
+   "Wednesday",
+   "Monday",
+   "Tuesday"
+  ],
+  "evidence_key": "stream-0:s23:m040",
+  "stale_keys": [
+   "stream-0:s06:m008",
+   "stream-0:s12:m009",
+   "stream-0:s22:m039"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-0#q093",
+  "user": "stream-0",
+  "checkpoint": 29,
+  "kind": "now",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a flat white",
+  "stale_values": [
+   "an oat latte"
+  ],
+  "evidence_key": "stream-0:s29:m025",
+  "stale_keys": [
+   "stream-0:s17:m024"
+  ],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-0#q109",
+  "user": "stream-0",
+  "checkpoint": 29,
+  "kind": "mcq",
+  "options": [
+   "use imperial units",
+   "use metric units"
+  ],
+  "gold_letter": "A",
+  "slot": "units",
+  "stem": "What is the user's current rule about units?",
+  "gold_value": "use imperial units",
+  "stale_values": [],
+  "evidence_key": "stream-0:s28:m031",
+  "stale_keys": [],
+  "question": "What is the user's current rule about units?\n\nA. use imperial units\nB. use metric units\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q077",
+  "user": "stream-0",
+  "checkpoint": 30,
+  "kind": "later",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Dunmore Hotels",
+  "stale_values": [
+   "Brightwater Foods"
+  ],
+  "evidence_key": "stream-0:s27:m020",
+  "stale_keys": [
+   "stream-0:s03:m019"
+  ],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-0#q095",
+  "user": "stream-0",
+  "checkpoint": 30,
+  "kind": "mcq",
+  "options": [
+   "a flat white",
+   "a black americano",
+   "an oat latte"
+  ],
+  "gold_letter": "A",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a flat white",
+  "stale_values": [
+   "an oat latte"
+  ],
+  "evidence_key": "stream-0:s29:m025",
+  "stale_keys": [
+   "stream-0:s17:m024"
+  ],
+  "question": "What is the user's usual coffee order right now?\n\nA. a flat white\nB. a black americano\nC. an oat latte\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q116",
+  "user": "stream-0",
+  "checkpoint": 30,
+  "kind": "later",
+  "slot": "course",
+  "stem": "What is the user's current plan for the course?",
+  "gold_value": "the Thursday Spanish class",
+  "stale_values": [],
+  "evidence_key": "stream-0:s26:m035",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the course?"
+ },
+ {
+  "qid": "stream-0#q067",
+  "user": "stream-0",
+  "checkpoint": 31,
+  "kind": "later",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a grey Toyota Yaris",
+  "stale_values": [
+   "a blue Skoda Fabia"
+  ],
+  "evidence_key": "stream-0:s15:m017",
+  "stale_keys": [
+   "stream-0:s05:m016"
+  ],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-0#q080",
+  "user": "stream-0",
+  "checkpoint": 31,
+  "kind": "now",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Ashgrove Timber",
+  "stale_values": [
+   "Brightwater Foods",
+   "Dunmore Hotels"
+  ],
+  "evidence_key": "stream-0:s31:m021",
+  "stale_keys": [
+   "stream-0:s03:m019",
+   "stream-0:s27:m020"
+  ],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-0#q082",
+  "user": "stream-0",
+  "checkpoint": 32,
+  "kind": "mcq",
+  "options": [
+   "Ashgrove Timber",
+   "Brightwater Foods",
+   "Kestrel Marine",
+   "Dunmore Hotels"
+  ],
+  "gold_letter": "A",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Ashgrove Timber",
+  "stale_values": [
+   "Brightwater Foods",
+   "Dunmore Hotels"
+  ],
+  "evidence_key": "stream-0:s31:m021",
+  "stale_keys": [
+   "stream-0:s03:m019",
+   "stream-0:s27:m020"
+  ],
+  "question": "What is the user's main client account right now?\n\nA. Ashgrove Timber\nB. Brightwater Foods\nC. Kestrel Marine\nD. Dunmore Hotels\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q083",
+  "user": "stream-0",
+  "checkpoint": 32,
+  "kind": "prev",
+  "slot": "main client",
+  "stem": "What was the user's main client account before the most recent change?",
+  "gold_value": "Dunmore Hotels",
+  "stale_values": [
+   "Brightwater Foods",
+   "Ashgrove Timber"
+  ],
+  "evidence_key": "stream-0:s27:m020",
+  "stale_keys": [
+   "stream-0:s03:m019",
+   "stream-0:s31:m021"
+  ],
+  "question": "What was the user's main client account before the most recent change?"
+ },
+ {
+  "qid": "stream-0#q108",
+  "user": "stream-0",
+  "checkpoint": 32,
+  "kind": "later",
+  "slot": "units",
+  "stem": "What is the user's current rule about units?",
+  "gold_value": "use imperial units",
+  "stale_values": [],
+  "evidence_key": "stream-0:s28:m031",
+  "stale_keys": [],
+  "question": "What is the user's current rule about units?"
+ },
+ {
+  "qid": "stream-0#q118",
+  "user": "stream-0",
+  "checkpoint": 32,
+  "kind": "revoke",
+  "slot": "course",
+  "stem": "What is currently planned for the course?",
+  "options": [
+   "the Thursday Spanish class",
+   "No course is planned"
+  ],
+  "gold_letter": "B",
+  "gold_value": null,
+  "stale_values": [
+   "the Thursday Spanish class"
+  ],
+  "evidence_key": "stream-0:s31:m036",
+  "stale_keys": [
+   "stream-0:s26:m035"
+  ],
+  "question": "What is currently planned for the course?\n\nA. the Thursday Spanish class\nB. No course is planned\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q026",
+  "user": "stream-0",
+  "checkpoint": 34,
+  "kind": "later",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "fleet coordinator",
+  "stale_values": [
+   "operations analyst"
+  ],
+  "evidence_key": "stream-0:s18:m007",
+  "stale_keys": [
+   "stream-0:s03:m006"
+  ],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-0#q106",
+  "user": "stream-0",
+  "checkpoint": 34,
+  "kind": "revoke",
+  "slot": "scheduling",
+  "stem": "Which instruction about scheduling is currently in effect?",
+  "options": [
+   "No scheduling rule is in effect",
+   "avoid back-to-back calls"
+  ],
+  "gold_letter": "A",
+  "gold_value": null,
+  "stale_values": [
+   "avoid back-to-back calls"
+  ],
+  "evidence_key": "stream-0:s33:m030",
+  "stale_keys": [
+   "stream-0:s04:m029"
+  ],
+  "question": "Which instruction about scheduling is currently in effect?\n\nA. No scheduling rule is in effect\nB. avoid back-to-back calls\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q110",
+  "user": "stream-0",
+  "checkpoint": 35,
+  "kind": "revoke",
+  "slot": "units",
+  "stem": "Which instruction about units is currently in effect?",
+  "options": [
+   "No units rule is in effect",
+   "use imperial units"
+  ],
+  "gold_letter": "A",
+  "gold_value": null,
+  "stale_values": [
+   "use imperial units"
+  ],
+  "evidence_key": "stream-0:s34:m032",
+  "stale_keys": [
+   "stream-0:s28:m031"
+  ],
+  "question": "Which instruction about units is currently in effect?\n\nA. No units rule is in effect\nB. use imperial units\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q069",
+  "user": "stream-0",
+  "checkpoint": 36,
+  "kind": "now",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a red Honda Jazz",
+  "stale_values": [
+   "a blue Skoda Fabia",
+   "a grey Toyota Yaris"
+  ],
+  "evidence_key": "stream-0:s36:m018",
+  "stale_keys": [
+   "stream-0:s05:m016",
+   "stream-0:s15:m017"
+  ],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-0#q094",
+  "user": "stream-0",
+  "checkpoint": 36,
+  "kind": "later",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a flat white",
+  "stale_values": [
+   "an oat latte"
+  ],
+  "evidence_key": "stream-0:s29:m025",
+  "stale_keys": [
+   "stream-0:s17:m024"
+  ],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-0#q071",
+  "user": "stream-0",
+  "checkpoint": 37,
+  "kind": "mcq",
+  "options": [
+   "a grey Toyota Yaris",
+   "a red Honda Jazz",
+   "a blue Skoda Fabia"
+  ],
+  "gold_letter": "B",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a red Honda Jazz",
+  "stale_values": [
+   "a blue Skoda Fabia",
+   "a grey Toyota Yaris"
+  ],
+  "evidence_key": "stream-0:s36:m018",
+  "stale_keys": [
+   "stream-0:s05:m016",
+   "stream-0:s15:m017"
+  ],
+  "question": "What is the car the user drives right now?\n\nA. a grey Toyota Yaris\nB. a red Honda Jazz\nC. a blue Skoda Fabia\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-0#q072",
+  "user": "stream-0",
+  "checkpoint": 37,
+  "kind": "prev",
+  "slot": "car",
+  "stem": "What was the car the user drives before the most recent change?",
+  "gold_value": "a grey Toyota Yaris",
+  "stale_values": [
+   "a blue Skoda Fabia",
+   "a red Honda Jazz"
+  ],
+  "evidence_key": "stream-0:s15:m017",
+  "stale_keys": [
+   "stream-0:s05:m016",
+   "stream-0:s36:m018"
+  ],
+  "question": "What was the car the user drives before the most recent change?"
+ },
+ {
+  "qid": "stream-0#q081",
+  "user": "stream-0",
+  "checkpoint": 37,
+  "kind": "later",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Ashgrove Timber",
+  "stale_values": [
+   "Brightwater Foods",
+   "Dunmore Hotels"
+  ],
+  "evidence_key": "stream-0:s31:m021",
+  "stale_keys": [
+   "stream-0:s03:m019",
+   "stream-0:s27:m020"
+  ],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-0#q070",
+  "user": "stream-0",
+  "checkpoint": 38,
+  "kind": "later",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a red Honda Jazz",
+  "stale_values": [
+   "a blue Skoda Fabia",
+   "a grey Toyota Yaris"
+  ],
+  "evidence_key": "stream-0:s36:m018",
+  "stale_keys": [
+   "stream-0:s05:m016",
+   "stream-0:s15:m017"
+  ],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-0#q013",
+  "user": "stream-0",
+  "checkpoint": 39,
+  "kind": "later",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Bristol",
+  "stale_values": [
+   "Aberdeen",
+   "Norwich",
+   "Norwich"
+  ],
+  "evidence_key": "stream-0:s20:m038",
+  "stale_keys": [
+   "stream-0:s02:m001",
+   "stream-0:s10:m002",
+   "stream-0:s19:m037"
+  ],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-0#q088",
+  "user": "stream-0",
+  "checkpoint": 39,
+  "kind": "later",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "Nuffield on Park Row",
+  "stale_values": [
+   "the university sports centre"
+  ],
+  "evidence_key": "stream-0:s22:m023",
+  "stale_keys": [
+   "stream-0:s03:m022"
+  ],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-1#q109",
+  "user": "stream-1",
+  "checkpoint": 4,
+  "kind": "now",
+  "slot": "course",
+  "stem": "What is the user's current plan for the course?",
+  "gold_value": "the Tuesday pottery course",
+  "stale_values": [],
+  "evidence_key": "stream-1:s04:m035",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the course?"
+ },
+ {
+  "qid": "stream-1#q111",
+  "user": "stream-1",
+  "checkpoint": 5,
+  "kind": "mcq",
+  "options": [
+   "the Thursday Spanish class",
+   "the Tuesday pottery course"
+  ],
+  "gold_letter": "B",
+  "slot": "course",
+  "stem": "What is the user's current plan for the course?",
+  "gold_value": "the Tuesday pottery course",
+  "stale_values": [],
+  "evidence_key": "stream-1:s04:m035",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the course?\n\nA. the Thursday Spanish class\nB. the Tuesday pottery course\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q073",
+  "user": "stream-1",
+  "checkpoint": 6,
+  "kind": "now",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "the university sports centre",
+  "stale_values": [],
+  "evidence_key": "stream-1:s06:m022",
+  "stale_keys": [],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-1#q008",
+  "user": "stream-1",
+  "checkpoint": 7,
+  "kind": "now",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Halvern Logistics",
+  "stale_values": [],
+  "evidence_key": "stream-1:s07:m003",
+  "stale_keys": [],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-1#q034",
+  "user": "stream-1",
+  "checkpoint": 7,
+  "kind": "now",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "14 March",
+  "stale_values": [],
+  "evidence_key": "stream-1:s07:m011",
+  "stale_keys": [],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-1#q055",
+  "user": "stream-1",
+  "checkpoint": 7,
+  "kind": "now",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a grey Toyota Yaris",
+  "stale_values": [],
+  "evidence_key": "stream-1:s07:m016",
+  "stale_keys": [],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-1#q075",
+  "user": "stream-1",
+  "checkpoint": 7,
+  "kind": "mcq",
+  "options": [
+   "the university sports centre",
+   "PureGym Kirkstall",
+   "Nuffield on Park Row"
+  ],
+  "gold_letter": "A",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "the university sports centre",
+  "stale_values": [],
+  "evidence_key": "stream-1:s06:m022",
+  "stale_keys": [],
+  "question": "What is the gym the user goes to right now?\n\nA. the university sports centre\nB. PureGym Kirkstall\nC. Nuffield on Park Row\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q093",
+  "user": "stream-1",
+  "checkpoint": 7,
+  "kind": "now",
+  "slot": "reply format",
+  "stem": "What is the user's current rule about reply format?",
+  "gold_value": "keep every answer under three sentences",
+  "stale_values": [],
+  "evidence_key": "stream-1:s07:m027",
+  "stale_keys": [],
+  "question": "What is the user's current rule about reply format?"
+ },
+ {
+  "qid": "stream-1#q010",
+  "user": "stream-1",
+  "checkpoint": 8,
+  "kind": "mcq",
+  "options": [
+   "Orbital Dairy",
+   "Halvern Logistics",
+   "Mossbank Press",
+   "Pinecrest Analytics"
+  ],
+  "gold_letter": "B",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Halvern Logistics",
+  "stale_values": [],
+  "evidence_key": "stream-1:s07:m003",
+  "stale_keys": [],
+  "question": "What is the company the user works for right now?\n\nA. Orbital Dairy\nB. Halvern Logistics\nC. Mossbank Press\nD. Pinecrest Analytics\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q036",
+  "user": "stream-1",
+  "checkpoint": 8,
+  "kind": "mcq",
+  "options": [
+   "28 April",
+   "14 March",
+   "19 May"
+  ],
+  "gold_letter": "B",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "14 March",
+  "stale_values": [],
+  "evidence_key": "stream-1:s07:m011",
+  "stale_keys": [],
+  "question": "What is the deadline of the user's Marigold project right now?\n\nA. 28 April\nB. 14 March\nC. 19 May\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q057",
+  "user": "stream-1",
+  "checkpoint": 8,
+  "kind": "mcq",
+  "options": [
+   "a blue Skoda Fabia",
+   "a grey Toyota Yaris",
+   "a red Honda Jazz"
+  ],
+  "gold_letter": "B",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a grey Toyota Yaris",
+  "stale_values": [],
+  "evidence_key": "stream-1:s07:m016",
+  "stale_keys": [],
+  "question": "What is the car the user drives right now?\n\nA. a blue Skoda Fabia\nB. a grey Toyota Yaris\nC. a red Honda Jazz\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q095",
+  "user": "stream-1",
+  "checkpoint": 8,
+  "kind": "mcq",
+  "options": [
+   "always answer in bullet points",
+   "keep every answer under three sentences"
+  ],
+  "gold_letter": "B",
+  "slot": "reply format",
+  "stem": "What is the user's current rule about reply format?",
+  "gold_value": "keep every answer under three sentences",
+  "stale_values": [],
+  "evidence_key": "stream-1:s07:m027",
+  "stale_keys": [],
+  "question": "What is the user's current rule about reply format?\n\nA. always answer in bullet points\nB. keep every answer under three sentences\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q018",
+  "user": "stream-1",
+  "checkpoint": 9,
+  "kind": "now",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "fleet coordinator",
+  "stale_values": [],
+  "evidence_key": "stream-1:s09:m006",
+  "stale_keys": [],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-1#q110",
+  "user": "stream-1",
+  "checkpoint": 9,
+  "kind": "later",
+  "slot": "course",
+  "stem": "What is the user's current plan for the course?",
+  "gold_value": "the Tuesday pottery course",
+  "stale_values": [],
+  "evidence_key": "stream-1:s04:m035",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the course?"
+ },
+ {
+  "qid": "stream-1#q020",
+  "user": "stream-1",
+  "checkpoint": 10,
+  "kind": "mcq",
+  "options": [
+   "operations analyst",
+   "supply planner",
+   "fleet coordinator"
+  ],
+  "gold_letter": "C",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "fleet coordinator",
+  "stale_values": [],
+  "evidence_key": "stream-1:s09:m006",
+  "stale_keys": [],
+  "question": "What is the user's job title right now?\n\nA. operations analyst\nB. supply planner\nC. fleet coordinator\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q028",
+  "user": "stream-1",
+  "checkpoint": 10,
+  "kind": "now",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Thursday",
+  "stale_values": [],
+  "evidence_key": "stream-1:s10:m009",
+  "stale_keys": [],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-1#q040",
+  "user": "stream-1",
+  "checkpoint": 10,
+  "kind": "now",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "giffgaff",
+  "stale_values": [],
+  "evidence_key": "stream-1:s10:m013",
+  "stale_keys": [],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-1#q056",
+  "user": "stream-1",
+  "checkpoint": 10,
+  "kind": "later",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a grey Toyota Yaris",
+  "stale_values": [],
+  "evidence_key": "stream-1:s07:m016",
+  "stale_keys": [],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-1#q094",
+  "user": "stream-1",
+  "checkpoint": 10,
+  "kind": "later",
+  "slot": "reply format",
+  "stem": "What is the user's current rule about reply format?",
+  "gold_value": "keep every answer under three sentences",
+  "stale_values": [],
+  "evidence_key": "stream-1:s07:m027",
+  "stale_keys": [],
+  "question": "What is the user's current rule about reply format?"
+ },
+ {
+  "qid": "stream-1#q030",
+  "user": "stream-1",
+  "checkpoint": 11,
+  "kind": "mcq",
+  "options": [
+   "Thursday",
+   "Wednesday",
+   "Monday"
+  ],
+  "gold_letter": "A",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Thursday",
+  "stale_values": [],
+  "evidence_key": "stream-1:s10:m009",
+  "stale_keys": [],
+  "question": "What is the weekday of the user's weekly team meeting right now?\n\nA. Thursday\nB. Wednesday\nC. Monday\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q042",
+  "user": "stream-1",
+  "checkpoint": 11,
+  "kind": "mcq",
+  "options": [
+   "Vodafone",
+   "Three",
+   "giffgaff"
+  ],
+  "gold_letter": "C",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "giffgaff",
+  "stale_values": [],
+  "evidence_key": "stream-1:s10:m013",
+  "stale_keys": [],
+  "question": "What is the user's phone carrier right now?\n\nA. Vodafone\nB. Three\nC. giffgaff\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q084",
+  "user": "stream-1",
+  "checkpoint": 11,
+  "kind": "now",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "an oat latte",
+  "stale_values": [],
+  "evidence_key": "stream-1:s11:m024",
+  "stale_keys": [],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-1#q112",
+  "user": "stream-1",
+  "checkpoint": 11,
+  "kind": "revoke",
+  "slot": "course",
+  "stem": "What is currently planned for the course?",
+  "options": [
+   "No course is planned",
+   "the Tuesday pottery course"
+  ],
+  "gold_letter": "A",
+  "gold_value": null,
+  "stale_values": [
+   "the Tuesday pottery course"
+  ],
+  "evidence_key": "stream-1:s10:m036",
+  "stale_keys": [
+   "stream-1:s04:m035"
+  ],
+  "question": "What is currently planned for the course?\n\nA. No course is planned\nB. the Tuesday pottery course\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q009",
+  "user": "stream-1",
+  "checkpoint": 12,
+  "kind": "later",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Halvern Logistics",
+  "stale_values": [],
+  "evidence_key": "stream-1:s07:m003",
+  "stale_keys": [],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-1#q064",
+  "user": "stream-1",
+  "checkpoint": 12,
+  "kind": "now",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Dunmore Hotels",
+  "stale_values": [],
+  "evidence_key": "stream-1:s12:m019",
+  "stale_keys": [],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-1#q086",
+  "user": "stream-1",
+  "checkpoint": 12,
+  "kind": "mcq",
+  "options": [
+   "an oat latte",
+   "a black americano",
+   "a flat white"
+  ],
+  "gold_letter": "A",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "an oat latte",
+  "stale_values": [],
+  "evidence_key": "stream-1:s11:m024",
+  "stale_keys": [],
+  "question": "What is the user's usual coffee order right now?\n\nA. an oat latte\nB. a black americano\nC. a flat white\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q066",
+  "user": "stream-1",
+  "checkpoint": 13,
+  "kind": "mcq",
+  "options": [
+   "Brightwater Foods",
+   "Kestrel Marine",
+   "Ashgrove Timber",
+   "Dunmore Hotels"
+  ],
+  "gold_letter": "D",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Dunmore Hotels",
+  "stale_values": [],
+  "evidence_key": "stream-1:s12:m019",
+  "stale_keys": [],
+  "question": "What is the user's main client account right now?\n\nA. Brightwater Foods\nB. Kestrel Marine\nC. Ashgrove Timber\nD. Dunmore Hotels\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q096",
+  "user": "stream-1",
+  "checkpoint": 13,
+  "kind": "revoke",
+  "slot": "reply format",
+  "stem": "Which instruction about reply format is currently in effect?",
+  "options": [
+   "No reply format rule is in effect",
+   "keep every answer under three sentences"
+  ],
+  "gold_letter": "A",
+  "gold_value": null,
+  "stale_values": [
+   "keep every answer under three sentences"
+  ],
+  "evidence_key": "stream-1:s12:m028",
+  "stale_keys": [
+   "stream-1:s07:m027"
+  ],
+  "question": "Which instruction about reply format is currently in effect?\n\nA. No reply format rule is in effect\nB. keep every answer under three sentences\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q101",
+  "user": "stream-1",
+  "checkpoint": 13,
+  "kind": "now",
+  "slot": "units",
+  "stem": "What is the user's current rule about units?",
+  "gold_value": "use imperial units",
+  "stale_values": [],
+  "evidence_key": "stream-1:s13:m031",
+  "stale_keys": [],
+  "question": "What is the user's current rule about units?"
+ },
+ {
+  "qid": "stream-1#q058",
+  "user": "stream-1",
+  "checkpoint": 14,
+  "kind": "now",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a blue Skoda Fabia",
+  "stale_values": [
+   "a grey Toyota Yaris"
+  ],
+  "evidence_key": "stream-1:s14:m017",
+  "stale_keys": [
+   "stream-1:s07:m016"
+  ],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-1#q065",
+  "user": "stream-1",
+  "checkpoint": 14,
+  "kind": "later",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Dunmore Hotels",
+  "stale_values": [],
+  "evidence_key": "stream-1:s12:m019",
+  "stale_keys": [],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-1#q103",
+  "user": "stream-1",
+  "checkpoint": 14,
+  "kind": "mcq",
+  "options": [
+   "use metric units",
+   "use imperial units"
+  ],
+  "gold_letter": "B",
+  "slot": "units",
+  "stem": "What is the user's current rule about units?",
+  "gold_value": "use imperial units",
+  "stale_values": [],
+  "evidence_key": "stream-1:s13:m031",
+  "stale_keys": [],
+  "question": "What is the user's current rule about units?\n\nA. use metric units\nB. use imperial units\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q041",
+  "user": "stream-1",
+  "checkpoint": 15,
+  "kind": "later",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "giffgaff",
+  "stale_values": [],
+  "evidence_key": "stream-1:s10:m013",
+  "stale_keys": [],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-1#q060",
+  "user": "stream-1",
+  "checkpoint": 15,
+  "kind": "mcq",
+  "options": [
+   "a grey Toyota Yaris",
+   "a red Honda Jazz",
+   "a blue Skoda Fabia"
+  ],
+  "gold_letter": "C",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a blue Skoda Fabia",
+  "stale_values": [
+   "a grey Toyota Yaris"
+  ],
+  "evidence_key": "stream-1:s14:m017",
+  "stale_keys": [
+   "stream-1:s07:m016"
+  ],
+  "question": "What is the car the user drives right now?\n\nA. a grey Toyota Yaris\nB. a red Honda Jazz\nC. a blue Skoda Fabia\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q074",
+  "user": "stream-1",
+  "checkpoint": 15,
+  "kind": "later",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "the university sports centre",
+  "stale_values": [],
+  "evidence_key": "stream-1:s06:m022",
+  "stale_keys": [],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-1#q035",
+  "user": "stream-1",
+  "checkpoint": 16,
+  "kind": "later",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "14 March",
+  "stale_values": [],
+  "evidence_key": "stream-1:s07:m011",
+  "stale_keys": [],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-1#q067",
+  "user": "stream-1",
+  "checkpoint": 16,
+  "kind": "now",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Kestrel Marine",
+  "stale_values": [
+   "Dunmore Hotels"
+  ],
+  "evidence_key": "stream-1:s16:m020",
+  "stale_keys": [
+   "stream-1:s12:m019"
+  ],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-1#q011",
+  "user": "stream-1",
+  "checkpoint": 17,
+  "kind": "now",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Pinecrest Analytics",
+  "stale_values": [
+   "Halvern Logistics"
+  ],
+  "evidence_key": "stream-1:s17:m004",
+  "stale_keys": [
+   "stream-1:s07:m003"
+  ],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-1#q037",
+  "user": "stream-1",
+  "checkpoint": 17,
+  "kind": "now",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "19 May",
+  "stale_values": [
+   "14 March"
+  ],
+  "evidence_key": "stream-1:s17:m012",
+  "stale_keys": [
+   "stream-1:s07:m011"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-1#q069",
+  "user": "stream-1",
+  "checkpoint": 17,
+  "kind": "mcq",
+  "options": [
+   "Dunmore Hotels",
+   "Brightwater Foods",
+   "Kestrel Marine",
+   "Ashgrove Timber"
+  ],
+  "gold_letter": "C",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Kestrel Marine",
+  "stale_values": [
+   "Dunmore Hotels"
+  ],
+  "evidence_key": "stream-1:s16:m020",
+  "stale_keys": [
+   "stream-1:s12:m019"
+  ],
+  "question": "What is the user's main client account right now?\n\nA. Dunmore Hotels\nB. Brightwater Foods\nC. Kestrel Marine\nD. Ashgrove Timber\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q013",
+  "user": "stream-1",
+  "checkpoint": 18,
+  "kind": "mcq",
+  "options": [
+   "Mossbank Press",
+   "Halvern Logistics",
+   "Pinecrest Analytics",
+   "Orbital Dairy"
+  ],
+  "gold_letter": "C",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Pinecrest Analytics",
+  "stale_values": [
+   "Halvern Logistics"
+  ],
+  "evidence_key": "stream-1:s17:m004",
+  "stale_keys": [
+   "stream-1:s07:m003"
+  ],
+  "question": "What is the company the user works for right now?\n\nA. Mossbank Press\nB. Halvern Logistics\nC. Pinecrest Analytics\nD. Orbital Dairy\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q019",
+  "user": "stream-1",
+  "checkpoint": 18,
+  "kind": "later",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "fleet coordinator",
+  "stale_values": [],
+  "evidence_key": "stream-1:s09:m006",
+  "stale_keys": [],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-1#q029",
+  "user": "stream-1",
+  "checkpoint": 18,
+  "kind": "later",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Thursday",
+  "stale_values": [],
+  "evidence_key": "stream-1:s10:m009",
+  "stale_keys": [],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-1#q039",
+  "user": "stream-1",
+  "checkpoint": 18,
+  "kind": "mcq",
+  "options": [
+   "14 March",
+   "19 May",
+   "2 April"
+  ],
+  "gold_letter": "B",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "19 May",
+  "stale_values": [
+   "14 March"
+  ],
+  "evidence_key": "stream-1:s17:m012",
+  "stale_keys": [
+   "stream-1:s07:m011"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?\n\nA. 14 March\nB. 19 May\nC. 2 April\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q059",
+  "user": "stream-1",
+  "checkpoint": 19,
+  "kind": "later",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a blue Skoda Fabia",
+  "stale_values": [
+   "a grey Toyota Yaris"
+  ],
+  "evidence_key": "stream-1:s14:m017",
+  "stale_keys": [
+   "stream-1:s07:m016"
+  ],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-1#q097",
+  "user": "stream-1",
+  "checkpoint": 19,
+  "kind": "now",
+  "slot": "scheduling",
+  "stem": "What is the user's current rule about scheduling?",
+  "gold_value": "keep Friday afternoons free",
+  "stale_values": [],
+  "evidence_key": "stream-1:s19:m029",
+  "stale_keys": [],
+  "question": "What is the user's current rule about scheduling?"
+ },
+ {
+  "qid": "stream-1#q038",
+  "user": "stream-1",
+  "checkpoint": 20,
+  "kind": "later",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "19 May",
+  "stale_values": [
+   "14 March"
+  ],
+  "evidence_key": "stream-1:s17:m012",
+  "stale_keys": [
+   "stream-1:s07:m011"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-1#q099",
+  "user": "stream-1",
+  "checkpoint": 20,
+  "kind": "mcq",
+  "options": [
+   "avoid back-to-back calls",
+   "keep Friday afternoons free"
+  ],
+  "gold_letter": "B",
+  "slot": "scheduling",
+  "stem": "What is the user's current rule about scheduling?",
+  "gold_value": "keep Friday afternoons free",
+  "stale_values": [],
+  "evidence_key": "stream-1:s19:m029",
+  "stale_keys": [],
+  "question": "What is the user's current rule about scheduling?\n\nA. avoid back-to-back calls\nB. keep Friday afternoons free\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q102",
+  "user": "stream-1",
+  "checkpoint": 20,
+  "kind": "later",
+  "slot": "units",
+  "stem": "What is the user's current rule about units?",
+  "gold_value": "use imperial units",
+  "stale_values": [],
+  "evidence_key": "stream-1:s13:m031",
+  "stale_keys": [],
+  "question": "What is the user's current rule about units?"
+ },
+ {
+  "qid": "stream-1#q021",
+  "user": "stream-1",
+  "checkpoint": 21,
+  "kind": "now",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "operations analyst",
+  "stale_values": [
+   "fleet coordinator"
+  ],
+  "evidence_key": "stream-1:s21:m007",
+  "stale_keys": [
+   "stream-1:s09:m006"
+  ],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-1#q076",
+  "user": "stream-1",
+  "checkpoint": 21,
+  "kind": "now",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "PureGym Kirkstall",
+  "stale_values": [
+   "the university sports centre"
+  ],
+  "evidence_key": "stream-1:s21:m023",
+  "stale_keys": [
+   "stream-1:s06:m022"
+  ],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-1#q077",
+  "user": "stream-1",
+  "checkpoint": 21,
+  "kind": "mcq",
+  "options": [
+   "Nuffield on Park Row",
+   "PureGym Kirkstall",
+   "the university sports centre"
+  ],
+  "gold_letter": "B",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "PureGym Kirkstall",
+  "stale_values": [
+   "the university sports centre"
+  ],
+  "evidence_key": "stream-1:s21:m023",
+  "stale_keys": [
+   "stream-1:s06:m022"
+  ],
+  "question": "What is the gym the user goes to right now?\n\nA. Nuffield on Park Row\nB. PureGym Kirkstall\nC. the university sports centre\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q098",
+  "user": "stream-1",
+  "checkpoint": 21,
+  "kind": "later",
+  "slot": "scheduling",
+  "stem": "What is the user's current rule about scheduling?",
+  "gold_value": "keep Friday afternoons free",
+  "stale_values": [],
+  "evidence_key": "stream-1:s19:m029",
+  "stale_keys": [],
+  "question": "What is the user's current rule about scheduling?"
+ },
+ {
+  "qid": "stream-1#q001",
+  "user": "stream-1",
+  "checkpoint": 22,
+  "kind": "now",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Norwich",
+  "stale_values": [],
+  "evidence_key": "stream-1:s22:m001",
+  "stale_keys": [],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-1#q023",
+  "user": "stream-1",
+  "checkpoint": 22,
+  "kind": "mcq",
+  "options": [
+   "fleet coordinator",
+   "supply planner",
+   "operations analyst"
+  ],
+  "gold_letter": "C",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "operations analyst",
+  "stale_values": [
+   "fleet coordinator"
+  ],
+  "evidence_key": "stream-1:s21:m007",
+  "stale_keys": [
+   "stream-1:s09:m006"
+  ],
+  "question": "What is the user's job title right now?\n\nA. fleet coordinator\nB. supply planner\nC. operations analyst\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q024",
+  "user": "stream-1",
+  "checkpoint": 22,
+  "kind": "prev",
+  "slot": "job title",
+  "stem": "What was the user's job title before the most recent change?",
+  "gold_value": "fleet coordinator",
+  "stale_values": [
+   "operations analyst"
+  ],
+  "evidence_key": "stream-1:s09:m006",
+  "stale_keys": [
+   "stream-1:s21:m007"
+  ],
+  "question": "What was the user's job title before the most recent change?"
+ },
+ {
+  "qid": "stream-1#q078",
+  "user": "stream-1",
+  "checkpoint": 22,
+  "kind": "now",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "the university sports centre",
+  "stale_values": [
+   "PureGym Kirkstall"
+  ],
+  "evidence_key": "stream-1:s22:m037",
+  "stale_keys": [
+   "stream-1:s21:m023"
+  ],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-1#q079",
+  "user": "stream-1",
+  "checkpoint": 22,
+  "kind": "mcq",
+  "options": [
+   "Nuffield on Park Row",
+   "PureGym Kirkstall",
+   "the university sports centre"
+  ],
+  "gold_letter": "C",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "the university sports centre",
+  "stale_values": [
+   "PureGym Kirkstall"
+  ],
+  "evidence_key": "stream-1:s22:m037",
+  "stale_keys": [
+   "stream-1:s21:m023"
+  ],
+  "question": "What is the gym the user goes to right now?\n\nA. Nuffield on Park Row\nB. PureGym Kirkstall\nC. the university sports centre\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q080",
+  "user": "stream-1",
+  "checkpoint": 22,
+  "kind": "prev",
+  "slot": "gym",
+  "stem": "What was the gym the user goes to before the most recent change?",
+  "gold_value": "PureGym Kirkstall",
+  "stale_values": [
+   "the university sports centre",
+   "the university sports centre"
+  ],
+  "evidence_key": "stream-1:s21:m023",
+  "stale_keys": [
+   "stream-1:s06:m022",
+   "stream-1:s22:m037"
+  ],
+  "question": "What was the gym the user goes to before the most recent change?"
+ },
+ {
+  "qid": "stream-1#q104",
+  "user": "stream-1",
+  "checkpoint": 22,
+  "kind": "revoke",
+  "slot": "units",
+  "stem": "Which instruction about units is currently in effect?",
+  "options": [
+   "No units rule is in effect",
+   "use imperial units"
+  ],
+  "gold_letter": "A",
+  "gold_value": null,
+  "stale_values": [
+   "use imperial units"
+  ],
+  "evidence_key": "stream-1:s21:m032",
+  "stale_keys": [
+   "stream-1:s13:m031"
+  ],
+  "question": "Which instruction about units is currently in effect?\n\nA. No units rule is in effect\nB. use imperial units\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q003",
+  "user": "stream-1",
+  "checkpoint": 23,
+  "kind": "mcq",
+  "options": [
+   "Norwich",
+   "Bristol",
+   "Leeds"
+  ],
+  "gold_letter": "A",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Norwich",
+  "stale_values": [],
+  "evidence_key": "stream-1:s22:m001",
+  "stale_keys": [],
+  "question": "What is the city the user lives in right now?\n\nA. Norwich\nB. Bristol\nC. Leeds\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q022",
+  "user": "stream-1",
+  "checkpoint": 23,
+  "kind": "later",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "operations analyst",
+  "stale_values": [
+   "fleet coordinator"
+  ],
+  "evidence_key": "stream-1:s21:m007",
+  "stale_keys": [
+   "stream-1:s09:m006"
+  ],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-1#q043",
+  "user": "stream-1",
+  "checkpoint": 23,
+  "kind": "now",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Three",
+  "stale_values": [
+   "giffgaff"
+  ],
+  "evidence_key": "stream-1:s23:m014",
+  "stale_keys": [
+   "stream-1:s10:m013"
+  ],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-1#q081",
+  "user": "stream-1",
+  "checkpoint": 23,
+  "kind": "now",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "PureGym Kirkstall",
+  "stale_values": [
+   "the university sports centre",
+   "the university sports centre"
+  ],
+  "evidence_key": "stream-1:s23:m038",
+  "stale_keys": [
+   "stream-1:s06:m022",
+   "stream-1:s22:m037"
+  ],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-1#q002",
+  "user": "stream-1",
+  "checkpoint": 24,
+  "kind": "later",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Norwich",
+  "stale_values": [],
+  "evidence_key": "stream-1:s22:m001",
+  "stale_keys": [],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-1#q045",
+  "user": "stream-1",
+  "checkpoint": 24,
+  "kind": "mcq",
+  "options": [
+   "giffgaff",
+   "Vodafone",
+   "Three"
+  ],
+  "gold_letter": "C",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Three",
+  "stale_values": [
+   "giffgaff"
+  ],
+  "evidence_key": "stream-1:s23:m014",
+  "stale_keys": [
+   "stream-1:s10:m013"
+  ],
+  "question": "What is the user's phone carrier right now?\n\nA. giffgaff\nB. Vodafone\nC. Three\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q046",
+  "user": "stream-1",
+  "checkpoint": 24,
+  "kind": "prev",
+  "slot": "phone carrier",
+  "stem": "What was the user's phone carrier before the most recent change?",
+  "gold_value": "giffgaff",
+  "stale_values": [
+   "Three"
+  ],
+  "evidence_key": "stream-1:s10:m013",
+  "stale_keys": [
+   "stream-1:s23:m014"
+  ],
+  "question": "What was the user's phone carrier before the most recent change?"
+ },
+ {
+  "qid": "stream-1#q061",
+  "user": "stream-1",
+  "checkpoint": 24,
+  "kind": "now",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a red Honda Jazz",
+  "stale_values": [
+   "a grey Toyota Yaris",
+   "a blue Skoda Fabia"
+  ],
+  "evidence_key": "stream-1:s24:m018",
+  "stale_keys": [
+   "stream-1:s07:m016",
+   "stream-1:s14:m017"
+  ],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-1#q083",
+  "user": "stream-1",
+  "checkpoint": 24,
+  "kind": "mcq",
+  "options": [
+   "PureGym Kirkstall",
+   "Nuffield on Park Row",
+   "the university sports centre"
+  ],
+  "gold_letter": "A",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "PureGym Kirkstall",
+  "stale_values": [
+   "the university sports centre",
+   "the university sports centre"
+  ],
+  "evidence_key": "stream-1:s23:m038",
+  "stale_keys": [
+   "stream-1:s06:m022",
+   "stream-1:s22:m037"
+  ],
+  "question": "What is the gym the user goes to right now?\n\nA. PureGym Kirkstall\nB. Nuffield on Park Row\nC. the university sports centre\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q085",
+  "user": "stream-1",
+  "checkpoint": 24,
+  "kind": "later",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "an oat latte",
+  "stale_values": [],
+  "evidence_key": "stream-1:s11:m024",
+  "stale_keys": [],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-1#q100",
+  "user": "stream-1",
+  "checkpoint": 24,
+  "kind": "revoke",
+  "slot": "scheduling",
+  "stem": "Which instruction about scheduling is currently in effect?",
+  "options": [
+   "No scheduling rule is in effect",
+   "keep Friday afternoons free"
+  ],
+  "gold_letter": "A",
+  "gold_value": null,
+  "stale_values": [
+   "keep Friday afternoons free"
+  ],
+  "evidence_key": "stream-1:s23:m030",
+  "stale_keys": [
+   "stream-1:s19:m029"
+  ],
+  "question": "Which instruction about scheduling is currently in effect?\n\nA. No scheduling rule is in effect\nB. keep Friday afternoons free\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q031",
+  "user": "stream-1",
+  "checkpoint": 25,
+  "kind": "now",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Wednesday",
+  "stale_values": [
+   "Thursday"
+  ],
+  "evidence_key": "stream-1:s25:m010",
+  "stale_keys": [
+   "stream-1:s10:m009"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-1#q063",
+  "user": "stream-1",
+  "checkpoint": 25,
+  "kind": "mcq",
+  "options": [
+   "a grey Toyota Yaris",
+   "a blue Skoda Fabia",
+   "a red Honda Jazz"
+  ],
+  "gold_letter": "C",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a red Honda Jazz",
+  "stale_values": [
+   "a grey Toyota Yaris",
+   "a blue Skoda Fabia"
+  ],
+  "evidence_key": "stream-1:s24:m018",
+  "stale_keys": [
+   "stream-1:s07:m016",
+   "stream-1:s14:m017"
+  ],
+  "question": "What is the car the user drives right now?\n\nA. a grey Toyota Yaris\nB. a blue Skoda Fabia\nC. a red Honda Jazz\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q033",
+  "user": "stream-1",
+  "checkpoint": 26,
+  "kind": "mcq",
+  "options": [
+   "Thursday",
+   "Wednesday",
+   "Monday"
+  ],
+  "gold_letter": "B",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Wednesday",
+  "stale_values": [
+   "Thursday"
+  ],
+  "evidence_key": "stream-1:s25:m010",
+  "stale_keys": [
+   "stream-1:s10:m009"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?\n\nA. Thursday\nB. Wednesday\nC. Monday\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q068",
+  "user": "stream-1",
+  "checkpoint": 26,
+  "kind": "later",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Kestrel Marine",
+  "stale_values": [
+   "Dunmore Hotels"
+  ],
+  "evidence_key": "stream-1:s16:m020",
+  "stale_keys": [
+   "stream-1:s12:m019"
+  ],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-1#q082",
+  "user": "stream-1",
+  "checkpoint": 26,
+  "kind": "later",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "PureGym Kirkstall",
+  "stale_values": [
+   "the university sports centre",
+   "the university sports centre"
+  ],
+  "evidence_key": "stream-1:s23:m038",
+  "stale_keys": [
+   "stream-1:s06:m022",
+   "stream-1:s22:m037"
+  ],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-1#q004",
+  "user": "stream-1",
+  "checkpoint": 27,
+  "kind": "now",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Bristol",
+  "stale_values": [
+   "Norwich"
+  ],
+  "evidence_key": "stream-1:s27:m002",
+  "stale_keys": [
+   "stream-1:s22:m001"
+  ],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-1#q006",
+  "user": "stream-1",
+  "checkpoint": 28,
+  "kind": "mcq",
+  "options": [
+   "Leeds",
+   "Norwich",
+   "Bristol"
+  ],
+  "gold_letter": "C",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Bristol",
+  "stale_values": [
+   "Norwich"
+  ],
+  "evidence_key": "stream-1:s27:m002",
+  "stale_keys": [
+   "stream-1:s22:m001"
+  ],
+  "question": "What is the city the user lives in right now?\n\nA. Leeds\nB. Norwich\nC. Bristol\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q007",
+  "user": "stream-1",
+  "checkpoint": 28,
+  "kind": "prev",
+  "slot": "city",
+  "stem": "What was the city the user lives in before the most recent change?",
+  "gold_value": "Norwich",
+  "stale_values": [
+   "Bristol"
+  ],
+  "evidence_key": "stream-1:s22:m001",
+  "stale_keys": [
+   "stream-1:s27:m002"
+  ],
+  "question": "What was the city the user lives in before the most recent change?"
+ },
+ {
+  "qid": "stream-1#q044",
+  "user": "stream-1",
+  "checkpoint": 28,
+  "kind": "later",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Three",
+  "stale_values": [
+   "giffgaff"
+  ],
+  "evidence_key": "stream-1:s23:m014",
+  "stale_keys": [
+   "stream-1:s10:m013"
+  ],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-1#q087",
+  "user": "stream-1",
+  "checkpoint": 28,
+  "kind": "now",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a flat white",
+  "stale_values": [
+   "an oat latte"
+  ],
+  "evidence_key": "stream-1:s28:m025",
+  "stale_keys": [
+   "stream-1:s11:m024"
+  ],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-1#q105",
+  "user": "stream-1",
+  "checkpoint": 28,
+  "kind": "now",
+  "slot": "spring trip",
+  "stem": "What is the user's current plan for the spring trip?",
+  "gold_value": "Seville in May",
+  "stale_values": [],
+  "evidence_key": "stream-1:s28:m033",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the spring trip?"
+ },
+ {
+  "qid": "stream-1#q012",
+  "user": "stream-1",
+  "checkpoint": 29,
+  "kind": "later",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Pinecrest Analytics",
+  "stale_values": [
+   "Halvern Logistics"
+  ],
+  "evidence_key": "stream-1:s17:m004",
+  "stale_keys": [
+   "stream-1:s07:m003"
+  ],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-1#q089",
+  "user": "stream-1",
+  "checkpoint": 29,
+  "kind": "mcq",
+  "options": [
+   "an oat latte",
+   "a black americano",
+   "a flat white"
+  ],
+  "gold_letter": "C",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a flat white",
+  "stale_values": [
+   "an oat latte"
+  ],
+  "evidence_key": "stream-1:s28:m025",
+  "stale_keys": [
+   "stream-1:s11:m024"
+  ],
+  "question": "What is the user's usual coffee order right now?\n\nA. an oat latte\nB. a black americano\nC. a flat white\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q107",
+  "user": "stream-1",
+  "checkpoint": 29,
+  "kind": "mcq",
+  "options": [
+   "Lisbon in March",
+   "Seville in May"
+  ],
+  "gold_letter": "B",
+  "slot": "spring trip",
+  "stem": "What is the user's current plan for the spring trip?",
+  "gold_value": "Seville in May",
+  "stale_values": [],
+  "evidence_key": "stream-1:s28:m033",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the spring trip?\n\nA. Lisbon in March\nB. Seville in May\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q032",
+  "user": "stream-1",
+  "checkpoint": 30,
+  "kind": "later",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Wednesday",
+  "stale_values": [
+   "Thursday"
+  ],
+  "evidence_key": "stream-1:s25:m010",
+  "stale_keys": [
+   "stream-1:s10:m009"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-1#q070",
+  "user": "stream-1",
+  "checkpoint": 30,
+  "kind": "now",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Brightwater Foods",
+  "stale_values": [
+   "Dunmore Hotels",
+   "Kestrel Marine"
+  ],
+  "evidence_key": "stream-1:s30:m021",
+  "stale_keys": [
+   "stream-1:s12:m019",
+   "stream-1:s16:m020"
+  ],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-1#q005",
+  "user": "stream-1",
+  "checkpoint": 31,
+  "kind": "later",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Bristol",
+  "stale_values": [
+   "Norwich"
+  ],
+  "evidence_key": "stream-1:s27:m002",
+  "stale_keys": [
+   "stream-1:s22:m001"
+  ],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-1#q072",
+  "user": "stream-1",
+  "checkpoint": 31,
+  "kind": "mcq",
+  "options": [
+   "Kestrel Marine",
+   "Brightwater Foods",
+   "Ashgrove Timber",
+   "Dunmore Hotels"
+  ],
+  "gold_letter": "B",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Brightwater Foods",
+  "stale_values": [
+   "Dunmore Hotels",
+   "Kestrel Marine"
+  ],
+  "evidence_key": "stream-1:s30:m021",
+  "stale_keys": [
+   "stream-1:s12:m019",
+   "stream-1:s16:m020"
+  ],
+  "question": "What is the user's main client account right now?\n\nA. Kestrel Marine\nB. Brightwater Foods\nC. Ashgrove Timber\nD. Dunmore Hotels\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q088",
+  "user": "stream-1",
+  "checkpoint": 31,
+  "kind": "later",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a flat white",
+  "stale_values": [
+   "an oat latte"
+  ],
+  "evidence_key": "stream-1:s28:m025",
+  "stale_keys": [
+   "stream-1:s11:m024"
+  ],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-1#q106",
+  "user": "stream-1",
+  "checkpoint": 31,
+  "kind": "later",
+  "slot": "spring trip",
+  "stem": "What is the user's current plan for the spring trip?",
+  "gold_value": "Seville in May",
+  "stale_values": [],
+  "evidence_key": "stream-1:s28:m033",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the spring trip?"
+ },
+ {
+  "qid": "stream-1#q090",
+  "user": "stream-1",
+  "checkpoint": 32,
+  "kind": "now",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a black americano",
+  "stale_values": [
+   "an oat latte",
+   "a flat white"
+  ],
+  "evidence_key": "stream-1:s32:m026",
+  "stale_keys": [
+   "stream-1:s11:m024",
+   "stream-1:s28:m025"
+  ],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-1#q014",
+  "user": "stream-1",
+  "checkpoint": 33,
+  "kind": "now",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Orbital Dairy",
+  "stale_values": [
+   "Halvern Logistics",
+   "Pinecrest Analytics"
+  ],
+  "evidence_key": "stream-1:s33:m005",
+  "stale_keys": [
+   "stream-1:s07:m003",
+   "stream-1:s17:m004"
+  ],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-1#q047",
+  "user": "stream-1",
+  "checkpoint": 33,
+  "kind": "now",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Vodafone",
+  "stale_values": [
+   "giffgaff",
+   "Three"
+  ],
+  "evidence_key": "stream-1:s33:m015",
+  "stale_keys": [
+   "stream-1:s10:m013",
+   "stream-1:s23:m014"
+  ],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-1#q048",
+  "user": "stream-1",
+  "checkpoint": 33,
+  "kind": "mcq",
+  "options": [
+   "Three",
+   "giffgaff",
+   "Vodafone"
+  ],
+  "gold_letter": "C",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Vodafone",
+  "stale_values": [
+   "giffgaff",
+   "Three"
+  ],
+  "evidence_key": "stream-1:s33:m015",
+  "stale_keys": [
+   "stream-1:s10:m013",
+   "stream-1:s23:m014"
+  ],
+  "question": "What is the user's phone carrier right now?\n\nA. Three\nB. giffgaff\nC. Vodafone\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q049",
+  "user": "stream-1",
+  "checkpoint": 33,
+  "kind": "prev",
+  "slot": "phone carrier",
+  "stem": "What was the user's phone carrier before the most recent change?",
+  "gold_value": "Three",
+  "stale_values": [
+   "giffgaff",
+   "Vodafone"
+  ],
+  "evidence_key": "stream-1:s23:m014",
+  "stale_keys": [
+   "stream-1:s10:m013",
+   "stream-1:s33:m015"
+  ],
+  "question": "What was the user's phone carrier before the most recent change?"
+ },
+ {
+  "qid": "stream-1#q071",
+  "user": "stream-1",
+  "checkpoint": 33,
+  "kind": "later",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Brightwater Foods",
+  "stale_values": [
+   "Dunmore Hotels",
+   "Kestrel Marine"
+  ],
+  "evidence_key": "stream-1:s30:m021",
+  "stale_keys": [
+   "stream-1:s12:m019",
+   "stream-1:s16:m020"
+  ],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-1#q092",
+  "user": "stream-1",
+  "checkpoint": 33,
+  "kind": "mcq",
+  "options": [
+   "a black americano",
+   "an oat latte",
+   "a flat white"
+  ],
+  "gold_letter": "A",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a black americano",
+  "stale_values": [
+   "an oat latte",
+   "a flat white"
+  ],
+  "evidence_key": "stream-1:s32:m026",
+  "stale_keys": [
+   "stream-1:s11:m024",
+   "stream-1:s28:m025"
+  ],
+  "question": "What is the user's usual coffee order right now?\n\nA. a black americano\nB. an oat latte\nC. a flat white\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q108",
+  "user": "stream-1",
+  "checkpoint": 33,
+  "kind": "revoke",
+  "slot": "spring trip",
+  "stem": "What is currently planned for the spring trip?",
+  "options": [
+   "Seville in May",
+   "No spring trip is planned"
+  ],
+  "gold_letter": "B",
+  "gold_value": null,
+  "stale_values": [
+   "Seville in May"
+  ],
+  "evidence_key": "stream-1:s32:m034",
+  "stale_keys": [
+   "stream-1:s28:m033"
+  ],
+  "question": "What is currently planned for the spring trip?\n\nA. Seville in May\nB. No spring trip is planned\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q016",
+  "user": "stream-1",
+  "checkpoint": 34,
+  "kind": "mcq",
+  "options": [
+   "Mossbank Press",
+   "Pinecrest Analytics",
+   "Halvern Logistics",
+   "Orbital Dairy"
+  ],
+  "gold_letter": "D",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Orbital Dairy",
+  "stale_values": [
+   "Halvern Logistics",
+   "Pinecrest Analytics"
+  ],
+  "evidence_key": "stream-1:s33:m005",
+  "stale_keys": [
+   "stream-1:s07:m003",
+   "stream-1:s17:m004"
+  ],
+  "question": "What is the company the user works for right now?\n\nA. Mossbank Press\nB. Pinecrest Analytics\nC. Halvern Logistics\nD. Orbital Dairy\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q017",
+  "user": "stream-1",
+  "checkpoint": 34,
+  "kind": "prev",
+  "slot": "employer",
+  "stem": "What was the company the user works for before the most recent change?",
+  "gold_value": "Pinecrest Analytics",
+  "stale_values": [
+   "Halvern Logistics",
+   "Orbital Dairy"
+  ],
+  "evidence_key": "stream-1:s17:m004",
+  "stale_keys": [
+   "stream-1:s07:m003",
+   "stream-1:s33:m005"
+  ],
+  "question": "What was the company the user works for before the most recent change?"
+ },
+ {
+  "qid": "stream-1#q025",
+  "user": "stream-1",
+  "checkpoint": 34,
+  "kind": "now",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "supply planner",
+  "stale_values": [
+   "fleet coordinator",
+   "operations analyst"
+  ],
+  "evidence_key": "stream-1:s34:m008",
+  "stale_keys": [
+   "stream-1:s09:m006",
+   "stream-1:s21:m007"
+  ],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-1#q050",
+  "user": "stream-1",
+  "checkpoint": 34,
+  "kind": "now",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "giffgaff",
+  "stale_values": [
+   "Three",
+   "Vodafone"
+  ],
+  "evidence_key": "stream-1:s34:m039",
+  "stale_keys": [
+   "stream-1:s23:m014",
+   "stream-1:s33:m015"
+  ],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-1#q051",
+  "user": "stream-1",
+  "checkpoint": 34,
+  "kind": "mcq",
+  "options": [
+   "giffgaff",
+   "Three",
+   "Vodafone"
+  ],
+  "gold_letter": "A",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "giffgaff",
+  "stale_values": [
+   "Three",
+   "Vodafone"
+  ],
+  "evidence_key": "stream-1:s34:m039",
+  "stale_keys": [
+   "stream-1:s23:m014",
+   "stream-1:s33:m015"
+  ],
+  "question": "What is the user's phone carrier right now?\n\nA. giffgaff\nB. Three\nC. Vodafone\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q027",
+  "user": "stream-1",
+  "checkpoint": 35,
+  "kind": "mcq",
+  "options": [
+   "operations analyst",
+   "fleet coordinator",
+   "supply planner"
+  ],
+  "gold_letter": "C",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "supply planner",
+  "stale_values": [
+   "fleet coordinator",
+   "operations analyst"
+  ],
+  "evidence_key": "stream-1:s34:m008",
+  "stale_keys": [
+   "stream-1:s09:m006",
+   "stream-1:s21:m007"
+  ],
+  "question": "What is the user's job title right now?\n\nA. operations analyst\nB. fleet coordinator\nC. supply planner\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q052",
+  "user": "stream-1",
+  "checkpoint": 35,
+  "kind": "now",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Vodafone",
+  "stale_values": [
+   "giffgaff",
+   "Three",
+   "giffgaff"
+  ],
+  "evidence_key": "stream-1:s35:m040",
+  "stale_keys": [
+   "stream-1:s10:m013",
+   "stream-1:s23:m014",
+   "stream-1:s34:m039"
+  ],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-1#q054",
+  "user": "stream-1",
+  "checkpoint": 36,
+  "kind": "mcq",
+  "options": [
+   "Vodafone",
+   "Three",
+   "giffgaff"
+  ],
+  "gold_letter": "A",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Vodafone",
+  "stale_values": [
+   "giffgaff",
+   "Three",
+   "giffgaff"
+  ],
+  "evidence_key": "stream-1:s35:m040",
+  "stale_keys": [
+   "stream-1:s10:m013",
+   "stream-1:s23:m014",
+   "stream-1:s34:m039"
+  ],
+  "question": "What is the user's phone carrier right now?\n\nA. Vodafone\nB. Three\nC. giffgaff\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-1#q062",
+  "user": "stream-1",
+  "checkpoint": 36,
+  "kind": "later",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a red Honda Jazz",
+  "stale_values": [
+   "a grey Toyota Yaris",
+   "a blue Skoda Fabia"
+  ],
+  "evidence_key": "stream-1:s24:m018",
+  "stale_keys": [
+   "stream-1:s07:m016",
+   "stream-1:s14:m017"
+  ],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-1#q026",
+  "user": "stream-1",
+  "checkpoint": 38,
+  "kind": "later",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "supply planner",
+  "stale_values": [
+   "fleet coordinator",
+   "operations analyst"
+  ],
+  "evidence_key": "stream-1:s34:m008",
+  "stale_keys": [
+   "stream-1:s09:m006",
+   "stream-1:s21:m007"
+  ],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-1#q091",
+  "user": "stream-1",
+  "checkpoint": 38,
+  "kind": "later",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a black americano",
+  "stale_values": [
+   "an oat latte",
+   "a flat white"
+  ],
+  "evidence_key": "stream-1:s32:m026",
+  "stale_keys": [
+   "stream-1:s11:m024",
+   "stream-1:s28:m025"
+  ],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-1#q015",
+  "user": "stream-1",
+  "checkpoint": 39,
+  "kind": "later",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Orbital Dairy",
+  "stale_values": [
+   "Halvern Logistics",
+   "Pinecrest Analytics"
+  ],
+  "evidence_key": "stream-1:s33:m005",
+  "stale_keys": [
+   "stream-1:s07:m003",
+   "stream-1:s17:m004"
+  ],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-1#q053",
+  "user": "stream-1",
+  "checkpoint": 39,
+  "kind": "later",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Vodafone",
+  "stale_values": [
+   "giffgaff",
+   "Three",
+   "giffgaff"
+  ],
+  "evidence_key": "stream-1:s35:m040",
+  "stale_keys": [
+   "stream-1:s10:m013",
+   "stream-1:s23:m014",
+   "stream-1:s34:m039"
+  ],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-2#q013",
+  "user": "stream-2",
+  "checkpoint": 1,
+  "kind": "now",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "supply planner",
+  "stale_values": [],
+  "evidence_key": "stream-2:s01:m005",
+  "stale_keys": [],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-2#q015",
+  "user": "stream-2",
+  "checkpoint": 2,
+  "kind": "mcq",
+  "options": [
+   "supply planner",
+   "operations analyst",
+   "fleet coordinator"
+  ],
+  "gold_letter": "A",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "supply planner",
+  "stale_values": [],
+  "evidence_key": "stream-2:s01:m005",
+  "stale_keys": [],
+  "question": "What is the user's job title right now?\n\nA. supply planner\nB. operations analyst\nC. fleet coordinator\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q019",
+  "user": "stream-2",
+  "checkpoint": 3,
+  "kind": "now",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Thursday",
+  "stale_values": [],
+  "evidence_key": "stream-2:s03:m007",
+  "stale_keys": [],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-2#q021",
+  "user": "stream-2",
+  "checkpoint": 4,
+  "kind": "mcq",
+  "options": [
+   "Thursday",
+   "Monday",
+   "Tuesday"
+  ],
+  "gold_letter": "A",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Thursday",
+  "stale_values": [],
+  "evidence_key": "stream-2:s03:m007",
+  "stale_keys": [],
+  "question": "What is the weekday of the user's weekly team meeting right now?\n\nA. Thursday\nB. Monday\nC. Tuesday\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q025",
+  "user": "stream-2",
+  "checkpoint": 5,
+  "kind": "now",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "2 April",
+  "stale_values": [],
+  "evidence_key": "stream-2:s05:m009",
+  "stale_keys": [],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-2#q059",
+  "user": "stream-2",
+  "checkpoint": 5,
+  "kind": "now",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "Nuffield on Park Row",
+  "stale_values": [],
+  "evidence_key": "stream-2:s05:m020",
+  "stale_keys": [],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-2#q027",
+  "user": "stream-2",
+  "checkpoint": 6,
+  "kind": "mcq",
+  "options": [
+   "14 March",
+   "28 April",
+   "2 April",
+   "19 May"
+  ],
+  "gold_letter": "C",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "2 April",
+  "stale_values": [],
+  "evidence_key": "stream-2:s05:m009",
+  "stale_keys": [],
+  "question": "What is the deadline of the user's Marigold project right now?\n\nA. 14 March\nB. 28 April\nC. 2 April\nD. 19 May\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q061",
+  "user": "stream-2",
+  "checkpoint": 6,
+  "kind": "mcq",
+  "options": [
+   "PureGym Kirkstall",
+   "Nuffield on Park Row",
+   "the university sports centre"
+  ],
+  "gold_letter": "B",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "Nuffield on Park Row",
+  "stale_values": [],
+  "evidence_key": "stream-2:s05:m020",
+  "stale_keys": [],
+  "question": "What is the gym the user goes to right now?\n\nA. PureGym Kirkstall\nB. Nuffield on Park Row\nC. the university sports centre\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q014",
+  "user": "stream-2",
+  "checkpoint": 7,
+  "kind": "later",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "supply planner",
+  "stale_values": [],
+  "evidence_key": "stream-2:s01:m005",
+  "stale_keys": [],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-2#q085",
+  "user": "stream-2",
+  "checkpoint": 7,
+  "kind": "now",
+  "slot": "scheduling",
+  "stem": "What is the user's current rule about scheduling?",
+  "gold_value": "keep Friday afternoons free",
+  "stale_values": [],
+  "evidence_key": "stream-2:s07:m026",
+  "stale_keys": [],
+  "question": "What is the user's current rule about scheduling?"
+ },
+ {
+  "qid": "stream-2#q020",
+  "user": "stream-2",
+  "checkpoint": 8,
+  "kind": "later",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Thursday",
+  "stale_values": [],
+  "evidence_key": "stream-2:s03:m007",
+  "stale_keys": [],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-2#q060",
+  "user": "stream-2",
+  "checkpoint": 8,
+  "kind": "later",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "Nuffield on Park Row",
+  "stale_values": [],
+  "evidence_key": "stream-2:s05:m020",
+  "stale_keys": [],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-2#q087",
+  "user": "stream-2",
+  "checkpoint": 8,
+  "kind": "mcq",
+  "options": [
+   "never book anything before 10am",
+   "keep Friday afternoons free",
+   "avoid back-to-back calls"
+  ],
+  "gold_letter": "B",
+  "slot": "scheduling",
+  "stem": "What is the user's current rule about scheduling?",
+  "gold_value": "keep Friday afternoons free",
+  "stale_values": [],
+  "evidence_key": "stream-2:s07:m026",
+  "stale_keys": [],
+  "question": "What is the user's current rule about scheduling?\n\nA. never book anything before 10am\nB. keep Friday afternoons free\nC. avoid back-to-back calls\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q026",
+  "user": "stream-2",
+  "checkpoint": 9,
+  "kind": "later",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "2 April",
+  "stale_values": [],
+  "evidence_key": "stream-2:s05:m009",
+  "stale_keys": [],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-2#q034",
+  "user": "stream-2",
+  "checkpoint": 9,
+  "kind": "now",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Vodafone",
+  "stale_values": [],
+  "evidence_key": "stream-2:s09:m012",
+  "stale_keys": [],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-2#q036",
+  "user": "stream-2",
+  "checkpoint": 10,
+  "kind": "mcq",
+  "options": [
+   "Three",
+   "giffgaff",
+   "Vodafone"
+  ],
+  "gold_letter": "C",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Vodafone",
+  "stale_values": [],
+  "evidence_key": "stream-2:s09:m012",
+  "stale_keys": [],
+  "question": "What is the user's phone carrier right now?\n\nA. Three\nB. giffgaff\nC. Vodafone\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q050",
+  "user": "stream-2",
+  "checkpoint": 10,
+  "kind": "now",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Ashgrove Timber",
+  "stale_values": [],
+  "evidence_key": "stream-2:s10:m017",
+  "stale_keys": [],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-2#q086",
+  "user": "stream-2",
+  "checkpoint": 10,
+  "kind": "later",
+  "slot": "scheduling",
+  "stem": "What is the user's current rule about scheduling?",
+  "gold_value": "keep Friday afternoons free",
+  "stale_values": [],
+  "evidence_key": "stream-2:s07:m026",
+  "stale_keys": [],
+  "question": "What is the user's current rule about scheduling?"
+ },
+ {
+  "qid": "stream-2#q096",
+  "user": "stream-2",
+  "checkpoint": 10,
+  "kind": "now",
+  "slot": "spring trip",
+  "stem": "What is the user's current plan for the spring trip?",
+  "gold_value": "Porto in April",
+  "stale_values": [],
+  "evidence_key": "stream-2:s10:m031",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the spring trip?"
+ },
+ {
+  "qid": "stream-2#q052",
+  "user": "stream-2",
+  "checkpoint": 11,
+  "kind": "mcq",
+  "options": [
+   "Ashgrove Timber",
+   "Brightwater Foods",
+   "Dunmore Hotels",
+   "Kestrel Marine"
+  ],
+  "gold_letter": "A",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Ashgrove Timber",
+  "stale_values": [],
+  "evidence_key": "stream-2:s10:m017",
+  "stale_keys": [],
+  "question": "What is the user's main client account right now?\n\nA. Ashgrove Timber\nB. Brightwater Foods\nC. Dunmore Hotels\nD. Kestrel Marine\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q081",
+  "user": "stream-2",
+  "checkpoint": 11,
+  "kind": "now",
+  "slot": "reply format",
+  "stem": "What is the user's current rule about reply format?",
+  "gold_value": "always answer in bullet points",
+  "stale_values": [],
+  "evidence_key": "stream-2:s11:m024",
+  "stale_keys": [],
+  "question": "What is the user's current rule about reply format?"
+ },
+ {
+  "qid": "stream-2#q098",
+  "user": "stream-2",
+  "checkpoint": 11,
+  "kind": "mcq",
+  "options": [
+   "Porto in April",
+   "Lisbon in March"
+  ],
+  "gold_letter": "A",
+  "slot": "spring trip",
+  "stem": "What is the user's current plan for the spring trip?",
+  "gold_value": "Porto in April",
+  "stale_values": [],
+  "evidence_key": "stream-2:s10:m031",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the spring trip?\n\nA. Porto in April\nB. Lisbon in March\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q016",
+  "user": "stream-2",
+  "checkpoint": 12,
+  "kind": "now",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "operations analyst",
+  "stale_values": [
+   "supply planner"
+  ],
+  "evidence_key": "stream-2:s12:m006",
+  "stale_keys": [
+   "stream-2:s01:m005"
+  ],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-2#q028",
+  "user": "stream-2",
+  "checkpoint": 12,
+  "kind": "now",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "28 April",
+  "stale_values": [
+   "2 April"
+  ],
+  "evidence_key": "stream-2:s12:m010",
+  "stale_keys": [
+   "stream-2:s05:m009"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-2#q070",
+  "user": "stream-2",
+  "checkpoint": 12,
+  "kind": "now",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "an oat latte",
+  "stale_values": [],
+  "evidence_key": "stream-2:s12:m022",
+  "stale_keys": [],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-2#q083",
+  "user": "stream-2",
+  "checkpoint": 12,
+  "kind": "mcq",
+  "options": [
+   "always answer in bullet points",
+   "answer in plain paragraphs, no bullet points"
+  ],
+  "gold_letter": "A",
+  "slot": "reply format",
+  "stem": "What is the user's current rule about reply format?",
+  "gold_value": "always answer in bullet points",
+  "stale_values": [],
+  "evidence_key": "stream-2:s11:m024",
+  "stale_keys": [],
+  "question": "What is the user's current rule about reply format?\n\nA. always answer in bullet points\nB. answer in plain paragraphs, no bullet points\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q018",
+  "user": "stream-2",
+  "checkpoint": 13,
+  "kind": "mcq",
+  "options": [
+   "fleet coordinator",
+   "supply planner",
+   "operations analyst"
+  ],
+  "gold_letter": "C",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "operations analyst",
+  "stale_values": [
+   "supply planner"
+  ],
+  "evidence_key": "stream-2:s12:m006",
+  "stale_keys": [
+   "stream-2:s01:m005"
+  ],
+  "question": "What is the user's job title right now?\n\nA. fleet coordinator\nB. supply planner\nC. operations analyst\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q030",
+  "user": "stream-2",
+  "checkpoint": 13,
+  "kind": "mcq",
+  "options": [
+   "19 May",
+   "28 April",
+   "14 March",
+   "2 April"
+  ],
+  "gold_letter": "B",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "28 April",
+  "stale_values": [
+   "2 April"
+  ],
+  "evidence_key": "stream-2:s12:m010",
+  "stale_keys": [
+   "stream-2:s05:m009"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?\n\nA. 19 May\nB. 28 April\nC. 14 March\nD. 2 April\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q062",
+  "user": "stream-2",
+  "checkpoint": 13,
+  "kind": "now",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "PureGym Kirkstall",
+  "stale_values": [
+   "Nuffield on Park Row"
+  ],
+  "evidence_key": "stream-2:s13:m021",
+  "stale_keys": [
+   "stream-2:s05:m020"
+  ],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-2#q063",
+  "user": "stream-2",
+  "checkpoint": 13,
+  "kind": "mcq",
+  "options": [
+   "PureGym Kirkstall",
+   "Nuffield on Park Row",
+   "the university sports centre"
+  ],
+  "gold_letter": "A",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "PureGym Kirkstall",
+  "stale_values": [
+   "Nuffield on Park Row"
+  ],
+  "evidence_key": "stream-2:s13:m021",
+  "stale_keys": [
+   "stream-2:s05:m020"
+  ],
+  "question": "What is the gym the user goes to right now?\n\nA. PureGym Kirkstall\nB. Nuffield on Park Row\nC. the university sports centre\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q064",
+  "user": "stream-2",
+  "checkpoint": 13,
+  "kind": "prev",
+  "slot": "gym",
+  "stem": "What was the gym the user goes to before the most recent change?",
+  "gold_value": "Nuffield on Park Row",
+  "stale_values": [
+   "PureGym Kirkstall"
+  ],
+  "evidence_key": "stream-2:s05:m020",
+  "stale_keys": [
+   "stream-2:s13:m021"
+  ],
+  "question": "What was the gym the user goes to before the most recent change?"
+ },
+ {
+  "qid": "stream-2#q072",
+  "user": "stream-2",
+  "checkpoint": 13,
+  "kind": "mcq",
+  "options": [
+   "a flat white",
+   "a black americano",
+   "an oat latte"
+  ],
+  "gold_letter": "C",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "an oat latte",
+  "stale_values": [],
+  "evidence_key": "stream-2:s12:m022",
+  "stale_keys": [],
+  "question": "What is the user's usual coffee order right now?\n\nA. a flat white\nB. a black americano\nC. an oat latte\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q092",
+  "user": "stream-2",
+  "checkpoint": 13,
+  "kind": "now",
+  "slot": "units",
+  "stem": "What is the user's current rule about units?",
+  "gold_value": "use imperial units",
+  "stale_values": [],
+  "evidence_key": "stream-2:s13:m029",
+  "stale_keys": [],
+  "question": "What is the user's current rule about units?"
+ },
+ {
+  "qid": "stream-2#q051",
+  "user": "stream-2",
+  "checkpoint": 14,
+  "kind": "later",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Ashgrove Timber",
+  "stale_values": [],
+  "evidence_key": "stream-2:s10:m017",
+  "stale_keys": [],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-2#q065",
+  "user": "stream-2",
+  "checkpoint": 14,
+  "kind": "now",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "Nuffield on Park Row",
+  "stale_values": [
+   "PureGym Kirkstall"
+  ],
+  "evidence_key": "stream-2:s14:m036",
+  "stale_keys": [
+   "stream-2:s13:m021"
+  ],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-2#q066",
+  "user": "stream-2",
+  "checkpoint": 14,
+  "kind": "mcq",
+  "options": [
+   "Nuffield on Park Row",
+   "the university sports centre",
+   "PureGym Kirkstall"
+  ],
+  "gold_letter": "A",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "Nuffield on Park Row",
+  "stale_values": [
+   "PureGym Kirkstall"
+  ],
+  "evidence_key": "stream-2:s14:m036",
+  "stale_keys": [
+   "stream-2:s13:m021"
+  ],
+  "question": "What is the gym the user goes to right now?\n\nA. Nuffield on Park Row\nB. the university sports centre\nC. PureGym Kirkstall\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q094",
+  "user": "stream-2",
+  "checkpoint": 14,
+  "kind": "mcq",
+  "options": [
+   "use metric units",
+   "use imperial units"
+  ],
+  "gold_letter": "B",
+  "slot": "units",
+  "stem": "What is the user's current rule about units?",
+  "gold_value": "use imperial units",
+  "stale_values": [],
+  "evidence_key": "stream-2:s13:m029",
+  "stale_keys": [],
+  "question": "What is the user's current rule about units?\n\nA. use metric units\nB. use imperial units\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q022",
+  "user": "stream-2",
+  "checkpoint": 15,
+  "kind": "now",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Tuesday",
+  "stale_values": [
+   "Thursday"
+  ],
+  "evidence_key": "stream-2:s15:m008",
+  "stale_keys": [
+   "stream-2:s03:m007"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-2#q053",
+  "user": "stream-2",
+  "checkpoint": 15,
+  "kind": "now",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Brightwater Foods",
+  "stale_values": [
+   "Ashgrove Timber"
+  ],
+  "evidence_key": "stream-2:s15:m018",
+  "stale_keys": [
+   "stream-2:s10:m017"
+  ],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-2#q067",
+  "user": "stream-2",
+  "checkpoint": 15,
+  "kind": "now",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "PureGym Kirkstall",
+  "stale_values": [
+   "Nuffield on Park Row",
+   "Nuffield on Park Row"
+  ],
+  "evidence_key": "stream-2:s15:m037",
+  "stale_keys": [
+   "stream-2:s05:m020",
+   "stream-2:s14:m036"
+  ],
+  "question": "What is the gym the user goes to right now?"
+ },
+ {
+  "qid": "stream-2#q097",
+  "user": "stream-2",
+  "checkpoint": 15,
+  "kind": "later",
+  "slot": "spring trip",
+  "stem": "What is the user's current plan for the spring trip?",
+  "gold_value": "Porto in April",
+  "stale_values": [],
+  "evidence_key": "stream-2:s10:m031",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the spring trip?"
+ },
+ {
+  "qid": "stream-2#q024",
+  "user": "stream-2",
+  "checkpoint": 16,
+  "kind": "mcq",
+  "options": [
+   "Thursday",
+   "Tuesday",
+   "Monday"
+  ],
+  "gold_letter": "B",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Tuesday",
+  "stale_values": [
+   "Thursday"
+  ],
+  "evidence_key": "stream-2:s15:m008",
+  "stale_keys": [
+   "stream-2:s03:m007"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?\n\nA. Thursday\nB. Tuesday\nC. Monday\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q029",
+  "user": "stream-2",
+  "checkpoint": 16,
+  "kind": "later",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "28 April",
+  "stale_values": [
+   "2 April"
+  ],
+  "evidence_key": "stream-2:s12:m010",
+  "stale_keys": [
+   "stream-2:s05:m009"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-2#q055",
+  "user": "stream-2",
+  "checkpoint": 16,
+  "kind": "mcq",
+  "options": [
+   "Ashgrove Timber",
+   "Dunmore Hotels",
+   "Brightwater Foods",
+   "Kestrel Marine"
+  ],
+  "gold_letter": "C",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Brightwater Foods",
+  "stale_values": [
+   "Ashgrove Timber"
+  ],
+  "evidence_key": "stream-2:s15:m018",
+  "stale_keys": [
+   "stream-2:s10:m017"
+  ],
+  "question": "What is the user's main client account right now?\n\nA. Ashgrove Timber\nB. Dunmore Hotels\nC. Brightwater Foods\nD. Kestrel Marine\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q069",
+  "user": "stream-2",
+  "checkpoint": 16,
+  "kind": "mcq",
+  "options": [
+   "the university sports centre",
+   "PureGym Kirkstall",
+   "Nuffield on Park Row"
+  ],
+  "gold_letter": "B",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "PureGym Kirkstall",
+  "stale_values": [
+   "Nuffield on Park Row",
+   "Nuffield on Park Row"
+  ],
+  "evidence_key": "stream-2:s15:m037",
+  "stale_keys": [
+   "stream-2:s05:m020",
+   "stream-2:s14:m036"
+  ],
+  "question": "What is the gym the user goes to right now?\n\nA. the university sports centre\nB. PureGym Kirkstall\nC. Nuffield on Park Row\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q100",
+  "user": "stream-2",
+  "checkpoint": 16,
+  "kind": "now",
+  "slot": "course",
+  "stem": "What is the user's current plan for the course?",
+  "gold_value": "the Tuesday pottery course",
+  "stale_values": [],
+  "evidence_key": "stream-2:s16:m033",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the course?"
+ },
+ {
+  "qid": "stream-2#q054",
+  "user": "stream-2",
+  "checkpoint": 17,
+  "kind": "later",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Brightwater Foods",
+  "stale_values": [
+   "Ashgrove Timber"
+  ],
+  "evidence_key": "stream-2:s15:m018",
+  "stale_keys": [
+   "stream-2:s10:m017"
+  ],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-2#q093",
+  "user": "stream-2",
+  "checkpoint": 17,
+  "kind": "later",
+  "slot": "units",
+  "stem": "What is the user's current rule about units?",
+  "gold_value": "use imperial units",
+  "stale_values": [],
+  "evidence_key": "stream-2:s13:m029",
+  "stale_keys": [],
+  "question": "What is the user's current rule about units?"
+ },
+ {
+  "qid": "stream-2#q102",
+  "user": "stream-2",
+  "checkpoint": 17,
+  "kind": "mcq",
+  "options": [
+   "the Tuesday pottery course",
+   "the Thursday Spanish class"
+  ],
+  "gold_letter": "A",
+  "slot": "course",
+  "stem": "What is the user's current plan for the course?",
+  "gold_value": "the Tuesday pottery course",
+  "stale_values": [],
+  "evidence_key": "stream-2:s16:m033",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the course?\n\nA. the Tuesday pottery course\nB. the Thursday Spanish class\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q017",
+  "user": "stream-2",
+  "checkpoint": 19,
+  "kind": "later",
+  "slot": "job title",
+  "stem": "What is the user's job title right now?",
+  "gold_value": "operations analyst",
+  "stale_values": [
+   "supply planner"
+  ],
+  "evidence_key": "stream-2:s12:m006",
+  "stale_keys": [
+   "stream-2:s01:m005"
+  ],
+  "question": "What is the user's job title right now?"
+ },
+ {
+  "qid": "stream-2#q056",
+  "user": "stream-2",
+  "checkpoint": 19,
+  "kind": "now",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Dunmore Hotels",
+  "stale_values": [
+   "Ashgrove Timber",
+   "Brightwater Foods"
+  ],
+  "evidence_key": "stream-2:s19:m019",
+  "stale_keys": [
+   "stream-2:s10:m017",
+   "stream-2:s15:m018"
+  ],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-2#q058",
+  "user": "stream-2",
+  "checkpoint": 20,
+  "kind": "mcq",
+  "options": [
+   "Kestrel Marine",
+   "Dunmore Hotels",
+   "Brightwater Foods",
+   "Ashgrove Timber"
+  ],
+  "gold_letter": "B",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Dunmore Hotels",
+  "stale_values": [
+   "Ashgrove Timber",
+   "Brightwater Foods"
+  ],
+  "evidence_key": "stream-2:s19:m019",
+  "stale_keys": [
+   "stream-2:s10:m017",
+   "stream-2:s15:m018"
+  ],
+  "question": "What is the user's main client account right now?\n\nA. Kestrel Marine\nB. Dunmore Hotels\nC. Brightwater Foods\nD. Ashgrove Timber\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q071",
+  "user": "stream-2",
+  "checkpoint": 20,
+  "kind": "later",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "an oat latte",
+  "stale_values": [],
+  "evidence_key": "stream-2:s12:m022",
+  "stale_keys": [],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-2#q007",
+  "user": "stream-2",
+  "checkpoint": 22,
+  "kind": "now",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Orbital Dairy",
+  "stale_values": [],
+  "evidence_key": "stream-2:s22:m003",
+  "stale_keys": [],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-2#q035",
+  "user": "stream-2",
+  "checkpoint": 22,
+  "kind": "later",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "Vodafone",
+  "stale_values": [],
+  "evidence_key": "stream-2:s09:m012",
+  "stale_keys": [],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-2#q040",
+  "user": "stream-2",
+  "checkpoint": 22,
+  "kind": "now",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a red Honda Jazz",
+  "stale_values": [],
+  "evidence_key": "stream-2:s22:m014",
+  "stale_keys": [],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-2#q082",
+  "user": "stream-2",
+  "checkpoint": 22,
+  "kind": "later",
+  "slot": "reply format",
+  "stem": "What is the user's current rule about reply format?",
+  "gold_value": "always answer in bullet points",
+  "stale_values": [],
+  "evidence_key": "stream-2:s11:m024",
+  "stale_keys": [],
+  "question": "What is the user's current rule about reply format?"
+ },
+ {
+  "qid": "stream-2#q088",
+  "user": "stream-2",
+  "checkpoint": 22,
+  "kind": "now",
+  "slot": "scheduling",
+  "stem": "What is the user's current rule about scheduling?",
+  "gold_value": "never book anything before 10am",
+  "stale_values": [
+   "keep Friday afternoons free"
+  ],
+  "evidence_key": "stream-2:s22:m027",
+  "stale_keys": [
+   "stream-2:s07:m026"
+  ],
+  "question": "What is the user's current rule about scheduling?"
+ },
+ {
+  "qid": "stream-2#q095",
+  "user": "stream-2",
+  "checkpoint": 22,
+  "kind": "revoke",
+  "slot": "units",
+  "stem": "Which instruction about units is currently in effect?",
+  "options": [
+   "No units rule is in effect",
+   "use imperial units"
+  ],
+  "gold_letter": "A",
+  "gold_value": null,
+  "stale_values": [
+   "use imperial units"
+  ],
+  "evidence_key": "stream-2:s21:m030",
+  "stale_keys": [
+   "stream-2:s13:m029"
+  ],
+  "question": "Which instruction about units is currently in effect?\n\nA. No units rule is in effect\nB. use imperial units\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q009",
+  "user": "stream-2",
+  "checkpoint": 23,
+  "kind": "mcq",
+  "options": [
+   "Halvern Logistics",
+   "Mossbank Press",
+   "Orbital Dairy"
+  ],
+  "gold_letter": "C",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Orbital Dairy",
+  "stale_values": [],
+  "evidence_key": "stream-2:s22:m003",
+  "stale_keys": [],
+  "question": "What is the company the user works for right now?\n\nA. Halvern Logistics\nB. Mossbank Press\nC. Orbital Dairy\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q042",
+  "user": "stream-2",
+  "checkpoint": 23,
+  "kind": "mcq",
+  "options": [
+   "a blue Skoda Fabia",
+   "a grey Toyota Yaris",
+   "a red Honda Jazz"
+  ],
+  "gold_letter": "C",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a red Honda Jazz",
+  "stale_values": [],
+  "evidence_key": "stream-2:s22:m014",
+  "stale_keys": [],
+  "question": "What is the car the user drives right now?\n\nA. a blue Skoda Fabia\nB. a grey Toyota Yaris\nC. a red Honda Jazz\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q090",
+  "user": "stream-2",
+  "checkpoint": 23,
+  "kind": "mcq",
+  "options": [
+   "keep Friday afternoons free",
+   "never book anything before 10am",
+   "avoid back-to-back calls"
+  ],
+  "gold_letter": "B",
+  "slot": "scheduling",
+  "stem": "What is the user's current rule about scheduling?",
+  "gold_value": "never book anything before 10am",
+  "stale_values": [
+   "keep Friday afternoons free"
+  ],
+  "evidence_key": "stream-2:s22:m027",
+  "stale_keys": [
+   "stream-2:s07:m026"
+  ],
+  "question": "What is the user's current rule about scheduling?\n\nA. keep Friday afternoons free\nB. never book anything before 10am\nC. avoid back-to-back calls\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q008",
+  "user": "stream-2",
+  "checkpoint": 24,
+  "kind": "later",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Orbital Dairy",
+  "stale_values": [],
+  "evidence_key": "stream-2:s22:m003",
+  "stale_keys": [],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-2#q041",
+  "user": "stream-2",
+  "checkpoint": 24,
+  "kind": "later",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a red Honda Jazz",
+  "stale_values": [],
+  "evidence_key": "stream-2:s22:m014",
+  "stale_keys": [],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-2#q089",
+  "user": "stream-2",
+  "checkpoint": 24,
+  "kind": "later",
+  "slot": "scheduling",
+  "stem": "What is the user's current rule about scheduling?",
+  "gold_value": "never book anything before 10am",
+  "stale_values": [
+   "keep Friday afternoons free"
+  ],
+  "evidence_key": "stream-2:s22:m027",
+  "stale_keys": [
+   "stream-2:s07:m026"
+  ],
+  "question": "What is the user's current rule about scheduling?"
+ },
+ {
+  "qid": "stream-2#q101",
+  "user": "stream-2",
+  "checkpoint": 25,
+  "kind": "later",
+  "slot": "course",
+  "stem": "What is the user's current plan for the course?",
+  "gold_value": "the Tuesday pottery course",
+  "stale_values": [],
+  "evidence_key": "stream-2:s16:m033",
+  "stale_keys": [],
+  "question": "What is the user's current plan for the course?"
+ },
+ {
+  "qid": "stream-2#q043",
+  "user": "stream-2",
+  "checkpoint": 26,
+  "kind": "now",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a blue Skoda Fabia",
+  "stale_values": [
+   "a red Honda Jazz"
+  ],
+  "evidence_key": "stream-2:s26:m015",
+  "stale_keys": [
+   "stream-2:s22:m014"
+  ],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-2#q084",
+  "user": "stream-2",
+  "checkpoint": 26,
+  "kind": "revoke",
+  "slot": "reply format",
+  "stem": "Which instruction about reply format is currently in effect?",
+  "options": [
+   "No reply format rule is in effect",
+   "always answer in bullet points"
+  ],
+  "gold_letter": "A",
+  "gold_value": null,
+  "stale_values": [
+   "always answer in bullet points"
+  ],
+  "evidence_key": "stream-2:s25:m025",
+  "stale_keys": [
+   "stream-2:s11:m024"
+  ],
+  "question": "Which instruction about reply format is currently in effect?\n\nA. No reply format rule is in effect\nB. always answer in bullet points\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q001",
+  "user": "stream-2",
+  "checkpoint": 27,
+  "kind": "now",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Bristol",
+  "stale_values": [],
+  "evidence_key": "stream-2:s27:m001",
+  "stale_keys": [],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-2#q045",
+  "user": "stream-2",
+  "checkpoint": 27,
+  "kind": "mcq",
+  "options": [
+   "a blue Skoda Fabia",
+   "a red Honda Jazz",
+   "a grey Toyota Yaris"
+  ],
+  "gold_letter": "A",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a blue Skoda Fabia",
+  "stale_values": [
+   "a red Honda Jazz"
+  ],
+  "evidence_key": "stream-2:s26:m015",
+  "stale_keys": [
+   "stream-2:s22:m014"
+  ],
+  "question": "What is the car the user drives right now?\n\nA. a blue Skoda Fabia\nB. a red Honda Jazz\nC. a grey Toyota Yaris\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q099",
+  "user": "stream-2",
+  "checkpoint": 27,
+  "kind": "revoke",
+  "slot": "spring trip",
+  "stem": "What is currently planned for the spring trip?",
+  "options": [
+   "Porto in April",
+   "No spring trip is planned"
+  ],
+  "gold_letter": "B",
+  "gold_value": null,
+  "stale_values": [
+   "Porto in April"
+  ],
+  "evidence_key": "stream-2:s26:m032",
+  "stale_keys": [
+   "stream-2:s10:m031"
+  ],
+  "question": "What is currently planned for the spring trip?\n\nA. Porto in April\nB. No spring trip is planned\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q103",
+  "user": "stream-2",
+  "checkpoint": 27,
+  "kind": "now",
+  "slot": "course",
+  "stem": "What is the user's current plan for the course?",
+  "gold_value": "the Thursday Spanish class",
+  "stale_values": [
+   "the Tuesday pottery course"
+  ],
+  "evidence_key": "stream-2:s27:m034",
+  "stale_keys": [
+   "stream-2:s16:m033"
+  ],
+  "question": "What is the user's current plan for the course?"
+ },
+ {
+  "qid": "stream-2#q003",
+  "user": "stream-2",
+  "checkpoint": 28,
+  "kind": "mcq",
+  "options": [
+   "Bristol",
+   "Norwich",
+   "Aberdeen"
+  ],
+  "gold_letter": "A",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Bristol",
+  "stale_values": [],
+  "evidence_key": "stream-2:s27:m001",
+  "stale_keys": [],
+  "question": "What is the city the user lives in right now?\n\nA. Bristol\nB. Norwich\nC. Aberdeen\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q010",
+  "user": "stream-2",
+  "checkpoint": 28,
+  "kind": "now",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Halvern Logistics",
+  "stale_values": [
+   "Orbital Dairy"
+  ],
+  "evidence_key": "stream-2:s28:m004",
+  "stale_keys": [
+   "stream-2:s22:m003"
+  ],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-2#q105",
+  "user": "stream-2",
+  "checkpoint": 28,
+  "kind": "mcq",
+  "options": [
+   "the Thursday Spanish class",
+   "the Tuesday pottery course"
+  ],
+  "gold_letter": "A",
+  "slot": "course",
+  "stem": "What is the user's current plan for the course?",
+  "gold_value": "the Thursday Spanish class",
+  "stale_values": [
+   "the Tuesday pottery course"
+  ],
+  "evidence_key": "stream-2:s27:m034",
+  "stale_keys": [
+   "stream-2:s16:m033"
+  ],
+  "question": "What is the user's current plan for the course?\n\nA. the Thursday Spanish class\nB. the Tuesday pottery course\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q012",
+  "user": "stream-2",
+  "checkpoint": 29,
+  "kind": "mcq",
+  "options": [
+   "Pinecrest Analytics",
+   "Orbital Dairy",
+   "Halvern Logistics"
+  ],
+  "gold_letter": "C",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Halvern Logistics",
+  "stale_values": [
+   "Orbital Dairy"
+  ],
+  "evidence_key": "stream-2:s28:m004",
+  "stale_keys": [
+   "stream-2:s22:m003"
+  ],
+  "question": "What is the company the user works for right now?\n\nA. Pinecrest Analytics\nB. Orbital Dairy\nC. Halvern Logistics\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q073",
+  "user": "stream-2",
+  "checkpoint": 29,
+  "kind": "now",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a black americano",
+  "stale_values": [
+   "an oat latte"
+  ],
+  "evidence_key": "stream-2:s29:m023",
+  "stale_keys": [
+   "stream-2:s12:m022"
+  ],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-2#q074",
+  "user": "stream-2",
+  "checkpoint": 29,
+  "kind": "mcq",
+  "options": [
+   "a flat white",
+   "a black americano",
+   "an oat latte"
+  ],
+  "gold_letter": "B",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a black americano",
+  "stale_values": [
+   "an oat latte"
+  ],
+  "evidence_key": "stream-2:s29:m023",
+  "stale_keys": [
+   "stream-2:s12:m022"
+  ],
+  "question": "What is the user's usual coffee order right now?\n\nA. a flat white\nB. a black americano\nC. an oat latte\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q075",
+  "user": "stream-2",
+  "checkpoint": 29,
+  "kind": "prev",
+  "slot": "coffee order",
+  "stem": "What was the user's usual coffee order before the most recent change?",
+  "gold_value": "an oat latte",
+  "stale_values": [
+   "a black americano"
+  ],
+  "evidence_key": "stream-2:s12:m022",
+  "stale_keys": [
+   "stream-2:s29:m023"
+  ],
+  "question": "What was the user's usual coffee order before the most recent change?"
+ },
+ {
+  "qid": "stream-2#q002",
+  "user": "stream-2",
+  "checkpoint": 30,
+  "kind": "later",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Bristol",
+  "stale_values": [],
+  "evidence_key": "stream-2:s27:m001",
+  "stale_keys": [],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-2#q044",
+  "user": "stream-2",
+  "checkpoint": 30,
+  "kind": "later",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a blue Skoda Fabia",
+  "stale_values": [
+   "a red Honda Jazz"
+  ],
+  "evidence_key": "stream-2:s26:m015",
+  "stale_keys": [
+   "stream-2:s22:m014"
+  ],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-2#q076",
+  "user": "stream-2",
+  "checkpoint": 30,
+  "kind": "now",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "an oat latte",
+  "stale_values": [
+   "a black americano"
+  ],
+  "evidence_key": "stream-2:s30:m038",
+  "stale_keys": [
+   "stream-2:s29:m023"
+  ],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-2#q077",
+  "user": "stream-2",
+  "checkpoint": 30,
+  "kind": "mcq",
+  "options": [
+   "a black americano",
+   "a flat white",
+   "an oat latte"
+  ],
+  "gold_letter": "C",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "an oat latte",
+  "stale_values": [
+   "a black americano"
+  ],
+  "evidence_key": "stream-2:s30:m038",
+  "stale_keys": [
+   "stream-2:s29:m023"
+  ],
+  "question": "What is the user's usual coffee order right now?\n\nA. a black americano\nB. a flat white\nC. an oat latte\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q037",
+  "user": "stream-2",
+  "checkpoint": 31,
+  "kind": "now",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "giffgaff",
+  "stale_values": [
+   "Vodafone"
+  ],
+  "evidence_key": "stream-2:s31:m013",
+  "stale_keys": [
+   "stream-2:s09:m012"
+  ],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-2#q046",
+  "user": "stream-2",
+  "checkpoint": 31,
+  "kind": "now",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a grey Toyota Yaris",
+  "stale_values": [
+   "a red Honda Jazz",
+   "a blue Skoda Fabia"
+  ],
+  "evidence_key": "stream-2:s31:m016",
+  "stale_keys": [
+   "stream-2:s22:m014",
+   "stream-2:s26:m015"
+  ],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-2#q078",
+  "user": "stream-2",
+  "checkpoint": 31,
+  "kind": "now",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a black americano",
+  "stale_values": [
+   "an oat latte",
+   "an oat latte"
+  ],
+  "evidence_key": "stream-2:s31:m039",
+  "stale_keys": [
+   "stream-2:s12:m022",
+   "stream-2:s30:m038"
+  ],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-2#q011",
+  "user": "stream-2",
+  "checkpoint": 32,
+  "kind": "later",
+  "slot": "employer",
+  "stem": "What is the company the user works for right now?",
+  "gold_value": "Halvern Logistics",
+  "stale_values": [
+   "Orbital Dairy"
+  ],
+  "evidence_key": "stream-2:s28:m004",
+  "stale_keys": [
+   "stream-2:s22:m003"
+  ],
+  "question": "What is the company the user works for right now?"
+ },
+ {
+  "qid": "stream-2#q039",
+  "user": "stream-2",
+  "checkpoint": 32,
+  "kind": "mcq",
+  "options": [
+   "Three",
+   "Vodafone",
+   "giffgaff"
+  ],
+  "gold_letter": "C",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "giffgaff",
+  "stale_values": [
+   "Vodafone"
+  ],
+  "evidence_key": "stream-2:s31:m013",
+  "stale_keys": [
+   "stream-2:s09:m012"
+  ],
+  "question": "What is the user's phone carrier right now?\n\nA. Three\nB. Vodafone\nC. giffgaff\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q048",
+  "user": "stream-2",
+  "checkpoint": 32,
+  "kind": "mcq",
+  "options": [
+   "a red Honda Jazz",
+   "a blue Skoda Fabia",
+   "a grey Toyota Yaris"
+  ],
+  "gold_letter": "C",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a grey Toyota Yaris",
+  "stale_values": [
+   "a red Honda Jazz",
+   "a blue Skoda Fabia"
+  ],
+  "evidence_key": "stream-2:s31:m016",
+  "stale_keys": [
+   "stream-2:s22:m014",
+   "stream-2:s26:m015"
+  ],
+  "question": "What is the car the user drives right now?\n\nA. a red Honda Jazz\nB. a blue Skoda Fabia\nC. a grey Toyota Yaris\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q049",
+  "user": "stream-2",
+  "checkpoint": 32,
+  "kind": "prev",
+  "slot": "car",
+  "stem": "What was the car the user drives before the most recent change?",
+  "gold_value": "a blue Skoda Fabia",
+  "stale_values": [
+   "a red Honda Jazz",
+   "a grey Toyota Yaris"
+  ],
+  "evidence_key": "stream-2:s26:m015",
+  "stale_keys": [
+   "stream-2:s22:m014",
+   "stream-2:s31:m016"
+  ],
+  "question": "What was the car the user drives before the most recent change?"
+ },
+ {
+  "qid": "stream-2#q080",
+  "user": "stream-2",
+  "checkpoint": 32,
+  "kind": "mcq",
+  "options": [
+   "an oat latte",
+   "a flat white",
+   "a black americano"
+  ],
+  "gold_letter": "C",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a black americano",
+  "stale_values": [
+   "an oat latte",
+   "an oat latte"
+  ],
+  "evidence_key": "stream-2:s31:m039",
+  "stale_keys": [
+   "stream-2:s12:m022",
+   "stream-2:s30:m038"
+  ],
+  "question": "What is the user's usual coffee order right now?\n\nA. an oat latte\nB. a flat white\nC. a black americano\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q091",
+  "user": "stream-2",
+  "checkpoint": 32,
+  "kind": "revoke",
+  "slot": "scheduling",
+  "stem": "Which instruction about scheduling is currently in effect?",
+  "options": [
+   "No scheduling rule is in effect",
+   "keep Friday afternoons free",
+   "never book anything before 10am"
+  ],
+  "gold_letter": "A",
+  "gold_value": null,
+  "stale_values": [
+   "keep Friday afternoons free",
+   "never book anything before 10am"
+  ],
+  "evidence_key": "stream-2:s31:m028",
+  "stale_keys": [
+   "stream-2:s07:m026",
+   "stream-2:s22:m027"
+  ],
+  "question": "Which instruction about scheduling is currently in effect?\n\nA. No scheduling rule is in effect\nB. keep Friday afternoons free\nC. never book anything before 10am\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q031",
+  "user": "stream-2",
+  "checkpoint": 34,
+  "kind": "now",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "19 May",
+  "stale_values": [
+   "2 April",
+   "28 April"
+  ],
+  "evidence_key": "stream-2:s34:m011",
+  "stale_keys": [
+   "stream-2:s05:m009",
+   "stream-2:s12:m010"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-2#q104",
+  "user": "stream-2",
+  "checkpoint": 34,
+  "kind": "later",
+  "slot": "course",
+  "stem": "What is the user's current plan for the course?",
+  "gold_value": "the Thursday Spanish class",
+  "stale_values": [
+   "the Tuesday pottery course"
+  ],
+  "evidence_key": "stream-2:s27:m034",
+  "stale_keys": [
+   "stream-2:s16:m033"
+  ],
+  "question": "What is the user's current plan for the course?"
+ },
+ {
+  "qid": "stream-2#q023",
+  "user": "stream-2",
+  "checkpoint": 35,
+  "kind": "later",
+  "slot": "team meeting day",
+  "stem": "What is the weekday of the user's weekly team meeting right now?",
+  "gold_value": "Tuesday",
+  "stale_values": [
+   "Thursday"
+  ],
+  "evidence_key": "stream-2:s15:m008",
+  "stale_keys": [
+   "stream-2:s03:m007"
+  ],
+  "question": "What is the weekday of the user's weekly team meeting right now?"
+ },
+ {
+  "qid": "stream-2#q033",
+  "user": "stream-2",
+  "checkpoint": 35,
+  "kind": "mcq",
+  "options": [
+   "19 May",
+   "14 March",
+   "2 April",
+   "28 April"
+  ],
+  "gold_letter": "A",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "19 May",
+  "stale_values": [
+   "2 April",
+   "28 April"
+  ],
+  "evidence_key": "stream-2:s34:m011",
+  "stale_keys": [
+   "stream-2:s05:m009",
+   "stream-2:s12:m010"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?\n\nA. 19 May\nB. 14 March\nC. 2 April\nD. 28 April\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q004",
+  "user": "stream-2",
+  "checkpoint": 36,
+  "kind": "now",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Aberdeen",
+  "stale_values": [
+   "Bristol"
+  ],
+  "evidence_key": "stream-2:s36:m002",
+  "stale_keys": [
+   "stream-2:s27:m001"
+  ],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-2#q032",
+  "user": "stream-2",
+  "checkpoint": 36,
+  "kind": "later",
+  "slot": "Marigold deadline",
+  "stem": "What is the deadline of the user's Marigold project right now?",
+  "gold_value": "19 May",
+  "stale_values": [
+   "2 April",
+   "28 April"
+  ],
+  "evidence_key": "stream-2:s34:m011",
+  "stale_keys": [
+   "stream-2:s05:m009",
+   "stream-2:s12:m010"
+  ],
+  "question": "What is the deadline of the user's Marigold project right now?"
+ },
+ {
+  "qid": "stream-2#q006",
+  "user": "stream-2",
+  "checkpoint": 37,
+  "kind": "mcq",
+  "options": [
+   "Aberdeen",
+   "Bristol",
+   "Norwich"
+  ],
+  "gold_letter": "A",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Aberdeen",
+  "stale_values": [
+   "Bristol"
+  ],
+  "evidence_key": "stream-2:s36:m002",
+  "stale_keys": [
+   "stream-2:s27:m001"
+  ],
+  "question": "What is the city the user lives in right now?\n\nA. Aberdeen\nB. Bristol\nC. Norwich\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q038",
+  "user": "stream-2",
+  "checkpoint": 37,
+  "kind": "later",
+  "slot": "phone carrier",
+  "stem": "What is the user's phone carrier right now?",
+  "gold_value": "giffgaff",
+  "stale_values": [
+   "Vodafone"
+  ],
+  "evidence_key": "stream-2:s31:m013",
+  "stale_keys": [
+   "stream-2:s09:m012"
+  ],
+  "question": "What is the user's phone carrier right now?"
+ },
+ {
+  "qid": "stream-2#q047",
+  "user": "stream-2",
+  "checkpoint": 37,
+  "kind": "later",
+  "slot": "car",
+  "stem": "What is the car the user drives right now?",
+  "gold_value": "a grey Toyota Yaris",
+  "stale_values": [
+   "a red Honda Jazz",
+   "a blue Skoda Fabia"
+  ],
+  "evidence_key": "stream-2:s31:m016",
+  "stale_keys": [
+   "stream-2:s22:m014",
+   "stream-2:s26:m015"
+  ],
+  "question": "What is the car the user drives right now?"
+ },
+ {
+  "qid": "stream-2#q079",
+  "user": "stream-2",
+  "checkpoint": 37,
+  "kind": "later",
+  "slot": "coffee order",
+  "stem": "What is the user's usual coffee order right now?",
+  "gold_value": "a black americano",
+  "stale_values": [
+   "an oat latte",
+   "an oat latte"
+  ],
+  "evidence_key": "stream-2:s31:m039",
+  "stale_keys": [
+   "stream-2:s12:m022",
+   "stream-2:s30:m038"
+  ],
+  "question": "What is the user's usual coffee order right now?"
+ },
+ {
+  "qid": "stream-2#q106",
+  "user": "stream-2",
+  "checkpoint": 37,
+  "kind": "revoke",
+  "slot": "course",
+  "stem": "What is currently planned for the course?",
+  "options": [
+   "the Tuesday pottery course",
+   "the Thursday Spanish class",
+   "No course is planned"
+  ],
+  "gold_letter": "C",
+  "gold_value": null,
+  "stale_values": [
+   "the Tuesday pottery course",
+   "the Thursday Spanish class"
+  ],
+  "evidence_key": "stream-2:s36:m035",
+  "stale_keys": [
+   "stream-2:s16:m033",
+   "stream-2:s27:m034"
+  ],
+  "question": "What is currently planned for the course?\n\nA. the Tuesday pottery course\nB. the Thursday Spanish class\nC. No course is planned\n\nAnswer with the single option letter only."
+ },
+ {
+  "qid": "stream-2#q005",
+  "user": "stream-2",
+  "checkpoint": 38,
+  "kind": "later",
+  "slot": "city",
+  "stem": "What is the city the user lives in right now?",
+  "gold_value": "Aberdeen",
+  "stale_values": [
+   "Bristol"
+  ],
+  "evidence_key": "stream-2:s36:m002",
+  "stale_keys": [
+   "stream-2:s27:m001"
+  ],
+  "question": "What is the city the user lives in right now?"
+ },
+ {
+  "qid": "stream-2#q057",
+  "user": "stream-2",
+  "checkpoint": 39,
+  "kind": "later",
+  "slot": "main client",
+  "stem": "What is the user's main client account right now?",
+  "gold_value": "Dunmore Hotels",
+  "stale_values": [
+   "Ashgrove Timber",
+   "Brightwater Foods"
+  ],
+  "evidence_key": "stream-2:s19:m019",
+  "stale_keys": [
+   "stream-2:s10:m017",
+   "stream-2:s15:m018"
+  ],
+  "question": "What is the user's main client account right now?"
+ },
+ {
+  "qid": "stream-2#q068",
+  "user": "stream-2",
+  "checkpoint": 39,
+  "kind": "later",
+  "slot": "gym",
+  "stem": "What is the gym the user goes to right now?",
+  "gold_value": "PureGym Kirkstall",
+  "stale_values": [
+   "Nuffield on Park Row",
+   "Nuffield on Park Row"
+  ],
+  "evidence_key": "stream-2:s15:m037",
+  "stale_keys": [
+   "stream-2:s05:m020",
+   "stream-2:s14:m036"
+  ],
+  "question": "What is the gym the user goes to right now?"
+ }
+]

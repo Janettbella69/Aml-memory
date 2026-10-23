@@ -1,0 +1,7460 @@
+[
+ {
+  "user": "stream-0",
+  "sessions": [
+   {
+    "start": "2025-01-06 13:19",
+    "messages": [
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     }
+    ]
+   },
+   {
+    "start": "2025-01-08 13:30",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-01-10 12:26",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, the city I live in changed - it's Aberdeen now.",
+      "key": "stream-0:s02:m001"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Small change: the Marigold deadline is 2 April from today.",
+      "key": "stream-0:s02:m011"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Booked it - spring trip will be Seville in May.",
+      "key": "stream-0:s02:m033"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     }
+    ]
+   },
+   {
+    "start": "2025-01-12 15:01",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: my employer is Halvern Logistics from today.",
+      "key": "stream-0:s03:m004"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Just so you know, my job title changed - it's operations analyst now.",
+      "key": "stream-0:s03:m006"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Update for you: my main client is now Brightwater Foods.",
+      "key": "stream-0:s03:m019"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Just so you know, my gym changed - it's the university sports centre now.",
+      "key": "stream-0:s03:m022"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-01-14 13:06",
+    "messages": [
+     {
+      "role": "user",
+      "content": "New rule for our chats: avoid back-to-back calls.",
+      "key": "stream-0:s04:m029"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-01-16 15:15",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my car changed - it's a blue Skoda Fabia now.",
+      "key": "stream-0:s05:m016"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     }
+    ]
+   },
+   {
+    "start": "2025-01-18 09:23",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: our weekly team meeting day is now Wednesday.",
+      "key": "stream-0:s06:m008"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "New rule for our chats: always answer in bullet points.",
+      "key": "stream-0:s06:m026"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     }
+    ]
+   },
+   {
+    "start": "2025-01-20 15:56",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     }
+    ]
+   },
+   {
+    "start": "2025-01-22 10:18",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, the Marigold deadline changed - it's 28 April now.",
+      "key": "stream-0:s08:m012"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     }
+    ]
+   },
+   {
+    "start": "2025-01-24 15:48",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     }
+    ]
+   },
+   {
+    "start": "2025-01-26 12:29",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: the city I live in is now Norwich.",
+      "key": "stream-0:s10:m002"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Small change: my employer is Pinecrest Analytics from today.",
+      "key": "stream-0:s10:m005"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-01-28 14:19",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: my phone carrier is giffgaff from today.",
+      "key": "stream-0:s11:m014"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-01-30 14:54",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: our weekly team meeting day is now Monday.",
+      "key": "stream-0:s12:m009"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "From now on, please keep every answer under three sentences.",
+      "key": "stream-0:s12:m027"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-01 14:03",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: the Marigold deadline is 19 May from today.",
+      "key": "stream-0:s13:m013"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-03 13:25",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-05 15:03",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my car is now a grey Toyota Yaris.",
+      "key": "stream-0:s15:m017"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-07 09:44",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my phone carrier changed - it's Vodafone now.",
+      "key": "stream-0:s16:m015"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-09 15:52",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my usual coffee order is now an oat latte.",
+      "key": "stream-0:s17:m024"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-11 09:20",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: the city I live in is now Bristol.",
+      "key": "stream-0:s18:m003"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Just so you know, my job title changed - it's fleet coordinator now.",
+      "key": "stream-0:s18:m007"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-13 11:27",
+    "messages": [
+     {
+      "role": "user",
+      "content": "The spring trip is cancelled, scrap it.",
+      "key": "stream-0:s19:m034"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Just so you know, the city I live in changed - it's Norwich now.",
+      "key": "stream-0:s19:m037"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-15 16:47",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Actually I misspoke earlier - the city I live in is Bristol, not Norwich.",
+      "key": "stream-0:s20:m038"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-17 15:25",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, our weekly team meeting day changed - it's Thursday now.",
+      "key": "stream-0:s21:m010"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-19 11:31",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: my gym is Nuffield on Park Row from today.",
+      "key": "stream-0:s22:m023"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Just so you know, our weekly team meeting day changed - it's Tuesday now.",
+      "key": "stream-0:s22:m039"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-21 13:58",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Actually I misspoke earlier - our weekly team meeting day is Thursday, not Tuesday.",
+      "key": "stream-0:s23:m040"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-23 09:55",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-25 13:51",
+    "messages": [
+     {
+      "role": "user",
+      "content": "You can drop the rule about reply format; it no longer applies.",
+      "key": "stream-0:s25:m028"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-27 12:50",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Booked it - course will be the Thursday Spanish class.",
+      "key": "stream-0:s26:m035"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-01 15:57",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: my main client is Dunmore Hotels from today.",
+      "key": "stream-0:s27:m020"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     }
+    ]
+   },
+   {
+    "start": "2025-03-03 13:26",
+    "messages": [
+     {
+      "role": "user",
+      "content": "New rule for our chats: use imperial units.",
+      "key": "stream-0:s28:m031"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-05 15:22",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my usual coffee order changed - it's a flat white now.",
+      "key": "stream-0:s29:m025"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-07 14:36",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-09 09:40",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: my main client is Ashgrove Timber from today.",
+      "key": "stream-0:s31:m021"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Change of heart: no course this year after all.",
+      "key": "stream-0:s31:m036"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-11 09:31",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-03-13 13:39",
+    "messages": [
+     {
+      "role": "user",
+      "content": "You can drop the rule about scheduling; it no longer applies.",
+      "key": "stream-0:s33:m030"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     }
+    ]
+   },
+   {
+    "start": "2025-03-15 13:17",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Forget what I said about units, no rule there anymore.",
+      "key": "stream-0:s34:m032"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-17 11:36",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-19 17:50",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my car changed - it's a red Honda Jazz now.",
+      "key": "stream-0:s36:m018"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-21 17:35",
+    "messages": [
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-23 13:05",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-25 14:29",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "user": "stream-1",
+  "sessions": [
+   {
+    "start": "2025-01-17 09:44",
+    "messages": [
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-01-19 12:38",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     }
+    ]
+   },
+   {
+    "start": "2025-01-21 09:26",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-01-23 10:30",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-01-25 14:11",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Booked it - course will be the Tuesday pottery course.",
+      "key": "stream-1:s04:m035"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-01-27 15:34",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     }
+    ]
+   },
+   {
+    "start": "2025-01-29 13:59",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: my gym is the university sports centre from today.",
+      "key": "stream-1:s06:m022"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     }
+    ]
+   },
+   {
+    "start": "2025-01-31 09:23",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my employer is now Halvern Logistics.",
+      "key": "stream-1:s07:m003"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Update for you: the Marigold deadline is now 14 March.",
+      "key": "stream-1:s07:m011"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Small change: my car is a grey Toyota Yaris from today.",
+      "key": "stream-1:s07:m016"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "From now on, please keep every answer under three sentences.",
+      "key": "stream-1:s07:m027"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-02 11:38",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-04 13:58",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my job title changed - it's fleet coordinator now.",
+      "key": "stream-1:s09:m006"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-06 10:49",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, our weekly team meeting day changed - it's Thursday now.",
+      "key": "stream-1:s10:m009"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Just so you know, my phone carrier changed - it's giffgaff now.",
+      "key": "stream-1:s10:m013"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Change of heart: no course this year after all.",
+      "key": "stream-1:s10:m036"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-08 09:04",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my usual coffee order is now an oat latte.",
+      "key": "stream-1:s11:m024"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-10 10:10",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: my main client is Dunmore Hotels from today.",
+      "key": "stream-1:s12:m019"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Forget what I said about reply format, no rule there anymore.",
+      "key": "stream-1:s12:m028"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-12 12:55",
+    "messages": [
+     {
+      "role": "user",
+      "content": "New rule for our chats: use imperial units.",
+      "key": "stream-1:s13:m031"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-14 15:13",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my car changed - it's a blue Skoda Fabia now.",
+      "key": "stream-1:s14:m017"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-16 10:56",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-18 17:26",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my main client changed - it's Kestrel Marine now.",
+      "key": "stream-1:s16:m020"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-20 17:30",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: my employer is Pinecrest Analytics from today.",
+      "key": "stream-1:s17:m004"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Small change: the Marigold deadline is 19 May from today.",
+      "key": "stream-1:s17:m012"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-22 15:37",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-24 16:57",
+    "messages": [
+     {
+      "role": "user",
+      "content": "From now on, please keep Friday afternoons free.",
+      "key": "stream-1:s19:m029"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-26 12:51",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-28 11:54",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my job title is now operations analyst.",
+      "key": "stream-1:s21:m007"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Update for you: my gym is now PureGym Kirkstall.",
+      "key": "stream-1:s21:m023"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Forget what I said about units, no rule there anymore.",
+      "key": "stream-1:s21:m032"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-02 11:17",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, the city I live in changed - it's Norwich now.",
+      "key": "stream-1:s22:m001"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Small change: my gym is the university sports centre from today.",
+      "key": "stream-1:s22:m037"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-04 09:21",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my phone carrier is now Three.",
+      "key": "stream-1:s23:m014"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "You can drop the rule about scheduling; it no longer applies.",
+      "key": "stream-1:s23:m030"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Actually I misspoke earlier - my gym is PureGym Kirkstall, not the university sports centre.",
+      "key": "stream-1:s23:m038"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-06 09:24",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my car changed - it's a red Honda Jazz now.",
+      "key": "stream-1:s24:m018"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-08 16:47",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, our weekly team meeting day changed - it's Wednesday now.",
+      "key": "stream-1:s25:m010"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     }
+    ]
+   },
+   {
+    "start": "2025-03-10 16:55",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-12 14:22",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: the city I live in is now Bristol.",
+      "key": "stream-1:s27:m002"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-14 13:52",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: my usual coffee order is a flat white from today.",
+      "key": "stream-1:s28:m025"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "New plan: spring trip is Seville in May.",
+      "key": "stream-1:s28:m033"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-16 11:28",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-18 12:58",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my main client is now Brightwater Foods.",
+      "key": "stream-1:s30:m021"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-20 14:38",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-22 12:30",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my usual coffee order is now a black americano.",
+      "key": "stream-1:s32:m026"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Change of heart: no spring trip this year after all.",
+      "key": "stream-1:s32:m034"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-24 13:17",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: my employer is Orbital Dairy from today.",
+      "key": "stream-1:s33:m005"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Update for you: my phone carrier is now Vodafone.",
+      "key": "stream-1:s33:m015"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-26 13:53",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my job title changed - it's supply planner now.",
+      "key": "stream-1:s34:m008"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Just so you know, my phone carrier changed - it's giffgaff now.",
+      "key": "stream-1:s34:m039"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-28 15:50",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Actually I misspoke earlier - my phone carrier is Vodafone, not giffgaff.",
+      "key": "stream-1:s35:m040"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     }
+    ]
+   },
+   {
+    "start": "2025-03-30 11:45",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-04-01 15:07",
+    "messages": [
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     }
+    ]
+   },
+   {
+    "start": "2025-04-03 10:39",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-04-05 09:52",
+    "messages": [
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "user": "stream-2",
+  "sessions": [
+   {
+    "start": "2025-01-28 14:09",
+    "messages": [
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     }
+    ]
+   },
+   {
+    "start": "2025-01-30 13:30",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: my job title is supply planner from today.",
+      "key": "stream-2:s01:m005"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-01 12:40",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-03 15:53",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, our weekly team meeting day changed - it's Thursday now.",
+      "key": "stream-2:s03:m007"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-05 12:26",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-07 12:49",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: the Marigold deadline is 2 April from today.",
+      "key": "stream-2:s05:m009"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Small change: my gym is Nuffield on Park Row from today.",
+      "key": "stream-2:s05:m020"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-09 17:33",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-11 15:49",
+    "messages": [
+     {
+      "role": "user",
+      "content": "From now on, please keep Friday afternoons free.",
+      "key": "stream-2:s07:m026"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-13 16:49",
+    "messages": [
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-15 16:06",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my phone carrier is now Vodafone.",
+      "key": "stream-2:s09:m012"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-17 13:26",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my main client is now Ashgrove Timber.",
+      "key": "stream-2:s10:m017"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Booked it - spring trip will be Porto in April.",
+      "key": "stream-2:s10:m031"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-19 14:45",
+    "messages": [
+     {
+      "role": "user",
+      "content": "New rule for our chats: always answer in bullet points.",
+      "key": "stream-2:s11:m024"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-02-21 11:06",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my job title is now operations analyst.",
+      "key": "stream-2:s12:m006"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Just so you know, the Marigold deadline changed - it's 28 April now.",
+      "key": "stream-2:s12:m010"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Just so you know, my usual coffee order changed - it's an oat latte now.",
+      "key": "stream-2:s12:m022"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-23 16:49",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my gym is now PureGym Kirkstall.",
+      "key": "stream-2:s13:m021"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "From now on, please use imperial units.",
+      "key": "stream-2:s13:m029"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-25 11:58",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my gym changed - it's Nuffield on Park Row now.",
+      "key": "stream-2:s14:m036"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     }
+    ]
+   },
+   {
+    "start": "2025-02-27 15:58",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: our weekly team meeting day is Tuesday from today.",
+      "key": "stream-2:s15:m008"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Update for you: my main client is now Brightwater Foods.",
+      "key": "stream-2:s15:m018"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Actually I misspoke earlier - my gym is PureGym Kirkstall, not Nuffield on Park Row.",
+      "key": "stream-2:s15:m037"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-01 09:12",
+    "messages": [
+     {
+      "role": "user",
+      "content": "New plan: course is the Tuesday pottery course.",
+      "key": "stream-2:s16:m033"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-03 10:24",
+    "messages": [
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-05 09:45",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-07 15:44",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my main client changed - it's Dunmore Hotels now.",
+      "key": "stream-2:s19:m019"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     }
+    ]
+   },
+   {
+    "start": "2025-03-09 09:24",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-11 15:25",
+    "messages": [
+     {
+      "role": "user",
+      "content": "You can drop the rule about units; it no longer applies.",
+      "key": "stream-2:s21:m030"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-13 13:25",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my employer changed - it's Orbital Dairy now.",
+      "key": "stream-2:s22:m003"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Small change: my car is a red Honda Jazz from today.",
+      "key": "stream-2:s22:m014"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "New rule for our chats: never book anything before 10am.",
+      "key": "stream-2:s22:m027"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     }
+    ]
+   },
+   {
+    "start": "2025-03-15 11:59",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-17 09:25",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-03-19 14:12",
+    "messages": [
+     {
+      "role": "user",
+      "content": "You can drop the rule about reply format; it no longer applies.",
+      "key": "stream-2:s25:m025"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     }
+    ]
+   },
+   {
+    "start": "2025-03-21 10:16",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my car is now a blue Skoda Fabia.",
+      "key": "stream-2:s26:m015"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Change of heart: no spring trip this year after all.",
+      "key": "stream-2:s26:m032"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-23 13:02",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, the city I live in changed - it's Bristol now.",
+      "key": "stream-2:s27:m001"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "New plan: course is the Thursday Spanish class.",
+      "key": "stream-2:s27:m034"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-25 10:41",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my employer changed - it's Halvern Logistics now.",
+      "key": "stream-2:s28:m004"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-27 14:41",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, my usual coffee order changed - it's a black americano now.",
+      "key": "stream-2:s29:m023"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-03-29 14:38",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my usual coffee order is now an oat latte.",
+      "key": "stream-2:s30:m038"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-03-31 15:09",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Update for you: my phone carrier is now giffgaff.",
+      "key": "stream-2:s31:m013"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Small change: my car is a grey Toyota Yaris from today.",
+      "key": "stream-2:s31:m016"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Forget what I said about scheduling, no rule there anymore.",
+      "key": "stream-2:s31:m028"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Actually I misspoke earlier - my usual coffee order is a black americano, not an oat latte.",
+      "key": "stream-2:s31:m039"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     }
+    ]
+   },
+   {
+    "start": "2025-04-02 14:31",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-04-04 15:24",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-04-06 17:26",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Small change: the Marigold deadline is 19 May from today.",
+      "key": "stream-2:s34:m011"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Give me three names for a houseplant."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     }
+    ]
+   },
+   {
+    "start": "2025-04-08 13:47",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-04-10 14:32",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Just so you know, the city I live in changed - it's Aberdeen now.",
+      "key": "stream-2:s36:m002"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "Change of heart: no course this year after all.",
+      "key": "stream-2:s36:m035"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Any tips for keeping a sourdough starter alive?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     }
+    ]
+   },
+   {
+    "start": "2025-04-12 16:54",
+    "messages": [
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "Recommend a podcast about city planning."
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Sure - here is a short answer."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   },
+   {
+    "start": "2025-04-14 15:43",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Can you remind me what we discussed about the budget last week?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's a quick stretch for a stiff neck?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "Draft a two-line thank-you note for a colleague."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     }
+    ]
+   },
+   {
+    "start": "2025-04-16 16:48",
+    "messages": [
+     {
+      "role": "user",
+      "content": "Suggest a short walk for a rainy afternoon."
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "What's the difference between a latte and a cortado?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How many litres are in a US gallon?"
+     },
+     {
+      "role": "assistant",
+      "content": "Good question; here is what I'd suggest."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Happy to help with that."
+     },
+     {
+      "role": "user",
+      "content": "What should I pack for a one-night train trip?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     },
+     {
+      "role": "user",
+      "content": "How long does it take to roast a tray of vegetables?"
+     },
+     {
+      "role": "assistant",
+      "content": "Noted, I'll keep that in mind."
+     },
+     {
+      "role": "user",
+      "content": "How do I phrase a polite reminder email?"
+     },
+     {
+      "role": "assistant",
+      "content": "Got it. Anything else for today?"
+     }
+    ]
+   }
+  ]
+ }
+]
